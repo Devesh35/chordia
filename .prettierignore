@@ -1,4 +1,8 @@
 # Add files here to ignore them from prettier formatting
-/dist
+/node_modules/
+/dist/*
 /coverage
+!/dist/client
+pnpm-lock.yaml
+
 /.nx/cache

@@ -1,7 +1,43 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "import"],
+  "rules": {
+    "no-restricted-imports": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "packageDir": ["./"]
+      }
+    ],
+    "@typescript-eslint/no-unsafe-argument": "off", // this rule has a false negative.
+    "@typescript-eslint/restrict-plus-operands": "off", // This rule has false negative
+    "class-methods-use-this": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+    "typescript-eslint/no-misused-promises": "off",
+    "consistent-return": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "prefer-promise-reject-errors": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/destructuring-assignment": "off", // It's useful
+    "@typescript-eslint/no-redeclare": [
+      "off",
+      { "ignoreDeclarationMerge": true }
+    ]
+  },
+  "parserOptions": {
+    "project": ["./tsconfig.eslint.json"]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["./tsconfig.base.json"]
+      },
+      "node": {
+        "project": ["tsconfig.base.json"]
+      }
+    }
+  },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

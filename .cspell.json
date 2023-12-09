@@ -1,0 +1,19 @@
+{
+  "dictionaries": ["node", "keywords"],
+  "dictionaryDefinitions": [
+    {
+      "description": "Blaunk keywords",
+      "name": "keywords",
+      "path": "./utils/config/cspell/dictionary.txt"
+    }
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/package.json",
+    "**/pnpm-lock.yaml",
+    "**/images.ts",
+    "./.vscode"
+  ],
+  "language": "en",
+  "version": "0.2"
+}
