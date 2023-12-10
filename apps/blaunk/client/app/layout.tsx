@@ -1,5 +1,6 @@
 import './global.css';
 import styles from './base.module.css';
+import { MenuBar, NavHeader, PageFooter } from '@md/blaunk/pages/layout';
 
 export const metadata = {
   title: 'Welcome to blaunk/client',
@@ -18,10 +19,11 @@ export default function RootLayout({
         <div className={styles.root}>
           <div className={styles.background}>
             <div className={styles.layout}>
-              {/* <NavHeader /> */}
+              <NavHeader />
               <div className={`${styles.content} ${styles.scrollbar}`}>
+                <MenuBar />
                 <div className={styles.pages}>{children}</div>
-                {/* <PageFooter /> */}
+                <PageFooter />
               </div>
             </div>
           </div>

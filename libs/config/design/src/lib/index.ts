@@ -4,7 +4,6 @@ export { Border } from './Border';
 export { BorderRadius } from './BorderRadius';
 export { BoxSizing } from './BoxSizing';
 export { Alpha, Colors, Transparent, type ColorKeys } from './Colors';
-export { Constants } from './Constants';
 export { Cursor } from './Cursor';
 export { FiltersAB } from './Filters';
 export { Flex, FlexItems } from './Flex';

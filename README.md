@@ -37,13 +37,13 @@ nx g @nrwl/node:app
 ### Create next lib
 
 ```
-nx g @nx/next:lib --name [lib-name] --dir [lib-dir] --importPath "@bk/[lib-dir]/[lib-name]"
+nx g @nx/next:lib --name [lib-name] --dir [lib-dir] --importPath "@li/[lib-dir]/[lib-name]"
 ```
 
 ### Create node lib
 
 ```
-nx g @nx/node:lib --name [lib-name] --dir [lib-dir] --importPath "@bk/[lib-dir]/[lib-name]"
+nx g @nx/node:lib --name [lib-name] --dir [lib-dir] --importPath "@li/[lib-dir]/[lib-name]"
 ```
 
 Learn more about
