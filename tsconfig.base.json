@@ -25,7 +25,12 @@
       "@li/design/hooks": ["libs/design/hooks/src/index.ts"],
       "@li/design/icons": ["libs/design/icons/src/index.ts"],
       "@li/types/config": ["libs/types/config/src/index.ts"],
-      "@li/types/design": ["libs/types/design/src/index.ts"]
+      "@li/types/design": ["libs/types/design/src/index.ts"],
+      "@md/blaunk/config": ["libs/blaunk/config/src/index.ts"],
+      "@md/blaunk/design": ["libs/blaunk/design/src/index.ts"],
+      "@md/blaunk/pages/home": ["libs/blaunk/pages/home/src/index.ts"],
+      "@md/blaunk/pages/layout": ["libs/blaunk/pages/layout/src/index.ts"],
+      "@md/blaunk/types": ["libs/blaunk/types/src/index.ts"]
     }
   },
   "files": [],
