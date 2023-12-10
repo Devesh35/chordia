@@ -18,6 +18,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@li/config/design": ["libs/config/design/src/index.ts"],
       "@li/config/options": ["libs/config/options/src/index.ts"],
       "@li/config/utils": ["libs/config/utils/src/index.ts"],
       "@li/design/components": ["libs/design/components/src/index.ts"],
@@ -26,11 +27,12 @@
       "@li/design/icons": ["libs/design/icons/src/index.ts"],
       "@li/types/config": ["libs/types/config/src/index.ts"],
       "@li/types/design": ["libs/types/design/src/index.ts"],
-      "@md/blaunk/config": ["libs/blaunk/config/src/index.ts"],
-      "@md/blaunk/design": ["libs/blaunk/design/src/index.ts"],
-      "@md/blaunk/pages/home": ["libs/blaunk/pages/home/src/index.ts"],
-      "@md/blaunk/pages/layout": ["libs/blaunk/pages/layout/src/index.ts"],
-      "@md/blaunk/types": ["libs/blaunk/types/src/index.ts"]
+      "@li/types/shared": ["libs/types/shared/src/index.ts"],
+      "@md/blaunk/config": ["modules/blaunk/config/src/index.ts"],
+      "@md/blaunk/design": ["modules/blaunk/design/src/index.ts"],
+      "@md/blaunk/pages/home": ["modules/blaunk/pages/home/src/index.ts"],
+      "@md/blaunk/pages/layout": ["modules/blaunk/pages/layout/src/index.ts"],
+      "@md/blaunk/types": ["modules/blaunk/types/src/index.ts"]
     }
   },
   "files": [],
