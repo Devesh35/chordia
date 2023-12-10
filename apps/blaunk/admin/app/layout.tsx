@@ -12,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <title>Admin | Blaunk</title>
+      <body>
+        <div className="root-div">{children}</div>
+      </body>
     </html>
   );
 }

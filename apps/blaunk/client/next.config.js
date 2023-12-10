@@ -12,6 +12,12 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+
+  images: {
+    domains: ['source.unsplash.com'],
+  },
+
+  reactStrictMode: true,
 };
 
 const plugins = [
