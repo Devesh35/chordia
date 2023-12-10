@@ -1,0 +1,26 @@
+{
+  "name": "blaunk-client-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/blaunk/client-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/blaunk/client-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "blaunk-client:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "blaunk-client:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["blaunk-client"]
+}

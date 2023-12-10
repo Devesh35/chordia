@@ -17,7 +17,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@li/config/options": ["libs/config/options/src/index.ts"],
+      "@li/config/utils": ["libs/config/utils/src/index.ts"],
+      "@li/design/components": ["libs/design/components/src/index.ts"],
+      "@li/design/elements": ["libs/design/elements/src/index.ts"],
+      "@li/design/hooks": ["libs/design/hooks/src/index.ts"],
+      "@li/design/icons": ["libs/design/icons/src/index.ts"],
+      "@li/types/config": ["libs/types/config/src/index.ts"],
+      "@li/types/design": ["libs/types/design/src/index.ts"]
+    }
   },
   "files": [],
   "exclude": ["node_modules", "tmp"]
