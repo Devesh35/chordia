@@ -45,13 +45,13 @@ const StyledInput = styled(Input)<{ flex: number }>`
 
 const StyledSelect = styled(Select)`
   ${Flex.items.flex(1)}
+  ${BorderRadius.None}
+  ${Border.none}
+  ${Size.height(44)}
   & > div:first-of-type {
-    ${BorderRadius.None}
-    ${Border.none}
-    ${Size.height(44)}
     border-radius: 0 4px 4px 0;
-    &:hover {
-      ${Border.none}
-    }
+  }
+  &:hover {
+    ${Border.none}
   }
 ` as typeof Select;

@@ -1,7 +1,7 @@
 'use client';
 
 import styled from '@emotion/styled';
-import { Flex, FontSize, Foreground } from '@li/config/design';
+import { Flex, FontSize, Foreground, Margin } from '@li/config/design';
 import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
@@ -44,7 +44,7 @@ export const TrendyStars = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 0 40px;
+  ${Margin({ inline: 1 })}
 `;
 
 const Content = styled.div`

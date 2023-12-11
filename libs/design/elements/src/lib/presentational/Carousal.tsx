@@ -20,6 +20,7 @@ import {
 import styled from '@emotion/styled';
 import { useRangeIndex } from '@li/design/hooks';
 import { AngleLeft, AngleRight, Dot } from '@li/design/icons';
+import { shouldNotForwardProps } from '@li/config/utils';
 import React, { forwardRef, useEffect } from 'react';
 import { css } from '@emotion/react';
 import {
@@ -110,7 +111,7 @@ export const Carousal = forwardRef<
                 {childArray.map((child, i) => (
                   <StyledDot
                     key={child.key}
-                    enable={enablePagination}
+                    enablePagination={enablePagination}
                     onClick={() => enablePagination && updateTo(i)}
                   />
                 ))}
@@ -283,13 +284,14 @@ const ControlItem = styled.div<{ size?: ControlSize; variant?: Variant }>`
   }}
 `;
 
-const StyledDot = styled(Dot, {
-  shouldForwardProp: (name) => name !== 'filled',
-})<{ filled?: true; enable?: boolean }>`
+const StyledDot = styled(
+  Dot,
+  shouldNotForwardProps('filled', 'enablePagination'),
+)<{ filled?: true; enablePagination?: boolean }>`
   fill: ${({ filled }) => Transparent(Colors.White, Alpha[filled ? 100 : 60])};
   width: ${paginationDotSize}px;
   height: ${paginationDotSize}px;
-  ${({ enable }) => enable && Cursor.pointer}
+  ${({ enablePagination }) => enablePagination && Cursor.pointer}
   ${Cursor.events}
   &>:hover {
     fill: ${({ filled }) =>

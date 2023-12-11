@@ -72,7 +72,7 @@ const CategoryItem = styled.div<{ isSelected: boolean; isSubItem?: true }>`
   ${Size.fullWidth}
   ${Cursor.pointer}
   ${({ isSelected }) =>
-    Background.color(isSelected ? 'SecondaryDark' : 'Secondary')}
+    Background.color(isSelected ? 'Primary300' : 'Secondary')}
   border-bottom: 1px solid ${Colors.SecondaryDark};
   &:last-of-type {
     border-bottom: none;

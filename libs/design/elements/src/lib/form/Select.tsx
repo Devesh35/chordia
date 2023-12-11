@@ -12,6 +12,7 @@ import {
   Padding,
   Position,
   ScrollBar,
+  Shadows,
   Size,
   TransitionDuration,
   TransitionProperty,
@@ -30,11 +31,13 @@ export type SelectProps<K extends string = string> = {
   options: SelectItem<K>[];
   className?: string;
   placeholder?: string;
+  header?: (selected?: SelectItem<K>) => React.ReactNode;
   defaultItem?: SelectItem<K>;
   onChange?: (item?: SelectItem<K>) => void;
 };
 
 export const Select = <K extends string = string>({
+  header,
   options,
   onChange,
   className,
@@ -67,9 +70,11 @@ export const Select = <K extends string = string>({
   return (
     <Wrapper className={className}>
       <Header onClick={toggleAccordion}>
-        <Title selected={!!selected?.id}>
-          {selected?.item || placeholder || 'Select'}
-        </Title>
+        {header?.(selected) || (
+          <Title selected={!!selected?.id}>
+            {selected?.item || placeholder || 'Select'}
+          </Title>
+        )}
         <Icon isOpen={isOpen}>
           <DownFilled />
         </Icon>
@@ -92,21 +97,9 @@ export const Select = <K extends string = string>({
 const Wrapper = styled.div`
   ${Size.fullWidth}
   ${Position.relative}
-`;
-
-const Item = styled.div`
-  ${FontSize.L16}
-  ${Layers.First}
-  ${Cursor.pointer}
-  ${Size.height(48)}
-  ${Padding.all(0.75)}
-  ${Background.color('White')}
-  ${Flex({ align: 'center', justify: 'space-between' })}
-`;
-
-const Header = styled(Item)`
   ${BorderRadius.Medium}
   ${Border.medium('Gray300')};
+  ${Background.color('White')}
   &:focus-within {
     ${Border.color('Primary500')};
     outline: 1px solid ${Colors.Primary500};
@@ -116,6 +109,19 @@ const Header = styled(Item)`
   }
 `;
 
+const Item = styled.div`
+  ${Layers.First}
+  ${Cursor.pointer}
+  ${Size.height(48)}
+  ${Padding.all(0.75)}
+  ${Flex({ align: 'center', justify: 'space-between' })}
+`;
+
+const Header = styled(Item)`
+  ${Size.full}
+  ${BorderRadius.Medium}
+`;
+
 const Title = styled.span<{ selected: boolean }>`
   ${FontSize.H6}
   ${({ selected }) => Foreground.color(selected ? 'OnWhite' : 'Gray600')}
@@ -123,8 +129,12 @@ const Title = styled.span<{ selected: boolean }>`
 
 const Icon = styled.div<{ isOpen: boolean }>`
   ${Flex()}
-  ${Size.width(16)}
-  ${Size.height(16)}
+  ${Size.width(24)}
+  ${Size.height(24)}
+  &>svg {
+    ${Size.width(24)}
+    ${Size.height(24)}
+  }
   transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
   ${TransitionProperty('transform')}
   ${TransitionDuration.fast}
@@ -145,9 +155,13 @@ const OptionWrapper = styled.div<{
   ${ScrollBar.none}
   ${BorderRadius.Medium}
   ${Overflow.scroll('y')}
+  ${Shadows.s}
 `;
 
 const Option = styled(Item)`
+  ${FontSize.L16}
+  ${Background.color('White')}
+  ${Foreground.color('OnWhite')}
   ${Size.fullWidth}
   ${Position.relative}
   border-bottom: 1px solid ${Colors.Divider};

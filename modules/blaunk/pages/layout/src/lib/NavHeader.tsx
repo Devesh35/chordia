@@ -1,17 +1,19 @@
 'use client';
 import {
   Background,
+  Border,
   BorderRadius,
   Cursor,
   Flex,
   FontSize,
   Foreground,
+  Padding,
   Size,
 } from '@li/config/design';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { Badge, Input } from '@li/design/elements';
-import { Cart, DownFilled, Microphone, Search } from '@li/design/icons';
+import { Badge, Input, Select } from '@li/design/elements';
+import { Cart, Microphone, Search } from '@li/design/icons';
 import { Constants, logoLarge } from '@md/blaunk/config';
 
 export const NavHeader = () => {
@@ -26,18 +28,22 @@ export const NavHeader = () => {
       />
 
       <ItemsStack>
-        <ItemWrapper>
-          Welcome <DownFilled />
-        </ItemWrapper>
+        <LoginSelect options={[]} header={() => <MenuHead>Welcome</MenuHead>} />
         <ItemWrapper>
           Cart
           <Badge content={3}>
             <Cart />
           </Badge>
         </ItemWrapper>
-        <ItemWrapper>
-          Login <DownFilled />
-        </ItemWrapper>
+        <LoginSelect
+          options={[
+            {
+              id: 'b2b',
+              item: 'B2B Login',
+            },
+          ]}
+          header={() => <MenuHead>Login</MenuHead>}
+        />
       </ItemsStack>
     </Wrapper>
   );
@@ -50,11 +56,10 @@ const Wrapper = styled.div`
   height: ${Constants.navHeaderHeight};
   max-height: ${Constants.navHeaderHeight};
   ${Background.color('PrimaryDark')};
-  ${Foreground.color('OnPrimaryDark')};
 `;
 
 const SearchInput = styled(Input)`
-  width: 620px;
+  width: 40vw;
   ${BorderRadius.Large}
 `;
 
@@ -71,6 +76,16 @@ const ItemsStack = styled.div`
 `;
 const ItemWrapper = styled.div`
   ${Flex({ gap: 8, align: 'center' })}
-
+  ${Foreground.color('OnPrimaryDark')};
   padding: 12px;
+`;
+
+const LoginSelect = styled(Select)`
+  ${Background.color('Transparent')}
+  ${Border.none}
+  ${Foreground.color('OnPrimaryDark')};
+`;
+
+const MenuHead = styled.div`
+  ${Padding({ right: 0.5 })}
 `;

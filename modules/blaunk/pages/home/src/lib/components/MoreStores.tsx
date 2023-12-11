@@ -2,7 +2,7 @@
 
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { Flex } from '@li/config/design';
+import { Flex, Margin } from '@li/config/design';
 import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray, blaunkStore } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
@@ -38,12 +38,12 @@ export const MoreStores = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 0 40px;
+  ${Margin({ inline: 1 })}
 `;
 
 const Header = styled.div`
   ${Flex({ justify: 'center' })}
-  margin-bottom: 12px;
+  ${Margin({ bottom: 0.75 })}
 `;
 
 const Content = styled.div`
