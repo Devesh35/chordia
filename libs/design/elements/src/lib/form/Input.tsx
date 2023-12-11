@@ -3,9 +3,13 @@ import {
   Border,
   BorderRadius,
   Colors,
+  Cursor,
   Flex,
   FontSize,
   Foreground,
+  Margin,
+  Opacity,
+  Padding,
   Size,
 } from '@li/config/design';
 import { css } from '@emotion/react';
@@ -26,8 +30,8 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 
 export const Input = ({
   prefix,
-  isDisabled,
-  isReadOnly,
+  isDisabled = false,
+  isReadOnly = false,
   variant = 'default',
   iconLeft,
   iconRight,
@@ -43,7 +47,6 @@ export const Input = ({
   return (
     <Wrapper
       variant={variant}
-      width={props.width}
       onClick={focusInput}
       isDisabled={isDisabled}
       isReadOnly={isReadOnly}
@@ -71,21 +74,21 @@ export const Input = ({
   );
 };
 
-type WrapperProps = Pick<
-  InputProps,
-  'variant' | 'isDisabled' | 'isReadOnly' | 'width'
->;
+const Wrapper = styled.div<{
+  variant: InputVariant;
+  isReadOnly: boolean;
+  isDisabled: boolean;
+}>`
+  ${Cursor.text}
+  ${FontSize.L20}
+  ${Size.fullWidth}
+  ${BorderRadius.Medium}
+  ${Size.height(48)}
+  ${Border.medium('Divider')}
+  ${Background.color('White')}
+  ${Flex({ align: 'center' })}
+  ${Padding({ block: 0.5, inline: 1 })}
 
-const Wrapper = styled.div<WrapperProps>`
-  ${Flex({ align: 'center' })};
-  cursor: text;
-  ${Size.fullWidth};
-  height: 48px;
-  box-sizing: border-box;
-  padding: 4px 12px;
-  ${Border.medium('Divider')};
-  ${BorderRadius.Medium};
-  ${FontSize.L20};
   ${({ variant }) => {
     switch (variant) {
       case 'error':
@@ -110,8 +113,6 @@ const Wrapper = styled.div<WrapperProps>`
     }
   }}
 
-  ${Background.color('White')};
-
   &:focus-within {
     ${Border.color('Primary500')};
     outline: 1px solid ${Colors.Primary500};
@@ -133,23 +134,21 @@ const Wrapper = styled.div<WrapperProps>`
     `}
 `;
 
-type IconsWrapperProps = {
+const IconWrapper = styled.span<{
   position: 'left' | 'right';
   isDisabled?: boolean;
-};
-
-const IconWrapper = styled.span<IconsWrapperProps>`
+}>`
   ${({ isDisabled }) =>
     Foreground.color(isDisabled ? 'TextDisabled' : 'Gray600')}
 
   ${({ position }) =>
-    position === 'right' ? { marginLeft: '12px' } : { marginRight: '12px' }}
+    position === 'right' ? Margin({ left: 0.75 }) : Margin({ right: 0.75 })}
 `;
 
 const Prefix = styled.div`
-  flex-shrink: 0;
-  margin-right: 8px;
-  pointer-events: none;
+  ${Cursor.noEvents}
+  ${Flex.items.shrink(0)}
+  ${Margin({ left: 0.5 })}
   ${Foreground.color('Gray600')};
 `;
 
@@ -158,12 +157,12 @@ const InputElement = styled.input`
   ${Foreground.color('OnWhite')};
   ${Background.color('Transparent')};
   ${FontSize.L20};
-  padding: 4px 0;
+  ${Padding({ block: 0.25 })}
   ${Size.fullWidth};
   outline: none;
 
   &::placeholder {
     ${Foreground.color('Gray600')}
-    opacity: 1;
+    ${Opacity.to(1)}
   }
 `;

@@ -2,7 +2,6 @@ import {
   Alpha,
   Background,
   BorderRadius,
-  BoxSizing,
   Colors,
   Cursor,
   Flex,
@@ -16,6 +15,7 @@ import {
   TransitionTimingFunctions,
   Absolute,
   Layers,
+  Opacity,
 } from '@li/config/design';
 import styled from '@emotion/styled';
 import { useRangeIndex } from '@li/design/hooks';
@@ -27,7 +27,8 @@ import {
   PolymorphicComponentPropWithRef,
 } from '../poly';
 
-// type ControlSize = 'small' | 'large';
+type Variant = 'light' | 'dark';
+type ControlSize = 'small' | 'large';
 type PaginationDirection = 'left' | 'bottom' | 'right';
 const paginationGap = 8;
 const paginationDotSize = 12;
@@ -38,8 +39,10 @@ export type CarousalProps = {
   // shouldLoop?: boolean;
   showControls?: boolean;
   showPagination?: boolean;
-  // controlSize?: ControlSize;
+  controlSize?: ControlSize;
   pagination?: PaginationDirection;
+  className?: string;
+  variant?: Variant;
 };
 
 export const Carousal = forwardRef<
@@ -53,11 +56,14 @@ export const Carousal = forwardRef<
       showControls = true,
       showPagination = true,
       pagination = 'bottom',
+      variant,
+      className,
+      controlSize,
     },
     ref,
   ) => {
     const childArray = React.Children.toArray(children) as React.ReactElement[];
-    const { active, update, updateTo, isNearActive } = useRangeIndex(
+    const { active, prev, update, updateTo, isNearActive } = useRangeIndex(
       childArray.length,
     );
 
@@ -68,25 +74,35 @@ export const Carousal = forwardRef<
     }, [autoInterval, update]);
 
     return (
-      <Wrapper ref={ref}>
+      <Wrapper ref={ref} className={className}>
         <ItemWrapper size={childArray.length} active={active}>
           {childArray.map((child, i) => (
-            <Item key={child.key}>{isNearActive(i) ? child : null}</Item>
+            <Item key={child.key} active={active === i} prev={prev === i}>
+              {isNearActive(i) ? child : null}
+            </Item>
           ))}
         </ItemWrapper>
         <ControlsWrapper>
           {showControls && pagination === 'bottom' && (
             <Directional>
-              <ControlItem onClick={() => update(-1)}>
+              <ControlItem
+                onClick={() => update(-1)}
+                size={controlSize}
+                variant={variant}
+              >
                 <AngleLeft />
               </ControlItem>
-              <ControlItem onClick={() => update(1)}>
+              <ControlItem
+                onClick={() => update(1)}
+                size={controlSize}
+                variant={variant}
+              >
                 <AngleRight />
               </ControlItem>
             </Directional>
           )}
           {showPagination && (
-            <PaginationRow direction={pagination}>
+            <PaginationRow direction={pagination} variant={variant}>
               <Pagination direction={pagination}>
                 {childArray.map((child, i) => (
                   <StyledDot key={child.key} onClick={() => updateTo(i)} />
@@ -113,27 +129,36 @@ const Wrapper = styled.div`
 `;
 
 const ItemWrapper = styled.div<{ size: number; active: number }>`
-  ${Flex({})};
-  & > {
-    width: 100%;
-  }
-  width: ${({ size }) => `${size}00%`};
-  ${BoxSizing.borderBox}
+  width: 100%;
   min-width: 100%;
   ${Size.fullHeight};
-  transform: ${({ active, size }) =>
-    `translate(-${active * (100 / size)}%, 0)`};
-  transition: transform;
-  ${TransitionDuration.medium}
-  ${TransitionTimingFunctions.default}
   ${Position.relative}
   ${Layers.Base}
 `;
 
-const Item = styled.div`
-  ${Size.full}
-  ${Size.fullMax}
+const Item = styled.div<{ active: boolean; prev: boolean }>`
+  ${Position.absolute}
+  inset: 0;
+  transition: transform, opacity;
+  ${TransitionDuration.medium}
+  ${TransitionTimingFunctions.default}
   ${Overflow.hidden}
+  ${({ active, prev }) => {
+    if (active)
+      return css`
+        transform: translate(0, 0) scale(1);
+        ${Opacity.to(1)}
+      `;
+    if (prev)
+      return css`
+        transform: translate(50px, 0) scale(0.95);
+        ${Opacity.to(0)}
+      `;
+    return css`
+      transform: translate(50px, 0) scale(0.95);
+      ${Opacity.to(0)}
+    `;
+  }};
 `;
 
 const ControlsWrapper = styled.div`
@@ -147,14 +172,17 @@ const Directional = styled.div`
   ${Position.absolute}
   ${Flex({ justify: 'space-between' })}
   ${Size.fullWidth}
-  top: calc(50% - 24px);
+  top: 50%;
+  transform: translate(0, -50%);
 `;
 
-const PaginationRow = styled.div<{ direction: PaginationDirection }>`
+const PaginationRow = styled.div<{
+  direction: PaginationDirection;
+  variant?: Variant;
+}>`
   ${BorderRadius.Rounded}
   ${Background.color('Transparent80')}
   ${Position.absolute}
-  ${BoxSizing.borderBox}
   ${({ direction }) => {
     switch (direction) {
       case 'bottom':
@@ -205,13 +233,12 @@ const Highlight = styled.div<{
   ${TransitionTimingFunctions.default}
 `;
 
-const ControlItem = styled.div`
+const ControlItem = styled.div<{ size?: ControlSize; variant?: Variant }>`
   ${Background.color('Transparent80')}
   ${Foreground.transparent('White', Alpha[80])}
   ${BorderRadius.Large}
   ${Flex({ align: 'center', justify: 'center' })}
   ${FontSize.H3}
-  ${BoxSizing.borderBox}
   ${Cursor.pointer}
   ${Cursor.events}
   padding: 12px;
@@ -221,6 +248,29 @@ const ControlItem = styled.div`
     ${Background.color('Transparent60')}
     ${Foreground.color('White')}
   }
+  ${({ size }) => {
+    if (size === 'large')
+      return css`
+        padding: 24px;
+        min-width: 96px;
+        min-height: 96px;
+        & > svg {
+          width: 48px;
+          height: 48px;
+        }
+      `;
+  }}
+  ${({ variant }) => {
+    if (variant === 'dark')
+      return css`
+        ${Background.color('Transparent20')}
+        ${Foreground.transparent('White', Alpha[80])}
+        &:hover {
+          ${Background.color('Black')}
+          ${Foreground.color('White')}
+        }
+      `;
+  }}
 `;
 
 const StyledDot = styled(Dot, {

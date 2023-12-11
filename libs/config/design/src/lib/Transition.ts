@@ -30,9 +30,17 @@ export const TransitionTimingFunctions = {
     transition-timing-function: ease;
   `,
   easeOut: css`
-    transition-timing-function: cubic-bezier(0, 0, 0.17, 0.95);
+    transition-timing-function: ease-out;
   `,
   easeIn: css`
     transition-timing-function: ease-in;
   `,
 };
+
+export const TransitionProperty = (name: string) => css`
+  transition: ${name};
+`;
+
+export const TransitionDelay = (delay: string) => css`
+  transition-delay: ${delay};
+`;

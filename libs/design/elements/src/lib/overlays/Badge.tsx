@@ -4,7 +4,9 @@ import {
   Flex,
   FontSize,
   Foreground,
+  Padding,
   Position,
+  Size,
 } from '@li/config/design';
 import styled from '@emotion/styled';
 
@@ -25,20 +27,20 @@ export const Badge = ({ children, content, width = 12 }: BadgeProps) => {
 
 const Wrapper = styled.div`
   ${Position.relative};
-  display: flex;
+  ${Flex()}
 `;
 
 const Content = styled.div<{ width: number }>`
+  ${FontSize.L12};
   ${Position.absolute};
-  padding: 4px;
-  aspect-ratio: 1 / 1;
+  ${Padding.all('10px')}
   ${BorderRadius.SquareRounded};
-  right: 0;
   top: 0;
+  right: 0;
   transform: translate(50%, -50%);
   ${Background.color('Red')};
   ${Foreground.color('White')};
-  ${FontSize.L12};
-  ${({ width }) => `width: ${width}px;`}
+  ${({ width }) => Size.width(width)}
+  ${({ width }) => Size.height(width)}
   ${Flex({ align: 'center', justify: 'center' })}
 `;

@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { Prop, getCSS } from './utils';
 
 export type FlexOptions =
   | 'center'
@@ -11,8 +12,8 @@ export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
 type FlexConfig = {
   flex: number;
-  gap: number;
-  rowGap: number;
+  gap: Prop;
+  rowGap: Prop;
   direction: FlexDirection;
   justify: FlexOptions;
   align: FlexOptions;
@@ -38,11 +39,11 @@ export const FlexItems = {
   align: (j: FlexOptions) => css`
     align-items: ${j};
   `,
-  gap: (n: number) => css`
-    gap: ${n}px;
+  gap: (n: Prop) => css`
+    ${getCSS('gap', n, true)}
   `,
-  rowGap: (n: number) => css`
-    row-gap: ${n}px;
+  rowGap: (n: Prop) => css`
+    ${getCSS('row-gap', n, true)}
   `,
   wrap: (w: boolean) => css`
     flex-wrap: ${w ? 'wrap' : 'no-wrap'};
@@ -59,3 +60,5 @@ export const Flex = (options: Partial<FlexConfig> = {}) => css`
   ${options.justify && FlexItems.justify(options.justify)}
   ${options.direction && FlexItems.direction(options.direction)}
 `;
+
+Flex.items = FlexItems;

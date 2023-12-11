@@ -32,7 +32,7 @@ export const CustomerReviews = () => {
 };
 
 const Wrapper = styled.div`
-  width: 47%;
+  ${Flex.items.flex(1)}
   ${Background.color('Gray050')}
   ${BorderRadius.Large}
   padding: 24px;
@@ -43,7 +43,11 @@ const Heading = styled.div`
   margin-bottom: 24px;
 `;
 const CarousalWrapper = styled.div`
-  ${Size.fullMax}
+  ${Size.height('90%', { max: '90%' })}
+  ${Flex({ align: 'center', justify: 'center' })}
+  &>div {
+    ${Size.height(360)}
+  }
 `;
 
 const ReviewGroup = styled.div`

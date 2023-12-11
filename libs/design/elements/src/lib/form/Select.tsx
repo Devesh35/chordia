@@ -2,17 +2,18 @@ import {
   Background,
   Border,
   BorderRadius,
-  BoxSizing,
   Colors,
   Cursor,
   Flex,
   FontSize,
   Layers,
   Overflow,
+  Padding,
   Position,
   ScrollBar,
   Size,
   TransitionDuration,
+  TransitionProperty,
   TransitionTimingFunctions,
 } from '@li/config/design';
 import { DownFilled } from '@li/design/icons';
@@ -87,19 +88,18 @@ const Wrapper = styled.div`
 `;
 
 const Item = styled.div`
-  padding: 12px;
-  height: 48px;
   ${FontSize.L16}
   ${Layers.First}
   ${Cursor.pointer}
-  ${BoxSizing.borderBox}
+  ${Size.height(48)}
+  ${Padding.all(0.75)}
   ${Background.color('White')}
   ${Flex({ align: 'center', justify: 'space-between' })}
 `;
 
 const Header = styled(Item)`
+  ${BorderRadius.Medium}
   ${Border.medium('Gray300')};
-  ${BorderRadius.Medium};
   &:focus-within {
     ${Border.color('Primary500')};
     outline: 1px solid ${Colors.Primary500};
@@ -115,10 +115,10 @@ const Title = styled.span`
 
 const Icon = styled.div<{ isOpen: boolean }>`
   ${Flex()}
-  width: 16px;
-  height: 16px;
+  ${Size.width(16)}
+  ${Size.height(16)}
   transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
-  transition: transform;
+  ${TransitionProperty('transform')}
   ${TransitionDuration.fast}
   ${TransitionTimingFunctions.easeOut}
 `;
@@ -130,8 +130,8 @@ const OptionWrapper = styled.div<{
   ${Size.full}
   ${Layers.First}
   ${Position.absolute}
-  height: ${(props) => (props.isOpen ? `${props.contentHeight}px` : '0')};
-  transition: height;
+  ${(props) => Size.height(props.isOpen ? props.contentHeight : '0')}
+  ${TransitionProperty('height')}
   ${TransitionDuration.veryFast}
   ${TransitionTimingFunctions.default}
   ${ScrollBar.none}
@@ -144,6 +144,6 @@ const Option = styled(Item)`
   ${Position.relative}
   border-bottom: 1px solid ${Colors.Divider};
   &:last-of-type {
-    border: none;
+    ${Border.none}
   }
 `;

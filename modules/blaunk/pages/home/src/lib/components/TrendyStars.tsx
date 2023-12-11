@@ -1,10 +1,11 @@
 'use client';
 
 import styled from '@emotion/styled';
-import { Flex, FontSize, FontWeight, Foreground } from '@li/config/design';
-import { Carousal, Divider } from '@li/design/elements';
+import { Flex, FontSize, Foreground } from '@li/config/design';
+import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
+import { SectionHeader } from '@md/blaunk/design';
 
 const Label = styled.div`
   ${FontSize.H3}
@@ -30,20 +31,14 @@ const images = getRandomImagesArray(3)(600).map((src) => (
 export const TrendyStars = () => {
   return (
     <Wrapper>
-      <Header>
-        <Title>
-          <Divider color={'Primary'} />
-          Trendy-stars
-          <Divider color={'Primary'} />
-        </Title>
-      </Header>
-      <Carousal showPagination={false}>
+      <SectionHeader sectionName="Trendy-stars" />
+      <StyledCarousal showPagination={false}>
         {Array(5)
           .fill(0)
           .map((_, i) => (
             <Content key={i}>{images}</Content>
           ))}
-      </Carousal>
+      </StyledCarousal>
     </Wrapper>
   );
 };
@@ -52,20 +47,10 @@ const Wrapper = styled.div`
   margin: 0 40px;
 `;
 
-const Header = styled.div`
-  ${Flex({ justify: 'center' })}
-  margin-bottom: 12px;
-`;
-
-const Title = styled.div`
-  width: 40%;
-  white-space: nowrap;
-  ${FontSize.H1}
-  ${FontWeight.Bold}
-  ${Foreground.color('Primary')}
-  ${Flex({ gap: 4, align: 'center' })}
-`;
-
 const Content = styled.div`
   ${Flex({ gap: 24 })}
+`;
+
+const StyledCarousal = styled(Carousal)`
+  height: 600px;
 `;

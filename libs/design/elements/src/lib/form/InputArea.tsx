@@ -3,9 +3,13 @@ import {
   Border,
   BorderRadius,
   Colors,
+  Cursor,
   Flex,
   FontSize,
   Foreground,
+  Margin,
+  Opacity,
+  Padding,
   ScrollBar,
   Size,
 } from '@li/config/design';
@@ -28,8 +32,8 @@ export type InputAreaProps =
 
 export const InputArea = ({
   prefix,
-  isDisabled,
-  isReadOnly,
+  isDisabled = false,
+  isReadOnly = false,
   variant = 'default',
   iconLeft,
   iconRight,
@@ -72,22 +76,21 @@ export const InputArea = ({
   );
 };
 
-type WrapperProps = Pick<
-  InputAreaProps,
-  'variant' | 'isDisabled' | 'isReadOnly'
->;
-
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div<{
+  variant: InputVariant;
+  isReadOnly: boolean;
+  isDisabled: boolean;
+}>`
+  ${Cursor.text}
+  ${FontSize.L20}
+  ${Size.fullWidth}
+  ${BorderRadius.Medium}
+  ${Size.height(48)}
+  ${Border.medium('Divider')}
+  ${Background.color('White')}
   ${Flex({ align: 'center' })}
-  cursor: text;
-  ${Size.full};
-  ${Size.fullMax};
-  min-height: 48px;
-  box-sizing: border-box;
-  padding: 12px;
-  ${Border.medium('Divider')};
-  ${BorderRadius.Medium};
-  ${FontSize.L20};
+  ${Padding({ block: 0.5, inline: 1 })}
+
   ${({ variant }) => {
     switch (variant) {
       case 'error':
@@ -112,8 +115,6 @@ const Wrapper = styled.div<WrapperProps>`
     }
   }}
 
-  ${Background.color('White')};
-
   &:focus-within {
     ${Border.color('Primary500')};
     outline: 1px solid ${Colors.Primary500};
@@ -135,23 +136,21 @@ const Wrapper = styled.div<WrapperProps>`
     `}
 `;
 
-type IconsWrapperProps = {
+const IconWrapper = styled.span<{
   position: 'left' | 'right';
   isDisabled?: boolean;
-};
-
-const IconWrapper = styled.span<IconsWrapperProps>`
+}>`
   ${({ isDisabled }) =>
     Foreground.color(isDisabled ? 'TextDisabled' : 'Gray600')}
 
   ${({ position }) =>
-    position === 'right' ? { marginLeft: '12px' } : { marginRight: '12px' }}
+    position === 'right' ? Margin({ left: 0.75 }) : Margin({ right: 0.75 })}
 `;
 
 const Prefix = styled.div`
-  flex-shrink: 0;
-  margin-right: 8px;
-  pointer-events: none;
+  ${Cursor.noEvents}
+  ${Flex.items.shrink(0)}
+  ${Margin({ left: 0.5 })}
   ${Foreground.color('Gray600')};
 `;
 
@@ -167,6 +166,6 @@ const InputElement = styled.textarea`
 
   &::placeholder {
     ${Foreground.color('Gray600')}
-    opacity: 1;
+    ${Opacity.to(1)}
   }
 `;

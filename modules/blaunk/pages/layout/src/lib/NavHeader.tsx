@@ -2,7 +2,6 @@
 import {
   Background,
   BorderRadius,
-  BoxSizing,
   Cursor,
   Flex,
   FontSize,
@@ -48,7 +47,6 @@ const Wrapper = styled.div`
   ${Size.fullWidth};
   ${Flex({ align: 'center', gap: 24 })}
   padding: 8px 24px;
-  ${BoxSizing.borderBox}
   height: ${Constants.navHeaderHeight};
   max-height: ${Constants.navHeaderHeight};
   ${Background.color('PrimaryDark')};

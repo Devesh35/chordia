@@ -1,6 +1,7 @@
 import {
   Background,
   BorderRadius,
+  Flex,
   FontSize,
   FontWeight,
   Foreground,
@@ -8,7 +9,7 @@ import {
 } from '@li/config/design';
 import styled from '@emotion/styled';
 import { Rating } from '@li/design/elements';
-import { ImageCardDetails } from './ImageCardWide';
+import { ImageCardDetails } from './ImageCardDetails';
 
 export const ReviewCard = ({ i }: { i: number }) => (
   <ReviewWrapper>
@@ -20,8 +21,12 @@ export const ReviewCard = ({ i }: { i: number }) => (
         height: 80,
         alt: 'random',
       }}
-      top={<Rating rating={4} hasHalf />}
-      bottom={<PremiumUser>Premium</PremiumUser>}
+      details={
+        <Details>
+          <Rating rating={4} hasHalf />
+          <PremiumUser>Premium</PremiumUser>
+        </Details>
+      }
     />
     <ReviewUserName>C&amp;D Retail India LLP</ReviewUserName>
     <Review>This is the review from the review section</Review>
@@ -57,4 +62,8 @@ const ReviewUserName = styled.div`
 
 const Review = styled.span`
   ${FontSize.P14}
+`;
+
+const Details = styled.div`
+  ${Flex({ direction: 'column', gap: 8, align: 'center', justify: 'flex-end' })}
 `;

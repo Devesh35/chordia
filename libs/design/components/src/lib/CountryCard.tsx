@@ -3,14 +3,16 @@ import styled from '@emotion/styled';
 import {
   Background,
   BorderRadius,
-  Colors,
   Cursor,
   Flex,
   FontSize,
   Overflow,
+  Padding,
   Position,
   Shadows,
+  Size,
   TransitionDuration,
+  TransitionProperty,
   TransitionTimingFunctions,
 } from '@li/config/design';
 import { Button } from '@li/design/elements';
@@ -20,19 +22,19 @@ type Props = {
   country: Country;
 };
 
-const width = 240;
-const height = 180;
+const flagWidth = '20vw';
+const flagHeight = '15vw';
 
 export const CountryCard = ({ country }: Props) => {
   return (
     <Wrapper>
       <FlagWrapper>
-        <country.Flag width={width + 2} height={height + 2} />
+        <country.Flag />
       </FlagWrapper>
       <Content>
         <CountryName>{country.name}</CountryName>
         <StyledButton bg={country.color} color={country.colorOnColor}>
-          Select
+          Source
         </StyledButton>
       </Content>
     </Wrapper>
@@ -40,13 +42,13 @@ export const CountryCard = ({ country }: Props) => {
 };
 
 const Wrapper = styled.div`
-  min-width: ${width}px;
+  ${Size.minWidth(`clamp(120px, ${flagWidth}, 240px)`)}
   ${Background.color('White')}
   ${BorderRadius.Medium}
   ${Overflow.hidden}
   ${Shadows.s}
   ${Cursor.pointer}
-  transition: transform;
+  ${TransitionProperty('transform')}
   ${TransitionDuration.fast}
   ${TransitionTimingFunctions.easeIn}
   &:hover {
@@ -58,31 +60,24 @@ const Wrapper = styled.div`
   margin: 48px 0;
 `;
 const FlagWrapper = styled.div`
-  width: ${width}px;
-  height: ${height}px;
+  ${Size.width(flagWidth, { min: 120, max: 240 })}
+  ${Size.height(flagHeight, { min: 90, max: 180 })}
   ${Background.color('White')}
-  border-radius: 0% 0% 60% 0% / 0% 0% 45% 0%;
   ${Flex({ justify: 'center', align: 'center' })}
   ${Overflow.hidden}
   ${Position.relative}
-  &:after {
-    content: '';
-    ${Position.absolute}
-    inset: 0;
-    ${Background.gradient(
-      '135deg',
-      `${Colors.Transparent} 65%`,
-      Colors.Transparent40,
-    )}
+  &>* {
+    ${Size.width(flagWidth, { min: 120, max: 240 })}
+    ${Size.height(flagHeight, { min: 90, max: 180 })}
   }
 `;
 
 const Content = styled.div`
-  ${Flex({ align: 'center', gap: 24, direction: 'column' })}
-  padding: 24px 0;
+  ${Flex({ align: 'center', gap: '2vmin', direction: 'column' })}
+  ${Padding({ block: '2vmin' })}
 `;
 
-const CountryName = styled.div`
+const CountryName = styled.div` 
   text-align: center;
   ${FontSize.H5}
   text-transform: uppercase;

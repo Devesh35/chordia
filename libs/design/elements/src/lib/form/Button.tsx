@@ -3,11 +3,12 @@ import {
   Background,
   Border,
   BorderRadius,
+  Cursor,
   Flex,
-  Font,
   FontSize,
   FontWeight,
   Foreground,
+  Padding,
 } from '@li/config/design';
 import { ReactNode } from 'react';
 import { css } from '@emotion/react';
@@ -38,15 +39,14 @@ export const Button = ({
     </StyledButton>
   );
 };
-const StyledButton = styled.button<Omit<ButtonProps, 'children'>>`
-  ${Border.none};
+const StyledButton = styled.button<{ variant: Variant }>`
+  ${Border.none}
+  ${FontSize.L16}
+  ${Cursor.pointer}
+  ${FontWeight.Bold}
+  ${BorderRadius.Default}
+  ${Padding({ block: 0.5, inline: 1 })}
   ${Flex({ align: 'center', justify: 'center', gap: 12 })}
-  cursor: pointer;
-  padding: 8px 16px;
-  ${Font};
-  ${BorderRadius.Default};
-  ${FontSize.L16};
-  ${FontWeight.Bold};
   ${({ variant }) => {
     switch (variant) {
       case 'outline':

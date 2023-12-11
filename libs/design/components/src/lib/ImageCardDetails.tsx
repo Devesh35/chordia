@@ -2,30 +2,24 @@ import {
   Background,
   BorderRadius,
   Flex,
-  FontSize,
   Overflow,
   Size,
 } from '@li/config/design';
-import { Divider } from '@li/design/elements';
 import { NextImage } from '@li/types/shared';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
 type Props = {
   image: NextImage;
-  top: React.ReactNode;
-  bottom?: React.ReactNode;
+  details: React.ReactNode;
   hasDivider?: boolean;
+  className?: string;
 };
 
-export const ImageCardDetails = ({ image, top, bottom, hasDivider }: Props) => (
-  <Wrapper>
+export const ImageCardDetails = ({ image, details, className }: Props) => (
+  <Wrapper className={className}>
     <Image {...image} />
-    <Details>
-      <Top>{top}</Top>
-      {hasDivider && <Divider color="Gray800" />}
-      {bottom}
-    </Details>
+    <Details>{details}</Details>
   </Wrapper>
 );
 
@@ -39,12 +33,6 @@ const Wrapper = styled.div`
 
 const Details = styled.div`
   padding-right: 12px;
-  margin-left: auto;
-  margin-top: 16px;
-`;
-
-const Top = styled.div`
-  ${FontSize.L16}
-  text-align: right;
-  margin-bottom: 4px;
+  margin: auto;
+  margin-right: 0;
 `;

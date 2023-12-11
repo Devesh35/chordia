@@ -27,7 +27,7 @@ export const CategorySelection = ({
         {MenuCategories.map((category) =>
           category.subItems ? (
             <Accordion key={category.id} title={category.name}>
-              {category.subItems.map((subItem, i) => (
+              {category.subItems.map((subItem) => (
                 <CategoryItem
                   key={subItem.id}
                   isSubItem
@@ -57,12 +57,11 @@ const CategoryWrapper = styled.div`
   ${Size.full}
   ${Overflow.hidden}
   ${BorderRadius.Medium}
-  ${Background.color('Primary')}
 `;
 
 const CategoryScroll = styled.div`
   ${Size.full}
-  ${ScrollBar.none}
+  ${ScrollBar.dark}
   ${Overflow.scroll('y')}
 `;
 
