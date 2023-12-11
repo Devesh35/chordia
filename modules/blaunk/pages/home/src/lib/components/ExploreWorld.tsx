@@ -1,6 +1,6 @@
 'use client';
 
-import { BorderRadius, Flex, Overflow } from '@li/config/design';
+import { BorderRadius, Flex, Margin, Overflow } from '@li/config/design';
 import { Carousal, Select, SelectItem } from '@li/design/elements';
 import styled from '@emotion/styled';
 import { useState } from 'react';
@@ -12,13 +12,14 @@ import {
 import { ImageCardOverlay } from '@li/design/components';
 import Image from 'next/image';
 import { CountryCode } from '@li/types/config';
+import { SectionHeader } from '@md/blaunk/design';
 
 const options = AvailableCountries.map((c) => ({
   id: c.id,
   item: c.name,
 })).sort((a, b) => a.item.localeCompare(b.item));
 
-const ads = getRandomImagesArray(12)(400, 300).map((src) => (
+const ads = getRandomImagesArray(8)(400, 300).map((src) => (
   <ImageCardOverlay
     isClickable
     key={src}
@@ -36,6 +37,7 @@ export const ExploreWorld = () => {
 
   return (
     <Wrapper>
+      <SectionHeader sectionName="Explore the world" />
       <Header>
         <CountrySection>
           <Select
@@ -53,19 +55,19 @@ export const ExploreWorld = () => {
           />
         </BannerSection>
       </Header>
-      <Carousal>
+      <StyledCarousal showPagination={false} variant="dark">
         {Array(4)
           .fill(0)
           .map((_, i) => (
             <Content key={i}>{ads}</Content>
           ))}
-      </Carousal>
+      </StyledCarousal>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  margin: 0 40px;
+  ${Margin({ inline: 1 })}
 `;
 
 const Header = styled.div`
@@ -84,5 +86,9 @@ const BannerSection = styled.div`
 
 const Content = styled.div`
   margin: 12px 0;
-  ${Flex({ gap: 4, wrap: true, justify: 'center' })}
+  ${Flex({ gap: 4, wrap: true, justify: 'space-between' })}
+`;
+
+const StyledCarousal = styled(Carousal)`
+  height: 826px;
 `;

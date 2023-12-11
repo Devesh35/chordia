@@ -3,7 +3,6 @@
 import {
   Alpha,
   Background,
-  BoxSizing,
   Colors,
   FlexItems,
   Layers,
@@ -18,14 +17,15 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import { AvailableCountries, getRandomImagesArray } from '@md/blaunk/config';
 
-const imageSize = 700;
+const imageSizeMax = 700;
+const imageSizeMin = 500;
 
-const images = getRandomImagesArray(6)(imageSize, 1920).map((src, i) => (
+const images = getRandomImagesArray(6)(imageSizeMax, 1920).map((src, i) => (
   <Image
     key={src}
     src={src}
     width={1920}
-    height={imageSize}
+    height={imageSizeMax}
     alt="random"
     loading={i === 0 ? 'eager' : 'lazy'}
   />
@@ -53,13 +53,12 @@ export const TopSection = () => {
 const TopSectionWrapper = styled.div`
   ${Size.fullWidth}
   ${Position.relative}
-  height: ${imageSize + 240}px;
 `;
 
 const CarousalWrapper = styled.div`
   ${Layers.Base}
   ${Size.fullWidth};
-  height: ${imageSize}px;
+  ${Size.height('60vh', { min: imageSizeMin, max: imageSizeMax })}
 `;
 
 const FlagsBackground = styled.div`
@@ -77,8 +76,7 @@ const FlagsBackground = styled.div`
 `;
 
 const StyledScrollableSnap = styled(ScrollableSnap)`
-  ${BoxSizing.borderBox}
-  ${FlexItems.gap(48)}
+  ${FlexItems.gap(36)}
   ${Size.fullWidth}
   padding: 0 24px;
 `;

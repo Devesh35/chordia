@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
 
 export const BorderRadius = {
+  None: css`
+    border-radius: 0px;
+  `,
   Small: css`
     border-radius: 3px;
   `,

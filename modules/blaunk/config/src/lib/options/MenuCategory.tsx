@@ -12,10 +12,6 @@ type CatCat = Category & { subItems?: Category[] };
 
 export const MenuCategories: CatCat[] = [
   {
-    id: 'accessories_general',
-    name: 'General',
-  },
-  {
     id: 'accessories',
     name: 'Accessories',
     subItems: [
@@ -26,6 +22,10 @@ export const MenuCategories: CatCat[] = [
       {
         id: 'accessories-camera',
         name: 'Camera',
+      },
+      {
+        id: 'accessories_general',
+        name: 'General',
       },
       {
         id: 'accessories-mobile',

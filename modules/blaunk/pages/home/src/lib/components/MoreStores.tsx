@@ -26,13 +26,13 @@ export const MoreStores = () => {
       <Header>
         <Image src={blaunkStore} width={640} height={190} alt="store" />
       </Header>
-      <Carousal>
+      <StyledCarousal>
         {Array(6)
           .fill(0)
           .map((_, i) => (
             <Content key={i}>{images}</Content>
           ))}
-      </Carousal>
+      </StyledCarousal>
     </Wrapper>
   );
 };
@@ -48,4 +48,8 @@ const Header = styled.div`
 
 const Content = styled.div`
   ${Flex({ gap: 24 })}
+`;
+
+const StyledCarousal = styled(Carousal)`
+  height: 400px;
 `;

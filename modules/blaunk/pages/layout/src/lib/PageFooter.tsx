@@ -4,7 +4,6 @@ import { FooterDetails } from '@md/blaunk/config';
 import {
   Background,
   BorderRadius,
-  BoxSizing,
   Cursor,
   Flex,
   FontSize,
@@ -95,7 +94,6 @@ const ConnectWrapper = styled.div`
 const Icon = styled.div`
   ${Background.color('White')}
   ${BorderRadius.Rounded};
-  ${BoxSizing.borderBox}
   ${Cursor.pointer}
   ${Shadows.m};
   width: 48px;

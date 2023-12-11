@@ -12,13 +12,21 @@ export { FontSize } from './FontSize';
 export { FontWeight } from './FontWeight';
 export { Foreground } from './Foreground';
 export { Layers } from './Layers';
+export { Margin } from './Margin';
 export { MediaQuery, media, useMedia } from './Media';
+export { Opacity } from './Opacity';
 export { Overflow } from './Overflow';
+export { Padding } from './Padding';
 export { Absolute, Position } from './Position';
 export { ScrollBar } from './Scrollbar';
 export { Shadows } from './Shadow';
 export { Size } from './Size';
 export { Transform } from './Transform';
-export { TransitionDuration, TransitionTimingFunctions } from './Transition';
+export {
+  TransitionDelay,
+  TransitionProperty,
+  TransitionDuration,
+  TransitionTimingFunctions,
+} from './Transition';
 
 export type { FlexDirection, FlexOptions } from './Flex';

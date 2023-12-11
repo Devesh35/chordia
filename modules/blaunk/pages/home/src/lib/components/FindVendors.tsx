@@ -13,6 +13,7 @@ import {
 import { ImageCardDetails } from '@li/design/components';
 import {
   Button,
+  Divider,
   Input,
   InputAndSelect,
   InputArea,
@@ -28,9 +29,13 @@ const SocialItem = ({ label, i }: { label: string; i: number }) => (
       height: 80,
       alt: 'random',
     }}
-    top={label}
-    hasDivider
-    bottom={<SocialLink>Click here</SocialLink>}
+    details={
+      <Details>
+        {label}
+        <Divider color="Gray800" />
+        <SocialLink>Click here</SocialLink>
+      </Details>
+    }
   />
 );
 
@@ -40,28 +45,25 @@ export const FindVendors = () => {
       <Heading>Let us help you find best vendors</Heading>
       <Content>
         <Form>
-          <InputRow>
-            <Labeled label="Group">
-              <Input placeholder="Enter group" />
-            </Labeled>
-            <Labeled label="Article/service name">
-              <Input placeholder="Enter article/service name" />
-            </Labeled>
-          </InputRow>
-          <InputRow>
-            <Labeled label="For reselling">
-              <Input placeholder="Enter for reselling" />
-            </Labeled>
-            <Labeled label="Qty">
-              <InputAndSelect
-                input={{ placeholder: 'Enter qty' }}
-                select={{
-                  options: Units.map((u) => ({ id: u, item: u })),
-                  placeholder: 'unit',
-                }}
-              />
-            </Labeled>
-          </InputRow>
+          <Labeled label="Group">
+            <Input placeholder="Enter group" />
+          </Labeled>
+          <Labeled label="Article/service name">
+            <Input placeholder="Enter article/service name" />
+          </Labeled>
+          <Labeled label="For reselling">
+            <Input placeholder="Enter for reselling" />
+          </Labeled>
+          <Labeled label="Qty">
+            <InputAndSelect
+              input={{ placeholder: 'Enter qty' }}
+              select={{
+                options: Units.map((u) => ({ id: u, item: u })),
+                placeholder: 'Select unit',
+              }}
+              inputFlex={0.9}
+            />
+          </Labeled>
           <Labeled label="Requirements">
             <StyledInputArea placeholder="Specify your requirements in max 500 words e.g. Name, color, size, MOQ, material, custom, etc." />{' '}
           </Labeled>
@@ -77,7 +79,7 @@ export const FindVendors = () => {
 };
 
 const Wrapper = styled.div`
-  width: 47%;
+  ${Flex.items.flex(1)}
   ${Background.color('Gray050')}
   ${BorderRadius.Large}
   padding: 24px;
@@ -88,17 +90,13 @@ const Heading = styled.div`
   margin-bottom: 24px;
 `;
 const Content = styled.div`
-  ${Flex({ gap: 48, align: 'center', justify: 'center', wrap: true })}
+  ${Flex({ gap: 24, align: 'center', justify: 'center', wrap: true })}
 `;
 
 const Form = styled.div`
-  width: 55%;
-  min-width: 320px;
-`;
-
-const InputRow = styled.div`
-  ${Flex({ gap: 24 })}
-  margin-bottom: 12px
+  flex: 1;
+  min-width: 240px;
+  ${Flex({ gap: 12, direction: 'column' })}
 `;
 
 const StyledInputArea = styled(InputArea)`
@@ -107,9 +105,8 @@ const StyledInputArea = styled(InputArea)`
 
 const Actions = styled.div`
   ${Size.fullHeight}
-  width: 35%;
-  min-width: 240px;
-
+  flex: 0.9;
+  min-width: 200px;
   & > button {
     margin-top: 48px;
     ${Size.fullWidth}
@@ -121,4 +118,9 @@ const SocialLink = styled.span`
   ${Foreground.color('Interactive')}
   ${Cursor.pointer}
   float: right;
+`;
+
+const Details = styled.div`
+  ${Flex({ direction: 'column', gap: 2 })}
+  text-align: right;
 `;

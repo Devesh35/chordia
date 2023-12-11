@@ -17,6 +17,7 @@ export type AccordionProps = {
   title: React.ReactNode;
   children: React.ReactNode;
   childHeight?: number;
+  initialOpen?: boolean;
   updateParentHeight?: (height: number) => void;
 };
 
@@ -24,9 +25,10 @@ export const Accordion = ({
   title,
   children,
   childHeight = 0,
+  initialOpen = false,
   updateParentHeight,
 }: AccordionProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(initialOpen);
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 

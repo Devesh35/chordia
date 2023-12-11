@@ -2,7 +2,6 @@ import {
   Background,
   Border,
   BorderRadius,
-  BoxSizing,
   Colors,
   Cursor,
   Flex,
@@ -55,7 +54,6 @@ const Wrapper = styled.div<{
   ${BorderRadius.Large}
   ${Overflow.hidden}
   ${Position.relative}
-  ${BoxSizing.borderBox}
   ${Border.simple('PrimaryDark')}
   ${({ isClickable }) => (isClickable ? Cursor.pointer : undefined)};
 `;

@@ -19,7 +19,7 @@ export function Home(props: HomeProps) {
       <TopSection />
       <AdSection />
       <Placeholder height={200} />
-      <Stack px={24} gap={12} justifyContent="space-between">
+      <Stack px={12} gap={12} justifyContent="space-between" wrap>
         <FindVendors />
         <CustomerReviews />
       </Stack>

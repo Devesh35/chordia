@@ -4,11 +4,11 @@ import {
   Background,
   Border,
   BorderRadius,
-  BoxSizing,
   Cursor,
   Flex,
   FontSize,
   Foreground,
+  Margin,
   Overflow,
   ScrollBar,
   Size,
@@ -20,6 +20,7 @@ import { SubCategories, getRandomImagesArray } from '@md/blaunk/config';
 import { Divider } from '@li/design/elements';
 import { ImageCardOverlay } from '@li/design/components';
 import { CircleClose, Star } from '@li/design/icons';
+import { SectionHeader } from '@md/blaunk/design';
 
 const images = getRandomImagesArray(12)(225);
 
@@ -40,83 +41,90 @@ export const CategorySearch = () => {
 
   return (
     <Wrapper>
-      <SelectionWrapper>
-        <CategorySelection
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-      </SelectionWrapper>
-      <Viewer>
-        <SubCategoriesContainer>
-          <SubCategoriesWrapper>
-            {SubCategories[selectedCategory]?.map((a) => (
-              <SubCategoryItem
-                key={`${selectedCategory}:${a.id}`}
-                onClick={() => toggleSub(a.id)}
-                isSelected={selectedSubCategory.includes(a.id)}
-              >
-                {a.label}
-              </SubCategoryItem>
-            )) || (
-              <SubCategoryItem
-                key={`${selectedCategory}:all`}
-                isSelected={true}
-              >
-                All
-              </SubCategoryItem>
-            )}
-          </SubCategoriesWrapper>
-          <SubCategoriesClear isActive={!!selectedSubCategory.length}>
-            <CircleClose onClick={() => setSelectedSubCategory([])} />
-          </SubCategoriesClear>
-        </SubCategoriesContainer>
-        {<Divider color="Primary" />}
-        <CategoryItemsWrapper>
-          {images.map((src) => (
-            <ImageCardOverlay
-              isClickable
-              key={src}
-              image={{
-                width: 225,
-                height: 225,
-                alt: 'img',
-                src: src,
-              }}
-              bottom={
-                <CategoryItemLabel>
-                  <CategoryItemTitle>
-                    <CategoryItemLabelTitle>
-                      Product name
-                    </CategoryItemLabelTitle>
-                    <CategoryItemLabelSubTitle>
-                      Sub-category name
-                    </CategoryItemLabelSubTitle>
-                  </CategoryItemTitle>
-                  ₹ 1,000
-                </CategoryItemLabel>
-              }
-              top={
-                <CategoryItemRatingWrapper>
-                  <CategoryItemRating>
-                    4.5 <Star />
-                  </CategoryItemRating>
-                </CategoryItemRatingWrapper>
-              }
-            />
-          ))}
-        </CategoryItemsWrapper>
-      </Viewer>
+      <SectionHeader sectionName="Search categories" />
+      <ContentWrapper>
+        <SelectionWrapper>
+          <CategorySelection
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        </SelectionWrapper>
+        <Viewer>
+          <SubCategoriesContainer>
+            <SubCategoriesWrapper>
+              {SubCategories[selectedCategory]?.map((a) => (
+                <SubCategoryItem
+                  key={`${selectedCategory}:${a.id}`}
+                  onClick={() => toggleSub(a.id)}
+                  isSelected={selectedSubCategory.includes(a.id)}
+                >
+                  {a.label}
+                </SubCategoryItem>
+              )) || (
+                <SubCategoryItem
+                  key={`${selectedCategory}:all`}
+                  isSelected={true}
+                >
+                  All
+                </SubCategoryItem>
+              )}
+            </SubCategoriesWrapper>
+            <SubCategoriesClear isActive={!!selectedSubCategory.length}>
+              <CircleClose onClick={() => setSelectedSubCategory([])} />
+            </SubCategoriesClear>
+          </SubCategoriesContainer>
+          {<Divider color="Primary" />}
+          <CategoryItemsWrapper>
+            {images.map((src) => (
+              <ImageCardOverlay
+                isClickable
+                key={src}
+                image={{
+                  width: 225,
+                  height: 225,
+                  alt: 'img',
+                  src: src,
+                }}
+                bottom={
+                  <CategoryItemLabel>
+                    <CategoryItemTitle>
+                      <CategoryItemLabelTitle>
+                        Product name
+                      </CategoryItemLabelTitle>
+                      <CategoryItemLabelSubTitle>
+                        Sub-category name
+                      </CategoryItemLabelSubTitle>
+                    </CategoryItemTitle>
+                    ₹ 1,000
+                  </CategoryItemLabel>
+                }
+                top={
+                  <CategoryItemRatingWrapper>
+                    <CategoryItemRating>
+                      4.5 <Star />
+                    </CategoryItemRating>
+                  </CategoryItemRatingWrapper>
+                }
+              />
+            ))}
+          </CategoryItemsWrapper>
+        </Viewer>
+      </ContentWrapper>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  margin: 24px;
+  ${Margin({ inline: 1 })}
+`;
+
+const ContentWrapper = styled.div`
   ${BorderRadius.Medium}
   ${Border.medium('PrimaryDark')}
   ${Flex()}
   max-height: 600px;
   ${Overflow.hidden}
+  ${Background.color('BackgroundSecondary')}
 `;
 
 const SelectionWrapper = styled.div`
@@ -132,15 +140,15 @@ const SubCategoriesContainer = styled.div`
   height: 100px;
   max-height: 100px;
   padding-bottom: 8px;
-  ${BoxSizing.borderBox}
   margin-bottom: 4px;
-  ${Overflow.scroll('y')}
   ${ScrollBar.none}
   display: inline-flex;
 `;
 
 const SubCategoriesWrapper = styled.div`
-  ${Flex({ gap: 8, rowGap: 4, wrap: true })}
+  ${Flex({ gap: 8, rowGap: 4, wrap: true, flex: 1 })}
+  ${Overflow.scroll('y')}
+  ${ScrollBar.dark}
 `;
 
 const SubCategoryItem = styled.div<{ isSelected: boolean }>`
@@ -149,7 +157,7 @@ const SubCategoryItem = styled.div<{ isSelected: boolean }>`
   ${BorderRadius.Medium}
   ${FontSize.P14}
   height: 24px;
-  padding: 4px 8px 2px;
+  padding: 2px 8px;
   ${Cursor.pointer}
   &:hover {
     ${Background.color('Transparent60')}
@@ -171,7 +179,7 @@ const CategoryItemsWrapper = styled.div`
   ${Flex({ gap: 4, wrap: true })}
   padding-top: 12px;
   max-height: 460px;
-  ${ScrollBar.default}
+  ${ScrollBar.dark}
   ${Overflow.scroll('y')}
 `;
 
