@@ -3,14 +3,20 @@ import { Country, CountryCode } from '@li/types/config';
 
 const codes: CountryCode[] = [
   'in',
-  'jo',
-  'mv',
-  'lk',
-  'bt',
+  'bh',
   'bd',
+  'bt',
+  'id',
+  'jo',
+  'my',
+  'mv',
   'np',
   'ph',
-  'bh',
+  'sg',
+  'za',
+  'lk',
+  'ae',
+  'vn',
 ];
 
 export const AvailableCountries = codes

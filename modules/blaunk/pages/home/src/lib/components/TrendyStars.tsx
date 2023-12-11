@@ -32,7 +32,7 @@ export const TrendyStars = () => {
   return (
     <Wrapper>
       <SectionHeader sectionName="Trendy-stars" />
-      <StyledCarousal showPagination={false}>
+      <StyledCarousal hidePagination>
         {Array(5)
           .fill(0)
           .map((_, i) => (

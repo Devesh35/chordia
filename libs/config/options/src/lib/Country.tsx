@@ -3,11 +3,17 @@ import {
   Bangladesh,
   Bhutan,
   India,
+  Indonesia,
   Jordan,
+  Malaysia,
   Maldives,
   Nepal,
   Philippines,
+  Singapore,
+  SouthAfrica,
   SriLanka,
+  UnitedArabEmirates,
+  Vietnam,
 } from '@li/design/icons';
 import { CountryCode, CountryFlag, CountryName } from '@li/types/config';
 
@@ -214,7 +220,11 @@ export const CountryNames: { [k in CountryCode]: CountryName } = {
 
 export const CountryFlags: { [k in CountryCode]: CountryFlag | undefined } = {
   ad: undefined,
-  ae: undefined,
+  ae: {
+    Flag: UnitedArabEmirates,
+    color: 'red',
+    colorOnColor: '#fff',
+  },
   af: undefined,
   ag: undefined,
   al: undefined,
@@ -302,7 +312,11 @@ export const CountryFlags: { [k in CountryCode]: CountryFlag | undefined } = {
   hr: undefined,
   ht: undefined,
   hu: undefined,
-  id: undefined,
+  id: {
+    Flag: Indonesia,
+    color: '#E70011',
+    colorOnColor: '#fff',
+  },
   ie: undefined,
   il: undefined,
   in: {
@@ -368,7 +382,11 @@ export const CountryFlags: { [k in CountryCode]: CountryFlag | undefined } = {
   },
   mw: undefined,
   mx: undefined,
-  my: undefined,
+  my: {
+    Flag: Malaysia,
+    color: '#006',
+    colorOnColor: '#FC0',
+  },
   mz: undefined,
   na: undefined,
   ne: undefined,
@@ -408,7 +426,11 @@ export const CountryFlags: { [k in CountryCode]: CountryFlag | undefined } = {
   sc: undefined,
   sd: undefined,
   se: undefined,
-  sg: undefined,
+  sg: {
+    Flag: Singapore,
+    color: '#DF0000',
+    colorOnColor: '#fff',
+  },
   si: undefined,
   sk: undefined,
   sl: undefined,
@@ -440,11 +462,19 @@ export const CountryFlags: { [k in CountryCode]: CountryFlag | undefined } = {
   va: undefined,
   vc: undefined,
   ve: undefined,
-  vn: undefined,
+  vn: {
+    Flag: Vietnam,
+    color: '#DA251D',
+    colorOnColor: '#FF0',
+  },
   vu: undefined,
   ws: undefined,
   ye: undefined,
-  za: undefined,
+  za: {
+    Flag: SouthAfrica,
+    color: '#FFB915',
+    colorOnColor: '#000',
+  },
   zm: undefined,
   zw: undefined,
 };

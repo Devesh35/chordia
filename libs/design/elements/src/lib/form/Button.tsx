@@ -60,7 +60,7 @@ const StyledButton = styled.button<{ variant: Variant }>`
 `;
 
 const primaryStyle = css`
-  ${Foreground.color('OnPrimary')}
+  ${Foreground.color('OnPrimaryAccent')}
   ${Background.color('Primary')};
   &:hover {
     ${Background.color('Primary700')};

@@ -82,7 +82,6 @@ const Wrapper = styled.div<{
   isDisabled: boolean;
 }>`
   ${Cursor.text}
-  ${FontSize.L20}
   ${Size.fullWidth}
   ${BorderRadius.Medium}
   ${Size.height(48)}
@@ -158,7 +157,7 @@ const InputElement = styled.textarea`
   ${Border.none};
   ${Foreground.color('OnWhite')};
   ${Background.color('Transparent')};
-  ${FontSize.L20};
+  ${FontSize.H6}
   ${Size.full}
   ${Size.fullMax}
   ${ScrollBar.default}  

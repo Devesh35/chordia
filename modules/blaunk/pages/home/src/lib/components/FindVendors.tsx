@@ -1,6 +1,6 @@
 'use client';
 
-import { Units } from '@md/blaunk/config';
+import { Purpose, Units } from '@md/blaunk/config';
 import {
   Background,
   BorderRadius,
@@ -18,6 +18,7 @@ import {
   InputAndSelect,
   InputArea,
   Labeled,
+  Select,
 } from '@li/design/elements';
 import styled from '@emotion/styled';
 
@@ -51,8 +52,11 @@ export const FindVendors = () => {
           <Labeled label="Article/service name">
             <Input placeholder="Enter article/service name" />
           </Labeled>
-          <Labeled label="For reselling">
-            <Input placeholder="Enter for reselling" />
+          <Labeled label="Purpose">
+            <Select
+              options={Purpose.map((i) => ({ id: i.id, item: i.label }))}
+              placeholder="Select purpose"
+            />
           </Labeled>
           <Labeled label="Qty">
             <InputAndSelect

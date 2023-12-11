@@ -17,7 +17,7 @@ import { SectionHeader } from '@md/blaunk/design';
 const options = AvailableCountries.map((c) => ({
   id: c.id,
   item: c.name,
-})).sort((a, b) => a.item.localeCompare(b.item));
+})); //.sort((a, b) => a.item.localeCompare(b.item));
 
 const ads = getRandomImagesArray(8)(400, 300).map((src) => (
   <ImageCardOverlay
@@ -42,6 +42,7 @@ export const ExploreWorld = () => {
         <CountrySection>
           <Select
             options={options}
+            defaultItem={options[0]}
             onChange={setSelectedCountry}
             placeholder="Select a country"
           />
@@ -55,7 +56,7 @@ export const ExploreWorld = () => {
           />
         </BannerSection>
       </Header>
-      <StyledCarousal showPagination={false} variant="dark">
+      <StyledCarousal hidePagination variant="dark">
         {Array(4)
           .fill(0)
           .map((_, i) => (

@@ -156,7 +156,7 @@ const InputElement = styled.input`
   ${Border.none};
   ${Foreground.color('OnWhite')};
   ${Background.color('Transparent')};
-  ${FontSize.L20};
+  ${FontSize.H6}
   ${Padding({ block: 0.25 })}
   ${Size.fullWidth};
   outline: none;

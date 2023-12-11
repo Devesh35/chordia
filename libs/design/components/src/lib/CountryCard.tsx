@@ -51,12 +51,6 @@ const Wrapper = styled.div`
   ${TransitionProperty('transform')}
   ${TransitionDuration.fast}
   ${TransitionTimingFunctions.easeIn}
-  &:hover {
-    ${Shadows.m}
-    transform: scale(1.2);
-    ${TransitionDuration.medium}
-    ${TransitionTimingFunctions.easeOut}
-  }
   margin: 48px 0;
 `;
 const FlagWrapper = styled.div`
@@ -66,6 +60,7 @@ const FlagWrapper = styled.div`
   ${Flex({ justify: 'center', align: 'center' })}
   ${Overflow.hidden}
   ${Position.relative}
+  ${Shadows.s}
   &>* {
     ${Size.width(flagWidth, { min: 120, max: 240 })}
     ${Size.height(flagHeight, { min: 90, max: 180 })}
@@ -77,7 +72,7 @@ const Content = styled.div`
   ${Padding({ block: '2vmin' })}
 `;
 
-const CountryName = styled.div` 
+const CountryName = styled.div`
   text-align: center;
   ${FontSize.H5}
   text-transform: uppercase;

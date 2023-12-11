@@ -23,6 +23,7 @@
       "@li/config/utils": ["libs/config/utils/src/index.ts"],
       "@li/design/components": ["libs/design/components/src/index.ts"],
       "@li/design/elements": ["libs/design/elements/src/index.ts"],
+      "@li/design/enhancers": ["libs/design/enhancers/src/index.ts"],
       "@li/design/hooks": ["libs/design/hooks/src/index.ts"],
       "@li/design/icons": ["libs/design/icons/src/index.ts"],
       "@li/types/config": ["libs/types/config/src/index.ts"],

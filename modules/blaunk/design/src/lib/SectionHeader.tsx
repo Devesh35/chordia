@@ -9,25 +9,19 @@ import {
 import { Divider } from '@li/design/elements';
 
 export const SectionHeader = ({ sectionName }: { sectionName: string }) => (
-  <Header>
-    <Title>
-      <Divider color={'Primary'} />
-      {sectionName}
-      <Divider color={'Primary'} />
-    </Title>
-  </Header>
+  <Wrapper>
+    <Divider color={'Primary'} thickness={4} />
+    {sectionName}
+    <Divider color={'Primary'} thickness={4} />
+  </Wrapper>
 );
 
-const Header = styled.div`
-  ${Flex({ justify: 'center' })}
-  ${Margin({ block: 2 })}
-`;
-
-const Title = styled.div`
+const Wrapper = styled.div`
   width: 80%;
   white-space: nowrap;
+  ${Margin({ inline: 'auto', block: 2 })}
   ${FontSize.H1}
   ${FontWeight.Bold}
   ${Foreground.color('Primary')}
-  ${Flex({ gap: 4, align: 'center' })}
+  ${Flex({ gap: 12, align: 'center' })}
 `;

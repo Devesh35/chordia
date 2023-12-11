@@ -35,7 +35,7 @@ export const TopSection = () => {
   return (
     <TopSectionWrapper>
       <CarousalWrapper>
-        <Carousal pagination="left" autoInterval={5000}>
+        <Carousal pagination="left" autoInterval={10000} enablePagination>
           {images}
         </Carousal>
       </CarousalWrapper>

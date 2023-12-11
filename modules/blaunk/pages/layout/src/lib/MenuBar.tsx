@@ -30,7 +30,7 @@ const Img = styled(Image)`
 `;
 
 const ads = getRandomImagesArray(4)(64).map((src, i) => (
-  <Store>
+  <Store key={src}>
     <Img src={src} width={64} height={56} alt="random" />
     <Name>{names[i]}</Name>
   </Store>

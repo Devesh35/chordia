@@ -6,6 +6,7 @@ import {
   Cursor,
   Flex,
   FontSize,
+  Foreground,
   Layers,
   Overflow,
   Padding,
@@ -29,6 +30,7 @@ export type SelectProps<K extends string = string> = {
   options: SelectItem<K>[];
   className?: string;
   placeholder?: string;
+  defaultItem?: SelectItem<K>;
   onChange?: (item?: SelectItem<K>) => void;
 };
 
@@ -36,10 +38,13 @@ export const Select = <K extends string = string>({
   options,
   onChange,
   className,
+  defaultItem,
   placeholder,
 }: SelectProps<K>) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<SelectItem<K>>();
+  const [selected, setSelected] = useState<SelectItem<K> | undefined>(
+    defaultItem,
+  );
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -62,7 +67,9 @@ export const Select = <K extends string = string>({
   return (
     <Wrapper className={className}>
       <Header onClick={toggleAccordion}>
-        <Title>{selected?.item || placeholder || 'Select'}</Title>
+        <Title selected={!!selected?.id}>
+          {selected?.item || placeholder || 'Select'}
+        </Title>
         <Icon isOpen={isOpen}>
           <DownFilled />
         </Icon>
@@ -109,8 +116,9 @@ const Header = styled(Item)`
   }
 `;
 
-const Title = styled.span`
+const Title = styled.span<{ selected: boolean }>`
   ${FontSize.H6}
+  ${({ selected }) => Foreground.color(selected ? 'OnWhite' : 'Gray600')}
 `;
 
 const Icon = styled.div<{ isOpen: boolean }>`

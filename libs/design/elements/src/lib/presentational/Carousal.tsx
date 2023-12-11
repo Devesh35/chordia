@@ -36,9 +36,9 @@ const paginationDotSize = 12;
 export type CarousalProps = {
   children: React.ReactNode;
   autoInterval?: number;
-  // shouldLoop?: boolean;
-  showControls?: boolean;
-  showPagination?: boolean;
+  hideControls?: true;
+  hidePagination?: true;
+  enablePagination?: true;
   controlSize?: ControlSize;
   pagination?: PaginationDirection;
   className?: string;
@@ -53,12 +53,13 @@ export const Carousal = forwardRef<
     {
       children,
       autoInterval,
-      showControls = true,
-      showPagination = true,
+      hideControls,
+      hidePagination,
       pagination = 'bottom',
       variant,
       className,
       controlSize,
+      enablePagination,
     },
     ref,
   ) => {
@@ -83,29 +84,35 @@ export const Carousal = forwardRef<
           ))}
         </ItemWrapper>
         <ControlsWrapper>
-          {showControls && pagination === 'bottom' && (
-            <Directional>
-              <ControlItem
-                onClick={() => update(-1)}
-                size={controlSize}
-                variant={variant}
-              >
-                <AngleLeft />
-              </ControlItem>
-              <ControlItem
-                onClick={() => update(1)}
-                size={controlSize}
-                variant={variant}
-              >
-                <AngleRight />
-              </ControlItem>
-            </Directional>
-          )}
-          {showPagination && (
+          {hideControls
+            ? null
+            : pagination === 'bottom' && (
+                <Directional>
+                  <ControlItem
+                    onClick={() => update(-1)}
+                    size={controlSize}
+                    variant={variant}
+                  >
+                    <AngleLeft />
+                  </ControlItem>
+                  <ControlItem
+                    onClick={() => update(1)}
+                    size={controlSize}
+                    variant={variant}
+                  >
+                    <AngleRight />
+                  </ControlItem>
+                </Directional>
+              )}
+          {hidePagination ? null : (
             <PaginationRow direction={pagination} variant={variant}>
               <Pagination direction={pagination}>
                 {childArray.map((child, i) => (
-                  <StyledDot key={child.key} onClick={() => updateTo(i)} />
+                  <StyledDot
+                    key={child.key}
+                    enable={enablePagination}
+                    onClick={() => enablePagination && updateTo(i)}
+                  />
                 ))}
               </Pagination>
               <Highlight active={active} direction={pagination}>
@@ -146,17 +153,20 @@ const Item = styled.div<{ active: boolean; prev: boolean }>`
   ${({ active, prev }) => {
     if (active)
       return css`
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0);
         ${Opacity.to(1)}
       `;
     if (prev)
+      /* This works somehow. IDK. do not touch  */
       return css`
-        transform: translate(50px, 0) scale(0.95);
         ${Opacity.to(0)}
+        transition: transform, opacity;
+        transform: translate(100vw, 0);
+        transition-delay: 250ms;
       `;
     return css`
-      transform: translate(50px, 0) scale(0.95);
       ${Opacity.to(0)}
+      transform: translate(100vw, 0);
     `;
   }};
 `;
@@ -275,11 +285,11 @@ const ControlItem = styled.div<{ size?: ControlSize; variant?: Variant }>`
 
 const StyledDot = styled(Dot, {
   shouldForwardProp: (name) => name !== 'filled',
-})<{ filled?: true }>`
+})<{ filled?: true; enable?: boolean }>`
   fill: ${({ filled }) => Transparent(Colors.White, Alpha[filled ? 100 : 60])};
   width: ${paginationDotSize}px;
   height: ${paginationDotSize}px;
-  ${Cursor.pointer}
+  ${({ enable }) => enable && Cursor.pointer}
   ${Cursor.events}
   &>:hover {
     fill: ${({ filled }) =>
