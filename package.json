@@ -6,7 +6,7 @@
     "lint": "nx affected --base origin/dev --target=lint --parallel=3",
     "test": "nx affected --base origin/dev --target=test --parallel=3",
     "build": "nx affected --base origin/dev --target=build --parallel=3",
-    "spell": "cspell '{libs,apps,config,scripts}/**/*.{ts,tsx}' --no-progress",
+    "spell": "cspell {libs,apps,modules}/**/*.{ts,tsx,css} --no-progress",
     "admin": "nx run blaunk-admin:serve",
     "design": "nx run design-storybook:storybook",
     "client": "nx run blaunk-client:serve",

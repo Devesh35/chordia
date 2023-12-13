@@ -26,6 +26,6 @@
 .content > * {
   border-radius: var(--border-radius-medium);
   overflow: hidden;
-  box-shadow: var(--box-shoadow-s);
+  box-shadow: var(--box-shadow-s);
   cursor: pointer;
 }

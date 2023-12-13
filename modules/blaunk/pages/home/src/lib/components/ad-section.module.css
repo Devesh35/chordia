@@ -7,5 +7,5 @@
   border-radius: var(--border-radius-large);
   overflow: hidden;
   cursor: pointer;
-  box-shadow: var(--box-shoadow-s);
+  box-shadow: var(--box-shadow-s);
 }

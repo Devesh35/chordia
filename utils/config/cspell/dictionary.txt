@@ -115,3 +115,7 @@ onsecondaryaccent
 onprimary
 onprimarydark
 onsecondary
+xlarge
+onwhite
+onblack
+veryfast
