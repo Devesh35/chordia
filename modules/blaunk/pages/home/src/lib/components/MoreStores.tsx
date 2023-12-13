@@ -1,11 +1,8 @@
-'use client';
-
-import styled from '@emotion/styled';
 import Image from 'next/image';
-import { Flex, Margin } from '@li/config/design';
 import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray, blaunkStore } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
+import styles from './more-stores.module.css';
 
 const images = getRandomImagesArray(3)(400, 600).map((src) => (
   <ImageCardOverlay
@@ -22,34 +19,19 @@ const images = getRandomImagesArray(3)(400, 600).map((src) => (
 
 export const MoreStores = () => {
   return (
-    <Wrapper>
-      <Header>
+    <div className={styles.wrapper}>
+      <div className={styles.header}>
         <Image src={blaunkStore} width={640} height={190} alt="store" />
-      </Header>
-      <StyledCarousal>
+      </div>
+      <Carousal className={styles.carousal}>
         {Array(6)
           .fill(0)
           .map((_, i) => (
-            <Content key={i}>{images}</Content>
+            <div className={styles.content} key={i}>
+              {images}
+            </div>
           ))}
-      </StyledCarousal>
-    </Wrapper>
+      </Carousal>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Margin({ inline: 1 })}
-`;
-
-const Header = styled.div`
-  ${Flex({ justify: 'center' })}
-  ${Margin({ bottom: 0.75 })}
-`;
-
-const Content = styled.div`
-  ${Flex({ gap: 24 })}
-`;
-
-const StyledCarousal = styled(Carousal)`
-  height: 400px;
-`;

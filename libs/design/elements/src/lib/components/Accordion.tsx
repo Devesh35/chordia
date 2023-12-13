@@ -1,17 +1,9 @@
-import {
-  Background,
-  Cursor,
-  Flex,
-  FontSize,
-  Overflow,
-  Size,
-  TransitionDuration,
-  TransitionTimingFunctions,
-} from '@li/config/design';
+'use client';
 import { DownFilled } from '@li/design/icons';
-import styled from '@emotion/styled';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Divider } from '../presentational';
+import styles from './accordion.module.css';
+import clsx from 'clsx';
 
 export type AccordionProps = {
   title: React.ReactNode;
@@ -43,59 +35,26 @@ export const Accordion = ({
   }, [contentHeight, updateParentHeight, setIsOpen]);
 
   return (
-    <Wrapper>
-      <Header onClick={toggleAccordion}>
-        <Title>{title}</Title>
-        <Icon isOpen={isOpen}>
+    <div className={styles.wrapper}>
+      <div className={styles.header} onClick={toggleAccordion}>
+        <span className={styles.title}>{title}</span>
+        <div
+          className={clsx(styles.icon, {
+            [styles['icon-active']]: isOpen,
+          })}
+        >
           <DownFilled />
-        </Icon>
-      </Header>
-      {isOpen ? <Divider color="SecondaryDark" /> : null}
-      <ContentWrapper
-        isOpen={isOpen}
+        </div>
+      </div>
+      {isOpen ? <Divider color="var(--secondarydark)" /> : null}
+      <div
+        className={styles['content-wrapper']}
+        style={{ height: isOpen ? contentHeight : '0' }}
         ref={contentRef}
-        contentHeight={contentHeight}
       >
         {children}
-      </ContentWrapper>
-      <Divider color="SecondaryDark" />
-    </Wrapper>
+      </div>
+      <Divider color="var(--secondarydark)" />
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Size.fullWidth}
-  ${Background.color('Secondary')}
-  &:hover {
-    ${Background.color('SecondaryDark')}
-  }
-`;
-
-const Header = styled.div`
-  padding: 12px;
-  ${Cursor.pointer}
-  ${Flex({ align: 'center', justify: 'space-between' })}
-`;
-
-const Title = styled.span`
-  ${FontSize.H6}
-`;
-
-const Icon = styled.div<{ isOpen: boolean }>`
-  ${Flex()}
-  width: 16px;
-  height: 16px;
-  transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
-  transition: transform;
-  ${TransitionDuration.fast}
-  ${TransitionTimingFunctions.easeOut}
-`;
-
-const ContentWrapper = styled.div<{ isOpen: boolean; contentHeight: number }>`
-  ${Size.fullHeight}
-  height: ${(props) => (props.isOpen ? `${props.contentHeight}px` : '0')};
-  transition: height;
-  ${TransitionDuration.fast}
-  ${TransitionTimingFunctions.default}  
-  ${Overflow.hidden}
-`;

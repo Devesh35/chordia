@@ -1,12 +1,8 @@
-import {
-  Animation,
-  AnimationState,
-  Flex,
-  Overflow,
-  Size,
-} from '@li/config/design';
+'use client';
+
+import clsx from 'clsx';
 import React, { ReactNode, useMemo, useState } from 'react';
-import styled from '@emotion/styled';
+import styles from './marquee.module.css';
 
 type MarqueeProps = {
   children: ReactNode;
@@ -32,40 +28,17 @@ export const Marquee = ({
   const [isAnimationRunning, setIsAnimationRunning] = useState(true);
 
   return (
-    <Container className={className}>
-      <Content
+    <div className={clsx(styles.wrapper, className)}>
+      <div
+        className={clsx(styles.content, {
+          [styles.pause]: !isAnimationRunning,
+        })}
         onMouseEnter={() => setIsAnimationRunning(!pauseOhHover)}
         onMouseLeave={() => setIsAnimationRunning(true)}
-        isAnimationRunning={isAnimationRunning}
-        isInfinite={isInfinite}
+        style={{ gap: `${itemsGap}px`, paddingInline: `${itemsGap / 2}px` }}
       >
-        <ChildWrapper gap={itemsGap} px={itemsGap / 2}>
-          {childArray.map((child) => child)}
-        </ChildWrapper>
-      </Content>
-    </Container>
+        {childArray.map((child) => child)}
+      </div>
+    </div>
   );
 };
-
-const Container = styled.div`
-  ${Overflow.hidden}
-  ${Size.fullWidth}
-  white-space: nowrap;
-  ${Flex({})}
-`;
-
-const Content = styled.div<{
-  isAnimationRunning: boolean;
-  isInfinite: boolean;
-}>`
-  display: inline-block;
-  white-space: nowrap;
-  ${({ isInfinite }) => Animation.marquee('fast', 'to left', isInfinite)}
-  ${({ isAnimationRunning }) =>
-    isAnimationRunning ? AnimationState.play : AnimationState.pause}
-`;
-
-const ChildWrapper = styled.div<{ gap: number; px: number }>`
-  ${({ gap }) => Flex({ gap })}
-  ${({ px }) => `padding: 0 ${px}px`}
-`;

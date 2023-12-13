@@ -1,0 +1,19 @@
+.wrapper {
+  margin: 0 1rem;
+}
+.content {
+  display: flex;
+  gap: 24px;
+}
+.carousal {
+  height: 600px;
+}
+
+.label {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+}

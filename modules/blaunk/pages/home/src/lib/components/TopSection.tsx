@@ -1,31 +1,22 @@
-'use client';
-
-import {
-  Alpha,
-  Background,
-  Colors,
-  FlexItems,
-  Layers,
-  Overflow,
-  Position,
-  Size,
-  Transparent,
-} from '@li/config/design';
 import { Carousal, ScrollableSnap } from '@li/design/elements';
 import { CountryCard } from '@li/design/components';
-import styled from '@emotion/styled';
 import Image from 'next/image';
-import { AvailableCountries, getRandomImagesArray } from '@md/blaunk/config';
+import {
+  AvailableCountries,
+  Constants,
+  getRandomImagesArray,
+} from '@md/blaunk/config';
+import styles from './top-section.module.css';
 
-const imageSizeMax = 700;
-const imageSizeMin = 500;
-
-const images = getRandomImagesArray(6)(imageSizeMax, 1920).map((src, i) => (
+const images = getRandomImagesArray(6)(
+  Constants.homeBannerImageSizeMax,
+  1920,
+).map((src, i) => (
   <Image
     key={src}
     src={src}
     width={1920}
-    height={imageSizeMax}
+    height={Constants.homeBannerImageSizeMax}
     alt="random"
     loading={i === 0 ? 'eager' : 'lazy'}
   />
@@ -33,50 +24,19 @@ const images = getRandomImagesArray(6)(imageSizeMax, 1920).map((src, i) => (
 
 export const TopSection = () => {
   return (
-    <TopSectionWrapper>
-      <CarousalWrapper>
+    <div className={styles.wrapper}>
+      <div className={styles['carousal-wrapper']}>
         <Carousal pagination="left" autoInterval={10000} enablePagination>
           {images}
         </Carousal>
-      </CarousalWrapper>
-      <FlagsBackground>
-        <StyledScrollableSnap>
+      </div>
+      <div className={styles['flag-bg']}>
+        <ScrollableSnap className={styles['scroll-snap']}>
           {AvailableCountries.map((country) => (
             <CountryCard country={country} key={country.id} />
           ))}
-        </StyledScrollableSnap>
-      </FlagsBackground>
-    </TopSectionWrapper>
+        </ScrollableSnap>
+      </div>
+    </div>
   );
 };
-
-const TopSectionWrapper = styled.div`
-  ${Size.fullWidth}
-  ${Position.relative}
-`;
-
-const CarousalWrapper = styled.div`
-  ${Layers.Base}
-  ${Size.fullWidth};
-  ${Size.height('60vh', { min: imageSizeMin, max: imageSizeMax })}
-`;
-
-const FlagsBackground = styled.div`
-  ${Size.fullWidth}
-  ${Background.gradient(
-    'to bottom',
-    `${Colors.Transparent} 5%`,
-    `${Transparent(Colors.Primary050, Alpha[20])} 15%`,
-    `${Colors.Primary050} 40%`,
-  )}
-  margin: -180px auto 0;
-  ${Layers.First}
-  ${Position.relative}
-  ${Overflow.hidden}
-`;
-
-const StyledScrollableSnap = styled(ScrollableSnap)`
-  ${FlexItems.gap(36)}
-  ${Size.fullWidth}
-  padding: 0 24px;
-`;

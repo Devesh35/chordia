@@ -1,0 +1,44 @@
+.none {
+  scrollbar-width: none;
+}
+.none::-webkit-scrollbar {
+  display: none;
+}
+
+.light {
+  scrollbar-width: 6px;
+  scrollbar-height: 6px;
+}
+.light::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: var(--transparent);
+}
+.light::-webkit-scrollbar-track {
+  margin: 4px 0;
+  background: var(--transparent);
+  border-radius: var(--border-radius-small);
+}
+.light::-webkit-scrollbar-thumb {
+  background: var(--primary050);
+  border-radius: var(--border-radius-small);
+}
+
+.dark {
+  scrollbar-width: 6px;
+  scrollbar-height: 6px;
+}
+.dark::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background: var(--transparent);
+}
+.dark::-webkit-scrollbar-track {
+  margin: 4px 0;
+  background: var(--transparent);
+  border-radius: var(--border-radius-small);
+}
+.dark::-webkit-scrollbar-thumb {
+  background: var(--primary600);
+  border-radius: var(--border-radius-small);
+}

@@ -1,14 +1,4 @@
-import {
-  Background,
-  BorderRadius,
-  Flex,
-  FontSize,
-  Foreground,
-  Padding,
-  Position,
-  Size,
-} from '@li/config/design';
-import styled from '@emotion/styled';
+import styles from './badge.module.css';
 
 export type BadgeProps = {
   width?: number;
@@ -18,29 +8,16 @@ export type BadgeProps = {
 
 export const Badge = ({ children, content, width = 12 }: BadgeProps) => {
   return (
-    <Wrapper>
+    <div className={styles.wrapper}>
       {children}
-      {content && <Content width={width}>{content}</Content>}
-    </Wrapper>
+      {content && (
+        <div
+          className={styles.content}
+          style={{ width: `${width}px`, height: `${width}px` }}
+        >
+          {content}
+        </div>
+      )}
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Position.relative};
-  ${Flex()}
-`;
-
-const Content = styled.div<{ width: number }>`
-  ${FontSize.L12};
-  ${Position.absolute};
-  ${Padding.all('10px')}
-  ${BorderRadius.SquareRounded};
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
-  ${Background.color('Red')};
-  ${Foreground.color('White')};
-  ${({ width }) => Size.width(width)}
-  ${({ width }) => Size.height(width)}
-  ${Flex({ align: 'center', justify: 'center' })}
-`;

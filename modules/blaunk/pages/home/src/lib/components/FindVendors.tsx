@@ -1,15 +1,4 @@
-'use client';
-
 import { Purpose, Units } from '@md/blaunk/config';
-import {
-  Background,
-  BorderRadius,
-  Cursor,
-  Flex,
-  FontSize,
-  Foreground,
-  Size,
-} from '@li/config/design';
 import { ImageCardDetails } from '@li/design/components';
 import {
   Button,
@@ -20,7 +9,7 @@ import {
   Labeled,
   Select,
 } from '@li/design/elements';
-import styled from '@emotion/styled';
+import styles from './find-vendors.module.css';
 
 const SocialItem = ({ label, i }: { label: string; i: number }) => (
   <ImageCardDetails
@@ -31,21 +20,21 @@ const SocialItem = ({ label, i }: { label: string; i: number }) => (
       alt: 'random',
     }}
     details={
-      <Details>
+      <div className={styles.details}>
         {label}
         <Divider color="Gray800" />
-        <SocialLink>Click here</SocialLink>
-      </Details>
+        <div className={styles['social-link']}>Click here</div>
+      </div>
     }
   />
 );
 
 export const FindVendors = () => {
   return (
-    <Wrapper>
-      <Heading>Let us help you find best vendors</Heading>
-      <Content>
-        <Form>
+    <div className={styles.wrapper}>
+      <div className={styles.heading}>Let us help you find best vendors</div>
+      <div className={styles.content}>
+        <div className={styles.form}>
           <Labeled label="Group">
             <Input placeholder="Enter group" />
           </Labeled>
@@ -69,62 +58,18 @@ export const FindVendors = () => {
             />
           </Labeled>
           <Labeled label="Requirements">
-            <StyledInputArea placeholder="Specify your requirements in max 500 words e.g. Name, color, size, MOQ, material, custom, etc." />{' '}
+            <InputArea
+              className={styles['input-area']}
+              placeholder="Specify your requirements in max 500 words e.g. Name, color, size, MOQ, material, custom, etc."
+            />{' '}
           </Labeled>
-        </Form>
-        <Actions>
+        </div>
+        <div className={styles.action}>
           <SocialItem label="Ask anything on whatsapp" i={1}></SocialItem>
           <SocialItem label="Mail us on email" i={2}></SocialItem>
           <Button>Submit requirements</Button>
-        </Actions>
-      </Content>
-    </Wrapper>
+        </div>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Flex.items.flex(1)}
-  ${Background.color('Gray050')}
-  ${BorderRadius.Large}
-  padding: 24px;
-`;
-const Heading = styled.div`
-  ${FontSize.H4}
-  text-align: center;
-  margin-bottom: 24px;
-`;
-const Content = styled.div`
-  ${Flex({ gap: 24, align: 'center', justify: 'center', wrap: true })}
-`;
-
-const Form = styled.div`
-  flex: 1;
-  min-width: 240px;
-  ${Flex({ gap: 12, direction: 'column' })}
-`;
-
-const StyledInputArea = styled(InputArea)`
-  height: 120px;
-`;
-
-const Actions = styled.div`
-  ${Size.fullHeight}
-  flex: 0.9;
-  min-width: 200px;
-  & > button {
-    margin-top: 48px;
-    ${Size.fullWidth}
-  }
-  ${Flex({ gap: 12, direction: 'column' })}
-`;
-
-const SocialLink = styled.span`
-  ${Foreground.color('Interactive')}
-  ${Cursor.pointer}
-  float: right;
-`;
-
-const Details = styled.div`
-  ${Flex({ direction: 'column', gap: 2 })}
-  text-align: right;
-`;

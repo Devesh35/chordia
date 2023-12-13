@@ -1,0 +1,11 @@
+.marquee {
+  background-color: var(--primary);
+  padding: 12px 0;
+}
+
+.marquee > img {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--box-shoadow-s);
+}

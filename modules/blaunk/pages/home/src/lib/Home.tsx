@@ -1,6 +1,5 @@
 import { TopSection } from './components/TopSection';
 import { AdSection } from './components/AdSection';
-import { Stack } from '@li/design/elements';
 import { Placeholder } from './components/Placeholder';
 import { FindVendors } from './components/FindVendors';
 import { CustomerReviews } from './components/CustomerReviews';
@@ -9,20 +8,21 @@ import { ExploreWorld } from './components/ExploreWorld';
 import { MoreStores } from './components/MoreStores';
 import { TrendyStars } from './components/TrendyStars';
 import { StoreAds } from './components/StoreAds';
+import styles from './home.module.css';
 
 /* eslint-disable-next-line */
 export type HomeProps = {};
 
 export function Home(props: HomeProps) {
   return (
-    <Stack direction="column" gap={24} pb={24}>
+    <div className={styles.wrapper}>
       <TopSection />
       <AdSection />
       <Placeholder height={200} />
-      <Stack px={12} gap={12} justifyContent="space-between" wrap>
+      <div className={styles.section}>
         <FindVendors />
         <CustomerReviews />
-      </Stack>
+      </div>
       <AdSection size={300} />
       <CategorySearch />
       <ExploreWorld />
@@ -30,6 +30,6 @@ export function Home(props: HomeProps) {
       <TrendyStars />
       <StoreAds />
       <Placeholder height={200} />
-    </Stack>
+    </div>
   );
 }

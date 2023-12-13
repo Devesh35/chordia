@@ -20,6 +20,10 @@ const nextConfig = {
   },
 
   reactStrictMode: true,
+
+  experimental: {
+    serverActions: true,
+  },
 };
 
 const plugins = [

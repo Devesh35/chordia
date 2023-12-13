@@ -1,26 +1,10 @@
-import {
-  Background,
-  Border,
-  BorderRadius,
-  Colors,
-  Cursor,
-  Flex,
-  FontSize,
-  Foreground,
-  Layers,
-  Overflow,
-  Padding,
-  Position,
-  ScrollBar,
-  Shadows,
-  Size,
-  TransitionDuration,
-  TransitionProperty,
-  TransitionTimingFunctions,
-} from '@li/config/design';
+'use client';
+
 import { DownFilled } from '@li/design/icons';
-import styled from '@emotion/styled';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
+import styles from './select.module.css';
+import { sbs } from '@li/config/design';
 
 export type SelectItem<K extends string = string> = {
   id: K;
@@ -31,13 +15,13 @@ export type SelectProps<K extends string = string> = {
   options: SelectItem<K>[];
   className?: string;
   placeholder?: string;
-  header?: (selected?: SelectItem<K>) => React.ReactNode;
+  Header?: React.ReactNode;
   defaultItem?: SelectItem<K>;
   onChange?: (item?: SelectItem<K>) => void;
 };
 
 export const Select = <K extends string = string>({
-  header,
+  Header,
   options,
   onChange,
   className,
@@ -68,104 +52,38 @@ export const Select = <K extends string = string>({
   };
 
   return (
-    <Wrapper className={className}>
-      <Header onClick={toggleAccordion}>
-        {header?.(selected) || (
-          <Title selected={!!selected?.id}>
+    <div className={clsx(styles.wrapper, className)}>
+      <div className={styles.header} onClick={toggleAccordion}>
+        {Header ? (
+          Header
+        ) : (
+          <span
+            className={clsx(styles.title, {
+              [styles['title-selected']]: !!selected?.id,
+            })}
+          >
             {selected?.item || placeholder || 'Select'}
-          </Title>
+          </span>
         )}
-        <Icon isOpen={isOpen}>
+        <div className={clsx(styles.icon, { [styles['icon-active']]: isOpen })}>
           <DownFilled />
-        </Icon>
-      </Header>
-      <OptionWrapper
-        isOpen={isOpen}
+        </div>
+      </div>
+      <div
+        className={clsx(styles['option-wrapper'], sbs.none)}
+        style={{ height: isOpen ? contentHeight : '0' }}
         ref={contentRef}
-        contentHeight={contentHeight}
       >
         {options.map((o) => (
-          <Option onClick={() => onSelect(o)} key={o.id}>
+          <div
+            className={clsx(styles.item, styles.option)}
+            onClick={() => onSelect(o)}
+            key={o.id}
+          >
             {o.item}
-          </Option>
+          </div>
         ))}
-      </OptionWrapper>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Size.fullWidth}
-  ${Position.relative}
-  ${BorderRadius.Medium}
-  ${Border.medium('Gray300')};
-  ${Background.color('White')}
-  &:focus-within {
-    ${Border.color('Primary500')};
-    outline: 1px solid ${Colors.Primary500};
-  }
-  &:hover {
-    ${Border.color('Gray500')};
-  }
-`;
-
-const Item = styled.div`
-  ${Layers.First}
-  ${Cursor.pointer}
-  ${Size.height(48)}
-  ${Padding.all(0.75)}
-  ${Flex({ align: 'center', justify: 'space-between' })}
-`;
-
-const Header = styled(Item)`
-  ${Size.full}
-  ${BorderRadius.Medium}
-`;
-
-const Title = styled.span<{ selected: boolean }>`
-  ${FontSize.H6}
-  ${({ selected }) => Foreground.color(selected ? 'OnWhite' : 'Gray600')}
-`;
-
-const Icon = styled.div<{ isOpen: boolean }>`
-  ${Flex()}
-  ${Size.width(24)}
-  ${Size.height(24)}
-  &>svg {
-    ${Size.width(24)}
-    ${Size.height(24)}
-  }
-  transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
-  ${TransitionProperty('transform')}
-  ${TransitionDuration.fast}
-  ${TransitionTimingFunctions.easeOut}
-`;
-
-const OptionWrapper = styled.div<{
-  isOpen: boolean;
-  contentHeight: number;
-}>`
-  ${Size.full}
-  ${Layers.First}
-  ${Position.absolute}
-  ${(props) => Size.height(props.isOpen ? props.contentHeight : '0')}
-  ${TransitionProperty('height')}
-  ${TransitionDuration.veryFast}
-  ${TransitionTimingFunctions.default}
-  ${ScrollBar.none}
-  ${BorderRadius.Medium}
-  ${Overflow.scroll('y')}
-  ${Shadows.s}
-`;
-
-const Option = styled(Item)`
-  ${FontSize.L16}
-  ${Background.color('White')}
-  ${Foreground.color('OnWhite')}
-  ${Size.fullWidth}
-  ${Position.relative}
-  border-bottom: 1px solid ${Colors.Divider};
-  &:last-of-type {
-    ${Border.none}
-  }
-`;

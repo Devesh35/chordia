@@ -1,7 +1,6 @@
-import styled from '@emotion/styled';
 import { Input, InputProps } from './Input';
 import { Select, SelectProps } from './Select';
-import { Border, BorderRadius, Flex, Size } from '@li/config/design';
+import styles from './input-select.module.css';
 
 export type InputAndSelectProps<K extends string> = {
   input: InputProps;
@@ -15,43 +14,9 @@ export const InputAndSelect = <K extends string>({
   inputFlex = 1,
 }: InputAndSelectProps<K>) => {
   return (
-    <Wrapper>
-      <StyledInput flex={inputFlex} {...input} />
-      <StyledSelect {...select} />
-    </Wrapper>
+    <div className={styles.wrapper}>
+      <Input className={styles.input} style={{ flex: inputFlex }} {...input} />
+      <Select className={styles.select} {...select} />
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Flex()}
-  ${Size.height(48)}
-  ${BorderRadius.Medium}
-  ${Border.medium('Gray300')}
-  &:hover {
-    ${Border.color('Gray500')};
-  }
-`;
-
-const StyledInput = styled(Input)<{ flex: number }>`
-  ${({ flex }) => Flex.items.flex(flex)}
-  ${BorderRadius.None}
-  ${Border.none}
-  ${Size.height(44)}
-  border-radius: 4px 0 0 4px;
-  &:hover {
-    ${Border.none}
-  }
-`;
-
-const StyledSelect = styled(Select)`
-  ${Flex.items.flex(1)}
-  ${BorderRadius.None}
-  ${Border.none}
-  ${Size.height(44)}
-  & > div:first-of-type {
-    border-radius: 0 4px 4px 0;
-  }
-  &:hover {
-    ${Border.none}
-  }
-` as typeof Select;

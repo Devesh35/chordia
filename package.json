@@ -15,19 +15,16 @@
   },
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
     "@nx/next": "17.2.0",
     "@swc/helpers": "~0.5.2",
     "axios": "^1.0.0",
+    "clsx": "2.0.0",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-responsive": "9.0.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@emotion/babel-plugin": "11.11.0",
     "@next/bundle-analyzer": "14.0.4",
     "@nx/cypress": "17.2.0",
     "@nx/esbuild": "17.2.0",

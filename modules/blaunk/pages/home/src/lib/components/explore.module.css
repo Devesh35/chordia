@@ -1,0 +1,25 @@
+.wrapper {
+  margin-inline: 1rem;
+}
+.header {
+  display: flex;
+  gap: 28px;
+}
+.country {
+  width: 300px;
+}
+.banner {
+  height: 200px;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+}
+.content {
+  margin: 12px 0;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.carousal {
+  height: 826px;
+}

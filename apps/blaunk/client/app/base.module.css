@@ -29,23 +29,3 @@
   max-width: 1440px;
   margin: 0 auto;
 }
-
-.scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background: transparent;
-}
-
-.scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 4px;
-}
-
-.scrollbar::-webkit-scrollbar-thumb {
-  background: #444913;
-  border-radius: 4px;
-}
-
-.error {
-  padding: 40px 48px;
-}
