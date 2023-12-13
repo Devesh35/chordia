@@ -1,3 +1,7 @@
-export { default as gs } from './general.module.css';
-export { default as rs } from './root.module.css';
-export { default as sbs } from './scrollbar.module.css';
+import generalStyles from './general.module.css';
+import rootStyles from './root.module.css';
+import scrollbarStyles from './scrollbar.module.css';
+
+export const gs = generalStyles;
+export const rs = rootStyles;
+export const sbs = scrollbarStyles;
