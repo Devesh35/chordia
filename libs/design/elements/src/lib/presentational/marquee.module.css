@@ -1,0 +1,31 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  display: flex;
+}
+.content {
+  display: flex;
+  white-space: inherit;
+  animation: marquee var(--duration-mq-fast) linear 0ms infinite;
+  animation-play-state: running;
+}
+.pause {
+  animation-play-state: paused;
+}
+
+.content > * {
+  border-radius: var(--border-radius-medium);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-s);
+  cursor: pointer;
+}

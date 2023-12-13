@@ -1,19 +1,10 @@
-import {
-  Background,
-  BorderRadius,
-  Flex,
-  FontSize,
-  FontWeight,
-  Foreground,
-  Shadows,
-} from '@li/config/design';
-import styled from '@emotion/styled';
 import { Rating } from '@li/design/elements';
 import { ImageCardDetails } from './ImageCardDetails';
+import styles from './review.module.css';
 
 export const ReviewCard = ({ i }: { i: number }) => (
-  <ReviewWrapper>
-    <ReviewCountry>IN</ReviewCountry>
+  <div className={styles.wrapper}>
+    <div className={styles.country}>IN</div>
     <ImageCardDetails
       image={{
         src: `https://source.unsplash.com/random/80x${90 + i}`,
@@ -22,48 +13,15 @@ export const ReviewCard = ({ i }: { i: number }) => (
         alt: 'random',
       }}
       details={
-        <Details>
+        <div className={styles.details}>
           <Rating rating={4} hasHalf />
-          <PremiumUser>Premium</PremiumUser>
-        </Details>
+          <span className={styles.premium}>Premium</span>
+        </div>
       }
     />
-    <ReviewUserName>C&amp;D Retail India LLP</ReviewUserName>
-    <Review>This is the review from the review section</Review>
-  </ReviewWrapper>
+    <div className={styles.username}>C&amp;D Retail India LLP</div>
+    <div className={styles.review}>
+      This is the review from the review section
+    </div>
+  </div>
 );
-
-const ReviewWrapper = styled.div`
-  ${Background.color('White')}
-  ${BorderRadius.Large}
-  height: 280px;
-  padding: 12px;
-  max-width: 240px;
-  ${Shadows.s}
-`;
-
-const ReviewCountry = styled.div`
-  float: right;
-  margin-bottom: 4px;
-`;
-
-const PremiumUser = styled.div`
-  ${FontSize.H5}
-  ${Foreground.color('StarActive')}
-  float: right;
-`;
-
-const ReviewUserName = styled.div`
-  margin-top: 8px;
-  margin-bottom: 16px;
-  ${FontSize.H5}
-  ${FontWeight.Medium}
-`;
-
-const Review = styled.span`
-  ${FontSize.P14}
-`;
-
-const Details = styled.div`
-  ${Flex({ direction: 'column', gap: 8, align: 'center', justify: 'flex-end' })}
-`;

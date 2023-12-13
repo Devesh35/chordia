@@ -1,41 +1,31 @@
-import { Colors } from '@li/config/design';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import clsx from 'clsx';
+import styles from './divider.module.css';
 
 type OrientationType = 'horizontal' | 'vertical';
 
 type Props = {
-  color?: keyof typeof Colors;
+  thickness?: number;
+  color?: string;
   orientation?: OrientationType;
 };
 
 export const Divider = ({
+  thickness = 1,
   color = 'Divider',
   orientation = 'horizontal',
-  ...props
 }: Props) => {
-  return <StyledDivider color={color} orientation={orientation} {...props} />;
+  return (
+    <div
+      className={clsx(styles.divider, {
+        [styles.horizontal]: orientation === 'horizontal',
+        [styles.vertical]: orientation === 'vertical',
+      })}
+      style={{
+        backgroundColor: color,
+        ...(orientation === 'horizontal'
+          ? { height: thickness }
+          : { width: thickness }),
+      }}
+    />
+  );
 };
-
-const StyledDivider = styled.hr<Pick<Props, 'color' | 'orientation'>>`
-  border: none;
-  display: flex;
-  background-color: ${({ color }) => (color ? Colors[color] : Colors.Divider)};
-  ${({ orientation }) => {
-    switch (orientation) {
-      case 'horizontal':
-        return css`
-          width: 100%;
-          height: 1px;
-        `;
-      case 'vertical':
-        return css`
-          width: 1px;
-          height: 100%;
-        `;
-      default:
-        return undefined;
-    }
-  }}
-  margin: 0;
-`;

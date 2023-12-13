@@ -1,0 +1,52 @@
+.container {
+  height: 100px;
+  max-height: 100px;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  display: inline-flex;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  row-gap: 4px;
+  flex-wrap: wrap;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.item {
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+  height: 24px;
+  padding: 2px 8px;
+  cursor: pointer;
+  background-color: var(--transparent20);
+}
+
+.item:hover {
+  background-color: var(--transparent40);
+}
+.item-selected {
+  background-color: var(--transparent40);
+}
+
+.clear {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  padding: 0 12px;
+  margin: 0;
+  pointer-events: none;
+}
+.clear > svg {
+  fill: var(--backgroundsecondary);
+}
+
+.clear-active {
+  pointer-events: all;
+}
+
+.clear-active > svg {
+  fill: var(--transparent60);
+}

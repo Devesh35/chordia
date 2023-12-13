@@ -1,13 +1,7 @@
-import {
-  Background,
-  BorderRadius,
-  Flex,
-  Overflow,
-  Size,
-} from '@li/config/design';
 import { NextImage } from '@li/types/shared';
-import styled from '@emotion/styled';
+import clsx from 'clsx';
 import Image from 'next/image';
+import styles from './image-card-details.module.css';
 
 type Props = {
   image: NextImage;
@@ -17,22 +11,8 @@ type Props = {
 };
 
 export const ImageCardDetails = ({ image, details, className }: Props) => (
-  <Wrapper className={className}>
+  <div className={clsx(styles.wrapper, className)}>
     <Image {...image} />
-    <Details>{details}</Details>
-  </Wrapper>
+    <div className={styles.details}>{details}</div>
+  </div>
 );
-
-const Wrapper = styled.div`
-  ${Flex({ gap: 12 })}
-  ${Size.fullWidth}
-  ${Background.color('Gray100')}
-  ${BorderRadius.Medium}
-  ${Overflow.hidden}
-`;
-
-const Details = styled.div`
-  padding-right: 12px;
-  margin: auto;
-  margin-right: 0;
-`;

@@ -1,0 +1,45 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.item-wrapper {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: var(--layer-base);
+}
+
+.item {
+  position: absolute;
+  inset: 0;
+  transition: transform, opacity;
+  transition-duration: var(--duration-tr-medium);
+  transition-timing-function: ease-in-out;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translate(100vw, 0);
+}
+
+.active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+/* This works somehow. IDK. do not touch  */
+.prev {
+  opacity: 0;
+  transition: transform, opacity;
+  transform: translate(100vw, 0);
+  transition-delay: 250ms;
+}
+
+.control-wrapper {
+  position: absolute;
+  inset: 24px;
+  z-index: var(--layer-first);
+  pointer-events: none;
+}

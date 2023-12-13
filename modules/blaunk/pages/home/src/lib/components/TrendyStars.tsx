@@ -1,18 +1,8 @@
-'use client';
-
-import styled from '@emotion/styled';
-import { Flex, FontSize, Foreground } from '@li/config/design';
 import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
 import { SectionHeader } from '@md/blaunk/design';
-
-const Label = styled.div`
-  ${FontSize.H3}
-  ${Foreground.color('White')}
-  ${Flex({ justify: 'center' })}
-  padding-bottom: 24px;
-`;
+import styles from './trendy-stores.module.css';
 
 const images = getRandomImagesArray(3)(600).map((src) => (
   <ImageCardOverlay
@@ -24,33 +14,23 @@ const images = getRandomImagesArray(3)(600).map((src) => (
       height: 600,
       alt: 'random',
     }}
-    bottom={<Label>Trendy star name</Label>}
+    bottom={<div className={styles.label}>Trendy star name</div>}
   />
 ));
 
 export const TrendyStars = () => {
   return (
-    <Wrapper>
+    <div className={styles.wrapper}>
       <SectionHeader sectionName="Trendy-stars" />
-      <StyledCarousal showPagination={false}>
+      <Carousal className={styles.carousal} hidePagination>
         {Array(5)
           .fill(0)
           .map((_, i) => (
-            <Content key={i}>{images}</Content>
+            <div className={styles.content} key={i}>
+              {images}
+            </div>
           ))}
-      </StyledCarousal>
-    </Wrapper>
+      </Carousal>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  margin: 0 40px;
-`;
-
-const Content = styled.div`
-  ${Flex({ gap: 24 })}
-`;
-
-const StyledCarousal = styled(Carousal)`
-  height: 600px;
-`;

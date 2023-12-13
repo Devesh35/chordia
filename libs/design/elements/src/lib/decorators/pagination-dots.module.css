@@ -1,0 +1,65 @@
+.wrapper {
+  position: absolute;
+  border-radius: 100vh;
+  padding: 12px;
+}
+.bottom {
+  left: 50%;
+  bottom: -12px;
+  transform: translate(-50%, 0);
+}
+.left {
+  top: 50%;
+  left: -12px;
+  transform: translate(0, -50%);
+}
+.right {
+  top: 50%;
+  right: -12px;
+  transform: translate(0, -50%);
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  row-gap: 8px;
+  flex-direction: column;
+}
+.bottom > div {
+  flex-direction: row;
+}
+
+.dot {
+  fill: var(--transparentw60);
+  width: 12px;
+  height: 12px;
+  pointer-events: all;
+}
+
+.dot:hover {
+  fill: var(--transparentw80);
+}
+
+.dot-filled {
+  fill: var(--white);
+}
+
+.dot-filled:hover {
+  fill: var(--white);
+}
+
+.active {
+  position: absolute;
+  display: flex;
+  top: 12px;
+  left: 12px;
+  transition: transform var(--duration-tr-medium) ease-in-out;
+}
+
+.light{ 
+  background-color: var(--transparent20);
+}
+
+.dark{ 
+  background-color: var(--transparent60);
+}

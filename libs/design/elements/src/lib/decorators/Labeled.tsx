@@ -1,6 +1,5 @@
-import { FontSize } from '@li/config/design';
-import styled from '@emotion/styled';
 import React from 'react';
+import styles from './labeled.module.css';
 
 type Props = {
   label: string;
@@ -8,15 +7,8 @@ type Props = {
 };
 
 export const Labeled = ({ label, children }: Props) => (
-  <Wrapper>
-    <Label>{label}</Label>
+  <div>
+    <div className={styles.label}>{label}</div>
     {children}
-  </Wrapper>
+  </div>
 );
-
-const Wrapper = styled.div``;
-
-const Label = styled.div`
-  ${FontSize.P16}
-  margin-bottom: 4px;
-`;

@@ -1,22 +1,10 @@
-import {
-  Background,
-  Border,
-  BorderRadius,
-  Colors,
-  Cursor,
-  Flex,
-  FontSize,
-  Foreground,
-  Margin,
-  Opacity,
-  Padding,
-  Size,
-} from '@li/config/design';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import { useCallback, useRef } from 'react';
+'use client';
 
-type InputVariant = 'error' | 'success' | 'warning' | 'default';
+import { useCallback, useRef } from 'react';
+import clsx from 'clsx';
+import styles from './input.module.css';
+
+type InputVariant = 'error' | 'success' | 'warning' | 'primary';
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   prefix?: string;
@@ -32,7 +20,7 @@ export const Input = ({
   prefix,
   isDisabled = false,
   isReadOnly = false,
-  variant = 'default',
+  variant = 'primary',
   iconLeft,
   iconRight,
   disableWrapperFocus = false,
@@ -45,124 +33,45 @@ export const Input = ({
   }, [disableWrapperFocus]);
 
   return (
-    <Wrapper
-      variant={variant}
+    <div
+      className={clsx(
+        styles.wrapper,
+        styles[variant],
+        {
+          [styles.disabled]: isDisabled,
+          [styles.readonly]: isReadOnly,
+        },
+        props.className,
+      )}
       onClick={focusInput}
-      isDisabled={isDisabled}
-      isReadOnly={isReadOnly}
-      className={props.className}
     >
       {iconLeft ? (
-        <IconWrapper isDisabled={isDisabled || isReadOnly} position="left">
+        <span
+          className={clsx(styles.icon, {
+            [styles['icon-disabled']]: isDisabled || isReadOnly,
+          })}
+        >
           {iconLeft}
-        </IconWrapper>
+        </span>
       ) : null}
-      {prefix ? <Prefix>{prefix}</Prefix> : null}
-      <InputElement
+      {prefix ? <div className={styles.prefix}>{prefix}</div> : null}
+      <input
         {...props}
         prefix={prefix}
         readOnly={isReadOnly}
         disabled={isDisabled}
         ref={inputRef}
+        className={styles.input}
       />
       {iconRight ? (
-        <IconWrapper isDisabled={isDisabled || isReadOnly} position="right">
+        <span
+          className={clsx(styles.icon, styles['icon-right'], {
+            [styles['icon-disabled']]: isDisabled || isReadOnly,
+          })}
+        >
           {iconRight}
-        </IconWrapper>
+        </span>
       ) : null}
-    </Wrapper>
+    </div>
   );
 };
-
-const Wrapper = styled.div<{
-  variant: InputVariant;
-  isReadOnly: boolean;
-  isDisabled: boolean;
-}>`
-  ${Cursor.text}
-  ${FontSize.L20}
-  ${Size.fullWidth}
-  ${BorderRadius.Medium}
-  ${Size.height(48)}
-  ${Border.medium('Divider')}
-  ${Background.color('White')}
-  ${Flex({ align: 'center' })}
-  ${Padding({ block: 0.5, inline: 1 })}
-
-  ${({ variant }) => {
-    switch (variant) {
-      case 'error':
-        return css`
-          ${Border.color('Error300')};
-        `;
-      case 'success':
-        return css`
-          ${Border.color('Success400')};
-        `;
-      case 'warning':
-        return css`
-          ${Border.color('Warning200')};
-        `;
-      default:
-        return css`
-          ${Border.color('Gray300')};
-          &:hover {
-            ${Border.color('Gray500')};
-          }
-        `;
-    }
-  }}
-
-  &:focus-within {
-    ${Border.color('Primary500')};
-    outline: 1px solid ${Colors.Primary500};
-  }
-
-  ${({ isReadOnly }) =>
-    isReadOnly &&
-    css`
-      ${Background.color('Primary075')};
-      ${Border.color('Primary075')};
-    `}
-
-  ${({ isDisabled }) =>
-    isDisabled &&
-    css`
-      ${Foreground.color('TextDisabled')}
-      ${Background.color('BackgroundDisabled')};
-      ${Border.color('BackgroundDisabled')};
-    `}
-`;
-
-const IconWrapper = styled.span<{
-  position: 'left' | 'right';
-  isDisabled?: boolean;
-}>`
-  ${({ isDisabled }) =>
-    Foreground.color(isDisabled ? 'TextDisabled' : 'Gray600')}
-
-  ${({ position }) =>
-    position === 'right' ? Margin({ left: 0.75 }) : Margin({ right: 0.75 })}
-`;
-
-const Prefix = styled.div`
-  ${Cursor.noEvents}
-  ${Flex.items.shrink(0)}
-  ${Margin({ left: 0.5 })}
-  ${Foreground.color('Gray600')};
-`;
-
-const InputElement = styled.input`
-  ${Border.none};
-  ${Foreground.color('OnWhite')};
-  ${Background.color('Transparent')};
-  ${FontSize.L20};
-  ${Padding({ block: 0.25 })}
-  ${Size.fullWidth};
-  outline: none;
-
-  &::placeholder {
-    ${Foreground.color('Gray600')}
-    ${Opacity.to(1)}
-  }
-`;

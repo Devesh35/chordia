@@ -1,119 +1,41 @@
-'use client';
-
-import { FooterDetails } from '@md/blaunk/config';
-import {
-  Background,
-  BorderRadius,
-  Cursor,
-  Flex,
-  FontSize,
-  Foreground,
-  Position,
-  Shadows,
-} from '@li/config/design';
 import { Facebook, Gmail, Instagram, LinkedIn } from '@li/design/icons';
-import styled from '@emotion/styled';
+import styles from './page-footer.module.css';
+import { FooterDetails } from '@md/blaunk/config';
+import { gs } from '@li/config/design';
 
 export const PageFooter = () => {
   return (
-    <Wrapper>
-      <DetailsWrapper>
+    <div className={styles.wrapper}>
+      <div className={styles.details}>
         {FooterDetails.map((details) => (
-          <DetailsSection id={details.title} key={details.title}>
-            <DetailsTitle>{details.title}</DetailsTitle>
+          <div id={details.title} key={details.title}>
+            <div className={styles.title}>{details.title}</div>
             {details.items.map((item) => (
-              <DetailLabel key={item.label}>{item.label}</DetailLabel>
+              <div className={styles.label} key={item.label}>
+                {item.label}
+              </div>
             ))}
-          </DetailsSection>
+          </div>
         ))}
-      </DetailsWrapper>
-      <ConnectWrapper>
-        <Icon>
+      </div>
+      <div className={styles.content}>
+        <div className={styles.icon}>
           <Gmail />
-        </Icon>
-        <Icon>
+        </div>
+        <div className={styles.icon}>
           <LinkedIn />
-        </Icon>
-        <Icon>
+        </div>
+        <div className={styles.icon}>
           <Facebook />
-        </Icon>
-        <Icon>
+        </div>
+        <div className={styles.icon}>
           <Instagram />
-        </Icon>
-      </ConnectWrapper>
-      <CopyrightWrapper>
-        <CopyrightItem>© 2021 Copyright</CopyrightItem>
-        <CopyrightItem>Blaunk.com</CopyrightItem>
-      </CopyrightWrapper>
-    </Wrapper>
+        </div>
+      </div>
+      <div className={styles.copyright}>
+        <div className={gs.clickable}>© 2021 Copyright</div>
+        <div className={gs.clickable}>Blaunk.com</div>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Background.color('Primary')}
-`;
-
-const DetailsWrapper = styled.div`
-  ${Flex({ justify: 'space-around' })}
-  padding: 24px 0;
-  width: 60%;
-  margin: 0 auto;
-`;
-
-const DetailsSection = styled.div``;
-
-const DetailsTitle = styled.div`
-  ${FontSize.H5}
-  ${Position.relative}
-  ${Foreground.color('OnPrimaryAccent')}
-  margin-bottom: 8px;
-  &:before {
-    content: '';
-    ${Position.absolute}
-    width: 6px;
-    height: 2ch;
-    ${Background.color('PrimaryDark')}
-    ${BorderRadius.Default}
-    left: -12px;
-  }
-`;
-
-const DetailLabel = styled.div`
-  ${FontSize.P16}
-  ${Foreground.color('OnPrimary')}
-  ${Cursor.pointer}
-`;
-
-const ConnectWrapper = styled.div`
-  ${Flex({ justify: 'center', align: 'center', gap: 24 })}
-  padding: 24px 0;
-  ${FontSize.P16}
-  ${Foreground.color('White')}
-`;
-
-const Icon = styled.div`
-  ${Background.color('White')}
-  ${BorderRadius.Rounded};
-  ${Cursor.pointer}
-  ${Shadows.m};
-  width: 48px;
-  height: 48px;
-  padding: 8px;
-  & > * {
-    width: 32px;
-    height: 32px;
-    margin: auto;
-  }
-`;
-
-const CopyrightWrapper = styled.div`
-  ${Background.color('PrimaryDark')}
-  ${Foreground.color('OnPrimaryDarkAccent')}
-  ${Flex({ justify: 'center', gap: 48, align: 'center' })}
-  padding: 12px;
-  ${FontSize.P14}
-`;
-
-const CopyrightItem = styled.span`
-  ${Cursor.pointer}
-`;

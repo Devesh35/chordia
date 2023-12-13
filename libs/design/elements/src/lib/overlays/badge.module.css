@@ -1,0 +1,20 @@
+.wrapper {
+  position: relative;
+  display: flex;
+}
+
+.content {
+  font-size: var(--font-size-l12);
+  line-height: var(--line-height-l12);
+  position: absolute;
+  padding: 10px;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: var(--red);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

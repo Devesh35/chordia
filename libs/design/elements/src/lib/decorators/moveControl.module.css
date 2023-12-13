@@ -1,0 +1,64 @@
+.wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.item {
+  border-radius: var(--border-radius-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  cursor: pointer;
+  pointer-events: all;
+  min-width: 48px;
+  min-height: 48px;
+}
+.item > svg {
+  fill: transparent;
+  width: 36px;
+  height: 36px;
+}
+
+.large {
+  padding: 24px;
+  min-width: 96px;
+  min-height: 96px;
+}
+.large > svg {
+  width: 48px;
+  height: 48px;
+}
+
+.light {
+  background-color: var(--transparent20);
+}
+.light > svg {
+  stroke: var(--transparentw60);
+}
+.light:hover {
+  background-color: var(--transparent40);
+}
+.light > svg:hover {
+  stroke: var(--transparentw80);
+}
+
+.dark {
+  background-color: var(--transparent60);
+}
+.dark > svg {
+  stroke: var(--transparentw60);
+}
+
+.dark:hover {
+  background-color: var(--transparent80);
+}
+
+.dark > svg:hover {
+  stroke: var(--transparentw80);
+}

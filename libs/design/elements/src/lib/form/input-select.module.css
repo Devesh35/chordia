@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  height: 48px;
+  border-radius: var(--border-radius-medium);
+  border: var(--border-width-medium) solid var(--gray300);
+}
+.wrapper:hover {
+  border-color: var(--gray500);
+}
+
+.input {
+  border: none;
+  height: 44px;
+  border-radius: 4px 0 0 4px;
+}
+.input:hover {
+  border: none;
+  outline: none;
+}
+
+.select {
+  border: none;
+  height: 44px;
+  border-radius: 0 4px 4px 0;
+}
+.select:hover {
+  border: none;
+  outline: none;
+}

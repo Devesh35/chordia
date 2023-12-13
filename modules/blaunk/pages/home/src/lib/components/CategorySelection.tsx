@@ -1,16 +1,8 @@
-import {
-  Background,
-  BorderRadius,
-  Colors,
-  Cursor,
-  FontSize,
-  Overflow,
-  ScrollBar,
-  Size,
-} from '@li/config/design';
 import { Accordion } from '@li/design/elements';
-import styled from '@emotion/styled';
 import { MenuCategories } from '@md/blaunk/config';
+import styles from './category-selection.module.css';
+import clsx from 'clsx';
+import { sbs } from '@li/config/design';
 
 type Props = {
   selectedCategory: string;
@@ -22,62 +14,36 @@ export const CategorySelection = ({
   setSelectedCategory,
 }: Props) => {
   return (
-    <CategoryWrapper>
-      <CategoryScroll>
+    <div className={styles.wrapper}>
+      <div className={clsx(styles.scroll, sbs.dark)}>
         {MenuCategories.map((category) =>
           category.subItems ? (
             <Accordion key={category.id} title={category.name}>
               {category.subItems.map((subItem) => (
-                <CategoryItem
+                <div
+                  className={clsx(styles.item, styles['sub-item'], {
+                    [styles.selected]: subItem.id === selectedCategory,
+                  })}
                   key={subItem.id}
-                  isSubItem
                   onClick={() => setSelectedCategory(subItem.id)}
-                  isSelected={subItem.id === selectedCategory}
                 >
                   {subItem.name}
-                </CategoryItem>
+                </div>
               ))}
             </Accordion>
           ) : (
-            <CategoryItem
+            <div
+              className={clsx(styles.item, {
+                [styles.selected]: category.id === selectedCategory,
+              })}
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              isSelected={category.id === selectedCategory}
             >
               {category.name}
-            </CategoryItem>
+            </div>
           ),
         )}
-      </CategoryScroll>
-    </CategoryWrapper>
+      </div>
+    </div>
   );
 };
-
-const CategoryWrapper = styled.div`
-  ${Size.full}
-  ${Overflow.hidden}
-  ${BorderRadius.Medium}
-`;
-
-const CategoryScroll = styled.div`
-  ${Size.full}
-  ${ScrollBar.dark}
-  ${Overflow.scroll('y')}
-`;
-
-const CategoryItem = styled.div<{ isSelected: boolean; isSubItem?: true }>`
-  padding: 12px;
-  ${({ isSubItem }) => isSubItem && `padding-left: 24px`};
-  ${FontSize.P16}
-  ${Size.fullWidth}
-  ${Cursor.pointer}
-  ${({ isSelected }) =>
-    Background.color(isSelected ? 'SecondaryDark' : 'Secondary')}
-  border-bottom: 1px solid ${Colors.SecondaryDark};
-  &:last-of-type {
-    border-bottom: none;
-  }
-  &:hover {
-    ${Background.color('SecondaryDark')}
-  }
-`;

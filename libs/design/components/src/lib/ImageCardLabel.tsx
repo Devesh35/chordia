@@ -1,18 +1,8 @@
-import {
-  Background,
-  Border,
-  BorderRadius,
-  Colors,
-  Cursor,
-  Flex,
-  Overflow,
-  Position,
-  Size,
-} from '@li/config/design';
-import styled from '@emotion/styled';
 import Image from 'next/image';
-import { css } from '@emotion/react';
 import { NextImage } from '@li/types/shared';
+import styles from './image-card-overlay.module.css';
+import clsx from 'clsx';
+import { gs } from '@li/config/design';
 
 type Props = {
   image: NextImage;
@@ -28,47 +18,20 @@ export const ImageCardOverlay = ({
   isClickable = false,
 }: Props) => {
   return (
-    <Wrapper
-      width={image.width}
-      height={image.height}
-      isClickable={isClickable}
+    <div
+      className={clsx(styles.wrapper, {
+        [gs.clickable]: isClickable,
+      })}
+      style={{
+        width: image.width,
+        height: image.height,
+      }}
     >
       <Image {...image} />
-      <Overlay>
-        {top || <Spacer />}
+      <div className={styles.overlay}>
+        {top || <div />}
         {bottom}
-      </Overlay>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div<{
-  width: number;
-  height: number;
-  isClickable: boolean;
-}>`
-  ${({ width, height }) => css`
-    width: ${width}px;
-    height: ${height}px;
-  `}
-  ${BorderRadius.Large}
-  ${Overflow.hidden}
-  ${Position.relative}
-  ${Border.simple('PrimaryDark')}
-  ${({ isClickable }) => (isClickable ? Cursor.pointer : undefined)};
-`;
-
-const Overlay = styled.div`
-  ${Position.absolute}
-  inset: 0;
-  ${Size.fullMax}
-  ${Background.gradient(
-    'to bottom',
-    `${Colors.Transparent} 60%`,
-    `${Colors.Transparent40} 100%`,
-  )}
-  ${Flex({ direction: 'column', justify: 'space-between' })}
-  padding: 8px 12px;
-`;
-
-const Spacer = styled.div``;

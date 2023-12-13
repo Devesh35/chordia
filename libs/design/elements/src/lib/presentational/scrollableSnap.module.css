@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+}
+.wrapper * {
+  scroll-snap-align: start;
+}

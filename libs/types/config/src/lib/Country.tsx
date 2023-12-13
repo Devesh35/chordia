@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type CountryCode =
   | 'ad'
   | 'ae'
@@ -201,7 +203,7 @@ export type CountryCode =
 export type CountryFlag = {
   color: string;
   colorOnColor: string;
-  Flag: React.FC<React.SVGProps<SVGSVGElement>>;
+  Flag: ReactNode;
 };
 export type CountryName = string;
 

@@ -1,76 +1,37 @@
-'use client';
-import {
-  Background,
-  BorderRadius,
-  Cursor,
-  Flex,
-  FontSize,
-  Foreground,
-  Size,
-} from '@li/config/design';
-import styled from '@emotion/styled';
 import Image from 'next/image';
 import { Badge, Input } from '@li/design/elements';
 import { Cart, DownFilled, Microphone, Search } from '@li/design/icons';
-import { Constants, logoLarge } from '@md/blaunk/config';
+import { logoLarge } from '@md/blaunk/config';
+import styles from './navHeader.module.css';
 
 export const NavHeader = () => {
   return (
-    <Wrapper>
+    <div className={styles.wrapper}>
       <Image src={logoLarge} alt="logo" height={36} width={160} />
 
-      <SearchInput
-        iconLeft={<StyledSearch />}
-        iconRight={<StyledMic />}
+      <Input
+        className={styles.input}
+        iconLeft={<Search />}
+        iconRight={<Microphone />}
         placeholder="Search for products, brands and more"
       />
 
-      <ItemsStack>
-        <ItemWrapper>
-          Welcome <DownFilled />
-        </ItemWrapper>
-        <ItemWrapper>
+      <div className={styles.items}>
+        <div className={styles.item}>
+          Welcome
+          <DownFilled fill="white" width={20} height={20} />
+        </div>
+        <div className={styles.item}>
           Cart
           <Badge content={3}>
-            <Cart />
+            <Cart stroke="var(--onprimarydarkaccent)" width={24} height={24} />
           </Badge>
-        </ItemWrapper>
-        <ItemWrapper>
-          Login <DownFilled />
-        </ItemWrapper>
-      </ItemsStack>
-    </Wrapper>
+        </div>
+        <div className={styles.item}>
+          Login
+          <DownFilled fill="white" width={20} height={20} />
+        </div>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Size.fullWidth};
-  ${Flex({ align: 'center', gap: 24 })}
-  padding: 8px 24px;
-  height: ${Constants.navHeaderHeight};
-  max-height: ${Constants.navHeaderHeight};
-  ${Background.color('PrimaryDark')};
-  ${Foreground.color('OnPrimaryDark')};
-`;
-
-const SearchInput = styled(Input)`
-  width: 620px;
-  ${BorderRadius.Large}
-`;
-
-const StyledSearch = styled(Search)``;
-
-const StyledMic = styled(Microphone)`
-  ${Cursor.pointer};
-`;
-
-const ItemsStack = styled.div`
-  ${Flex({})}
-  ${FontSize.H4};
-  margin: 0 auto;
-`;
-const ItemWrapper = styled.div`
-  ${Flex({ gap: 8, align: 'center' })}
-
-  padding: 12px;
-`;

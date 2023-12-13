@@ -1,24 +1,10 @@
-import {
-  Background,
-  Border,
-  BorderRadius,
-  Colors,
-  Cursor,
-  Flex,
-  FontSize,
-  Layers,
-  Overflow,
-  Padding,
-  Position,
-  ScrollBar,
-  Size,
-  TransitionDuration,
-  TransitionProperty,
-  TransitionTimingFunctions,
-} from '@li/config/design';
+'use client';
+
 import { DownFilled } from '@li/design/icons';
-import styled from '@emotion/styled';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
+import styles from './select.module.css';
+import { sbs } from '@li/config/design';
 
 export type SelectItem<K extends string = string> = {
   id: K;
@@ -29,17 +15,23 @@ export type SelectProps<K extends string = string> = {
   options: SelectItem<K>[];
   className?: string;
   placeholder?: string;
+  Header?: React.ReactNode;
+  defaultItem?: SelectItem<K>;
   onChange?: (item?: SelectItem<K>) => void;
 };
 
 export const Select = <K extends string = string>({
+  Header,
   options,
   onChange,
   className,
+  defaultItem,
   placeholder,
 }: SelectProps<K>) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<SelectItem<K>>();
+  const [selected, setSelected] = useState<SelectItem<K> | undefined>(
+    defaultItem,
+  );
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -60,90 +52,38 @@ export const Select = <K extends string = string>({
   };
 
   return (
-    <Wrapper className={className}>
-      <Header onClick={toggleAccordion}>
-        <Title>{selected?.item || placeholder || 'Select'}</Title>
-        <Icon isOpen={isOpen}>
+    <div className={clsx(styles.wrapper, className)}>
+      <div className={styles.header} onClick={toggleAccordion}>
+        {Header ? (
+          Header
+        ) : (
+          <span
+            className={clsx(styles.title, {
+              [styles['title-selected']]: !!selected?.id,
+            })}
+          >
+            {selected?.item || placeholder || 'Select'}
+          </span>
+        )}
+        <div className={clsx(styles.icon, { [styles['icon-active']]: isOpen })}>
           <DownFilled />
-        </Icon>
-      </Header>
-      <OptionWrapper
-        isOpen={isOpen}
+        </div>
+      </div>
+      <div
+        className={clsx(styles['option-wrapper'], sbs.none)}
+        style={{ height: isOpen ? contentHeight : '0' }}
         ref={contentRef}
-        contentHeight={contentHeight}
       >
         {options.map((o) => (
-          <Option onClick={() => onSelect(o)} key={o.id}>
+          <div
+            className={clsx(styles.item, styles.option)}
+            onClick={() => onSelect(o)}
+            key={o.id}
+          >
             {o.item}
-          </Option>
+          </div>
         ))}
-      </OptionWrapper>
-    </Wrapper>
+      </div>
+    </div>
   );
 };
-
-const Wrapper = styled.div`
-  ${Size.fullWidth}
-  ${Position.relative}
-`;
-
-const Item = styled.div`
-  ${FontSize.L16}
-  ${Layers.First}
-  ${Cursor.pointer}
-  ${Size.height(48)}
-  ${Padding.all(0.75)}
-  ${Background.color('White')}
-  ${Flex({ align: 'center', justify: 'space-between' })}
-`;
-
-const Header = styled(Item)`
-  ${BorderRadius.Medium}
-  ${Border.medium('Gray300')};
-  &:focus-within {
-    ${Border.color('Primary500')};
-    outline: 1px solid ${Colors.Primary500};
-  }
-  &:hover {
-    ${Border.color('Gray500')};
-  }
-`;
-
-const Title = styled.span`
-  ${FontSize.H6}
-`;
-
-const Icon = styled.div<{ isOpen: boolean }>`
-  ${Flex()}
-  ${Size.width(16)}
-  ${Size.height(16)}
-  transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(0deg)')};
-  ${TransitionProperty('transform')}
-  ${TransitionDuration.fast}
-  ${TransitionTimingFunctions.easeOut}
-`;
-
-const OptionWrapper = styled.div<{
-  isOpen: boolean;
-  contentHeight: number;
-}>`
-  ${Size.full}
-  ${Layers.First}
-  ${Position.absolute}
-  ${(props) => Size.height(props.isOpen ? props.contentHeight : '0')}
-  ${TransitionProperty('height')}
-  ${TransitionDuration.veryFast}
-  ${TransitionTimingFunctions.default}
-  ${ScrollBar.none}
-  ${BorderRadius.Medium}
-  ${Overflow.scroll('y')}
-`;
-
-const Option = styled(Item)`
-  ${Size.fullWidth}
-  ${Position.relative}
-  border-bottom: 1px solid ${Colors.Divider};
-  &:last-of-type {
-    ${Border.none}
-  }
-`;

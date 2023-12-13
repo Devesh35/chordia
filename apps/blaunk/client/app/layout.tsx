@@ -1,6 +1,9 @@
+import clsx from 'clsx';
 import './global.css';
 import styles from './base.module.css';
+import blaunkStyles from './blaunk.module.css';
 import { MenuBar, NavHeader, PageFooter } from '@md/blaunk/pages/layout';
+import { rs, sbs } from '@li/config/design';
 
 export const metadata = {
   title: 'Welcome to Blaunk',
@@ -13,14 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={clsx(rs.root, blaunkStyles.base)}>
       <title>Blaunk</title>
-      <body>
+      <body className={blaunkStyles.base}>
         <div className={styles.root}>
           <div className={styles.background}>
             <div className={styles.layout}>
               <NavHeader />
-              <div className={`${styles.content} ${styles.scrollbar}`}>
+              <div className={`${styles.content} ${sbs.dark}`}>
                 <MenuBar />
                 <div className={styles.pages}>{children}</div>
                 <PageFooter />
