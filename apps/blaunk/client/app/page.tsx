@@ -1,5 +1,8 @@
-import { Home } from '@md/blaunk/pages/home';
+import { Routes } from '@md/blaunk/config';
+import { redirect } from 'next/navigation';
 
-export default async function Index() {
-  return <Home />;
-}
+const page = () => {
+  redirect(Routes.home.path);
+};
+
+export default page;

@@ -1,11 +1,11 @@
 'use client';
 import React, { useState } from 'react';
 import { Accordion, AccordionProps } from './Accordion';
+import { ReactChildren } from '@li/types/shared';
 
 type Props = {
   title: string;
-  children: React.ReactNode;
-};
+} & ReactChildren;
 
 export const NestedAccordion = ({ title, children }: Props) => {
   const [parentHeight, setParentHeight] = useState(0);

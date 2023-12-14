@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-semibold);
+}
+
+.action {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.signup {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+  text-align: center;
+}
+
+.signup a {
+  text-decoration: none;
+}
+
+.signup span {
+  color: var(--primary);
+  cursor: pointer;
+}

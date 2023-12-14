@@ -22,7 +22,7 @@ const SocialItem = ({ label, i }: { label: string; i: number }) => (
     details={
       <div className={styles.details}>
         {label}
-        <Divider color="Gray800" />
+        <Divider color="var(--gray800)" />
         <div className={styles['social-link']}>Click here</div>
       </div>
     }

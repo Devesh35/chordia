@@ -16,6 +16,10 @@
   border-color: var(--primary500);
 }
 
+.wrapper:hover {
+  border: var(--border-width-small) solid var(--gray600);
+}
+
 .readonly {
   background-color: var(--primary075);
   border-color: var(--primary075);

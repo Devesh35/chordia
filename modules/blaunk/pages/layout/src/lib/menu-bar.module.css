@@ -13,7 +13,7 @@
 }
 
 .name {
-  color: var(--onprimary);
+  color: var(--onprimaryaccent);
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
 }

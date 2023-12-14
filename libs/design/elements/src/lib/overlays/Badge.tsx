@@ -1,10 +1,10 @@
+import { ReactChildren } from '@li/types/shared';
 import styles from './badge.module.css';
 
 export type BadgeProps = {
   width?: number;
   content?: React.ReactNode;
-  children: React.ReactNode;
-};
+} & ReactChildren;
 
 export const Badge = ({ children, content, width = 12 }: BadgeProps) => {
   return (

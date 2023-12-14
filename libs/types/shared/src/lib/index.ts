@@ -1,1 +1,1 @@
-export type { NextImage } from './Common';
+export type { NextImage, ReactChildren } from './Common';

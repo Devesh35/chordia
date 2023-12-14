@@ -1,11 +1,11 @@
-import { useIntersection } from "@li/design/hooks";
-import React from "react";
+import { useIntersection } from '@li/design/hooks';
+import { ReactChildren } from '@li/types/shared';
+import React from 'react';
 
 type WrapperProps = {
-  children: React.ReactNode;
   options?: IntersectionObserverInit;
   onIntersection: IntersectionObserverCallback;
-};
+} & ReactChildren;
 
 export const IntersectionWrapper = ({
   options,

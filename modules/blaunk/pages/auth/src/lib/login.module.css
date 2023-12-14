@@ -1,0 +1,22 @@
+.wrapper {
+  width: 60vw;
+  min-width: 240px;
+  max-width: 1440px;
+  display: flex;
+  margin: 2rem auto;
+  border-radius: var(--border-radius-xlarge);
+  box-shadow: var(--box-shadow-l);
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.image {
+  flex: 0 1 60%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.form {
+  flex: 1 0.5 30%;
+  min-width: 240px;
+}

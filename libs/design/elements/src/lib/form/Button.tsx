@@ -1,16 +1,17 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
 import styles from './button.module.css';
+import { ReactChildren } from '@li/types/shared';
 
 type Variant = 'primary' | 'outline' | 'text';
 
 export type ButtonProps = {
   variant?: Variant;
-  children: ReactNode;
   isDisabled?: boolean;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+} & React.ButtonHTMLAttributes<HTMLButtonElement> &
+  ReactChildren;
 
 export const Button = ({
   children,
