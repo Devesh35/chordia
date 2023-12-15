@@ -1,5 +1,6 @@
-import { Home } from '@md/blaunk/pages/home';
+import { Routes } from '@md/blaunk/config';
+import { redirect } from 'next/navigation';
 
 export default async function Index() {
-  return <Home />;
+  redirect(Routes.home.b2b.path);
 }
