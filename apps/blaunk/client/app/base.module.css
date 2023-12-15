@@ -52,7 +52,3 @@
   cursor: pointer;
   margin-inline: auto;
 }
-
-.full-page {
-  min-height: 100vh;
-}
