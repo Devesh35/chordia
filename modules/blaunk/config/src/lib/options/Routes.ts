@@ -41,4 +41,41 @@ export const Routes = {
       path: '/auth/logout',
     },
   },
+  b2b: {
+    home: {
+      isProtected: true,
+      title: 'B2B-Home | Blaunk',
+      path: '/b2b/home',
+    },
+    profile: {
+      isProtected: true,
+      title: 'B2B-Profile | Blaunk',
+      path: '/b2b/profile',
+    },
+    agreement: {
+      isProtected: true,
+      title: 'B2B-Agreement | Blaunk',
+      path: '/b2b/agreement',
+    },
+    sell: {
+      isProtected: true,
+      title: 'B2B-Sell | Blaunk',
+      path: '/b2b/sell',
+    },
+    buy: {
+      isProtected: true,
+      title: 'B2B-Buy | Blaunk',
+      path: '/b2b/buy',
+    },
+    cart: {
+      isProtected: true,
+      title: 'B2B-Cart | Blaunk',
+      path: '/b2b/cart',
+    },
+    order: {
+      isProtected: true,
+      title: 'B2B-Order | Blaunk',
+      path: '/b2b/order',
+    },
+  },
 } as const;
