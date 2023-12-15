@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { Badge, Input } from '@li/design/elements';
+import { Badge, Input, Link } from '@li/design/elements';
 import { Cart, DownFilled, Microphone, Search } from '@li/design/icons';
 import { Routes, logoLarge } from '@md/blaunk/config';
 import styles from './navHeader.module.css';
-import Link from 'next/link';
 import { gs } from '@li/config/design';
 
 export const NavHeader = () => {
@@ -31,7 +30,7 @@ export const NavHeader = () => {
             <Cart stroke="var(--onprimarydarkaccent)" width={24} height={24} />
           </Badge>
         </div>
-        <Link href={Routes.login.path}>
+        <Link href={Routes.auth.login.path}>
           <div className={styles.item}>Login</div>
         </Link>
       </div>

@@ -20,19 +20,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-.signup {
   font-size: var(--font-size-h6);
   line-height: var(--line-height-h6);
-  text-align: center;
 }
 
-.signup a {
-  text-decoration: none;
-}
-
-.signup span {
-  color: var(--primary);
-  cursor: pointer;
+.forgot {
+  text-align: right;
 }

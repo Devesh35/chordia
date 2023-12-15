@@ -1,13 +1,13 @@
 import { ReactChildren } from '@li/types/shared';
-import { Routes } from '@md/blaunk/config';
+import React from 'react';
 import styles from '../base.module.css';
+import { AuthLayout } from '@md/blaunk/pages/auth';
 
 const Layout = ({ children }: ReactChildren) => {
   return (
-    <>
-      <title>{Routes.login.title}</title>
-      <div className={styles.pages}>{children}</div>
-    </>
+    <div className={styles.pages}>
+      <AuthLayout>{children}</AuthLayout>
+    </div>
   );
 };
 

@@ -8,3 +8,7 @@ export type NextImage = {
 export type ReactChildren = {
   children: React.ReactNode;
 };
+
+export type ClassName = {
+  className: string;
+};

@@ -1,10 +1,9 @@
 import Image from 'next/image';
 import styles from './login.module.css';
 import { randomImageUrl } from '@md/blaunk/config';
-import { LoginForm } from './LoginForm';
-import { SignupForm } from './SignupForm';
+import { ReactChildren } from '@li/types/shared';
 
-export const Auth = ({ isNewUser }: { isNewUser?: boolean }) => {
+export const AuthLayout = ({ children }: ReactChildren) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.image}>
@@ -15,9 +14,7 @@ export const Auth = ({ isNewUser }: { isNewUser?: boolean }) => {
           alt="login"
         />
       </div>
-      <div className={styles.form}>
-        {isNewUser ? <SignupForm /> : <LoginForm />}
-      </div>
+      <div className={styles.form}>{children}</div>
     </div>
   );
 };

@@ -1,6 +1,11 @@
-import { Button, Input, Labeled } from '@li/design/elements';
-import styles from './login-form.module.css';
-import Link from 'next/link';
+import {
+  Button,
+  Input,
+  Labeled,
+  Link,
+  PasswordInput,
+} from '@li/design/elements';
+import styles from './common.module.css';
 import { Routes } from '@md/blaunk/config';
 
 export const LoginForm = () => {
@@ -11,16 +16,17 @@ export const LoginForm = () => {
         <Input placeholder="Enter your email" type="email" />
       </Labeled>
       <Labeled label="Password">
-        <Input placeholder="Enter your password" type="password" />
+        <PasswordInput placeholder="Enter your password" />
       </Labeled>
       <div className={styles.action}>
+        <Link href={Routes.auth.forgot.path} className={styles.forgot}>
+          Reset password?
+        </Link>
         <Button>Login</Button>
-        <div className={styles.signup}>
+        <span>
           Don't have an account?{' '}
-          <Link href={Routes.signup.path}>
-            <span>Sign up</span>
-          </Link>
-        </div>
+          <Link href={Routes.auth.signup.path}>Sign up</Link>
+        </span>
       </div>
     </div>
   );
