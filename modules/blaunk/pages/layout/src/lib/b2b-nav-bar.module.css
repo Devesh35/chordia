@@ -1,0 +1,17 @@
+.wrapper {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  height: var(--b2b-nav-bar-height);
+  max-height: var(--b2b-nav-bar-height);
+  background-color: var(--primary500);
+
+  gap: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper > a {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  color: var(--onprimarydark);
+}
