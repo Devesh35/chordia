@@ -19,10 +19,10 @@ export default function RootLayout({ children }: ReactChildren) {
           <div className={styles.background}>
             <div className={styles.layout}>
               <NavHeader />
-              <main className={`${styles.content} ${sbs.dark}`}>
+              <div className={`${styles.content} ${sbs.dark}`}>
                 {children}
                 <PageFooter />
-              </main>
+              </div>
             </div>
           </div>
         </div>
