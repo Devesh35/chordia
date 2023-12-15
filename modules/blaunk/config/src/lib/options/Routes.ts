@@ -72,10 +72,10 @@ export const Routes = {
       title: 'B2B-Cart | Blaunk',
       path: '/b2b/cart',
     },
-    orders: {
+    order: {
       isProtected: true,
-      title: 'B2B-Orders | Blaunk',
-      path: '/b2b/orders',
+      title: 'B2B-Order | Blaunk',
+      path: '/b2b/order',
     },
   },
 } as const;

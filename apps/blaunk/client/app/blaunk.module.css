@@ -1,6 +1,7 @@
 .base {
   --nav-header-height: 64px;
   --menu-bar-height: 96px;
+  --b2b-nav-bar-height: 64px;
   --home-banner-image-size-max: 700px;
   --home-banner-image-size-min: 500px;
 }
