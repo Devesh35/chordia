@@ -3,6 +3,11 @@ export const Routes = {
     isProtected: false,
     title: 'Home | Blaunk',
     path: '/home',
+    b2b: {
+      isProtected: false,
+      title: 'Home-B2B | Blaunk',
+      path: '/home/b2b',
+    },
   },
   auth: {
     login: {
