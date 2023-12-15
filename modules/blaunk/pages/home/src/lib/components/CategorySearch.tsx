@@ -34,7 +34,7 @@ export const CategorySearch = () => {
               SubCategories[selectedCategory] || [{ id: 'all', label: 'All' }]
             }
           />
-          {<Divider color="Primary" />}
+          {<Divider color="var(--primary)" />}
           <div className={clsx(styles['item-wrapper'], sbs.dark)}>
             {images.map((src) => (
               <ImageCardOverlay

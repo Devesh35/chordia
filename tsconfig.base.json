@@ -33,6 +33,7 @@
       "@md/blaunk/design": ["modules/blaunk/design/src/index.ts"],
       "@md/blaunk/pages/home": ["modules/blaunk/pages/home/src/index.ts"],
       "@md/blaunk/pages/layout": ["modules/blaunk/pages/layout/src/index.ts"],
+      "@md/blaunk/pages/auth": ["modules/blaunk/pages/auth/src/index.ts"],
       "@md/blaunk/types": ["modules/blaunk/types/src/index.ts"]
     }
   },

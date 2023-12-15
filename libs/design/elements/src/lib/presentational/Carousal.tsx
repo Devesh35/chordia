@@ -10,13 +10,13 @@ import { PaginationDots } from '../decorators';
 import { MoveControl } from '../decorators/MoveControl';
 import clsx from 'clsx';
 import styles from './carousal.module.css';
+import { ReactChildren } from '@li/types/shared';
 
 type Variant = 'light' | 'dark';
 type ControlSize = 'small' | 'large';
 type PaginationDirection = 'left' | 'bottom' | 'right';
 
 export type CarousalProps = {
-  children: React.ReactNode;
   autoInterval?: number;
   hideControls?: true;
   hidePagination?: true;
@@ -25,7 +25,7 @@ export type CarousalProps = {
   pagination?: PaginationDirection;
   className?: string;
   variant?: Variant;
-};
+} & ReactChildren;
 
 export const Carousal = forwardRef<
   HTMLDivElement,

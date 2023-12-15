@@ -1,10 +1,9 @@
-import React from 'react';
 import styles from './labeled.module.css';
+import { ReactChildren } from '@li/types/shared';
 
 type Props = {
   label: string;
-  children: React.ReactNode;
-};
+} & ReactChildren;
 
 export const Labeled = ({ label, children }: Props) => (
   <div>

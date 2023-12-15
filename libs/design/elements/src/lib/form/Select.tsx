@@ -56,7 +56,7 @@ export const Select = <K extends string = string>({
       <div className={styles.header} onClick={toggleAccordion}>
         {Header ? (
           Header
-        ) : (
+        ) : ( 
           <span
             className={clsx(styles.title, {
               [styles['title-selected']]: !!selected?.id,

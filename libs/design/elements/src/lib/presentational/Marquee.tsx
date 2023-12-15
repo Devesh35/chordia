@@ -1,16 +1,16 @@
 'use client';
 
 import clsx from 'clsx';
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './marquee.module.css';
+import { ReactChildren } from '@li/types/shared';
 
 type MarqueeProps = {
-  children: ReactNode;
   className?: string;
   pauseOhHover?: boolean;
   isInfinite?: boolean;
   itemsGap?: number;
-};
+} & ReactChildren;
 
 export const Marquee = ({
   children,

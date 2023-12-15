@@ -1,0 +1,1 @@
+export { withPageTitle } from './withPageTitle';

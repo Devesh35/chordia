@@ -8,3 +8,5 @@ export { RightArrow as AngleRight } from './RightArrow';
 export { Search } from './Search';
 export { Star } from './Star';
 export { StarHalf } from './StarHalf';
+export { Visibility } from './Visibility';
+export { VisibilityOff } from './VisibilityOff';

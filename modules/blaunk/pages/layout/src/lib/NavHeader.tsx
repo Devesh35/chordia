@@ -1,18 +1,21 @@
 import Image from 'next/image';
-import { Badge, Input } from '@li/design/elements';
+import { Badge, Input, Link } from '@li/design/elements';
 import { Cart, DownFilled, Microphone, Search } from '@li/design/icons';
-import { logoLarge } from '@md/blaunk/config';
+import { Routes, logoLarge } from '@md/blaunk/config';
 import styles from './navHeader.module.css';
+import { gs } from '@li/config/design';
 
 export const NavHeader = () => {
   return (
     <div className={styles.wrapper}>
-      <Image src={logoLarge} alt="logo" height={36} width={160} />
+      <Link href={Routes.home.path}>
+        <Image src={logoLarge} alt="logo" height={36} width={160} />
+      </Link>
 
       <Input
         className={styles.input}
         iconLeft={<Search />}
-        iconRight={<Microphone />}
+        iconRight={<Microphone className={gs.clickable} />}
         placeholder="Search for products, brands and more"
       />
 
@@ -27,10 +30,9 @@ export const NavHeader = () => {
             <Cart stroke="var(--onprimarydarkaccent)" width={24} height={24} />
           </Badge>
         </div>
-        <div className={styles.item}>
-          Login
-          <DownFilled fill="white" width={20} height={20} />
-        </div>
+        <Link href={Routes.auth.login.path}>
+          <div className={styles.item}>Login</div>
+        </Link>
       </div>
     </div>
   );

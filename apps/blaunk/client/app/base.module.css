@@ -23,9 +23,32 @@
   flex: 1;
   overflow-y: auto;
   max-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .pages {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.error {
+  flex: 1;
+  padding: 2rem;
+  font-size: 2rem;
+  line-height: 2.2rem;
+}
+.error > h2 {
+  margin-bottom: 1rem;
+}
+.error > button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: #6d751d;
+  color: #fcf4cb;
+  text-align: center;
+  cursor: pointer;
+  margin-inline: auto;
 }

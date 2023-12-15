@@ -4,3 +4,11 @@ export type NextImage = {
   width: number;
   height: number;
 };
+
+export type ReactChildren = {
+  children: React.ReactNode;
+};
+
+export type ClassName = {
+  className: string;
+};

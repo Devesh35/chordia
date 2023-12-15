@@ -12,6 +12,7 @@
 .items {
   display: flex;
   margin: 0 auto;
+  gap: 24px;
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
 }
@@ -21,7 +22,7 @@
   gap: 8px;
   align-items: center;
   color: var(--onprimarydark);
-  padding: 0.75rem;
+  cursor: pointer;
 }
 
 .search {
