@@ -31,9 +31,10 @@
       "@li/types/shared": ["libs/types/shared/src/index.ts"],
       "@md/blaunk/config": ["modules/blaunk/config/src/index.ts"],
       "@md/blaunk/design": ["modules/blaunk/design/src/index.ts"],
+      "@md/blaunk/pages/auth": ["modules/blaunk/pages/auth/src/index.ts"],
+      "@md/blaunk/pages/b2b": ["modules/blaunk/pages/b2b/src/index.ts"],
       "@md/blaunk/pages/home": ["modules/blaunk/pages/home/src/index.ts"],
       "@md/blaunk/pages/layout": ["modules/blaunk/pages/layout/src/index.ts"],
-      "@md/blaunk/pages/auth": ["modules/blaunk/pages/auth/src/index.ts"],
       "@md/blaunk/types": ["modules/blaunk/types/src/index.ts"]
     }
   },

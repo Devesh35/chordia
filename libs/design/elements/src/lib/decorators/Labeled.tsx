@@ -7,7 +7,7 @@ type Props = {
 
 export const Labeled = ({ label, children }: Props) => (
   <div>
-    <div className={styles.label}>{label}</div>
+    <label className={styles.label}>{label}</label>
     {children}
   </div>
 );
