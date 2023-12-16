@@ -14,6 +14,8 @@ export const CustomerReviews = () => {
               <div className={styles['review-group']} key={i}>
                 <ReviewCard i={3 * i + 0} key={i + 0} />
                 <ReviewCard i={3 * i + 1} key={i + 1} />
+                <ReviewCard i={3 * i + 2} key={i + 2} />
+                <ReviewCard i={3 * i + 3} key={i + 3} />
               </div>
             ))}
         </Carousal>

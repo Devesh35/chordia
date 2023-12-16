@@ -1,7 +1,6 @@
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { Carousal } from '@li/design/elements';
 import Image from 'next/image';
-import { SectionHeader } from '@md/blaunk/design';
 import styles from './store-ads.module.css';
 
 const img = getRandomImagesArray(3)(600, 1920).map((src) => (
@@ -11,7 +10,6 @@ const img = getRandomImagesArray(3)(600, 1920).map((src) => (
 export const StoreAds = () => {
   return (
     <div>
-      <SectionHeader sectionName="Our services" />
       <Carousal className={styles.carousal} autoInterval={5000}>
         {img}
       </Carousal>

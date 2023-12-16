@@ -1,13 +1,14 @@
 .wrapper {
   flex: 1;
-  background-color: var(--gray050);
-  border-radius: var(--border-radius-large);
+  background-color: var(--gray200);
+  border-radius: var(--border-radius-xxlarge);
   padding: 24px;
 }
 
 .heading {
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-semibold);
   text-align: center;
   margin-bottom: 24px;
 }
@@ -20,7 +21,7 @@
 }
 
 .form {
-  flex: 1;
+  flex: 1 0.5 240px;
   min-width: 240px;
   display: flex;
   gap: 12px;
@@ -32,6 +33,7 @@
 }
 
 .action {
+  flex: 0.8 1 200px;
   height: 100%;
   float: 0.9;
   min-width: 200px;
@@ -42,6 +44,8 @@
 .action > button {
   margin-top: 48px;
   width: 100%;
+  height: 64px;
+  font-size: var(--font-size-h4);
 }
 
 .details {

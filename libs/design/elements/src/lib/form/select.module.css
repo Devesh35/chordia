@@ -30,7 +30,6 @@
   padding: 0.75rem;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .title {
@@ -64,7 +63,7 @@
   position: absolute;
   border-radius: var(--border-radius-medium);
   overflow-y: scroll;
-  box-shadow: var(--box-shadow-s);
+  box-shadow: var(--box-shadow-l);
 
   height: 0;
   transition: height var(--duration-tr-veryfast) ease-in-out;

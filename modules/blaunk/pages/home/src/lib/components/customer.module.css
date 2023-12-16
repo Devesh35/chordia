@@ -1,12 +1,13 @@
 .wrapper {
   flex: 1;
-  background-color: var(--gray050);
-  border-radius: var(--border-radius-large);
-  padding: 24px;
+  background-color: var(--gray200);
+  border-radius: var(--border-radius-xxlarge);
+  padding: 24px 12px;
 }
 .heading {
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-semibold);
   text-align: center;
   margin-bottom: 24px;
 }
@@ -14,20 +15,18 @@
 .carousal-wrapper {
   height: 90%;
   max-height: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
+
 .carousal-wrapper > div {
-  height: 360px;
+  height: 480px;
 }
 
 .review-group {
   display: flex;
   gap: 8px;
+  row-gap: 8px;
+  align-items: center;
   justify-content: center;
-  height: 90%;
-  width: 80%;
-  max-width: 80%;
   margin: 0 auto;
+  flex-wrap: wrap;
 }

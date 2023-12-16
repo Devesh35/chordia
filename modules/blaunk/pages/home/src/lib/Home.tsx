@@ -9,6 +9,7 @@ import { MoreStores } from './components/MoreStores';
 import { TrendyStars } from './components/TrendyStars';
 import { StoreAds } from './components/StoreAds';
 import styles from './home.module.css';
+import { BannerSection } from './components/BannerSection';
 
 /* eslint-disable-next-line */
 export type HomeProps = {};
@@ -17,13 +18,13 @@ export function Home(props: HomeProps) {
   return (
     <div className={styles.wrapper}>
       <TopSection />
-      <AdSection />
+      <AdSection size={150} />
       <Placeholder height={200} />
       <div className={styles.section}>
         <FindVendors />
         <CustomerReviews />
       </div>
-      <AdSection size={300} />
+      <BannerSection size={300} />
       <CategorySearch />
       <ExploreWorld />
       <MoreStores />

@@ -1,1 +1,7 @@
-export type { Country, CountryCode, CountryFlag, CountryName } from './Country';
+export type {
+  Country,
+  CountryCode,
+  CountryFlag,
+  CountryName,
+  CountryPhoneCode,
+} from './Country';

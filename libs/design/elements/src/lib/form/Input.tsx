@@ -34,15 +34,10 @@ export const Input = ({
 
   return (
     <div
-      className={clsx(
-        styles.wrapper,
-        styles[variant],
-        {
-          [styles.disabled]: isDisabled,
-          [styles.readonly]: isReadOnly,
-        },
-        props.className,
-      )}
+      className={clsx(props.className, styles.wrapper, styles[variant], {
+        [styles.disabled]: isDisabled,
+        [styles.readonly]: isReadOnly,
+      })}
       onClick={focusInput}
     >
       {iconLeft ? (
