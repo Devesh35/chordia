@@ -1,58 +1,49 @@
-.flag {
-  width: var(--flag-width);
-  min-width: 120px;
-  max-width: 240px;
-  height: var(--flag-height);
-  min-height: 90px;
-  max-height: 180px;
-}
-
 .wrapper {
-  --flag-width: 20vw;
-  --flag-height: 15vw;
+  --flag-width: 9vw;
+  --flag-height: 6.8vw;
 
   background-color: var(--white);
   border-radius: var(--border-radius-medium);
   overflow: hidden;
   box-shadow: var(--box-shadow-s);
   cursor: pointer;
-  margin: 48px 0;
+  margin: 1.5rem 0;
   flex-shrink: 0;
 }
 
 .flag-wrapper {
-  background-color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
   box-shadow: var(--box-shadow-s);
 }
 
-.flag-wrapper > * {
+.flag-wrapper {
   width: var(--flag-width);
-  min-width: 120px;
-  max-width: 240px;
+  min-width: 60px;
+  max-width: 120px;
   height: var(--flag-height);
-  min-height: 90px;
-  max-height: 180px;
+  min-height: 45px;
+  max-height: 90px;
+}
+.flag-wrapper > svg {
+  width: 100%;
+  height: 100%;
 }
 
 .content {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 2vmin;
+  gap: 1vmin;
   padding: 2vmin 0;
 }
 .country-name {
   text-align: center;
   text-transform: uppercase;
-  font-size: var(--font-size-h5);
-  line-height: var(--line-height-h5);
+  font-size: var(--font-size-l12);
+  line-height: var(--line-height-l12);
 }
 
 .button {
   border-radius: 100vh;
+  font-size: var(--font-size-l12);
+  line-height: var(--line-height-l12);
 }

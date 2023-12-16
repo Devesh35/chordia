@@ -20,7 +20,7 @@ export const CategorySearch = () => {
 
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="Search categories" />
+      <SectionHeader sectionName="Search by category" left={true} />
       <div className={styles['content-wrapper']}>
         <div className={styles['section-wrapper']}>
           <CategorySelection

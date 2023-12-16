@@ -4,13 +4,13 @@ import styles from './menu-bar.module.css';
 
 const names = ['Tour', 'Store', 'Cake', 'Boutique'];
 
-const ads = getRandomImagesArray(4)(64).map((src, i) => (
+const ads = getRandomImagesArray(4)(48).map((src, i) => (
   <div className={styles.store} key={src}>
     <Image
       className={styles.image}
       src={src}
-      width={64}
-      height={56}
+      width={48}
+      height={48}
       alt="random"
     />
     <div className={styles.name}>{names[i]}</div>

@@ -1,1 +1,1 @@
-export { CountryNames, CountryFlags } from './Country';
+export { CountryFlag, CountryName, CountryPhoneCode } from './Country';

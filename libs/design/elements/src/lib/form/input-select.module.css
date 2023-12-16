@@ -27,3 +27,9 @@
   border: none;
   outline: none;
 }
+.phone-select {
+  flex: 0 0 96px;
+}
+.phone-input {
+  padding-left: 0;
+}

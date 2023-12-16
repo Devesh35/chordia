@@ -9,7 +9,7 @@
   overflow: hidden;
   max-width: 100vw;
   max-height: 100vh;
-  background: linear-gradient(to bottom, #444913 64px, #fcf4cb 64px);
+  background: linear-gradient(to bottom, #444913 48px, white 48px);
 }
 
 .layout {
