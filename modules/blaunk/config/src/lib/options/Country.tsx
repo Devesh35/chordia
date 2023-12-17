@@ -1,4 +1,4 @@
-import { CountryFlags, CountryNames } from '@li/config/options';
+import { CountryFlag, CountryName, CountryPhoneCode } from '@li/config/options';
 import { Country, CountryCode } from '@li/types/config';
 
 const codes: CountryCode[] = [
@@ -20,13 +20,19 @@ const codes: CountryCode[] = [
 ];
 
 export const AvailableCountries = codes
-  .map((code) =>
-    CountryFlags[code]
+  .map<Country | undefined>((code) =>
+    CountryFlag[code]
       ? {
           id: code,
-          name: CountryNames[code],
-          ...CountryFlags[code]!,
+          code: CountryPhoneCode[code],
+          name: CountryName[code],
+          ...CountryFlag[code]!,
         }
       : undefined,
   )
   .filter((c): c is Country => !!c);
+
+export const CountriesOption = AvailableCountries.map((c) => ({
+  id: c.id,
+  item: c.name,
+}));

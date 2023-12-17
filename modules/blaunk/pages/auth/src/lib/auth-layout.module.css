@@ -1,7 +1,7 @@
 .wrapper {
-  width: 60vw;
+  width: 90vw;
   min-width: 240px;
-  max-width: 1440px;
+  max-width: 960px;
   display: flex;
   margin: 2rem auto;
   border-radius: var(--border-radius-xlarge);
@@ -10,13 +10,14 @@
   background-color: var(--white);
 }
 
-.image {
+.wrapper > img {
   flex: 0 1 60%;
   height: 600px;
   overflow: hidden;
 }
 
-.form {
+.wrapper > div {
   flex: 1 0.5 30%;
   min-width: 240px;
+  margin: auto 0;
 }

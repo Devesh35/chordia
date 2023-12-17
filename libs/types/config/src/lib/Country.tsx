@@ -206,8 +206,10 @@ export type CountryFlag = {
   Flag: ReactNode;
 };
 export type CountryName = string;
+export type CountryPhoneCode = string;
 
 export type Country = CountryFlag & {
   id: CountryCode;
   name: CountryName;
+  code: CountryPhoneCode;
 };

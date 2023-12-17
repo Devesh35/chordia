@@ -1,4 +1,4 @@
-export * from './components';
+export * from './lists';
 export * from './decorators';
 export * from './form';
 export * from './next';

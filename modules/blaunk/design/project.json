@@ -1,7 +1,7 @@
 {
   "name": "blaunk-design",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/blaunk/design/src",
+  "sourceRoot": "modules/blaunk/design/src",
   "projectType": "library",
   "tags": [],
   "targets": {

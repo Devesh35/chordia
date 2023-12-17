@@ -1,7 +1,7 @@
 {
   "name": "blaunk-pages-layout",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/blaunk/pages/layout/src",
+  "sourceRoot": "modules/blaunk/pages/layout/src",
   "projectType": "library",
   "tags": [],
   "targets": {

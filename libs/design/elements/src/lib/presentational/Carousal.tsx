@@ -1,6 +1,6 @@
 'use client';
 
-import { useRangeIndex } from '@li/design/hooks';
+import { useCyclicRange } from '@li/design/hooks';
 import React, { forwardRef, useEffect } from 'react';
 import {
   PolymorphicComponentProp,
@@ -45,9 +45,12 @@ export const Carousal = forwardRef<
     ref,
   ) => {
     const childArray = React.Children.toArray(children) as React.ReactElement[];
-    const { active, prev, update, isNearActive } = useRangeIndex(
-      childArray.length,
-    );
+    const {
+      active,
+      prev,
+      updateBy: update,
+      isNearActive,
+    } = useCyclicRange(childArray.length);
 
     useEffect(() => {
       if (!autoInterval) return;

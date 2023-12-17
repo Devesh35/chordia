@@ -7,9 +7,9 @@ export const ReviewCard = ({ i }: { i: number }) => (
     <div className={styles.country}>IN</div>
     <ImageCardDetails
       image={{
-        src: `https://source.unsplash.com/random/80x${90 + i}`,
-        width: 80,
-        height: 80,
+        src: `https://source.unsplash.com/random/60x${90 + i}`,
+        width: 60,
+        height: 60,
         alt: 'random',
       }}
       details={
