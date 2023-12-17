@@ -35,3 +35,7 @@
 .search-bar-items-last {
   border-radius: 0 100vh 100vh 0;
 }
+
+.search-table{
+  margin-bottom: 2rem;
+}

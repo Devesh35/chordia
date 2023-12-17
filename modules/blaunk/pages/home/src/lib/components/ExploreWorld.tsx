@@ -14,7 +14,7 @@ import { SectionHeader } from '@md/blaunk/design';
 import styles from './explore.module.css';
 import { CountryFlag } from '@li/config/options';
 
-const ads = getRandomImagesArray(8)(400, 300).map((src) => (
+const ads = getRandomImagesArray(10)(400, 300).map((src) => (
   <ImageCardOverlay
     isClickable
     key={src}
