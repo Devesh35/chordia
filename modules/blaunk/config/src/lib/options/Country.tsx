@@ -31,3 +31,8 @@ export const AvailableCountries = codes
       : undefined,
   )
   .filter((c): c is Country => !!c);
+
+export const CountriesOption = AvailableCountries.map((c) => ({
+  id: c.id,
+  item: c.name,
+}));

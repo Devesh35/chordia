@@ -204,6 +204,15 @@ export const MenuCategories: CatCat[] = [
   },
 ];
 
+export const MenuOptions = MenuCategories.map((item: CatCat) =>
+  item.subItems === undefined
+    ? { id: item.id, item: item.name }
+    : item.subItems.map((subItem) => ({
+        id: subItem.id,
+        item: `${item.name}-${subItem.name}`,
+      })),
+).flat();
+
 export const SubCategories: { [k: string]: SubCategory[] } = {
   accessories_general: [
     { id: 'athletic', label: 'Athletic' },

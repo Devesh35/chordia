@@ -1,5 +1,4 @@
 import { TopSection } from './components/TopSection';
-import { AdSection } from './components/AdSection';
 import { Placeholder } from './components/Placeholder';
 import { FindVendors } from './components/FindVendors';
 import { CustomerReviews } from './components/CustomerReviews';
@@ -8,6 +7,7 @@ import { ExploreWorld } from './components/ExploreWorld';
 import { MoreStores } from './components/MoreStores';
 import { TrendyStars } from './components/TrendyStars';
 import { StoreAds } from './components/StoreAds';
+import { AdSection } from '@md/blaunk/design';
 import styles from './home.module.css';
 import { BannerSection } from './components/BannerSection';
 

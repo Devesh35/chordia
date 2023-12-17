@@ -3,7 +3,7 @@
 import { Carousal, Select, SelectItem } from '@li/design/elements';
 import { useState } from 'react';
 import {
-  AvailableCountries,
+  CountriesOption,
   getRandomImagesArray,
   randomImageUrl,
 } from '@md/blaunk/config';
@@ -14,12 +14,7 @@ import { SectionHeader } from '@md/blaunk/design';
 import styles from './explore.module.css';
 import { CountryFlag } from '@li/config/options';
 
-const options = AvailableCountries.map((c) => ({
-  id: c.id,
-  item: c.name,
-})); //.sort((a, b) => a.item.localeCompare(b.item));
-
-const ads = getRandomImagesArray(10)(300, 240).map((src) => (
+const ads = getRandomImagesArray(10)(400, 300).map((src) => (
   <ImageCardOverlay
     isClickable
     key={src}
@@ -38,12 +33,12 @@ export const ExploreWorld = () => {
 
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="Explore the world" left />
+      <SectionHeader sectionName="Explore the world" basic />
       <div className={styles.header}>
         <div className={styles.country}>
           <Select
-            options={options}
-            defaultItem={options[0]}
+            options={CountriesOption}
+            defaultItem={CountriesOption[0]}
             onChange={setSelectedCountry}
             placeholder="Select a country"
           />
