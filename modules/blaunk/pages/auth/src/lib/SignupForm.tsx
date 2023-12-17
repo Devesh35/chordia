@@ -4,6 +4,7 @@ import {
   Labeled,
   Link,
   PasswordInput,
+  PhoneInput,
 } from '@li/design/elements';
 import styles from './common.module.css';
 import { Routes } from '@md/blaunk/config';
@@ -12,6 +13,9 @@ export const SignupForm = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>Sign up</div>
+      <Labeled label="Phone">
+        <PhoneInput placeholder="Enter your phone" />
+      </Labeled>
       <Labeled label="Email">
         <Input placeholder="Enter your email" type="email" />
       </Labeled>

@@ -5,7 +5,8 @@
   --border-radius-medium: 6px;
   --border-radius-large: 8px;
   --border-radius-xlarge: 12px;
-
+  --border-radius-xxlarge: 24px;
+  
   /* border-thickness */
   --border-width-small: 1px;
   --border-width-medium: 2px;

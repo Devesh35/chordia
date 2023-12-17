@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { CountryCode } from '@li/types/config';
 import { SectionHeader } from '@md/blaunk/design';
 import styles from './explore.module.css';
+import { CountryFlag } from '@li/config/options';
 
 const ads = getRandomImagesArray(8)(400, 300).map((src) => (
   <ImageCardOverlay
@@ -19,19 +20,20 @@ const ads = getRandomImagesArray(8)(400, 300).map((src) => (
     key={src}
     image={{
       src,
-      width: 300,
-      height: 400,
+      width: 240,
+      height: 300,
       alt: 'random',
     }}
   />
 ));
 
 export const ExploreWorld = () => {
-  const [, setSelectedCountry] = useState<SelectItem<CountryCode>>();
+  const [selectedCountry, setSelectedCountry] =
+    useState<SelectItem<CountryCode>>();
 
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="Explore the world" />
+      <SectionHeader sectionName="Explore the world" basic />
       <div className={styles.header}>
         <div className={styles.country}>
           <Select
@@ -40,6 +42,9 @@ export const ExploreWorld = () => {
             onChange={setSelectedCountry}
             placeholder="Select a country"
           />
+          {selectedCountry
+            ? CountryFlag[selectedCountry.id]?.Flag
+            : CountryFlag.in?.Flag}
         </div>
         <div className={styles.banner}>
           <Image
@@ -50,7 +55,7 @@ export const ExploreWorld = () => {
           />
         </div>
       </div>
-      <Carousal className={styles.carousal} hidePagination variant="dark">
+      <Carousal className={styles.carousal} variant="dark">
         {Array(4)
           .fill(0)
           .map((_, i) => (

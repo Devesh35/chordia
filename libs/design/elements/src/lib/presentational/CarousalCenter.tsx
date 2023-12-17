@@ -9,14 +9,14 @@ import {
 import { PaginationDots } from '../decorators';
 import { MoveControl } from '../decorators/MoveControl';
 import clsx from 'clsx';
-import styles from './carousal.module.css';
+import styles from './carousal-center.module.css';
 import { ReactChildren } from '@li/types/shared';
 
 type Variant = 'light' | 'dark';
 type ControlSize = 'small' | 'large';
 type PaginationDirection = 'left' | 'bottom' | 'right';
 
-export type CarousalProps = {
+export type CarousalCenterProps = {
   autoInterval?: number;
   hideControls?: true;
   hidePagination?: true;
@@ -27,9 +27,9 @@ export type CarousalProps = {
   variant?: Variant;
 } & ReactChildren;
 
-export const Carousal = forwardRef<
+export const CarousalCenter = forwardRef<
   HTMLDivElement,
-  PolymorphicComponentProp<'div', CarousalProps>
+  PolymorphicComponentProp<'div', CarousalCenterProps>
 >(
   (
     {
@@ -45,31 +45,32 @@ export const Carousal = forwardRef<
     ref,
   ) => {
     const childArray = React.Children.toArray(children) as React.ReactElement[];
-    const {
-      active,
-      prev,
-      updateBy: update,
-      isNearActive,
-    } = useCyclicRange(childArray.length);
+    const { active, updateBy, isNearActive, left, right } = useCyclicRange(
+      childArray.length,
+    );
 
     useEffect(() => {
       if (!autoInterval) return;
-      const interval = setInterval(() => update(1), autoInterval);
+      const interval = setInterval(() => updateBy(1), autoInterval);
       return () => clearInterval(interval);
-    }, [autoInterval, update]);
+    }, [autoInterval, updateBy]);
 
     return (
       <div ref={ref} className={clsx(styles.wrapper, className)}>
         <div className={styles['item-wrapper']}>
           {childArray.map((child, i) => (
             <div
-              className={clsx(styles.item, {
-                [styles.active]: active === i,
-                [styles.prev]: prev === i,
-              })}
+              className={clsx(
+                styles.item,
+                {
+                  [styles.right]: right === i,
+                  [styles.left]: left === i,
+                },
+                { [styles.active]: active === i },
+              )}
               key={child.key}
             >
-              {isNearActive(i) ? child : null}
+              {isNearActive(i, 2) ? child : null}
             </div>
           ))}
         </div>
@@ -80,7 +81,7 @@ export const Carousal = forwardRef<
                 <MoveControl
                   size={controlSize}
                   variant={variant}
-                  onChange={(dx) => update(dx)}
+                  onChange={(dx) => updateBy(dx)}
                 />
               )}
           {hidePagination ? null : (
@@ -96,5 +97,5 @@ export const Carousal = forwardRef<
     );
   },
 ) as <C extends React.ElementType = 'div'>(
-  props: PolymorphicComponentPropWithRef<C, CarousalProps>,
+  props: PolymorphicComponentPropWithRef<C, CarousalCenterProps>,
 ) => React.JSX.Element;

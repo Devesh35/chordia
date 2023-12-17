@@ -21,7 +21,7 @@ export const MoreStores = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <Image src={blaunkStore} width={640} height={190} alt="store" />
+        <Image src={blaunkStore} width={480} height={150} alt="store" />
       </div>
       <Carousal className={styles.carousal}>
         {Array(6)

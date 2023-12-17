@@ -1,3 +1,5 @@
+export { useCyclicRange } from './useCyclicRange';
+export { useDebounce } from './useDebounce';
 export { useIntersection } from './useIntersection';
-export { useRangeIndex } from './useRangeIndex';
+export { useThrottle } from './useThrottle';
 export { useToggle } from './useToggle';
