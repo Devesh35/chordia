@@ -52,6 +52,11 @@ export const Routes = {
       title: 'B2B-Profile | Blaunk',
       path: '/b2b/profile',
     },
+    addProduct: {
+      isProtected: true,
+      title: 'B2B-Add Product | Blaunk',
+      path: '/b2b/add-product',
+    },
     agreement: {
       isProtected: true,
       title: 'B2B-Agreement | Blaunk',
