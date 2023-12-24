@@ -31,7 +31,7 @@ export const TopSection = () => {
         </Carousal>
       </div>
       <div className={styles['flag-bg']}>
-        <ScrollableSnap className={styles['scroll-snap']}>
+        <ScrollableSnap className={styles['scroll-snap']} controls>
           {AvailableCountries.map((country) => (
             <CountryCard country={country} key={country.id} />
           ))}

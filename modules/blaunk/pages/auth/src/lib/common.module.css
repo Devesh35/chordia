@@ -27,3 +27,7 @@
 .forgot {
   text-align: right;
 }
+
+.login > a {
+  color: var(--onprimaryaccent);
+}

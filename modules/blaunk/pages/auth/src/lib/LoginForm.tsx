@@ -22,7 +22,9 @@ export const LoginForm = () => {
         <Link href={Routes.auth.forgot.path} className={styles.forgot}>
           Reset password?
         </Link>
-        <Button>Login</Button>
+        <Button className={styles.login}>
+          <Link href={Routes.home.path}>Login</Link>
+        </Button>
         <span>
           Don't have an account?{' '}
           <Link href={Routes.auth.signup.path}>Sign up</Link>
