@@ -49,7 +49,7 @@ export const FindVendors = () => {
           </Labeled>
           <Labeled label="Qty">
             <InputAndSelect
-              input={{ placeholder: 'Enter qty' }}
+              input={{ placeholder: 'Enter qty', type: 'number' }}
               select={{
                 options: Units.map((u) => ({ id: u, item: u })),
                 placeholder: 'Select unit',

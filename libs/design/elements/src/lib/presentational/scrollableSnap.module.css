@@ -1,9 +1,22 @@
 .wrapper {
   display: flex;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.scroll-x {
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  white-space: nowrap;
 }
+.scroll-y {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
 .wrapper * {
   scroll-snap-align: start;
+}
+
+.control{
+  padding-inline: 24px;
 }
