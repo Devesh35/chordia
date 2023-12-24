@@ -5,10 +5,11 @@ import clsx from 'clsx';
 
 export const Link = ({
   children,
+  className,
   ...props
 }: LinkProps & ReactChildren & Partial<ClassName>) => {
   return (
-    <NextLink {...props} className={clsx(styles.link, props.className || '')}>
+    <NextLink {...props} className={clsx(styles.link, className)}>
       {children}
     </NextLink>
   );
