@@ -1,0 +1,84 @@
+.section {
+  margin: 1rem 0;
+}
+
+.section-header {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  margin-inline: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-medium);
+  border-bottom: var(--border-width-small) solid var(--gray200);
+}
+
+.section-content {
+  grid-gap: 2rem;
+  padding: 0 2rem;
+}
+
+.item-label > label {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+}
+
+.item-label > span,
+.item-label > div {
+  width: 60%;
+  max-width: 60%;
+  min-width: 60%;
+}
+
+.item-label > span {
+  padding-top: 0.75rem;
+  border: none;
+}
+.item-label > span:hover {
+  border: none;
+}
+
+.verification {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+  color: var(--error400);
+}
+
+.document {
+  --label-height: 64px;
+  border: var(--border-width-small) solid var(--black);
+  border-radius: var(--border-radius-small);
+  padding: 0.25rem;
+
+  width: 160px;
+  height: 240px;
+  position: relative;
+}
+
+.document-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  height: var(--label-height);
+  max-height: var(--label-height);
+}
+
+.document-content {
+  width: 100%;
+  height: calc(100% - var(--label-height));
+  border: var(--border-width-small) solid var(--black);
+  padding: 0.5rem;
+}
+
+.document-update {
+  color: var(--error200);
+}
+
+.document-input {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  pointer-events: all;
+}

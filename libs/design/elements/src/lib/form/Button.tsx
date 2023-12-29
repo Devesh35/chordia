@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import styles from './button.module.css';
 import { ReactChildren } from '@li/types/shared';
 
-type Variant = 'primary' | 'outline' | 'text';
+type Variant = 'primary' | 'secondary' | 'outline' | 'text';
 
 export type ButtonProps = {
   variant?: Variant;
@@ -24,15 +24,7 @@ export const Button = ({
   return (
     <button
       {...rest}
-      className={clsx(
-        styles.button,
-        {
-          [styles.primary]: variant === 'primary',
-          [styles.outline]: variant === 'outline',
-          [styles.text]: variant === 'text',
-        },
-        rest.className || '',
-      )}
+      className={clsx(styles.button, styles[variant], rest.className || '')}
       disabled={isDisabled}
     >
       {iconLeft || null}

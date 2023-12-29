@@ -3,6 +3,7 @@
 import { useCallback, useRef } from 'react';
 import clsx from 'clsx';
 import styles from './input.module.css';
+import formStyles from './form.module.css';
 
 type InputVariant = 'error' | 'success' | 'warning' | 'primary';
 
@@ -34,10 +35,16 @@ export const Input = ({
 
   return (
     <div
-      className={clsx(props.className, styles.wrapper, styles[variant], {
-        [styles.disabled]: isDisabled,
-        [styles.readonly]: isReadOnly,
-      })}
+      className={clsx(
+        formStyles['item-wrapper'],
+        props.className,
+        styles.wrapper,
+        styles[variant],
+        {
+          [styles.disabled]: isDisabled,
+          [styles.readonly]: isReadOnly,
+        },
+      )}
       onClick={focusInput}
     >
       {iconLeft ? (

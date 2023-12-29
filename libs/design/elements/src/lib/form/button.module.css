@@ -27,6 +27,17 @@
   background-color: var(--primarydark);
 }
 
+.secondary {
+  color: var(--onsecondaryaccent);
+  background-color: var(--secondary);
+}
+.secondary:hover {
+  background-color: var(--secondarydark);
+}
+.secondary:active {
+  background-color: var(--secondarydark);
+}
+
 .outline {
   color: var(--primarydark);
   background-color: var(--backgroundsecondary);

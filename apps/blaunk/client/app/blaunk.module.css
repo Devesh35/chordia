@@ -6,4 +6,40 @@
   --home-banner-image-size-max: 700px;
   --home-banner-image-size-min: 500px;
   --b2b-home-banner-size: 500px;
+
+  --primary900: #444913;
+  --primary800: #525816;
+  --primary700: #5f661a;
+  --primary600: #6d751d;
+  --primary500: #898d39;
+  --primary400: #a5a555;
+  --primary300: #c2bc70;
+  --primary200: #ded48c;
+  --primary100: #faeca8;
+  --primary075: #fbf0b9;
+  --primary050: #fcf4cb;
+  --primary025: #fdf7dc;
+
+  --backgroundprimary: var(--white);
+  --backgroundsecondary: var(--primary050);
+  --backgroundhover: var(--primary100);
+  --backgroundselected: var(--primary200);
+  --backgrounddisabled: var(--gray050);
+  --backgrounddark: var(--gray800);
+  --backgroundtransparent: var(--transparent);
+
+  --primary: var(--primary600);
+  --primarydark: var(--primary900);
+  --secondary: var(--primary100);
+  --secondarydark: var(--primary200);
+  --onprimaryaccent: var(--primary050);
+  --onprimarydarkaccent: var(--primary025);
+  --onsecondaryaccent: var(--primary800);
+  --onprimary: var(--gray100);
+  --onprimarydark: var(--gray050);
+  --onsecondary: var(--gray800);
+
+  --staractive: var(--primary600);
+  --starinactive: var(--gray200);
+
 }

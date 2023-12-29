@@ -1,3 +1,5 @@
+import { Profile } from '@md/blaunk/pages/b2b';
+
 export default async function Index() {
-  return <div>Profile</div>;
+  return <Profile />;
 }

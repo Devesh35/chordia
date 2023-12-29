@@ -4,12 +4,9 @@ import { DownFilled } from '@li/design/icons';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import styles from './select.module.css';
+import formStyles from './form.module.css';
 import { sbs } from '@li/config/design';
-
-export type SelectItem<K extends string = string> = {
-  id: K;
-  item: React.ReactNode;
-};
+import { SelectItem } from './types';
 
 export type SelectProps<K extends string = string> = {
   options: SelectItem<K>[];
@@ -52,11 +49,13 @@ export const Select = <K extends string = string>({
   };
 
   return (
-    <div className={clsx(styles.wrapper, className)}>
+    <div
+      className={clsx(formStyles['item-wrapper'], styles.wrapper, className)}
+    >
       <div className={styles.header} onClick={toggleAccordion}>
         {Header ? (
           Header
-        ) : ( 
+        ) : (
           <span
             className={clsx(styles.title, {
               [styles['title-selected']]: !!selected?.id,
