@@ -52,6 +52,11 @@ export const Routes = {
       title: 'B2B-Profile | Blaunk',
       path: '/b2b/profile',
     },
+    addProduct: {
+      isProtected: true,
+      title: 'B2B-Add Product | Blaunk',
+      path: '/b2b/add-product',
+    },
     agreement: {
       isProtected: true,
       title: 'B2B-Agreement | Blaunk',
@@ -72,10 +77,25 @@ export const Routes = {
       title: 'B2B-Cart | Blaunk',
       path: '/b2b/cart',
     },
+    myPost: {
+      isProtected: true,
+      title: 'B2B-My Post | Blaunk',
+      path: '/b2b/my-post',
+    },
+    dashboard: {
+      isProtected: true,
+      title: 'B2B-Dashboard | Blaunk',
+      path: '/b2b/dashboard',
+    },
     order: {
       isProtected: true,
       title: 'B2B-Order | Blaunk',
       path: '/b2b/order',
+    },
+    shipment: {
+      isProtected: true,
+      title: 'B2B-Shipment | Blaunk',
+      path: '/b2b/shipment',
     },
   },
 } as const;

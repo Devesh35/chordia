@@ -1,4 +1,8 @@
-import { Routes } from '@md/blaunk/config';
-import { withPageTitle } from '@li/design/enhancers';
+import styles from '../b2b.module.css'; 
+import { ReactChildren } from '@li/types/shared';
 
-export default withPageTitle(Routes.b2b.profile.title);
+const Layout = ({ children }: ReactChildren) => {
+  return <div className={styles.profile}>{children}</div>;
+};
+
+export default Layout;
