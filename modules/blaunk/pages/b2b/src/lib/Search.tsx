@@ -1,7 +1,7 @@
 'use client';
 
-import { SearchTable } from './SearchTable';
-import { SearchBar } from './SearchBar';
+import { SearchTable } from './components/SearchTable';
+import { SearchBar } from './components/SearchBar';
 
 export const Search = () => {
   return (

@@ -6,7 +6,7 @@ export interface BlaunkTypesProps {}
 export function BlaunkTypes(props: BlaunkTypesProps) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to BlaunkTypes!</h1>
+      <h1>BlaunkTypes!</h1>
     </div>
   );
 }
