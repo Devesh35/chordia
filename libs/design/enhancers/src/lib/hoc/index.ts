@@ -1,2 +1,2 @@
-export { withCondition } from './withCondition';
+export { withCondition, withConditionCase } from './withCondition';
 export { withPageTitle } from './withPageTitle';

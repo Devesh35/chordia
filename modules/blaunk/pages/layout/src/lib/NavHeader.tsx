@@ -9,7 +9,7 @@ export const NavHeader = () => {
   return (
     <div className={styles.wrapper}>
       <Link href={Routes.home.path}>
-        <Image src={logoLarge} alt="logo" height={32} width={142} />
+        <Image src={logoLarge} alt="logo" height={30} width={142} className={styles.blaunk} />
       </Link>
 
       <Input

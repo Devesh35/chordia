@@ -8,10 +8,10 @@ const userCategory = [
   'Agent',
   'Farmer',
   'Trader',
-];
+] as const;
 
 export const UserCategoryOption = optionsFromStrings(userCategory);
 
-const paymentOption = ['COD', 'Online', 'Wallet', 'Card'];
+const paymentOption = ['COD', 'Online', 'Wallet', 'Card'] as const;
 
 export const PaymentOption = optionsFromStrings(paymentOption);

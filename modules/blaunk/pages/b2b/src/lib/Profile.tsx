@@ -5,7 +5,7 @@ import { withCondition } from '@li/design/enhancers';
 import styles from './profile.module.css';
 import { profileSections, profileSection } from './profile.config';
 import { useState } from 'react';
-import { ProfileSection } from './components/ProfileSection';
+import { FormSection } from './components/FormSection';
 import { ProfileDocumentSection } from './components/ProfileDocumentSection';
 
 export const Profile = () => {
@@ -23,7 +23,7 @@ export const Profile = () => {
       </header>
       {profileSection.map((sectionId) => {
         const section = profileSections[sectionId];
-        return <ProfileSection key={sectionId} isEdit={isEdit} {...section} />;
+        return <FormSection key={sectionId} isEdit={isEdit} {...section} />;
       })}
       <ProfileDocumentSection isEdit={isEdit} />
       {withCondition(isEdit)(

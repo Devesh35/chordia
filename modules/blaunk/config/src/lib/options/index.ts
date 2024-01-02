@@ -7,6 +7,8 @@ export {
 export { FooterDetails } from './Footer';
 export { BankAccountType } from './General';
 export { MenuCategories, MenuOptions, SubCategories } from './MenuCategory';
+export * from './ProductNew';
+export { ProductTypeOptions } from './Product';
 export { Routes } from './Routes';
 export { Units } from './Units';
 export { PaymentOption, UserCategoryOption } from './User';

@@ -7,7 +7,9 @@ export const Search = () => {
   return (
     <>
       <SearchBar />
-      <SearchTable />
+      <div>
+        <SearchTable />
+      </div>
     </>
   );
 };

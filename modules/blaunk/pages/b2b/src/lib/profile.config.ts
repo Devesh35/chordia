@@ -1,4 +1,3 @@
-import { SelectItem } from '@li/design/elements';
 import {
   BankAccountType,
   CountriesOption,
@@ -12,6 +11,7 @@ import {
   VendorNumberOfEmployees,
   VendorResponseTime,
 } from '@md/blaunk/config';
+import { FormSection } from './formTypes';
 
 export const profileSection = [
   'personal',
@@ -28,27 +28,8 @@ export const profileSection = [
 
 export type ProfileSectionId = (typeof profileSection)[number];
 
-export type ProfileSectionItem = {
-  label: string;
-  placeholder: string;
-  isNotEditable?: true;
-} & (
-  | {
-      type?: 'text' | 'number' | 'email' | 'phone' | 'yes-no';
-    }
-  | {
-      type?: 'select';
-      options: SelectItem[];
-    }
-);
-
-export type ProfileSection = {
-  label: string;
-  items: ProfileSectionItem[];
-};
-
 export const profileSections: {
-  [key in ProfileSectionId]: ProfileSection;
+  [key in ProfileSectionId]: FormSection;
 } = {
   personal: {
     label: 'Personal',
