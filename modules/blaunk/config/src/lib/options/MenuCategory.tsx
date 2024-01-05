@@ -733,7 +733,7 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
       label: 'Pet Granules & Plastic Raw Material',
     },
     {
-      id: 'petroleum_and_petrochemical_products',
+      id: 'petroleum_and_petrochemical_product',
       label: 'Petroleum And Petrochemical Products',
     },
     { id: 'speciality_chemicals', label: 'Speciality Chemicals' },
@@ -896,7 +896,7 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
       label: 'Scaffolding Pipes And Fittings',
     },
     {
-      id: 'sewerage_and_drainage_products',
+      id: 'sewerage_and_drainage_product',
       label: 'Sewerage And Drainage Products',
     },
     {
@@ -1320,13 +1320,13 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
       id: 'engineering_and_shipping_ropes',
       label: 'Engineering And Shipping Ropes',
     },
-    { id: 'fiber_glass_products', label: 'Fiber Glass Products' },
+    { id: 'fiber_glass_product', label: 'Fiber Glass Products' },
     {
       id: 'filters_filtration_systems',
       label: 'Filters & Filtration Systems',
     },
     {
-      id: 'fire_fighting_prevention_products',
+      id: 'fire_fighting_prevention_product',
       label: 'Fire Fighting & Prevention Products',
     },
     { id: 'flanges_flanged_fittings', label: 'Flanges & Flanged Fittings' },
@@ -1453,8 +1453,8 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
       id: 'piston_crankshaft_assemblies',
       label: 'Piston & Crankshaft Assemblies',
     },
-    { id: 'plastic_rubber_products', label: 'Plastic & Rubber Products' },
-    { id: 'plastic_pvc_pp_products', label: 'Plastic, Pvc & Pp Products' },
+    { id: 'plastic_rubber_product', label: 'Plastic & Rubber Products' },
+    { id: 'plastic_pvc_pp_product', label: 'Plastic, Pvc & Pp Products' },
     {
       id: 'product_engineering_and_prototyping',
       label: 'Product Engineering And Prototyping',
@@ -1475,13 +1475,13 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
       id: 'pvc_ldpe_hdpe_plastic_sheets',
       label: 'Pvc, Ldpe, Hdpe & Plastic Sheets',
     },
-    { id: 'rubber_rubber_products', label: 'Rubber & Rubber Products' },
+    { id: 'rubber_rubber_product', label: 'Rubber & Rubber Products' },
     {
       id: 'rubber_gaskets_and_gasket_material',
       label: 'Rubber Gaskets And Gasket Material',
     },
     {
-      id: 'rust_corrosion_protection_products',
+      id: 'rust_corrosion_protection_product',
       label: 'Rust & Corrosion Protection Products',
     },
     {
@@ -1506,7 +1506,7 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
       label: 'Stamping Tools & Stamping Machine',
     },
     {
-      id: 'steel_stainless_steel_products',
+      id: 'steel_stainless_steel_product',
       label: 'Steel & Stainless Steel Products',
     },
     {
@@ -2074,7 +2074,7 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
     { id: 'printing_ink_oil', label: 'Printing Ink Oil' },
     { id: 'promotional_items', label: 'Promotional Items' },
     {
-      id: 'promotional_stationery_products',
+      id: 'promotional_stationery_product',
       label: 'Promotional Stationery Products',
     },
     { id: 'push_pins', label: 'Push Pins' },

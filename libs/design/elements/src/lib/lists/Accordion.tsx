@@ -45,7 +45,7 @@ export const Accordion = ({
             [styles['icon-active']]: isOpen,
           })}
         >
-          <DownFilled />
+          <DownFilled fill="var(--onsecondaryaccent)" />
         </div>
       </header>
       {isOpen ? <Divider color="var(--secondarydark)" /> : null}

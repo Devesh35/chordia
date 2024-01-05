@@ -40,6 +40,7 @@ export const InputArea = ({
       className={clsx(
         formStyles['item-wrapper'],
         styles.wrapper,
+        styles.area,
         styles[variant],
         {
           [styles.disabled]: isDisabled,
