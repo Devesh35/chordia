@@ -33,12 +33,18 @@ export const AvailableCountries = codes
   )
   .filter((c): c is Country => !!c);
 
-export const CountriesOption = optionsFromObject(AvailableCountries, {
-  idPath: 'id',
-  itemPath: 'name',
-});
+export const CountriesOption = optionsFromObject<CountryCode>(
+  AvailableCountries,
+  {
+    idPath: 'id',
+    itemPath: 'name',
+  },
+);
 
-export const CountryCodeOptions = optionsFromObject(AvailableCountries, {
-  idPath: 'id',
-  itemPath: 'code',
-});
+export const CountryCodeOptions = optionsFromObject<CountryCode>(
+  AvailableCountries,
+  {
+    idPath: 'id',
+    itemPath: 'code',
+  },
+);

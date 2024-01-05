@@ -1,13 +1,13 @@
+import { SelectItemElement } from '@li/types/design';
 import { Input, InputProps } from './Input';
 import { Select } from './Select';
 import styles from './input-select.module.css';
 import clsx from 'clsx';
-import { SelectItem } from './types';
 
 export const PhoneInput = ({
   countryCodes,
   ...props
-}: InputProps & { countryCodes: SelectItem[] }) => {
+}: InputProps & { countryCodes: SelectItemElement[] }) => {
   return (
     <div className={styles.wrapper}>
       <Select

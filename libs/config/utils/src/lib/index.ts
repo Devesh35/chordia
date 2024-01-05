@@ -1,2 +1,5 @@
-export { optionsFromObject, optionsFromStrings } from './Select';
-export { shouldForwardAllProps, shouldNotForwardProps } from './Styled';
+export {
+  isSelectItemDivider,
+  optionsFromObject,
+  optionsFromStrings,
+} from './Select';

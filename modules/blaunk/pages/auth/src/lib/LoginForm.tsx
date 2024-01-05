@@ -23,7 +23,7 @@ export const LoginForm = () => {
           Reset password?
         </Link>
         <Button className={styles.login}>
-          <Link href={Routes.b2b.home.path}>Login</Link>
+          <Link href={Routes.home.bgt.path}>Login</Link>
         </Button>
         <span>
           Don't have an account?{' '}

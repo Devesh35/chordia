@@ -3,11 +3,12 @@
   padding: 0.5rem 1.5rem;
   height: var(--menu-bar-height);
   max-height: var(--menu-bar-height);
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
+  background-color: var(--transparent);
   color: var(--onprimarydark);
 
   display: flex;
-  gap: 48px;
+  gap: min(2vw, 24px);
   align-items: center;
   justify-content: center;
 }
@@ -22,10 +23,11 @@
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  gap: min(1vw, 12px);
   align-items: center;
 }
 
 .image {
-  border-radius: 50%;
+  border-radius: 20%;
+  max-height: 48px;
 }

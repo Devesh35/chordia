@@ -1,14 +1,4 @@
-import { MenuBar } from '@md/blaunk/pages/layout';
-import { ReactChildren } from '@li/types/shared';
-import styles from '../base.module.css';
+import { Routes } from '@md/blaunk/config';
+import { withPageTitle } from '@li/design/enhancers';
 
-const Layout = ({ children }: ReactChildren) => {
-  return (
-    <>
-      <MenuBar />
-      <div className={styles.pages}>{children}</div>
-    </>
-  );
-};
-
-export default Layout;
+export default withPageTitle(Routes.home.title);

@@ -16,7 +16,7 @@
 /* layers */
 .item {
   cursor: pointer;
-  height: 48px;
+  min-height: 48px;
   padding: 0.75rem;
   display: flex;
   align-items: center;
@@ -49,7 +49,7 @@
 /* layers */
 .option-wrapper {
   min-width: 90%;
-  z-index: var(--layer-first);
+  z-index: var(--layer-floating);
   position: absolute;
   border-radius: var(--border-radius-medium);
   overflow-y: scroll;
@@ -70,4 +70,8 @@
 }
 .option:last-of-type {
   border: none;
+}
+.option-disabled {
+  color: var(--gray400);
+  cursor: default;
 }

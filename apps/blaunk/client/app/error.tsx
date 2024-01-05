@@ -16,7 +16,7 @@ export default function Error({ error, reset }: Props) {
   }, [error.message]);
 
   return (
-    <div className={clsx(styles.pages, styles.error)}>
+    <div className={clsx(styles.page, styles.error)}>
       <h2>Something went wrong!</h2>
       <button onClick={() => reset()}>Try again</button>
     </div>
