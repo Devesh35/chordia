@@ -1,0 +1,8 @@
+.select-type {
+  margin: 0 auto;
+  width: 30%;
+  min-width: 240px;
+}
+.select-type > label {
+  flex-shrink: 0;
+}

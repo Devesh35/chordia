@@ -6,9 +6,15 @@ export {
   CountryCodeOptions,
 } from './Country';
 export { FooterDetails } from './Footer';
-export { BankAccountType } from './General';
+export { BankAccountType, GSTOptions } from './General';
 export { MenuBarItems } from './MenuBar';
-export { MenuCategories, MenuOptions, SubCategories } from './MenuCategory';
+export {
+  MenuCategories,
+  MenuOptions,
+  SubCategories,
+  MenuCategoriesId,
+  SubMenuOptions,
+} from './MenuCategory';
 export { type NavMenuItem, NavMenuItems } from './NavMenu';
 export { ProductTypeOptions } from './Product';
 export {

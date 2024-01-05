@@ -1,7 +1,11 @@
-import React from 'react'
+import { Link } from '@li/design/elements';
+import { Routes } from '@md/blaunk/config';
 
 export const List = () => {
   return (
-    <div>List</div>
-  )
-}
+    <div>
+      List
+      <Link href={Routes.product.add.path}>Add Product</Link>
+    </div>
+  );
+};
