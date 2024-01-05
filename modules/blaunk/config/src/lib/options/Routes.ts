@@ -128,6 +128,12 @@ export const Routes = {
     isProtected: true,
     title: 'Vendor | Blaunk',
     path: '/vendor',
+    register: {
+      seller: true,
+      isProtected: true,
+      title: 'Vendor Register | Blaunk',
+      path: '/vendor/register',
+    },
     dashboard: {
       seller: true,
       isProtected: true,
