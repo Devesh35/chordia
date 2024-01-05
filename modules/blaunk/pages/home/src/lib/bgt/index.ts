@@ -1,0 +1,1 @@
+export { BGTBuy } from './BGTBuy';

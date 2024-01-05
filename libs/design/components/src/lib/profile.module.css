@@ -1,0 +1,46 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bio {
+  flex: 1;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  height: 64px;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.profile-image {
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-s);
+}
+
+.profile-wallet {
+  align-self: flex-start;
+}
+.profile-wallet-positive {
+  color: var(--success300);
+}
+.profile-wallet-neutral {
+  color: var(--warning300);
+}
+.profile-wallet-negative {
+  color: var(--error300);
+}
+
+.profile-name {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+  font-weight: var(--font-weight-semibold);
+}

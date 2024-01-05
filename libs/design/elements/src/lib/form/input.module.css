@@ -1,23 +1,7 @@
 .wrapper {
   cursor: text;
-  font-size: var(--font-size-l20);
-  line-height: var(--line-height-l20);
-  width: 100%;
-  border-radius: var(--border-radius-medium);
-  height: 48px;
-  border: var(--border-width-small) solid var(--gray300);
-  background-color: var(--white);
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-}
-
-.wrapper:focus-within {
-  border-color: var(--primary500);
-}
-
-.wrapper:hover {
-  border: var(--border-width-small) solid var(--gray600);
 }
 
 .readonly {
@@ -77,4 +61,8 @@
 .input::placeholder {
   color: var(--gray600);
   opacity: 1;
+}
+
+.area {
+  height: auto;
 }

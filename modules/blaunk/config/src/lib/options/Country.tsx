@@ -1,4 +1,5 @@
 import { CountryFlag, CountryName, CountryPhoneCode } from '@li/config/options';
+import { optionsFromObject } from '@li/config/utils';
 import { Country, CountryCode } from '@li/types/config';
 
 const codes: CountryCode[] = [
@@ -32,7 +33,18 @@ export const AvailableCountries = codes
   )
   .filter((c): c is Country => !!c);
 
-export const CountriesOption = AvailableCountries.map((c) => ({
-  id: c.id,
-  item: c.name,
-}));
+export const CountriesOption = optionsFromObject<CountryCode>(
+  AvailableCountries,
+  {
+    idPath: 'id',
+    itemPath: 'name',
+  },
+);
+
+export const CountryCodeOptions = optionsFromObject<CountryCode>(
+  AvailableCountries,
+  {
+    idPath: 'id',
+    itemPath: 'code',
+  },
+);

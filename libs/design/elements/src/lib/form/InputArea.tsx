@@ -3,6 +3,7 @@
 import { useCallback, useRef } from 'react';
 import clsx from 'clsx';
 import styles from './input.module.css';
+import formStyles from './form.module.css';
 import { sbs } from '@li/config/design';
 
 type InputVariant = 'error' | 'success' | 'warning' | 'default';
@@ -37,7 +38,9 @@ export const InputArea = ({
   return (
     <div
       className={clsx(
+        formStyles['item-wrapper'],
         styles.wrapper,
+        styles.area,
         styles[variant],
         {
           [styles.disabled]: isDisabled,

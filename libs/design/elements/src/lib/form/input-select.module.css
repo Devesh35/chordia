@@ -10,7 +10,7 @@
 
 .input {
   border: none;
-  height: 44px;
+  height: 46px;
   border-radius: 4px 0 0 4px;
 }
 .input:hover {
@@ -20,11 +20,13 @@
 
 .select {
   border: none;
-  height: 44px;
+  border-left: 1px solid var(--gray300);
+  height: 46px;
   border-radius: 0 4px 4px 0;
 }
 .select:hover {
   border: none;
+  border-left: 1px solid var(--gray300);
   outline: none;
 }
 .phone-select {

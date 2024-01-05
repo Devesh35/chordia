@@ -2,7 +2,7 @@
 import { DownFilled } from '@li/design/icons';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Divider } from '../presentational';
-import { ReactChildren } from '@li/types/shared';
+import { ClassName, ReactChildren } from '@li/types/shared';
 import styles from './accordion.module.css';
 import clsx from 'clsx';
 
@@ -11,11 +11,13 @@ export type AccordionProps = {
   childHeight?: number;
   initialOpen?: boolean;
   updateParentHeight?: (height: number) => void;
-} & ReactChildren;
+} & ReactChildren &
+  Partial<ClassName>;
 
 export const Accordion = ({
   title,
   children,
+  className,
   childHeight = 0,
   initialOpen = false,
   updateParentHeight,
@@ -35,25 +37,25 @@ export const Accordion = ({
   }, [contentHeight, updateParentHeight, setIsOpen]);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header} onClick={toggleAccordion}>
+    <div className={clsx(styles.wrapper, className)}>
+      <header className={styles.header} onClick={toggleAccordion}>
         <span className={styles.title}>{title}</span>
         <div
           className={clsx(styles.icon, {
             [styles['icon-active']]: isOpen,
           })}
         >
-          <DownFilled />
+          <DownFilled fill="var(--onsecondaryaccent)" />
         </div>
-      </div>
+      </header>
       {isOpen ? <Divider color="var(--secondarydark)" /> : null}
-      <div
+      <main
         className={styles['content-wrapper']}
         style={{ height: isOpen ? contentHeight : '0' }}
         ref={contentRef}
       >
         {children}
-      </div>
+      </main>
       <Divider color="var(--secondarydark)" />
     </div>
   );

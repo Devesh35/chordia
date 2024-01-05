@@ -1,3 +1,3 @@
 export async function GET(request: Request) {
-  return new Response('Welcome to the API:V1!');
+  return new Response('Blaunk API:V1!');
 }

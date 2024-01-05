@@ -1,81 +1,143 @@
 export const Routes = {
-  home: {
-    isProtected: false,
-    title: 'Home | Blaunk',
-    path: '/home',
-    b2b: {
-      isProtected: false,
-      title: 'Home-B2B | Blaunk',
-      path: '/home/b2b',
+  account: {
+    isProtected: true,
+    title: 'Account | Blaunk',
+    path: '/account',
+    cart: {
+      isProtected: true,
+      title: 'Cart | Blaunk',
+      path: '/account/cart',
+    },
+    orders: {
+      isProtected: true,
+      title: 'My Orders | Blaunk',
+      path: '/account/orders',
+    },
+    profile: {
+      isProtected: true,
+      title: 'Profile | Blaunk',
+      path: '/account/profile',
+    },
+    subscription: {
+      isProtected: true,
+      title: 'Subscription | Blaunk',
+      path: '/account/subscription',
+    },
+    wishlist: {
+      isProtected: true,
+      title: 'My Wishlist | Blaunk',
+      path: '/account/wishlist',
     },
   },
   auth: {
-    login: {
+    create: {
       isProtected: false,
-      title: 'Login | Blaunk',
-      path: '/auth/login',
-    },
-    signup: {
-      isProtected: false,
-      title: 'Sign up | Blaunk',
-      path: '/auth/signup',
+      title: 'Create password | Blaunk',
+      path: '/auth/create',
     },
     forgot: {
       isProtected: false,
       title: 'Forgot password | Blaunk',
       path: '/auth/forgot',
     },
-    create: {
+    login: {
       isProtected: false,
-      title: 'Create password | Blaunk',
-      path: '/auth/create',
-    },
-    reset: {
-      isProtected: true,
-      title: 'Reset password | Blaunk',
-      path: '/auth/reset',
+      title: 'Login | Blaunk',
+      path: '/auth/login',
     },
     logout: {
       isProtected: true,
       title: 'Logout | Blaunk',
       path: '/auth/logout',
     },
+    reset: {
+      isProtected: true,
+      title: 'Reset password | Blaunk',
+      path: '/auth/reset',
+    },
+    signup: {
+      isProtected: false,
+      title: 'Sign up | Blaunk',
+      path: '/auth/signup',
+    },
   },
-  b2b: {
-    home: {
-      isProtected: true,
-      title: 'B2B-Home | Blaunk',
-      path: '/b2b/home',
+  home: {
+    isProtected: false,
+    title: 'Home | Blaunk',
+    path: '/home',
+    bgt: {
+      isProtected: false,
+      title: 'Home-BGT | Blaunk',
+      path: '/home/bgt',
     },
-    profile: {
+    boutique: {
       isProtected: true,
-      title: 'B2B-Profile | Blaunk',
-      path: '/b2b/profile',
+      title: 'Boutique | Blaunk',
+      path: '/home/boutique',
     },
+    cake: {
+      isProtected: true,
+      title: 'Cake | Blaunk',
+      path: '/home/cake',
+    },
+    store: {
+      isProtected: true,
+      title: 'Store | Blaunk',
+      path: '/home/store',
+    },
+    tour: {
+      isProtected: true,
+      title: 'Tour | Blaunk',
+      path: '/home/tour',
+    },
+  },
+  info: {
+    isProtected: false,
+    title: 'Info | Blaunk',
+    path: '/info',
     agreement: {
+      seller: true,
       isProtected: true,
-      title: 'B2B-Agreement | Blaunk',
-      path: '/b2b/agreement',
+      title: 'Agreement | Blaunk',
+      path: '/info/agreement',
+    },
+  },
+  product: {
+    seller: true,
+    isProtected: true,
+    title: 'My Products | Blaunk',
+    path: '/product',
+    add: {
+      isProtected: true,
+      title: 'Add Product | Blaunk',
+      path: '/product/add',
+    },
+    edit: {
+      isProtected: true,
+      title: 'Edit Product | Blaunk',
+      path: '/product/edit',
     },
     sell: {
       isProtected: true,
-      title: 'B2B-Sell | Blaunk',
-      path: '/b2b/sell',
-    },
-    buy: {
-      isProtected: true,
-      title: 'B2B-Buy | Blaunk',
-      path: '/b2b/buy',
-    },
-    cart: {
-      isProtected: true,
-      title: 'B2B-Cart | Blaunk',
-      path: '/b2b/cart',
-    },
-    order: {
-      isProtected: true,
-      title: 'B2B-Order | Blaunk',
-      path: '/b2b/order',
+      title: 'Sell Product | Blaunk',
+      path: '/product/sell',
     },
   },
-} as const;
+  vendor: {
+    seller: true,
+    isProtected: true,
+    title: 'Vendor | Blaunk',
+    path: '/vendor',
+    dashboard: {
+      seller: true,
+      isProtected: true,
+      title: 'Dashboard | Blaunk',
+      path: '/vendor/dashboard',
+    },
+    shipments: {
+      isProtected: true,
+      title: 'My Shipments | Blaunk',
+      path: '/vendor/shipments',
+    },
+  },
+};

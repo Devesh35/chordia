@@ -3,16 +3,31 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 2rem;
   height: var(--nav-header-height);
   max-height: var(--nav-header-height) !important;
   background-color: var(--primarydark);
 }
 
+.wrapper > * {
+  flex: 1;
+}
+
+.blaunk {
+  margin-top: 4px;
+}
+
 .items {
   display: flex;
+  justify-content: flex-end;
   margin: 0 auto;
   gap: 24px;
+}
+
+.items > .item {
+  color: var(--onprimarydark);
+  align-items: center;
+  cursor: pointer;
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
 }
@@ -20,9 +35,6 @@
 .item {
   display: flex;
   gap: 8px;
-  align-items: center;
-  color: var(--onprimarydark);
-  cursor: pointer;
 }
 
 .select {
@@ -38,4 +50,21 @@
   max-width: 50vw;
   height: 36px;
   padding: 0 16px;
+}
+
+.item:first-of-type > div {
+  background-color: var(--transparent);
+  border: none;
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  padding: 0px;
+}
+.welcome > header {
+  gap: 12px;
+}
+.welcome svg {
+  color: var(--onprimarydark);
+}
+.welcome > main > div {
+  border: none;
 }

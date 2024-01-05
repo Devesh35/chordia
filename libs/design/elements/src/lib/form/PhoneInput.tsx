@@ -1,15 +1,13 @@
-import { AvailableCountries } from '@md/blaunk/config';
+import { SelectItemElement } from '@li/types/design';
 import { Input, InputProps } from './Input';
 import { Select } from './Select';
 import styles from './input-select.module.css';
 import clsx from 'clsx';
 
-const countryCodes = AvailableCountries.map((c) => ({
-  id: c.id,
-  item: c.code,
-}));
-
-export const PhoneInput = (props: InputProps) => {
+export const PhoneInput = ({
+  countryCodes,
+  ...props
+}: InputProps & { countryCodes: SelectItemElement[] }) => {
   return (
     <div className={styles.wrapper}>
       <Select
