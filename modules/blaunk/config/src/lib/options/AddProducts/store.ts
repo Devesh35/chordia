@@ -13,7 +13,7 @@ export const storeSections: {
 } = {
   productDetails: {
     id: 'product-details',
-    label: 'Product details',
+    title: 'Product details',
     items: [
       { id: 'p.o.', label: 'P.O.', placeholder: 'P.O.' },
       { id: 'bill no.', label: 'Bill No.', placeholder: 'Bill No' },
@@ -24,7 +24,7 @@ export const storeSections: {
   },
   purchaseDetails: {
     id: 'purchase-details',
-    label: 'Purchase details',
+    title: 'Purchase details',
     items: [
       { id: 'group', label: 'Group', placeholder: 'Group' },
       { id: 'segment', label: 'Segment', placeholder: 'Segment' },
@@ -52,7 +52,7 @@ export const storeSections: {
   },
   highlights: {
     id: 'highlights',
-    label: 'Highlights',
+    title: 'Highlights',
     items: [
       {
         id: 'tags',

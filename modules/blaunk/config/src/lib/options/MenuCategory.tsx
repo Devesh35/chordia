@@ -1,17 +1,5 @@
 import { SelectItem } from '@li/types/design';
 
-type SubCategory = {
-  id: string;
-  label: string;
-};
-
-type Category = {
-  id: string;
-  name: string;
-};
-
-type CatCat = Category & { subItems?: Category[] };
-
 export const MenuCategoriesId = [
   'accessories-audio',
   'accessories-camera',
@@ -63,6 +51,24 @@ export const MenuCategoriesId = [
 ] as const;
 
 export type MenuCategoriesIdType = (typeof MenuCategoriesId)[number];
+
+type SubCategory = {
+  id: string;
+  label: string;
+};
+
+type CategoryMenuItem = {
+  id: MenuCategoriesIdType;
+  name: string;
+};
+
+type CategoryMenuItemWithSub = {
+  id: string;
+  name: string;
+  subItems: CategoryMenuItem[];
+};
+
+type CatCat = CategoryMenuItem | CategoryMenuItemWithSub;
 
 export const MenuCategories: CatCat[] = [
   {
@@ -258,14 +264,15 @@ export const MenuCategories: CatCat[] = [
   },
 ];
 
-export const MenuOptions = MenuCategories.map((item: CatCat) =>
-  item.subItems === undefined
-    ? { id: item.id, item: item.name }
-    : item.subItems.map((subItem) => ({
-        id: subItem.id,
-        item: `${item.name}-${subItem.name}`,
-      })),
-).flat() as SelectItem<MenuCategoriesIdType>[];
+export const MenuOptions: SelectItem<MenuCategoriesIdType>[] =
+  MenuCategories.map((item: CatCat) =>
+    'subItems' in item
+      ? item.subItems.map((subItem) => ({
+          id: subItem.id,
+          item: `${item.name}-${subItem.name}`,
+        }))
+      : { id: item.id, item: item.name },
+  ).flat();
 
 export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   accessories_general: [
@@ -2216,10 +2223,11 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   textile_fabrics: [],
 };
 
-export const SubMenuOptions = Object.entries(SubCategories).reduce(
-  (a, [k, v]) => ({
-    ...a,
-    [k]: v.map((sc) => ({ id: sc.id, item: sc.label })),
-  }),
-  {},
-) as { [k in MenuCategoriesIdType]: SelectItem[] };
+export const SubMenuOptions: { [k in MenuCategoriesIdType]: SelectItem[] } =
+  Object.entries(SubCategories).reduce(
+    (a, [k, v]) => ({
+      ...a,
+      [k]: v.map((sc) => ({ id: sc.id, item: sc.label })),
+    }),
+    {} as Record<MenuCategoriesIdType, SelectItem[]>,
+  );

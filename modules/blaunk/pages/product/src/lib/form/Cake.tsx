@@ -1,7 +1,10 @@
-import React from 'react'
+import { CancelForm } from './CancelForm';
 
 export const Cake = () => {
   return (
-    <div>Cake</div>
-  )
-}
+    <div>
+      <div>Cake</div>
+      <CancelForm />{' '}
+    </div>
+  );
+};

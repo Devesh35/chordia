@@ -35,7 +35,7 @@ export const profileSections: {
 } = {
   personal: {
     id: 'personal',
-    label: 'Personal',
+    title: 'Personal',
     items: [
       {
         id: 'name',
@@ -60,7 +60,7 @@ export const profileSections: {
   },
   address: {
     id: 'address',
-    label: 'Address',
+    title: 'Address',
     items: [
       {
         id: 'address',
@@ -108,7 +108,7 @@ export const profileSections: {
   },
   identification: {
     id: 'identification',
-    label: 'Identification',
+    title: 'Identification',
     items: [
       {
         id: 'pan',
@@ -129,7 +129,7 @@ export const profileSections: {
   },
   general: {
     id: 'general',
-    label: 'General',
+    title: 'General',
     items: [
       {
         id: 'referCode',
@@ -167,7 +167,7 @@ export const profileSections: {
   },
   bank: {
     id: 'bank',
-    label: 'Bank',
+    title: 'Bank',
     items: [
       {
         id: 'bankName',
@@ -206,7 +206,7 @@ export const profileSections: {
 
   vendor: {
     id: 'vendor',
-    label: 'Vendor',
+    title: 'Vendor',
     items: [
       {
         id: 'vendorCode',
@@ -231,8 +231,7 @@ export const profileSections: {
 
   vendorCompany: {
     id: 'vendor-company',
-    label: 'Vendor Company',
-
+    title: 'Vendor Company',
     items: [
       {
         id: 'companyName',
@@ -308,7 +307,7 @@ export const profileSections: {
   },
   vendorAgent: {
     id: 'vendor-agent',
-    label: 'Vendor Agent',
+    title: 'Vendor Agent',
     items: [
       {
         id: 'agentName',
@@ -327,7 +326,7 @@ export const profileSections: {
 
   vendorResponse: {
     id: 'vendor-response',
-    label: 'Vendor Interactions',
+    title: 'Vendor Interactions',
     items: [
       {
         id: 'responseTime',
@@ -347,7 +346,7 @@ export const profileSections: {
   },
   vendorIdentification: {
     id: 'vendor-identification',
-    label: 'Vendor Identification',
+    title: 'Vendor Identification',
     items: [
       {
         id: 'pan',
@@ -452,6 +451,6 @@ export const profileDocuments: {
 
 export const profileDocumentSection: FormDocumentSection = {
   id: 'documents',
-  label: 'Documents',
+  title: 'Documents',
   items: profileDocument.map((id) => profileDocuments[id]),
 };

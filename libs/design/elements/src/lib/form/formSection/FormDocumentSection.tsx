@@ -14,7 +14,7 @@ export const FormDocumentSection = ({
   return (
     <section className={styles.section}>
       <header className={styles['section-header']}>
-        {section.label}
+        {section.title}
         <div className={styles.verification}>
           Subject to verification & confirmation from admin
         </div>

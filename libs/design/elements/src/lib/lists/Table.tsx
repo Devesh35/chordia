@@ -6,10 +6,10 @@ import clsx from 'clsx';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TData = { [K in string]: any };
 
-export type TableColumn<T extends TData> = {
-  id: keyof T;
+export type TableColumn<T extends TData, C = T[keyof T]> = {
+  id: keyof T | (string & NonNullable<unknown>);
   name: string;
-  cellFormat?: () => React.ReactNode;
+  cellFormat?: (cellData: C) => React.ReactNode;
 };
 
 type TableProps<T extends TData> = {
@@ -27,36 +27,38 @@ export const Table = <T extends TData>({
   onRowClick,
   onCellClick,
 }: TableProps<T>) => (
-  <table className={clsx(styles.table, className)}>
-    <thead className={styles.thead}>
-      <tr>
-        {columns.map(({ id, name }: TableColumn<T>) => (
-          <th className={styles.th} key={id as string}>
-            {name}
-          </th>
-        ))}
-      </tr>
-    </thead>
-    <tbody>
-      {data.map((row, rowIndex) => (
-        <tr
-          key={rowIndex}
-          className={styles.tr}
-          style={onRowClick ? { cursor: 'pointer' } : {}}
-          onClick={() => onRowClick?.(row)}
-        >
-          {columns.map(({ id }) => (
-            <td
-              key={id as string}
-              className={styles.td}
-              style={onCellClick ? { cursor: 'pointer' } : {}}
-              onClick={() => onCellClick?.(row, id)}
-            >
-              {row[id]}
-            </td>
+  <div className={clsx(styles.wrapper, className)}>
+    <table className={clsx(styles.table)}>
+      <thead className={styles.thead}>
+        <tr>
+          {columns.map(({ id, name }: TableColumn<T>) => (
+            <th className={styles.th} key={id as string}>
+              {name}
+            </th>
           ))}
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {data.map((row, rowIndex) => (
+          <tr
+            key={rowIndex}
+            className={styles.tr}
+            style={onRowClick ? { cursor: 'pointer' } : {}}
+            onClick={() => onRowClick?.(row)}
+          >
+            {columns.map(({ id, cellFormat }) => (
+              <td
+                key={id as string}
+                className={styles.td}
+                style={onCellClick ? { cursor: 'pointer' } : {}}
+                onClick={() => onCellClick?.(row, id)}
+              >
+                {cellFormat ? cellFormat(row[id]) : row[id]}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 );

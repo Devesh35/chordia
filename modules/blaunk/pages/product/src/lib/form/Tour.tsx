@@ -1,7 +1,10 @@
-import React from 'react'
+import { CancelForm } from './CancelForm';
 
 export const Tour = () => {
   return (
-    <div>Tour</div>
-  )
-}
+    <div>
+      <div>Tour</div>
+      <CancelForm />{' '}
+    </div>
+  );
+};

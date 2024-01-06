@@ -3,15 +3,19 @@
 }
 
 .section-header {
-  font-size: var(--font-size-h5);
-  line-height: var(--line-height-h5);
   margin-inline: 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: var(--font-weight-medium);
   border-bottom: var(--border-width-small) solid var(--gray200);
 }
 
+.section-header,
+.accordion header > span {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  font-weight: var(--font-weight-medium);
+}
+
 .section-content {
+  margin-block: 0.5rem;
   grid-gap: 1rem;
   padding: 0 2rem;
 }
@@ -39,7 +43,6 @@
 .area {
   height: 12ch;
 }
-
 
 .verification {
   font-size: var(--font-size-h6);

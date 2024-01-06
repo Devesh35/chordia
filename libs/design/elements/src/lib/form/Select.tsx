@@ -68,9 +68,9 @@ export const Select = <K extends string, S extends SelectItem<K>>({
               [styles['title-selected']]: !!selected?.id,
             })}
           >
-            {(!isSelectItemDivider(selected) && selected?.item) ||
-              placeholder ||
-              'Select'}
+            {selected && !isSelectItemDivider(selected)
+              ? selected.item
+              : placeholder || 'Select'}
           </span>
         )}
         <div className={clsx(styles.icon, { [styles['icon-active']]: isOpen })}>

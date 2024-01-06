@@ -2,7 +2,11 @@
 
 import { CategorySelection } from './CategorySelection';
 import { useState } from 'react';
-import { SubCategories, getRandomImagesArray } from '@md/blaunk/config';
+import {
+  MenuCategoriesIdType,
+  SubCategories,
+  getRandomImagesArray,
+} from '@md/blaunk/config';
 import { Divider, TagGroup } from '@li/design/elements';
 import { ImageCardOverlay } from '@li/design/components';
 import { Star } from '@li/design/icons';
@@ -14,9 +18,8 @@ import { sbs } from '@li/config/design';
 const images = getRandomImagesArray(12)(225);
 
 export const CategorySearch = () => {
-  const [selectedCategory, setSelectedCategory] = useState(
-    'accessories_general',
-  );
+  const [selectedCategory, setSelectedCategory] =
+    useState<MenuCategoriesIdType>('accessories_general');
 
   return (
     <div className={styles.wrapper}>

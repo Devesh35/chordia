@@ -5,7 +5,7 @@ import { GSTOptions } from '../General';
 
 export const BGTProductDetails: FormSection = {
   id: 'product-details',
-  label: 'Product details',
+  title: 'Product details',
   items: [
     {
       id: 'group',
@@ -56,3 +56,4 @@ export const BGTProductDetails: FormSection = {
     },
   ],
 };
+

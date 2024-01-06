@@ -1,10 +1,12 @@
 export * from './AddProducts';
+export { CompanyProfile } from './CompanyProfile';
 export { Constants } from './Constants';
 export {
   AvailableCountries,
   CountriesOption,
   CountryCodeOptions,
 } from './Country';
+export { Export } from './Export';
 export { FooterDetails } from './Footer';
 export { BankAccountType, GSTOptions } from './General';
 export { MenuBarItems } from './MenuBar';
@@ -14,9 +16,11 @@ export {
   SubCategories,
   MenuCategoriesId,
   SubMenuOptions,
+  type MenuCategoriesIdType
 } from './MenuCategory';
 export { type NavMenuItem, NavMenuItems } from './NavMenu';
 export { ProductTypeOptions } from './Product';
+export { ProductSpecification } from './ProductSpecification';
 export {
   profileSection,
   profileSections,

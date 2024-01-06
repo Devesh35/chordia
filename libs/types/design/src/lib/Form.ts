@@ -23,7 +23,7 @@ export type FormSectionItem = {
 
 export type FormSection = {
   id: string;
-  label: string;
+  title: string;
   items: FormSectionItem[];
 };
 
@@ -35,6 +35,6 @@ export type FormDocument = {
 
 export type FormDocumentSection = {
   id: string;
-  label: string;
+  title: string;
   items: FormDocument[];
 };

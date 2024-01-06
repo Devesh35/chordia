@@ -1,10 +1,7 @@
 .wrapper {
   width: 100%;
-  background-color: var(--secondary);
+  background-color: var(--white);
   border: none;
-}
-.wrapper:hover {
-  background-color: var(--secondarydark);
 }
 
 .header {
