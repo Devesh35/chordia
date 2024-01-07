@@ -1,4 +1,5 @@
-import { Button, FormDocumentSection, FormSection } from '@li/design/elements';
+'use client';
+import { FormDocumentSection, FormSection } from '@li/design/elements';
 import {
   BGTImageSection,
   BGTProductDetails,
@@ -6,8 +7,7 @@ import {
   Export,
   ProductSpecification,
 } from '@md/blaunk/config';
-import styles from './bgt.module.css';
-import { QuantityTable } from './QuantityTable';
+import { QuantitySection } from './QuantitySection';
 import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
 
@@ -45,12 +45,7 @@ export const BGT = () => {
   return (
     <>
       <FormSection {...BGTProductDetails} isEdit />
-      <FormSection title="Product pricing">
-        <div className={styles.quantity}>
-          <QuantityTable data={dummyData} />
-          <Button className={styles['add-row-button']}>Add quantity</Button>
-        </div>
-      </FormSection>
+      <QuantitySection data={dummyData} />
       <FormDocumentSection isEdit section={BGTImageSection} />
       {specifications.map((section) => (
         <FormSection {...section} isEdit expandable />

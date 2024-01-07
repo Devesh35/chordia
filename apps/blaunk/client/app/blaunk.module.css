@@ -7,6 +7,9 @@
   --home-banner-image-size-min: 500px;
   --b2b-home-banner-size: 500px;
 
+  --modal-min-width: 320px;
+  --modal-max-width: 840px;
+
   --primary900: #444913;
   --primary800: #525816;
   --primary700: #5f661a;
