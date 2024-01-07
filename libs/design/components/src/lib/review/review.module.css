@@ -1,9 +1,10 @@
 .wrapper {
+  white-space: wrap;
   background-color: var(--white);
   border-radius: var(--border-radius-large);
   height: 400px;
   padding: 12px;
-  max-width: 240px;
+  max-width: 360px;
   box-shadow: var(--box-shadow-s);
 }
 
@@ -16,8 +17,9 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
+  padding: 0.25rem 0.5rem 0.25rem 1.5rem;
 }
 
 .premium {
@@ -37,7 +39,6 @@
 
 .review {
   max-width: 90%;
-  white-space: wrap;
   font-size: var(--font-size-p14);
   line-height: var(--line-height-p14);
 }
