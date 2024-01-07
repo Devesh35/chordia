@@ -1,7 +1,7 @@
 import { SelectItem, SelectItemElement } from './Select';
 
-export type FormSectionItem = {
-  id: string;
+export type FormSectionItem<D = string> = {
+  id: D;
   label: string;
   size?: number;
   placeholder: string;
@@ -21,21 +21,21 @@ export type FormSectionItem = {
     }
 );
 
-export type FormSection = {
-  id: string;
+export type FormSection<T = string, D = string> = {
+  id: T;
   title: string;
-  items: FormSectionItem[];
+  items: FormSectionItem<D>[];
 };
 
-export type FormDocument = {
-  id: string;
+export type FormDocument<T = string> = {
+  id: T;
   label: string;
   placeholder?: string[];
 };
 
-export type FormDocumentSection = {
-  id: string;
+export type FormDocumentSection<T = string, D = string> = {
+  id: T;
   title: string;
-  items: FormDocument[];
+  items: FormDocument<D>[];
   verification?: boolean;
 };

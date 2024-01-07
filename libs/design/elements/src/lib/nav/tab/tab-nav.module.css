@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  border-bottom: var(--border-width-small) solid var(--primary);
+}
+.item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-bottom: var(--border-width-large) solid var(--transparent);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.active {
+  border-bottom: var(--border-width-large) solid var(--primary);
+}
+
+.content {
+  padding: 0;
+}

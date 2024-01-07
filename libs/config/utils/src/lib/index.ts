@@ -3,3 +3,4 @@ export {
   optionsFromObject,
   optionsFromStrings,
 } from './Select';
+export { toLowerCase } from './String';

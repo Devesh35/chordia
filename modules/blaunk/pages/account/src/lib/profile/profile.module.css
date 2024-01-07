@@ -2,6 +2,11 @@
   border: var(--border-width-small) solid var(--black);
   border-radius: var(--border-radius-small);
   overflow: hidden;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 0;
 }
 
 .actions {

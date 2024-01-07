@@ -16,16 +16,12 @@ export {
   SubCategories,
   MenuCategoriesId,
   SubMenuOptions,
-  type MenuCategoriesIdType
+  type MenuCategoriesIdType,
 } from './MenuCategory';
 export { type NavMenuItem, NavMenuItems } from './NavMenu';
 export { ProductTypeOptions } from './Product';
 export { ProductSpecification } from './ProductSpecification';
-export {
-  profileSection,
-  profileSections,
-  profileDocumentSection,
-} from './Profile';
+export { profileSections, profileDocumentSection } from './Profile';
 export { Routes } from './Routes';
 export { Units } from './Units';
 export { PaymentOption, UserCategoryOption } from './User';
