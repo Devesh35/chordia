@@ -1,8 +1,12 @@
 .select-type {
   margin: 0 auto;
-  width: 30%;
   min-width: 240px;
+  justify-content: center;
 }
+
 .select-type > label {
   flex-shrink: 0;
+}
+.select-type > div {
+  max-width: 240px;
 }

@@ -1,7 +1,7 @@
 'use client';
 import { DownFilled } from '@li/design/icons';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Divider } from '../presentational';
+import { Divider } from '../../presentational';
 import { ClassName, ReactChildren } from '@li/types/shared';
 import styles from './accordion.module.css';
 import clsx from 'clsx';

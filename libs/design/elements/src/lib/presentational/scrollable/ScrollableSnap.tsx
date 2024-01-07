@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import styles from './scrollableSnap.module.css';
 import { ClassName, ReactChildren } from '@li/types/shared';
 import { useRef } from 'react';
-import { MoveControl } from '../decorators/MoveControl';
+import { MoveControl } from '../../decorators';
 
 type ScrollableSnapProps = {
   controls?: true;
@@ -19,7 +19,7 @@ export const ScrollableSnap = ({
   className,
   controls,
   direction = 'x',
-  delta = 10
+  delta = 10,
 }: ScrollableSnapProps) => {
   const ref = useRef<HTMLDivElement>(null);
 

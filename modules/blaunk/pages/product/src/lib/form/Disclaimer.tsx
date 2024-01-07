@@ -5,7 +5,7 @@ export const Disclaimer = () => {
     <div className={styles.disclaimer}>
       <h4>Disclaimer</h4>
       <p>
-        We agree with Terms & Condition of B2B Blaunk Trade.Free Returns and
+        We agree with Terms & Condition of B2B Blaunk Trade. Free Returns and
         Refund if Buyer not satisfied with goods received vary or different from
         product image.
       </p>

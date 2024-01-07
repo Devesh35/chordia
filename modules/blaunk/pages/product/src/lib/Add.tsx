@@ -4,6 +4,7 @@ import { Labeled, Select } from '@li/design/elements';
 import { ProductTypeOptions, Routes } from '@md/blaunk/config';
 import styles from './add.module.css';
 import { useRouter } from 'next/navigation';
+import { Disclaimer } from './form/Disclaimer';
 
 export const Add = () => {
   const router = useRouter();
@@ -21,6 +22,7 @@ export const Add = () => {
           }
         />
       </Labeled>
+      <Disclaimer />
     </div>
   );
 };

@@ -5,9 +5,8 @@ import React, { forwardRef, useEffect } from 'react';
 import {
   PolymorphicComponentProp,
   PolymorphicComponentPropWithRef,
-} from '../poly';
-import { PaginationDots } from '../decorators';
-import { MoveControl } from '../decorators/MoveControl';
+} from '../../poly';
+import { PaginationDots, MoveControl } from '../../decorators';
 import clsx from 'clsx';
 import styles from './carousal-center.module.css';
 import { ReactChildren } from '@li/types/shared';
