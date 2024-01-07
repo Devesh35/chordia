@@ -1,11 +1,11 @@
-import { Link } from '@li/design/elements';
-import { Routes } from '@md/blaunk/config';
+import { PageHeader } from '@md/blaunk/design';
+import { AddModal } from './AddModal';
 
 export const List = () => {
   return (
     <div>
-      List
-      <Link href={Routes.product.add.path}>Add Product</Link>
+      <PageHeader title="Products" aside={<AddModal />} />
+      List of products
     </div>
   );
 };

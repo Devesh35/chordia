@@ -9,20 +9,21 @@ import {
 } from '@md/blaunk/config';
 import styles from './profile.module.css';
 import { useState } from 'react';
+import { PageHeader } from '@md/blaunk/design';
 
 export const Profile = () => {
   const [isEdit, setIsEdit] = useState(false);
 
   return (
     <div className={styles.wrapper}>
-      <header className={styles.header}>
-        Profile
-        {withCondition(!isEdit)(
+      <PageHeader
+        title={'Profile'}
+        aside={
           <Button variant="secondary" onClick={() => setIsEdit(true)}>
-            Edit
-          </Button>,
-        )}
-      </header>
+            {withCondition(isEdit)('Save', 'Edit')}
+          </Button>
+        }
+      />
       {profileSection.map((sectionId) => {
         const section = profileSections[sectionId];
         return <FormSection key={sectionId} isEdit={isEdit} {...section} />;
