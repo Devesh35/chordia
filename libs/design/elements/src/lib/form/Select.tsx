@@ -38,6 +38,12 @@ export const Select = <K extends string, S extends SelectItem<K>>({
 
   const { handleHover, handleMouseLeave, isEndOne, isEndTwo } =
     useHoverScroll(contentRef);
+  const showTop = !(isEndOne || typeof maxHeight === 'boolean');
+  const showBottom = !(
+    isEndTwo ||
+    typeof maxHeight === 'boolean' ||
+    contentHeight < maxHeight
+  );
 
   // Sets the height of the content div
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -85,7 +91,7 @@ export const Select = <K extends string, S extends SelectItem<K>>({
         </div>
       </header>
       <main className={clsx(styles['option-wrapper'], sbs.none)}>
-        {withCondition(!isEndOne && !(typeof maxHeight === 'boolean'))(
+        {withCondition(showTop)(
           <div
             className={clsx(styles['option-control'], styles['option-up'])}
             onMouseEnter={handleHover(-1)}
@@ -114,7 +120,7 @@ export const Select = <K extends string, S extends SelectItem<K>>({
               </div>
             ),
           )}
-          {withCondition(!isEndTwo && !(typeof maxHeight === 'boolean'))(
+          {withCondition(showBottom)(
             <div
               className={clsx(styles['option-control'], styles['option-down'])}
               onMouseEnter={handleHover(1)}

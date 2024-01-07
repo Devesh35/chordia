@@ -1,3 +1,3 @@
-export * from './imageCard';
-export * from './profileCard';
-export * from './reviewCard';
+export * from './image';
+export * from './profile';
+export * from './review';

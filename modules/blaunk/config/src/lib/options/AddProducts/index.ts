@@ -1,2 +1,2 @@
-export { BGTProductDetails } from './bgt';
+export { BGTProductDetails, BGTImageSection } from './bgt';
 export { storeSection, storeSections } from './store';

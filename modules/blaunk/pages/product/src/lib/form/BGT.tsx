@@ -1,5 +1,6 @@
-import { Button, FormSection } from '@li/design/elements';
+import { Button, FormDocumentSection, FormSection } from '@li/design/elements';
 import {
+  BGTImageSection,
   BGTProductDetails,
   CompanyProfile,
   Export,
@@ -7,7 +8,8 @@ import {
 } from '@md/blaunk/config';
 import styles from './bgt.module.css';
 import { QuantityTable } from './QuantityTable';
-import { CancelForm } from './CancelForm';
+import { Disclaimer } from './Disclaimer';
+import { FormAction } from './FormAction';
 
 const dummyData = [
   {
@@ -49,13 +51,13 @@ export const BGT = () => {
           <Button className={styles['add-row-button']}>Add quantity</Button>
         </div>
       </FormSection>
+      <FormDocumentSection isEdit section={BGTImageSection} />
       {specifications.map((section) => (
         <FormSection {...section} isEdit expandable />
       ))}
-      <div className={styles.action}>
-        <CancelForm />
-        <Button>Save</Button>
-      </div>
+
+      <Disclaimer />
+      <FormAction />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { FormSection } from '@li/types/design';
+import { FormDocumentSection, FormSection } from '@li/types/design';
 import { MenuOptions, SubMenuOptions } from '../MenuCategory';
 import { UserCategoryOption } from '../User';
 import { GSTOptions } from '../General';
@@ -57,3 +57,11 @@ export const BGTProductDetails: FormSection = {
   ],
 };
 
+export const BGTImageSection: FormDocumentSection = {
+  id: 'image',
+  title: 'Product Image',
+  items: Array.from({ length: 4 }, (_, index) => ({
+    id: `image${index + 1}`,
+    label: `Image-${index + 1}`,
+  })),
+};

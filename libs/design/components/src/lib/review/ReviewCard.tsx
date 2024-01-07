@@ -1,5 +1,5 @@
 import { Rating } from '@li/design/elements';
-import { ImageCardDetails } from '../imageCard';
+import { ImageCardDetails } from '../image';
 import styles from './review.module.css';
 
 export const ReviewCard = ({ i }: { i: number }) => (

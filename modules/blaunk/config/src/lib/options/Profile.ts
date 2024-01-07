@@ -452,5 +452,6 @@ export const profileDocuments: {
 export const profileDocumentSection: FormDocumentSection = {
   id: 'documents',
   title: 'Documents',
+  verification: true,
   items: profileDocument.map((id) => profileDocuments[id]),
 };

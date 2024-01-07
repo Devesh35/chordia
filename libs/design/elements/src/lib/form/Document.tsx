@@ -1,10 +1,10 @@
 import { withCondition } from '@li/design/enhancers';
-import styles from './form.module.css';
+import styles from './document.module.css';
 import clsx from 'clsx';
-import { Input } from '../Input';
+import { Input } from './Input';
 import { FormDocument } from '@li/types/design';
 
-export const FormDocumentItem = (props: FormDocument & { isEdit: boolean }) => {
+export const Document = (props: FormDocument & { isEdit: boolean }) => {
   return (
     <div className={clsx(styles.document)}>
       {withCondition(props.isEdit)(

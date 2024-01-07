@@ -1,0 +1,32 @@
+.disclaimer {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+  margin: 1rem;
+}
+.disclaimer > h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+.disclaimer > * {
+  text-align: center;
+}
+
+.action-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.policy {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+.action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

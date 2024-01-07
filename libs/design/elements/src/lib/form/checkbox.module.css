@@ -1,0 +1,11 @@
+.label {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-l14);
+  line-height: var(--line-height-l14);
+  color: var(--gray600);
+}
+
+.input {
+  margin-right: 8px;
+}

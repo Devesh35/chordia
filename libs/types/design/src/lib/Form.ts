@@ -37,4 +37,5 @@ export type FormDocumentSection = {
   id: string;
   title: string;
   items: FormDocument[];
+  verification?: boolean;
 };
