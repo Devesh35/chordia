@@ -21,7 +21,9 @@ export const ReviewCard = ({ i }: { i: number }) => (
     />
     <div className={styles.username}>C&amp;D Retail India LLP</div>
     <div className={styles.review}>
-      This is the review from the review section
+      This is the review from the review section This is the review from the
+      review section This is the review from the review section This is the
+      review from the review section This is the review from the review section
     </div>
   </div>
 );

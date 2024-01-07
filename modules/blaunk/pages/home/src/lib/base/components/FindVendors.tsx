@@ -10,6 +10,8 @@ import {
   Select,
 } from '@li/design/elements';
 import styles from './find-vendors.module.css';
+import clsx from 'clsx';
+import { grid } from '@li/config/design';
 
 const SocialItem = ({ label, i }: { label: string; i: number }) => (
   <ImageCardDetails
@@ -31,7 +33,7 @@ const SocialItem = ({ label, i }: { label: string; i: number }) => (
 
 export const FindVendors = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={clsx(styles.wrapper, grid['col-6'])}>
       <div className={styles.heading}>Let us help you find best vendors</div>
       <div className={styles.content}>
         <div className={styles.form}>

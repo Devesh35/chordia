@@ -65,6 +65,6 @@
 .welcome svg {
   color: var(--onprimarydark);
 }
-.welcome > main > div {
+.welcome main > div > div {
   border: none;
 }

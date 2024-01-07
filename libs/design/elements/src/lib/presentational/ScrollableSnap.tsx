@@ -10,6 +10,7 @@ import { MoveControl } from '../decorators/MoveControl';
 type ScrollableSnapProps = {
   controls?: true;
   direction?: 'x' | 'y';
+  delta?: number;
 } & ReactChildren &
   Partial<ClassName>;
 
@@ -18,6 +19,7 @@ export const ScrollableSnap = ({
   className,
   controls,
   direction = 'x',
+  delta = 10
 }: ScrollableSnapProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -26,8 +28,8 @@ export const ScrollableSnap = ({
       // dx has values of 1, -1
       // moving 10 px will scroll to next component due to scroll-snap-type
       ref.current.scrollBy(
-        direction === 'x' ? dx * 10 : 0,
-        direction === 'y' ? dx * 10 : 0,
+        direction === 'x' ? dx * delta : 0,
+        direction === 'y' ? dx * delta : 0,
       );
   };
 
