@@ -13,7 +13,7 @@
   font-size: var(--font-size-p16);
   line-height: var(--line-height-p16);
   cursor: pointer;
-  background-color: var(--secondary);
+  background-color: var(--white);
   border-bottom: var(--border-width-small) solid var(--secondarydark);
 }
 
@@ -22,7 +22,7 @@
 }
 
 .selected {
-  background-color: var(--primary300);
+  background-color: var(--secondary);
 }
 
 .sub-item:last-of-type:hover .item:last-of-type:hover {

@@ -11,10 +11,6 @@
   justify-content: center;
   gap: 12px;
 }
-.button[disabled] {
-  color: var(--textdisabled);
-  background-color: var(--backgrounddisabled);
-}
 
 .primary {
   color: var(--onprimaryaccent);
@@ -67,4 +63,12 @@
 .text[disabled] {
   color: var(--textdisabled);
   background-color: var(--transparent);
+}
+
+.button[disabled],
+.button[disabled]:hover,
+.button[disabled]:active {
+  cursor: auto;
+  color: var(--textdisabled);
+  background-color: var(--backgrounddisabled);
 }

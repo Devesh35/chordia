@@ -1,6 +1,6 @@
 'use client';
 
-import { DownFilled } from '@li/design/icons';
+import { DownFilled, TopFilled } from '@li/design/icons';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import styles from './select.module.css';
@@ -9,6 +9,8 @@ import { sbs } from '@li/config/design';
 import { SelectItem } from '@li/types/design';
 import { Divider } from '../presentational';
 import { isSelectItemDivider } from '@li/config/utils';
+import { withCondition } from '@li/design/enhancers';
+import { useHoverScroll } from '@li/design/hooks';
 
 export type SelectProps<K extends string, S extends SelectItem<K>> = {
   options: S[];
@@ -34,6 +36,16 @@ export const Select = <K extends string, S extends SelectItem<K>>({
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const { handleHover, handleMouseLeave, isEndOne, isEndTwo } =
+    useHoverScroll(contentRef);
+  const showTop = !(isEndOne || typeof maxHeight === 'boolean');
+  const showBottom = !(
+    isEndTwo ||
+    typeof maxHeight === 'boolean' ||
+    contentHeight < maxHeight
+  );
+
+  // Sets the height of the content div
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (contentRef.current)
@@ -44,6 +56,9 @@ export const Select = <K extends string, S extends SelectItem<K>>({
         ),
       );
   });
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setSelected(defaultItem), [options]);
 
   const toggleAccordion = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -58,6 +73,7 @@ export const Select = <K extends string, S extends SelectItem<K>>({
   return (
     <div
       className={clsx(formStyles['item-wrapper'], styles.wrapper, className)}
+      onMouseLeave={() => setIsOpen(false)}
     >
       <header className={styles.header} onClick={toggleAccordion}>
         {Header ? (
@@ -68,35 +84,55 @@ export const Select = <K extends string, S extends SelectItem<K>>({
               [styles['title-selected']]: !!selected?.id,
             })}
           >
-            {(!isSelectItemDivider(selected) && selected?.item) ||
-              placeholder ||
-              'Select'}
+            {selected && !isSelectItemDivider(selected)
+              ? selected.item
+              : placeholder || 'Select'}
           </span>
         )}
         <div className={clsx(styles.icon, { [styles['icon-active']]: isOpen })}>
           <DownFilled fill="var(--gray300)" />
         </div>
       </header>
-      <main
-        className={clsx(styles['option-wrapper'], sbs.none)}
-        style={{ height: isOpen ? contentHeight : '0' }}
-        ref={contentRef}
-      >
-        {options.map((o, i) =>
-          isSelectItemDivider(o) ? (
-            <Divider key={i} />
-          ) : (
-            <div
-              className={clsx(styles.item, styles.option, {
-                [styles['option-disabled']]: o.isDisabled,
-              })}
-              onClick={() => (o.isDisabled ? {} : onSelect(o))}
-              key={o.id}
-            >
-              {o.item}
-            </div>
-          ),
+      <main className={clsx(styles['option-wrapper'], sbs.none)}>
+        {withCondition(showTop)(
+          <div
+            className={clsx(styles['option-control'], styles['option-up'])}
+            onMouseEnter={handleHover(-1)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <TopFilled />
+          </div>,
         )}
+        <div
+          className={clsx(styles['option-wrapper-content'], sbs.none)}
+          style={{ height: isOpen ? contentHeight : '0' }}
+          ref={contentRef}
+        >
+          {options.map((o, i) =>
+            isSelectItemDivider(o) ? (
+              <Divider key={i} />
+            ) : (
+              <div
+                className={clsx(styles.item, styles.option, {
+                  [styles['option-disabled']]: o.isDisabled,
+                })}
+                onClick={() => (o.isDisabled ? {} : onSelect(o))}
+                key={o.id}
+              >
+                {o.item}
+              </div>
+            ),
+          )}
+          {withCondition(showBottom)(
+            <div
+              className={clsx(styles['option-control'], styles['option-down'])}
+              onMouseEnter={handleHover(1)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <DownFilled />
+            </div>,
+          )}
+        </div>
       </main>
     </div>
   );

@@ -1,2 +1,3 @@
-export { Labeled } from './Labeled';
-export { PaginationDots } from './PaginationDots';
+export * from './form';
+export { MoveControl } from './moveControl/MoveControl';
+export { PaginationDots } from './paginationDots/PaginationDots';

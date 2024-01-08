@@ -1,0 +1,44 @@
+.wrapper {
+  white-space: wrap;
+  background-color: var(--white);
+  border-radius: var(--border-radius-large);
+  height: 400px;
+  padding: 12px;
+  max-width: 360px;
+  box-shadow: var(--box-shadow-s);
+}
+
+.country {
+  float: right;
+  margin-bottom: 4px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+}
+
+.premium {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  color: var(--staractive);
+  float: right;
+}
+
+.username {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  font-weight: var(--font-weight-medium);
+}
+
+.review {
+  max-width: 90%;
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+}

@@ -10,6 +10,8 @@ import { StoreAds } from './components/StoreAds';
 import { AdSection } from '@md/blaunk/design';
 import styles from './home.module.css';
 import { BannerSection } from './components/BannerSection';
+import { grid } from '@li/config/design';
+import clsx from 'clsx';
 
 /* eslint-disable-next-line */
 export type HomeProps = {};
@@ -20,7 +22,7 @@ export function Home(props: HomeProps) {
       <TopSection />
       <AdSection size={150} />
       <Placeholder height={200} />
-      <div className={styles.section}>
+      <div className={clsx(styles.section, grid.grid)}>
         <FindVendors />
         <CustomerReviews />
       </div>

@@ -1,15 +1,24 @@
 import Image from 'next/image';
-import { Badge, Link } from '@li/design/elements';
-import { Cart } from '@li/design/icons';
+import { Badge, Input, Link } from '@li/design/elements';
+import { Cart, Search } from '@li/design/icons';
 import { Routes, logoLarge } from '@md/blaunk/config';
 import styles from './navHeader.module.css';
 import { MenuBar } from './MenuBar';
 import clsx from 'clsx';
 import { NavHeaderMenu } from './NavHeaderMenu';
+import { withConditionCase } from '@li/design/enhancers';
 
-export const NavHeader = () => {
+type NavHeaderProps = {
+  content: 'menu-bar' | 'search';
+};
+
+export const NavHeader = ({ content }: NavHeaderProps) => {
   return (
-    <header className={styles.wrapper}>
+    <header
+      className={clsx(styles.wrapper, {
+        [styles['wrapper-even']]: content === 'menu-bar',
+      })}
+    >
       <Link href={Routes.home.path}>
         <Image
           src={logoLarge}
@@ -19,15 +28,18 @@ export const NavHeader = () => {
           className={styles.blaunk}
         />
       </Link>
-
-      <MenuBar />
-
-      {/* <Input
-        className={styles.input}
-        iconLeft={<Search />}
-        iconRight={<Microphone className={gs.clickable} />}
-        placeholder="Search for product, brands and more"
-      /> */}
+      {withConditionCase(content)({
+        'menu-bar': <MenuBar />,
+        search: (
+          <Input
+            className={styles.input}
+            iconLeft={<Search />}
+            // iconRight={<Microphone className={gs.clickable} />}
+            placeholder="Search for product, brands and more"
+          />
+        ),
+        default: '',
+      })}
 
       <div className={styles.items}>
         <div className={clsx(styles.item)}>

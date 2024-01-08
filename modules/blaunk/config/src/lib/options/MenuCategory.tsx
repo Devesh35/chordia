@@ -1,14 +1,74 @@
+import { SelectItemElement } from '@li/types/design';
+
+export const MenuCategoriesId = [
+  'accessories-audio',
+  'accessories-camera',
+  'accessories_general',
+  'accessories-mobile',
+  'accessories-musical',
+  'agro-dry_fruits',
+  'agro-fertilizer',
+  'agro-fruits',
+  'agro-grains',
+  'agro-oils',
+  'agro-seeds',
+  'agro-spices',
+  'agro-veggies',
+  'apparel-kids',
+  'apparel-men',
+  'apparel-women',
+  'apparel-fabric',
+  'bathroom_accessories',
+  'chemicals',
+  'cleaners',
+  'computer',
+  'construction',
+  'cosmetics-kids',
+  'cosmetic-men',
+  'cosmetic-women',
+  'digital_signature',
+  'electric_vehicle',
+  'electrical',
+  'electronics',
+  'food_and_beverages',
+  'footwear',
+  'gardening',
+  'handmade_emporium',
+  'hardware',
+  'heavy_tools',
+  'herbal_nutrition',
+  'home_decor',
+  'kitchen_appliances',
+  'kitchen_ware',
+  'machinery',
+  'packaging',
+  'plastic_ware',
+  'sports',
+  'stationery',
+  'textile_fabrics',
+  'threads_and_laces',
+  'toys',
+] as const;
+
+export type MenuCategoriesIdType = (typeof MenuCategoriesId)[number];
+
 type SubCategory = {
   id: string;
   label: string;
 };
 
-type Category = {
-  id: string;
+type CategoryMenuItem = {
+  id: MenuCategoriesIdType;
   name: string;
 };
 
-type CatCat = Category & { subItems?: Category[] };
+type CategoryMenuItemWithSub = {
+  id: string;
+  name: string;
+  subItems: CategoryMenuItem[];
+};
+
+type CatCat = CategoryMenuItem | CategoryMenuItemWithSub;
 
 export const MenuCategories: CatCat[] = [
   {
@@ -204,16 +264,17 @@ export const MenuCategories: CatCat[] = [
   },
 ];
 
-export const MenuOptions = MenuCategories.map((item: CatCat) =>
-  item.subItems === undefined
-    ? { id: item.id, item: item.name }
-    : item.subItems.map((subItem) => ({
-        id: subItem.id,
-        item: `${item.name}-${subItem.name}`,
-      })),
-).flat();
+export const MenuOptions: SelectItemElement<MenuCategoriesIdType>[] =
+  MenuCategories.map((item: CatCat) =>
+    'subItems' in item
+      ? item.subItems.map((subItem) => ({
+          id: subItem.id,
+          item: `${item.name}-${subItem.name}`,
+        }))
+      : { id: item.id, item: item.name },
+  ).flat();
 
-export const SubCategories: { [k: string]: SubCategory[] } = {
+export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   accessories_general: [
     { id: 'athletic', label: 'Athletic' },
     { id: 'bandana', label: 'Bandana' },
@@ -2153,4 +2214,21 @@ export const SubCategories: { [k: string]: SubCategory[] } = {
     { id: 'table_tennis', label: 'Table Tennis' },
     { id: 'tennis', label: 'Tennis' },
   ],
+  cleaners: [],
+  electric_vehicle: [],
+  electrical: [],
+  handmade_emporium: [],
+  plastic_ware: [],
+  sports: [],
+  textile_fabrics: [],
 };
+
+export const SubMenuOptions: {
+  [k in MenuCategoriesIdType]: SelectItemElement[];
+} = Object.entries(SubCategories).reduce(
+  (a, [k, v]) => ({
+    ...a,
+    [k]: v.map((sc) => ({ id: sc.id, item: sc.label })),
+  }),
+  {} as Record<MenuCategoriesIdType, SelectItemElement[]>,
+);

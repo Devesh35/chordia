@@ -1,4 +1,5 @@
 Aadhar
+AGMARK
 Agro
 Asafoetida
 Atta
@@ -15,6 +16,7 @@ Bajra
 Bandhgala
 Belan
 Beyblade
+bgt
 blaunk
 Brasso
 Buildable
@@ -37,8 +39,8 @@ demoapp
 DGFT
 Dupattas
 Epilators
-Exim
 Eway
+Exim
 Faso
 FMCG
 FSSAI
@@ -86,6 +88,7 @@ PCOD
 Peticoat
 Polycotton
 Polyster
+Pravin
 primary
 primarydark
 Purlins
@@ -125,4 +128,3 @@ Ubtan
 veryfast
 xlarge
 Zari
-Pravin

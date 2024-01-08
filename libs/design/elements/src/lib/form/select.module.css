@@ -52,9 +52,12 @@
   z-index: var(--layer-floating);
   position: absolute;
   border-radius: var(--border-radius-medium);
-  overflow-y: scroll;
   box-shadow: var(--box-shadow-l);
+  overflow: hidden;
+}
 
+.option-wrapper-content {
+  overflow-y: scroll;
   height: 0;
   transition: height var(--duration-tr-veryfast) ease-in-out;
 }
@@ -74,4 +77,25 @@
 .option-disabled {
   color: var(--gray400);
   cursor: default;
+}
+
+.option-control {
+  background-color: var(--white);
+  padding: 4px;
+  position: absolute;
+  width: 100%;
+  z-index: var(--layer-floating);
+}
+.option-control > svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--gray300);
+  margin: 0 auto;
+  display: block;
+}
+.option-up {
+  top: 0;
+}
+.option-down {
+  bottom: 0;
 }

@@ -6,9 +6,7 @@
 }
 
 .section {
-  display: flex;
   padding-inline: 12px;
   gap: 12px;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  grid-gap: 12px;
 }

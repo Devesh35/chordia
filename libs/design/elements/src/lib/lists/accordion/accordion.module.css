@@ -1,0 +1,37 @@
+.wrapper {
+  width: 100%;
+  background-color: var(--white);
+  border: none;
+}
+
+.header {
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+.icon {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  transform: rotate(0deg);
+  transition: transform var(--duration-tr-fast) ease-out;
+}
+
+.icon-active {
+  transform: rotate(180deg);
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height var(--duration-tr-veryfast) ease-in-out;
+}

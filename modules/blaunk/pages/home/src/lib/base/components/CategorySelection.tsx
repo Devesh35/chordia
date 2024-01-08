@@ -1,12 +1,12 @@
 import { Accordion } from '@li/design/elements';
-import { MenuCategories } from '@md/blaunk/config';
+import { MenuCategories, MenuCategoriesIdType } from '@md/blaunk/config';
 import styles from './category-selection.module.css';
 import clsx from 'clsx';
 import { sbs } from '@li/config/design';
 
 type Props = {
-  selectedCategory: string;
-  setSelectedCategory: (id: string) => void;
+  selectedCategory: MenuCategoriesIdType;
+  setSelectedCategory: (id: MenuCategoriesIdType) => void;
 };
 
 export const CategorySelection = ({
@@ -17,7 +17,7 @@ export const CategorySelection = ({
     <div className={styles.wrapper}>
       <div className={clsx(styles.scroll, sbs.dark)}>
         {MenuCategories.map((category) =>
-          category.subItems ? (
+          'subItems' in category ? (
             <Accordion key={category.id} title={category.name}>
               {category.subItems.map((subItem) => (
                 <div

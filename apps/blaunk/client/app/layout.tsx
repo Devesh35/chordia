@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import './global.css';
 import styles from './base.module.css';
 import blaunkStyles from './blaunk.module.css';
-import { NavHeader, PageFooter } from '@md/blaunk/pages/layout';
+import { MenuBar, NavHeader, PageFooter } from '@md/blaunk/pages/layout';
 import { rs, sbs } from '@li/config/design';
 import { ReactChildren } from '@li/types/shared';
 
@@ -18,7 +18,8 @@ export default function RootLayout({ children }: ReactChildren) {
         <div className={styles.root}>
           <div className={styles.background}>
             <div className={styles.layout}>
-              <NavHeader />
+              <NavHeader content="search" />
+              <MenuBar variant="separate" />
               <div className={`${styles.content} ${sbs.dark}`}>
                 <div className={styles.page}>{children}</div>
                 <PageFooter />

@@ -111,6 +111,31 @@ export const Routes = {
       isProtected: true,
       title: 'Add Product | Blaunk',
       path: '/product/add',
+      bgt: {
+        isProtected: true,
+        title: 'Add BGT | Blaunk',
+        path: '/product/add/bgt',
+      },
+      boutique: {
+        isProtected: true,
+        title: 'Add Boutique | Blaunk',
+        path: '/product/add/boutique',
+      },
+      cake: {
+        isProtected: true,
+        title: 'Add Cake | Blaunk',
+        path: '/product/add/cake',
+      },
+      store: {
+        isProtected: true,
+        title: 'Add Store | Blaunk',
+        path: '/product/add/store',
+      },
+      tour: {
+        isProtected: true,
+        title: 'Add Tour | Blaunk',
+        path: '/product/add/tour',
+      },
     },
     edit: {
       isProtected: true,
@@ -128,6 +153,12 @@ export const Routes = {
     isProtected: true,
     title: 'Vendor | Blaunk',
     path: '/vendor',
+    register: {
+      seller: true,
+      isProtected: true,
+      title: 'Vendor Register | Blaunk',
+      path: '/vendor/register',
+    },
     dashboard: {
       seller: true,
       isProtected: true,

@@ -1,1 +1,2 @@
-export { Badge } from './Badge';
+export { Modal } from './modal/Modal';
+export { Badge } from './badge/Badge';

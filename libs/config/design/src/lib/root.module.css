@@ -124,6 +124,7 @@
   --layer-base: 0;
   --layer-first: 1;
   --layer-floating: 10;
+  --layer-modal: 100;
 
   /* shadow */
   --box-shadow-xl: 0px 18px 64px -8px rgba(28, 50, 79, 0.38),

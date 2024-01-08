@@ -1,0 +1,10 @@
+.header {
+  background-color: var(--primary);
+  color: var(--onprimary);
+  padding: 0.75rem 2rem;
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

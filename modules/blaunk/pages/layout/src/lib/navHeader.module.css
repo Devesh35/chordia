@@ -9,7 +9,7 @@
   background-color: var(--primarydark);
 }
 
-.wrapper > * {
+.wrapper-even > * {
   flex: 1;
 }
 
@@ -20,7 +20,7 @@
 .items {
   display: flex;
   justify-content: flex-end;
-  margin: 0 auto;
+  margin-left: auto;
   gap: 24px;
 }
 
@@ -50,6 +50,7 @@
   max-width: 50vw;
   height: 36px;
   padding: 0 16px;
+  margin-right: auto;
 }
 
 .item:first-of-type > div {
@@ -59,12 +60,13 @@
   line-height: var(--line-height-h5);
   padding: 0px;
 }
+
 .welcome > header {
   gap: 12px;
 }
 .welcome svg {
   color: var(--onprimarydark);
 }
-.welcome > main > div {
+.welcome main > div > div {
   border: none;
 }

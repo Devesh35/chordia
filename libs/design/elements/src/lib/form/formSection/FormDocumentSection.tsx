@@ -1,8 +1,9 @@
 import { grid } from '@li/config/design';
 import styles from './form.module.css';
 import clsx from 'clsx';
-import { FormDocumentItem } from './FormDocument';
+import { Document } from '../Document';
 import type { FormDocumentSection as FDS } from '@li/types/design';
+import { withCondition } from '@li/design/enhancers';
 
 export const FormDocumentSection = ({
   isEdit,
@@ -14,16 +15,18 @@ export const FormDocumentSection = ({
   return (
     <section className={styles.section}>
       <header className={styles['section-header']}>
-        {section.label}
-        <div className={styles.verification}>
-          Subject to verification & confirmation from admin
-        </div>
+        {section.title}
+        {withCondition(!!section.verification)(
+          <div className={styles.verification}>
+            Subject to verification & confirmation
+          </div>,
+        )}
       </header>
 
       <div className={clsx(styles['section-content'], grid.grid)}>
         {section.items.map((item) => (
           <div className={grid['col-2']}>
-            <FormDocumentItem {...item} isEdit={isEdit} />
+            <Document {...item} isEdit={isEdit} />
           </div>
         ))}
       </div>

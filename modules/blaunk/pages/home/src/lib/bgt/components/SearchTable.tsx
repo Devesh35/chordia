@@ -51,7 +51,7 @@ export const SearchTable = () => {
     <Table
       data={mockData}
       columns={columns}
-      onRowClick={() => {}}
+      onRowClick={console.log}
       className={styles['search-table']}
     />
   );

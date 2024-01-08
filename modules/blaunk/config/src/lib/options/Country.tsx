@@ -1,8 +1,8 @@
 import { CountryFlag, CountryName, CountryPhoneCode } from '@li/config/options';
 import { optionsFromObject } from '@li/config/utils';
-import { Country, CountryCode } from '@li/types/config';
+import { Country } from '@li/types/config';
 
-const codes: CountryCode[] = [
+const codes = [
   'in',
   'bh',
   'bd',
@@ -16,9 +16,12 @@ const codes: CountryCode[] = [
   'sg',
   'za',
   'lk',
+  'th',
   'ae',
   'vn',
-];
+] as const;
+
+export type AvailableCountryCode = (typeof codes)[number];
 
 export const AvailableCountries = codes
   .map<Country | undefined>((code) =>
@@ -33,7 +36,7 @@ export const AvailableCountries = codes
   )
   .filter((c): c is Country => !!c);
 
-export const CountriesOption = optionsFromObject<CountryCode>(
+export const CountriesOption = optionsFromObject<AvailableCountryCode>(
   AvailableCountries,
   {
     idPath: 'id',
@@ -41,10 +44,10 @@ export const CountriesOption = optionsFromObject<CountryCode>(
   },
 );
 
-export const CountryCodeOptions = optionsFromObject<CountryCode>(
+export const CountryCodeOptions = optionsFromObject<AvailableCountryCode>(
   AvailableCountries,
   {
     idPath: 'id',
     itemPath: 'code',
   },
-);
+).sort((a, b) => (a.item as string)?.localeCompare(b.item as string));
