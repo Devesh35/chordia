@@ -3,13 +3,13 @@
 import { Carousal, Select } from '@li/design/elements';
 import { useState } from 'react';
 import {
+  AvailableCountryCode,
   CountriesOption,
   getRandomImagesArray,
   randomImageUrl,
 } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
 import Image from 'next/image';
-import { CountryCode } from '@li/types/config';
 import { SectionHeader } from '@md/blaunk/design';
 import styles from './explore.module.css';
 import { CountryFlag } from '@li/config/options';
@@ -30,7 +30,7 @@ const ads = getRandomImagesArray(10)(400, 300).map((src) => (
 
 export const ExploreWorld = () => {
   const [selectedCountry, setSelectedCountry] =
-    useState<SelectItemElement<CountryCode>>();
+    useState<SelectItemElement<AvailableCountryCode>>();
 
   return (
     <div className={styles.wrapper}>

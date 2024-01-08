@@ -12,6 +12,7 @@ import {
   Singapore,
   SouthAfrica,
   SriLanka,
+  Thailand,
   UnitedArabEmirates,
   Vietnam,
 } from '@li/design/icons';
@@ -651,7 +652,11 @@ export const CountryFlag: { [k in CountryCode]: CF | undefined } = {
   sz: undefined,
   td: undefined,
   tg: undefined,
-  th: undefined,
+  th: {
+    Flag: <Thailand />,
+    color: '#A51931',
+    colorOnColor: '#F4F5F8',
+  },
   tj: undefined,
   tm: undefined,
   tn: undefined,

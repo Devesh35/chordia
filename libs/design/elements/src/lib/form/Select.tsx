@@ -57,6 +57,9 @@ export const Select = <K extends string, S extends SelectItem<K>>({
       );
   });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setSelected(defaultItem), [options]);
+
   const toggleAccordion = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, [setIsOpen]);

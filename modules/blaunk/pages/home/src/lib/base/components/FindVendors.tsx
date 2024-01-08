@@ -1,9 +1,16 @@
-import { Purpose, Units } from '@md/blaunk/config';
+'use client';
+
+import {
+  MenuCategoriesIdType,
+  MenuOptions,
+  Purpose,
+  SubMenuOptions,
+  Units,
+} from '@md/blaunk/config';
 import { ImageCardDetails } from '@li/design/components';
 import {
   Button,
   Divider,
-  Input,
   InputAndSelect,
   InputArea,
   Labeled,
@@ -12,6 +19,7 @@ import {
 import styles from './find-vendors.module.css';
 import clsx from 'clsx';
 import { grid } from '@li/config/design';
+import { useState } from 'react';
 
 const SocialItem = ({ label, i }: { label: string; i: number }) => (
   <ImageCardDetails
@@ -32,16 +40,31 @@ const SocialItem = ({ label, i }: { label: string; i: number }) => (
 );
 
 export const FindVendors = () => {
+  const [selectedMenu, setSelectedMenu] = useState<MenuCategoriesIdType>();
+
   return (
     <div className={clsx(styles.wrapper, grid['col-6'])}>
       <div className={styles.heading}>Let us help you find best vendors</div>
       <div className={styles.content}>
         <div className={styles.form}>
           <Labeled label="Group">
-            <Input placeholder="Enter group" />
+            <Select
+              placeholder="Select group"
+              options={MenuOptions}
+              maxHeight={200}
+              onChange={(e) => setSelectedMenu(e?.id)}
+            />
           </Labeled>
           <Labeled label="Article/service name">
-            <Input placeholder="Enter article/service name" />
+            <Select
+              placeholder="Select article"
+              options={
+                selectedMenu
+                  ? SubMenuOptions[selectedMenu]
+                  : [{ id: '0', item: 'Select group first', isDisabled: true }]
+              }
+              maxHeight={200}
+            />
           </Labeled>
           <Labeled label="Purpose">
             <Select
@@ -55,6 +78,7 @@ export const FindVendors = () => {
               select={{
                 options: Units.map((u) => ({ id: u, item: u })),
                 placeholder: 'Select unit',
+                maxHeight: 200,
               }}
               inputFlex={0.9}
             />

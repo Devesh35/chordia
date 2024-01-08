@@ -4,6 +4,7 @@ export const Purpose = [
   { id: 'selling', label: 'For selling' },
   { id: 'buying', label: 'For buying' },
   { id: 're_selling', label: 'For reselling' },
+  { id: 'looking_for_vendor', label: 'Looking for vendor' },
 ];
 
 const vendorFirm = [

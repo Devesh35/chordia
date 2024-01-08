@@ -1,4 +1,4 @@
-import { SelectItem } from '@li/types/design';
+import { SelectItemElement } from '@li/types/design';
 
 export const MenuCategoriesId = [
   'accessories-audio',
@@ -264,7 +264,7 @@ export const MenuCategories: CatCat[] = [
   },
 ];
 
-export const MenuOptions: SelectItem<MenuCategoriesIdType>[] =
+export const MenuOptions: SelectItemElement<MenuCategoriesIdType>[] =
   MenuCategories.map((item: CatCat) =>
     'subItems' in item
       ? item.subItems.map((subItem) => ({
@@ -2223,11 +2223,12 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   textile_fabrics: [],
 };
 
-export const SubMenuOptions: { [k in MenuCategoriesIdType]: SelectItem[] } =
-  Object.entries(SubCategories).reduce(
-    (a, [k, v]) => ({
-      ...a,
-      [k]: v.map((sc) => ({ id: sc.id, item: sc.label })),
-    }),
-    {} as Record<MenuCategoriesIdType, SelectItem[]>,
-  );
+export const SubMenuOptions: {
+  [k in MenuCategoriesIdType]: SelectItemElement[];
+} = Object.entries(SubCategories).reduce(
+  (a, [k, v]) => ({
+    ...a,
+    [k]: v.map((sc) => ({ id: sc.id, item: sc.label })),
+  }),
+  {} as Record<MenuCategoriesIdType, SelectItemElement[]>,
+);

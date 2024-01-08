@@ -2,6 +2,7 @@ export * from './AddProducts';
 export { CompanyProfile } from './CompanyProfile';
 export { Constants } from './Constants';
 export {
+  type AvailableCountryCode,
   AvailableCountries,
   CountriesOption,
   CountryCodeOptions,
