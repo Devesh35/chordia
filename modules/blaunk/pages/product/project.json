@@ -1,5 +1,5 @@
 {
-  "name": "product",
+  "name": "blaunk-pages-product",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "modules/blaunk/pages/product/src",
   "projectType": "library",

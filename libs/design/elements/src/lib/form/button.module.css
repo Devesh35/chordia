@@ -3,7 +3,7 @@
   font-size: var(--font-size-l16);
   line-height: var(--line-height-l16);
   cursor: pointer;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   border-radius: var(--border-radius-default);
   padding: 0.5rem 1rem;
   display: flex;

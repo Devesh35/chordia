@@ -26,6 +26,8 @@
       "@li/design/enhancers": ["libs/design/enhancers/src/index.ts"],
       "@li/design/hooks": ["libs/design/hooks/src/index.ts"],
       "@li/design/icons": ["libs/design/icons/src/index.ts"],
+      "@li/server/core": ["libs/server/core/src/index.ts"],
+      "@li/server/mongo": ["libs/server/mongo/src/index.ts"],
       "@li/types/config": ["libs/types/config/src/index.ts"],
       "@li/types/design": ["libs/types/design/src/index.ts"],
       "@li/types/shared": ["libs/types/shared/src/index.ts"],

@@ -6,6 +6,6 @@ export const withCondition =
     condition ? component : componentFalse;
 
 export const withConditionCase =
-  <T extends string | number | symbol>(condition: T) =>
-  (components: Partial<Record<T | 'default', ReactNode | undefined>>) =>
+  <R = ReactNode, T extends string | number | symbol = string>(condition: T) =>
+  (components: Partial<Record<T | 'default', R | undefined>>) =>
     components[condition] || components.default;

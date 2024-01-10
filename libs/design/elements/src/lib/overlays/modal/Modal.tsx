@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { ReactNode } from 'react';
 import styles from './modal.module.css';
@@ -10,7 +10,7 @@ type ModalProps = {
   isOpen: boolean;
   onClose?: () => void;
   title?: ReactNode;
-  actions?: ReactNode;
+  actions?: ReactNode | ReactNode[];
 } & ReactChildren;
 
 export const Modal = ({

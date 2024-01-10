@@ -1,0 +1,43 @@
+.phone-select {
+  flex: 0 0 88px;
+}
+
+.phone-input {
+  padding-left: 0;
+}
+
+.otp-button {
+  height: 36px;
+  margin-right: 5px;
+}
+
+.wrapper > .otp-button {
+  flex-basis: 160px;
+  padding-inline: 0.5rem;
+  font-size: var(--font-size-l14);
+  line-height: var(--line-height-l14);
+  font-weight: var(--font-weight-small);
+}
+
+.resend {
+  position: absolute;
+  font-size: var(--font-size-l14);
+  line-height: var(--line-height-l14);
+  font-weight: var(--font-weight-small);
+  top: -19px;
+  right: 6px;
+  color: var(--gray600);
+}
+
+.resend:hover {
+  color: var(--gray900);
+}
+
+.otp-input {
+  width: 300px;
+}
+
+.modal-button {
+  flex-basis: 120px;
+  height: 36px;
+}
