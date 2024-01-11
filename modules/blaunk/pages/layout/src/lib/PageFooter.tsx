@@ -2,6 +2,7 @@ import { Facebook, Gmail, Instagram, LinkedIn } from '@li/design/icons';
 import styles from './page-footer.module.css';
 import { FooterDetails } from '@md/blaunk/config';
 import { gs } from '@li/config/design';
+import { Link } from '@li/design/elements';
 
 export const PageFooter = () => {
   return (
@@ -11,9 +12,9 @@ export const PageFooter = () => {
           <div id={details.title} key={details.title}>
             <div className={styles.title}>{details.title}</div>
             {details.items.map((item) => (
-              <div className={styles.label} key={item.label}>
+              <Link className={styles.label} key={item.label} href={item.path}>
                 {item.label}
-              </div>
+              </Link>
             ))}
           </div>
         ))}

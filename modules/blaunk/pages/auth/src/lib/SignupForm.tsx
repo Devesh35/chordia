@@ -1,6 +1,8 @@
+'use client';
+
 import {
   Button,
-  Input,
+  EmailInput,
   Labeled,
   Link,
   PasswordInput,
@@ -8,6 +10,22 @@ import {
 } from '@li/design/elements';
 import styles from './common.module.css';
 import { CountryCodeOptions, Routes } from '@md/blaunk/config';
+
+const sendOTP = () => {
+  return new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 2000);
+  });
+};
+
+const verifyOTP = () => {
+  return new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 2000);
+  });
+};
 
 export const SignupForm = () => {
   return (
@@ -17,10 +35,12 @@ export const SignupForm = () => {
         <PhoneInput
           placeholder="Enter your phone"
           countryCodes={CountryCodeOptions}
+          onSendOTP={sendOTP}
+          onVerifyOTP={verifyOTP}
         />
       </Labeled>
       <Labeled label="Email">
-        <Input placeholder="Enter your email" type="email" />
+        <EmailInput />
       </Labeled>
       <Labeled label="Password">
         <PasswordInput placeholder="Enter your password" />

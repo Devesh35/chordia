@@ -45,12 +45,12 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
         <div className={clsx(styles.item)}>
           <NavHeaderMenu />
         </div>
-        <div className={styles.item}>
+        <Link className={styles.item} href={Routes.account.cart.path}>
           Cart
           <Badge content={3}>
             <Cart stroke="var(--onprimarydarkaccent)" width={24} height={24} />
           </Badge>
-        </div>
+        </Link>
         <Link href={Routes.auth.login.path} className={styles.item}>
           Login
         </Link>

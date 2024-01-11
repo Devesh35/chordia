@@ -1,4 +1,4 @@
-import { PageHeader } from '@md/blaunk/design';
+import { PageHeader } from '@li/design/elements';
 import { AddModal } from './AddModal';
 
 export const List = () => {

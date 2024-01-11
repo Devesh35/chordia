@@ -1,0 +1,49 @@
+.loader {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: var(--transparent);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.loader::after {
+  content: '';
+  position: absolute;
+  inset: max(10%, 4px);
+  margin: auto;
+  background: var(--secondary);
+  border-radius: 50%;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  background: var(--primarydark);
+  animation: crlMugLoader 2s linear infinite alternate;
+}
+@keyframes crlMugLoader {
+  0%,
+  10% {
+    transform: translateY(110%);
+  }
+  90%,
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.loader-primary::after {
+  background: var(--secondary);
+}
+
+.loader-primary::before {
+  background: var(--primary);
+}
+
+.loader-secondary::after {
+  background: var(--primary);
+}
+.loader-secondary::before {
+  background: var(--secondary);
+}

@@ -94,12 +94,77 @@ export const Routes = {
   info: {
     isProtected: false,
     title: 'Info | Blaunk',
-    path: '/info',
+    path: '/legacy/info',
+    aboutUs: {
+      isProtected: false,
+      title: 'About Us | Blaunk',
+      path: '/legacy/info/about-us',
+    },
+    advertisement: {
+      isProtected: false,
+      title: 'Advertisement | Blaunk',
+      path: '/legacy/info/advertisement',
+    },
     agreement: {
       seller: true,
       isProtected: true,
       title: 'Agreement | Blaunk',
-      path: '/info/agreement',
+      path: '/legacy/info/agreement',
+    },
+    careers: {
+      isProtected: false,
+      title: 'Careers | Blaunk',
+      path: '/legacy/info/careers',
+    },
+    companyPolicy: {
+      isProtected: false,
+      title: 'Company Policy | Blaunk',
+      path: '/legacy/info/company-policy',
+    },
+    gstItc: {
+      isProtected: false,
+      title: 'GST ITC | Blaunk',
+      path: '/legacy/info/gst-itc',
+    },
+    missionVision: {
+      isProtected: false,
+      title: 'Mission & Vision | Blaunk',
+      path: '/legacy/info/mission-vision',
+    },
+    modeOfRefund: {
+      isProtected: false,
+      title: 'Mode of Refund | Blaunk',
+      path: '/legacy/info/mode-of-refund',
+    },
+    privacyPolicy: {
+      isProtected: false,
+      title: 'Privacy Policy | Blaunk',
+      path: '/legacy/info/privacy-policy',
+    },
+    repeatedReturnRequest: {
+      isProtected: false,
+      title: 'Repeated Return Request | Blaunk',
+      path: '/legacy/info/repeated-return-request',
+    },
+    returnCancellation: {
+      isProtected: false,
+      title: 'Return & Cancellation | Blaunk',
+      path: '/legacy/info/return-cancellation',
+    },
+    returnCenter: {
+      isProtected: false,
+      title: 'Return Center | Blaunk',
+      path: '/legacy/info/return-center',
+    },
+    socialMedia: {
+      isProtected: false,
+      title: 'Social Media | Blaunk',
+      path: '/legacy/info/social-media',
+    },
+    termsConditions: {
+      isProtected: false,
+      title: 'Terms & Conditions | Blaunk',
+      path: '/legacy/info/terms-conditions',
     },
   },
   product: {

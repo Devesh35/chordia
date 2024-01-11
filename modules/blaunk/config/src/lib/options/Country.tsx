@@ -50,4 +50,6 @@ export const CountryCodeOptions = optionsFromObject<AvailableCountryCode>(
     idPath: 'id',
     itemPath: 'code',
   },
-).sort((a, b) => (a.item as string)?.localeCompare(b.item as string));
+).sort((a, b) =>
+  a.item === '+91' ? 1 : (a.item as string)?.localeCompare(b.item as string),
+);

@@ -1,8 +1,10 @@
 .wrapper {
+  position: relative;
   display: flex;
   height: 48px;
   border-radius: var(--border-radius-medium);
   border: var(--border-width-small) solid var(--gray300);
+  align-items: center;
 }
 .wrapper:hover {
   border-color: var(--gray500);
@@ -12,6 +14,7 @@
   border: none;
   height: 46px;
   border-radius: 4px 0 0 4px;
+  padding-right: 4px;
 }
 .input:hover {
   border: none;
@@ -20,18 +23,11 @@
 
 .select {
   border: none;
-  border-left: 1px solid var(--gray300);
   height: 46px;
-  border-radius: 0 4px 4px 0;
+  border-radius: 6px;
 }
 .select:hover {
   border: none;
   border-left: 1px solid var(--gray300);
   outline: none;
-}
-.phone-select {
-  flex: 0 0 96px;
-}
-.phone-input {
-  padding-left: 0;
 }

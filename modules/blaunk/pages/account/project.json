@@ -1,5 +1,5 @@
 {
-  "name": "account",
+  "name": "blaunk-pages-account",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "modules/blaunk/pages/account/src",
   "projectType": "library",

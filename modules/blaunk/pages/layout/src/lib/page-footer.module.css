@@ -29,9 +29,10 @@
   left: -12px;
 }
 
-.label {
+.details .label {
   color: var(--onprimary);
   cursor: pointer;
+  display: block;
 }
 
 .content {

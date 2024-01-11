@@ -1,3 +1,3 @@
 export default async function Index() {
-  return <div>Agreement</div>;
+  return <div>Social Media</div>;
 }
