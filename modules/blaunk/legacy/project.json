@@ -1,0 +1,13 @@
+{
+  "name": "blaunk-legacy",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/blaunk/legacy/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

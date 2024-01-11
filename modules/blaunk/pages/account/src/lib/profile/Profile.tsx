@@ -4,13 +4,13 @@ import {
   Button,
   FormDocumentSection,
   FormSection,
+  PageHeader,
   TabNav,
 } from '@li/design/elements';
 import { withCondition } from '@li/design/enhancers';
 import { profileSections, profileDocumentSection } from '@md/blaunk/config';
 import styles from './profile.module.css';
 import { useMemo, useState } from 'react';
-import { PageHeader } from '@md/blaunk/design';
 import { toLowerCase } from '@li/config/utils';
 
 const tabItems = ['Personal', 'General', 'Bank', 'Vendor'] as const;
