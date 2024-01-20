@@ -19,6 +19,12 @@ export const Disclaimer = () => {
         This post will be valid for 4 months and get auto deleted. Return Policy
         is only valid if vendor failed to supply promised articles.
       </p>
+
+      <p>
+        Seller Profile or Product Listing will be Blocked or Delist, if found
+        continuous Cancel / Non supply of Goods or Services or any fraudulent
+        activity got noted
+      </p>
     </div>
   );
 };

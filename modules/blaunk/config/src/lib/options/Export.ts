@@ -54,5 +54,30 @@ export const Export: FormSection = {
       label: 'Origin',
       placeholder: 'WITHIN COUNTRY...',
     },
+    {
+      id: 'onDeliveryDatePayment',
+      label: 'On Delivery Date Payment',
+      placeholder: '95%',
+    },
+    {
+      id: 'swiftBankCharge',
+      label: 'Swift Bank Charge',
+      placeholder: 'Extra',
+    },
+    {
+      id: 'currencyAcceptance',
+      label: 'Currency Acceptance',
+      placeholder: '$',
+    },
+    {
+      id: 'shippingContainerCapacity',
+      label: 'Shipping Container Capacity',
+      placeholder: '10 tons',
+    },
+    {
+      id: 'exportMarket',
+      label: 'Export Market',
+      placeholder: 'India/Jordan...',
+    },
   ],
 };

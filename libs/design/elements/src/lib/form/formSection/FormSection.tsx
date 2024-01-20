@@ -8,9 +8,9 @@ import {
 } from '@li/types/design';
 import { FormFormSectionList } from './FormFormSection';
 import { FormDocumentSectionList } from './FormDocumentSection';
-import { Labeled } from '../../decorators';
 import formStyles from './form.module.css';
 import { Select } from '../Select';
+import clsx from 'clsx';
 
 export const FormSection = <
   T extends FormGroupBase,
@@ -69,13 +69,13 @@ const FormFormSectionSelect = <T extends FormGroupBase>({
 
   return (
     <>
-      <Labeled label={title} className={formStyles['form-group-select']}>
-        <Select
-          options={options}
-          onChange={setSelected}
-          defaultItem={selected}
-        />
-      </Labeled>
+      <header className={clsx(formStyles['section-header'],formStyles['form-group-select-header'])}>{title}</header>
+      <Select
+        options={options}
+        onChange={setSelected}
+        defaultItem={selected}
+        className={formStyles['form-group-select']}
+      />
       {selected && sectionItem && 'form' in sectionItem && (
         <FormSection isEdit={isEdit} selected={selected.id} section={section} />
       )}
