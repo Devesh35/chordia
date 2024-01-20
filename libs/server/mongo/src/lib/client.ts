@@ -5,6 +5,13 @@ interface MongoConfig {
   uri?: string;
   options?: MongoClientOptions;
 }
+interface MongoClients {
+  [key: string]: MongoClient;
+}
+
+declare const global: {
+  mongoClients: MongoClients;
+};
 
 async function getClient(config: MongoConfig): Promise<MongoClient> {
   const { dbKey, uri, options } = config;
