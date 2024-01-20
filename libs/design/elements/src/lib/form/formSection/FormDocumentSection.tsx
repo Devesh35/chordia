@@ -1,5 +1,7 @@
+'use client';
+
 import { grid } from '@li/config/design';
-import styles from './form.module.css';
+import formStyles from './form.module.css';
 import clsx from 'clsx';
 import { Document } from '../Document';
 import type { FormDocumentSection as FDS } from '@li/types/design';
@@ -13,19 +15,27 @@ export const FormDocumentSection = ({
   section: FDS;
 }) => {
   return (
-    <section className={styles.section}>
-      <header className={styles['section-header']}>
+    <section className={formStyles.section}>
+      <header className={formStyles['section-header']}>
         {section.title}
         {withCondition(!!section.verification)(
-          <div className={styles.verification}>
+          <div className={formStyles.verification}>
             Subject to verification & confirmation
           </div>,
         )}
       </header>
 
-      <div className={clsx(styles['section-content'], grid.grid)}>
+      <div
+        className={clsx(
+          formStyles['section-content-wrapper'],
+          formStyles['section-content'],
+          grid.grid,
+        )}
+      >
         {section.items.map((item) => (
-          <div className={grid['col-2']}>
+          <div
+            className={clsx(grid[`col-2`], grid['col-t-4'], grid['col-m-6'])}
+          >
             <Document {...item} isEdit={isEdit} />
           </div>
         ))}
@@ -33,3 +43,14 @@ export const FormDocumentSection = ({
     </section>
   );
 };
+
+export const FormDocumentSectionList = ({
+  isEdit,
+  sections,
+}: {
+  isEdit: boolean;
+  sections: FDS[];
+}) =>
+  sections.map((section) => (
+    <FormDocumentSection key={section.id} isEdit={isEdit} section={section} />
+  ));

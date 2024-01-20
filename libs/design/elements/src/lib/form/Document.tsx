@@ -6,7 +6,9 @@ import { FormDocument } from '@li/types/design';
 
 export const Document = (props: FormDocument & { isEdit: boolean }) => {
   return (
-    <div className={clsx(styles.document)}>
+    <div
+      className={clsx(styles.document, { [styles.required]: props.required })}
+    >
       {withCondition(props.isEdit)(
         <Input type="file" className={styles['document-input']} />,
       )}

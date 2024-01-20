@@ -1,14 +1,8 @@
 'use client';
 
-import {
-  Button,
-  FormDocumentSection,
-  FormSection,
-  PageHeader,
-  TabNav,
-} from '@li/design/elements';
+import { Button, FormSection, PageHeader, TabNav } from '@li/design/elements';
 import { withCondition } from '@li/design/enhancers';
-import { profileSections, profileDocumentSection } from '@md/blaunk/config';
+import { profileSections } from '@md/blaunk/config';
 import styles from './profile.module.css';
 import { useMemo, useState } from 'react';
 import { toLowerCase } from '@li/config/utils';
@@ -16,27 +10,17 @@ import { toLowerCase } from '@li/config/utils';
 const tabItems = ['Personal', 'General', 'Bank', 'Vendor'] as const;
 
 const tabs = (isEdit: boolean) =>
-  tabItems
-    .map((item) => ({
-      id: toLowerCase(item),
-      label: item,
-    }))
-    .map((tab) => ({
-      ...tab,
-      content: (
-        <>
-          {profileSections[tab.id].map((section) => (
-            <FormSection key={section.id} isEdit={isEdit} {...section} />
-          ))}
-          {tab.id !== 'general' ? (
-            <FormDocumentSection
-              isEdit={isEdit}
-              section={profileDocumentSection[tab.id]}
-            />
-          ) : null}
-        </>
-      ),
-    }));
+  tabItems.map((item) => ({
+    id: toLowerCase(item),
+    label: item,
+    content: (
+      <FormSection
+        isEdit={isEdit}
+        section={profileSections}
+        selected={toLowerCase(item)}
+      />
+    ),
+  }));
 
 export const Profile = () => {
   const [isEdit, setIsEdit] = useState(false);

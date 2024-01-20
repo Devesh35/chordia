@@ -22,7 +22,7 @@ export {
 export { type NavMenuItem, NavMenuItems } from './NavMenu';
 export { ProductTypeOptions } from './Product';
 export { ProductSpecification } from './ProductSpecification';
-export { profileSections, profileDocumentSection } from './Profile';
+export { profileSections } from './Profile';
 export { Routes } from './Routes';
 export { Units } from './Units';
 export { PaymentOption, UserCategoryOption } from './User';

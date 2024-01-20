@@ -1,56 +1,84 @@
-import clsx from 'clsx';
-import type { FormSection as FS } from '@li/types/design';
-import { grid } from '@li/config/design';
+'use client';
+
+import { useState } from 'react';
+import {
+  FormGroupBase,
+  FormSectionGroup,
+  SelectItemElement,
+} from '@li/types/design';
+import { FormFormSectionList } from './FormFormSection';
+import { FormDocumentSectionList } from './FormDocumentSection';
+import { Labeled } from '../../decorators';
 import formStyles from './form.module.css';
-import { FormItem } from './FormItem';
-import { ClassName, ReactChildren } from '@li/types/shared';
-import { Accordion } from '../../lists';
-import { withCondition } from '@li/design/enhancers';
+import { Select } from '../Select';
 
-type FormSectionBase = {
-  expandable?: boolean;
-} & Partial<ClassName>;
+export const FormSection = <
+  T extends FormGroupBase,
+  K extends keyof T & string = keyof T & string,
+>({
+  selected,
+  section,
+  isEdit,
+}: {
+  isEdit: boolean;
+  selected: K;
+  section: FormSectionGroup<T>;
+}) => {
+  if (!section) return null;
+  const sectionItem = section[selected];
 
-type FormSectionChildren = Partial<ReactChildren>;
-type FormSectionItems = { items?: FS['items'] };
+  return (
+    <>
+      {'form' in sectionItem && sectionItem.form && (
+        <FormFormSectionList isEdit={isEdit} sections={sectionItem.form} />
+      )}
+      {'document' in sectionItem && sectionItem.document && (
+        <FormDocumentSectionList
+          isEdit={isEdit}
+          sections={sectionItem.document}
+        />
+      )}
+      {'options' in sectionItem && (
+        <FormFormSectionSelect
+          isEdit={isEdit}
+          title={sectionItem.title}
+          options={sectionItem.options}
+          section={sectionItem.items}
+        />
+      )}
+    </>
+  );
+};
 
-type FormSectionTitle = { title: string };
-type FormSectionContent = { isEdit?: boolean } & (
-  | FormSectionChildren
-  | FormSectionItems
-);
-
-type FormSectionProps = FormSectionBase & FormSectionTitle & FormSectionContent;
-
-const Header = ({ title }: FormSectionTitle) => (
-  <header className={formStyles['section-header']}>{title}</header>
-);
-
-const Content = ({ isEdit = false, ...props }: FormSectionContent) => (
-  <div className={clsx(formStyles['section-content'], grid.grid)}>
-    {'children' in props && props.children}
-    {'items' in props &&
-      props.items?.map((item) => (
-        <FormItem key={item.label} isEdit={isEdit} {...item} />
-      ))}
-  </div>
-);
-
-export const FormSection = ({
+const FormFormSectionSelect = <T extends FormGroupBase>({
   title,
-  className,
-  expandable = false,
-  ...props
-}: FormSectionProps) => (
-  <section className={clsx(formStyles.section, className)}>
-    {withCondition(expandable)(
-      <Accordion title={title} className={formStyles.accordion}>
-        <Content {...props} />
-      </Accordion>,
-      <>
-        <Header title={title} />
-        <Content {...props} />
-      </>,
-    )}
-  </section>
-);
+  isEdit,
+  section,
+  options,
+}: {
+  isEdit: boolean;
+  title: string;
+  section: FormSectionGroup<T>;
+  options: SelectItemElement[];
+}) => {
+  const [selected, setSelected] = useState<
+    SelectItemElement<keyof T & string> | undefined
+  >(options[0]);
+
+  const sectionItem = selected ? section[selected.id] : undefined;
+
+  return (
+    <>
+      <Labeled label={title} className={formStyles['form-group-select']}>
+        <Select
+          options={options}
+          onChange={setSelected}
+          defaultItem={selected}
+        />
+      </Labeled>
+      {selected && sectionItem && 'form' in sectionItem && (
+        <FormSection isEdit={isEdit} selected={selected.id} section={section} />
+      )}
+    </>
+  );
+};

@@ -20,6 +20,7 @@ export const NavMenuItems: NavMenuItem[] = [
     ),
     path: Routes.account.profile.path,
   },
+  { id: 'profile', item: 'Profile', path: Routes.account.profile.path },
   { id: 'divider' },
   { id: 'orders', item: 'Orders', path: Routes.account.orders.path },
   { id: 'wishlist', item: 'Wishlist', path: Routes.account.wishlist.path },

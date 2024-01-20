@@ -1,7 +1,7 @@
 'use client';
-import { FormDocumentSection, FormSection } from '@li/design/elements';
+
+import { FormFormSection, FormSection } from '@li/design/elements';
 import {
-  BGTImageSection,
   BGTProductDetails,
   CompanyProfile,
   Export,
@@ -10,45 +10,34 @@ import {
 import { QuantitySection } from './QuantitySection';
 import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
+import { useState } from 'react';
 
-const dummyData = [
-  {
-    qty: 1,
-    price: 1,
-    priceDollar: 1,
-  },
-  {
-    qty: 2,
-    price: 2,
-    priceDollar: 2,
-  },
-  {
-    qty: 3,
-    price: 3,
-    priceDollar: 3,
-  },
-  {
-    qty: 4,
-    price: 4,
-    priceDollar: 4,
-  },
-  {
-    qty: 5,
-    price: 5,
-    priceDollar: 5,
-  },
-];
-
+export type QuantityType = {
+  id: string;
+  qty?: number;
+  price?: number;
+  priceDollar?: number;
+};
 const specifications = [Export, ProductSpecification, CompanyProfile];
 
 export const BGT = () => {
+  const [data, setData] = useState<QuantityType[]>([]);
+
   return (
     <>
-      <FormSection {...BGTProductDetails} isEdit />
-      <QuantitySection data={dummyData} />
-      <FormDocumentSection isEdit section={BGTImageSection} />
+      <FormSection
+        isEdit
+        section={BGTProductDetails}
+        selected={'product-details'}
+      />
+      <QuantitySection data={data} onChange={setData} />
+      <FormSection
+        isEdit
+        section={BGTProductDetails}
+        selected={'product-image'}
+      />
       {specifications.map((section) => (
-        <FormSection {...section} isEdit expandable />
+        <FormFormSection {...section} isEdit expandable />
       ))}
 
       <Disclaimer />

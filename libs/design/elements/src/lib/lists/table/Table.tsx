@@ -6,7 +6,7 @@ import clsx from 'clsx';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TData = { [K in string]: any };
 
-export type TableColumn<T extends TData, C = T[keyof T]> = {
+export type TableColumn<T extends TData, C extends T[keyof T] = T[keyof T]> = {
   id: keyof T | (string & NonNullable<unknown>);
   name: string;
   cellFormat?: (cellData: C) => React.ReactNode;
