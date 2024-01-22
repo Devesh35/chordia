@@ -25,9 +25,9 @@ export const CompanyProfile: FormSection = {
       placeholder: 'KYC Member',
     },
     {
-      id: 'categoryMember',
-      label: 'Category Member',
-      placeholder: 'Category Member',
+      id: 'grade',
+      label: 'Grade',
+      placeholder: 'Grade',
     },
     {
       id: 'banker',
@@ -70,9 +70,9 @@ export const CompanyProfile: FormSection = {
       placeholder: 'No. of Branches',
     },
     {
-      id: 'isoRegistration',
-      label: 'ISO Registration',
-      placeholder: 'ISO Registration',
+      id: 'certificate',
+      label: 'Certificate - Product',
+      placeholder: 'Certificate',
     },
     {
       id: 'noOfComplaints',
@@ -80,9 +80,19 @@ export const CompanyProfile: FormSection = {
       placeholder: 'No. Of Complaints',
     },
     {
-      id: 'unsolvedComplaints',
-      label: 'Unsolved Complaints',
-      placeholder: 'Unsolved Complaints',
+      id: 'solvedComplaints',
+      label: 'Resolved Complaints',
+      placeholder: 'Resolved Complaints',
+    },
+    {
+      id: 'noOfDirectors',
+      label: 'No. Of Directors/Partners',
+      placeholder: 'No. Of Directors/Partners',
+    },
+    {
+      id: 'taxCertificate',
+      label: 'Certificate - Tax',
+      placeholder: 'Certificate - Tax',
     },
   ],
 };

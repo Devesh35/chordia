@@ -10,6 +10,11 @@ export const ProductSpecification: FormSection = {
       placeholder: 'Material',
     },
     {
+      id: 'warranty',
+      label: 'Warranty',
+      placeholder: 'Warranty',
+    },
+    {
       id: 'consumable',
       label: 'Consumable',
       placeholder: 'Consumable',
@@ -48,6 +53,11 @@ export const ProductSpecification: FormSection = {
       id: 'returnDays',
       label: 'Return Days',
       placeholder: 'Return Days',
+    },
+    {
+      id: 'consumable',
+      label: 'Consumable',
+      placeholder: 'Consumable',
     },
     {
       id: 'dateOfPosting',

@@ -1,2 +1,4 @@
+export { FormFormSection } from './FormFormSection';
 export { FormSection } from './FormSection';
-export { FormDocumentSection } from './FormDocumentSection';
+export { FormSectionHeader } from './FormSectionHeader';
+export { FormConfigProvider } from './FormConfigProvider';

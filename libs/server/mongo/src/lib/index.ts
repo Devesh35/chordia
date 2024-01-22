@@ -1,1 +1,1 @@
-export const name = 'mongo';
+export { default as MongoDB } from './client';

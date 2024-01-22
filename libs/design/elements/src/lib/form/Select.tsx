@@ -137,3 +137,15 @@ export const Select = <K extends string, S extends SelectItem<K>>({
     </div>
   );
 };
+
+export const SelectSuper = ({ item }: { item: React.ReactNode }) => (
+  <Select
+    options={[
+      {
+        id: 'empty',
+        item,
+        isDisabled: true,
+      },
+    ]}
+  />
+);

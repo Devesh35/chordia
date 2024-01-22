@@ -1,4 +1,32 @@
 .link {
   text-decoration: none;
+  font-size: var(--font-size-l16);
+  line-height: var(--line-height-l16);
+}
+
+.primary {
   color: var(--primary);
+}
+.secondary {
+  color: var(--secondary);
+}
+
+.button-primary,
+.button-secondary {
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-default);
+  padding: 0.5rem 1rem;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-primary {
+  color: var(--onprimaryaccent);
+  background-color: var(--primary);
+}
+.button-secondary {
+  color: var(--onsecondaryaccent);
+  background-color: var(--secondary);
 }

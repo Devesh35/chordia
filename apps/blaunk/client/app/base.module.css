@@ -39,6 +39,10 @@
   padding: 0 2rem;
 }
 
+.min-full {
+  min-height: 60vh;
+}
+
 .error {
   flex: 1;
   padding: 2rem;

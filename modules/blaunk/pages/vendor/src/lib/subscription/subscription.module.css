@@ -1,0 +1,92 @@
+.grid-wrapper {
+  margin: 2.5rem;
+}
+.grid {
+  gap: 2rem;
+}
+
+/*  */
+
+.active {
+  color: var(--success300);
+  background-color: var(--success300);
+}
+
+.pending {
+  color: var(--warning2400);
+  background-color: var(--warning2400);
+}
+
+.expired {
+  color: var(--warning400);
+  background-color: var(--warning400);
+}
+
+.inactive {
+  color: var(--error300);
+  background-color: var(--error300);
+}
+
+.disabled {
+  color: var(--gray500);
+  background-color: var(--gray500);
+}
+
+.card {
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: var(--border-radius-large);
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+  box-shadow: var(--box-shadow-m), var(--box-shadow-l);
+  cursor: pointer;
+  scale: 1;
+  transition: scale var(--duration-tr-fast) ease-in-out;
+}
+.card:hover {
+  scale: 1.1;
+}
+
+.card-disabled {
+  cursor: auto;
+  background-color: var(--gray200);
+}
+.card-disabled:hover {
+  scale: 1;
+}
+
+.card-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+.card-name {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-semibold);
+}
+
+.card-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  padding: 4px 8px;
+  border: 1px solid;
+  border-radius: 100vh;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}

@@ -10,7 +10,7 @@ export const FormAction = () => {
   return (
     <div className={styles['action-wrapper']}>
       <Checkbox
-        label="I have read all the terms & condition of B2B Blaunk trade policy"
+        label="I have read and agree to all the terms & condition of B2B Blaunk trade policy"
         className={styles.policy}
         onChange={setIsChecked}
       />

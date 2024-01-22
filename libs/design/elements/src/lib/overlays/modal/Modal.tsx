@@ -3,12 +3,16 @@
 import React, { ReactNode } from 'react';
 import styles from './modal.module.css';
 import { CircleClose } from '@li/design/icons';
-import { gs } from '@li/config/design';
+import { gs, sbs } from '@li/config/design';
 import { ReactChildren } from '@li/types/shared';
+import clsx from 'clsx';
 
-type ModalProps = {
+export type ModalBaseProps = {
   isOpen: boolean;
   onClose?: () => void;
+};
+
+type ModalProps = ModalBaseProps & {
   title?: ReactNode;
   actions?: ReactNode | ReactNode[];
 } & ReactChildren;
@@ -26,7 +30,11 @@ export const Modal = ({
 
   return (
     <div className={styles.wrapper} onClick={onClose}>
-      <dialog open={isOpen} className={styles.dialog} onClick={stopPropagation}>
+      <dialog
+        open={isOpen}
+        className={clsx(styles.dialog)}
+        onClick={stopPropagation}
+      >
         <header className={styles.header}>
           <div className={styles.title}>{title}</div>
           <CircleClose
@@ -35,7 +43,7 @@ export const Modal = ({
             onClick={onClose}
           />
         </header>
-        <main className={styles.main}>{children}</main>
+        <main className={clsx(styles.main, sbs.dark)}>{children}</main>
         <footer className={styles.actions}>{actions}</footer>
       </dialog>
     </div>

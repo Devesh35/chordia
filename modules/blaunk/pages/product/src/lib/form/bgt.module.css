@@ -11,3 +11,7 @@
 .table td {
   text-align: center;
 }
+
+.submit {
+  margin: 1rem 0 0 auto;
+}
