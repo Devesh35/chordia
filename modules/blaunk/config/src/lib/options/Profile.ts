@@ -14,14 +14,17 @@ import {
 const profileSection = {
   personal: {
     form: ['personal', 'address', 'identification'],
-    document: [
-      'profilePhoto',
-      'idProof',
-      'signature',
-      'googleAddress',
-      'bankCheque',
-      'bankLetter',
-    ],
+    document: {
+      personal: [
+        'profilePhoto',
+        'idProof',
+        'signature',
+        'googleAddress',
+        'bankCheque',
+        'bankLetter',
+      ],
+      test: undefined,
+    },
   },
   general: {
     form: ['general'],
@@ -40,13 +43,15 @@ const profileSection = {
       'vendorResponse',
       'vendorIdentification',
     ],
-    document: [
-      'shopCertificate',
-      'tradeLicense',
-      'companyLogo',
-      'taxCertificate',
-      'license',
-    ],
+    document: {
+      vendor: [
+        'companyLogo',
+        'license',
+        'shopCertificate',
+        'taxCertificate',
+        'tradeLicense',
+      ],
+    },
   },
 } as const;
 

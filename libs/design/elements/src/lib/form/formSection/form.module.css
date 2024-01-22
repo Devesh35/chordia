@@ -49,9 +49,6 @@
 .item-label > span:hover {
   border: none;
 }
-.item-label-bg {
-  background-color: var(--primary050);
-}
 
 .area {
   height: 12ch;
@@ -83,10 +80,6 @@
   height: 240px;
   position: relative;
 }
-.document-bg {
-  border: none;
-  background-color: var(--primary050);
-}
 
 .document-label {
   display: flex;
@@ -106,11 +99,6 @@
   height: calc(100% - var(--label-height));
   padding: 0.5rem;
   border: var(--border-width-small) solid var(--gray200);
-}
-
-.document-content-bg {
-  border: none;
-  background-color: var(--white);
 }
 
 .document-update {
@@ -137,4 +125,18 @@
   left: -16px;
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
+}
+
+/* BGF */
+.item-label-bg {
+  background-color: var(--primary025);
+}
+
+.document-bg {
+  border: none;
+  background-color: var(--primary025);
+}
+.document-content-bg {
+  border: none;
+  background-color: var(--white);
 }
