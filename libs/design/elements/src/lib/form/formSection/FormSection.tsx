@@ -1,83 +1,70 @@
 'use client';
 
-import { useState } from 'react';
-import {
-  FormGroupBase,
-  FormSectionGroup,
-  SelectItemElement,
-} from '@li/types/design';
+import { useEffect } from 'react';
+import { FormGroupBase, FormSectionGroup } from '@li/types/design';
 import { FormFormSectionList } from './FormFormSection';
 import { FormDocumentSectionList } from './FormDocumentSection';
-import formStyles from './form.module.css';
-import { Select } from '../Select';
-import clsx from 'clsx';
+import { FormConfigProvider, useFormConfig } from './FormConfigProvider';
+import { FormFormSectionSelect } from './FormFormSectionSelect';
+
+type FormSectionProps<
+  T extends FormGroupBase,
+  K extends keyof T & string = keyof T & string,
+> = {
+  selected: K;
+  hasBG?: boolean;
+  isEdit?: boolean;
+  section: FormSectionGroup<T>;
+};
 
 export const FormSection = <
+  T extends FormGroupBase,
+  K extends keyof T & string = keyof T & string,
+>(
+  props: FormSectionProps<T, K>,
+) => {
+  return (
+    <FormConfigProvider
+      defaultValue={{ hasBG: props.hasBG, isEdit: props.isEdit }}
+    >
+      <FormSectionBase {...props} />
+    </FormConfigProvider>
+  );
+};
+
+export const FormSectionBase = <
   T extends FormGroupBase,
   K extends keyof T & string = keyof T & string,
 >({
   selected,
   section,
   isEdit,
-}: {
-  isEdit: boolean;
-  selected: K;
-  section: FormSectionGroup<T>;
-}) => {
+  hasBG,
+}: FormSectionProps<T, K>) => {
+  const { setHasBG, setIsEdit } = useFormConfig();
+
+  useEffect(() => {
+    if (typeof hasBG !== 'undefined') setHasBG(hasBG);
+    if (typeof isEdit !== 'undefined') setIsEdit(isEdit);
+  }, [hasBG, isEdit, setHasBG, setIsEdit]);
+
   if (!section) return null;
   const sectionItem = section[selected];
 
   return (
     <>
       {'form' in sectionItem && sectionItem.form && (
-        <FormFormSectionList isEdit={isEdit} sections={sectionItem.form} />
+        <FormFormSectionList sections={sectionItem.form} />
       )}
       {'document' in sectionItem && sectionItem.document && (
-        <FormDocumentSectionList
-          isEdit={isEdit}
-          sections={sectionItem.document}
-        />
+        <FormDocumentSectionList sections={sectionItem.document} />
       )}
       {'options' in sectionItem && (
         <FormFormSectionSelect
-          isEdit={isEdit}
           title={sectionItem.title}
           options={sectionItem.options}
           section={sectionItem.items}
         />
-      )}
-    </>
-  );
-};
-
-const FormFormSectionSelect = <T extends FormGroupBase>({
-  title,
-  isEdit,
-  section,
-  options,
-}: {
-  isEdit: boolean;
-  title: string;
-  section: FormSectionGroup<T>;
-  options: SelectItemElement[];
-}) => {
-  const [selected, setSelected] = useState<
-    SelectItemElement<keyof T & string> | undefined
-  >(options[0]);
-
-  const sectionItem = selected ? section[selected.id] : undefined;
-
-  return (
-    <>
-      <header className={clsx(formStyles['section-header'],formStyles['form-group-select-header'])}>{title}</header>
-      <Select
-        options={options}
-        onChange={setSelected}
-        defaultItem={selected}
-        className={formStyles['form-group-select']}
-      />
-      {selected && sectionItem && 'form' in sectionItem && (
-        <FormSection isEdit={isEdit} selected={selected.id} section={section} />
       )}
     </>
   );

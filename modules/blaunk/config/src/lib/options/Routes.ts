@@ -235,5 +235,10 @@ export const Routes = {
       title: 'My Shipments | Blaunk',
       path: '/vendor/shipments',
     },
+    subscription: {
+      isProtected: true,
+      title: 'My Subscription | Blaunk',
+      path: '/vendor/subscription',
+    },
   },
 };

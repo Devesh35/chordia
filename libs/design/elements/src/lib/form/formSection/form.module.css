@@ -24,6 +24,12 @@
   grid-gap: 1rem;
 }
 
+.item-label {
+  padding: 4px;
+  padding-left: 1rem;
+  border-radius: var(--border-radius-large);
+  height: fit-content;
+}
 .item-label > label {
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
@@ -42,6 +48,9 @@
 }
 .item-label > span:hover {
   border: none;
+}
+.item-label-bg {
+  background-color: var(--primary050);
 }
 
 .area {
@@ -62,4 +71,60 @@
 
 .form-group-select-header {
   margin-top: 1rem;
+}
+
+.document {
+  --label-height: 64px;
+  border-radius: var(--border-radius-medium);
+  padding: 0.25rem;
+
+  width: 160px;
+  height: 240px;
+  position: relative;
+}
+
+.document-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--gray600);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  height: var(--label-height);
+  max-height: var(--label-height);
+}
+
+.document-content {
+  width: 100%;
+  border-radius: var(--border-radius-medium);
+  height: calc(100% - var(--label-height));
+  padding: 0.5rem;
+  background-color: var(--white);
+}
+
+.document-update {
+  color: var(--error200);
+}
+
+.document-input {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  pointer-events: all;
+}
+
+.required {
+  position: relative;
+}
+
+.required::before {
+  content: '*';
+  color: var(--error400);
+  position: absolute;
+  top: -8px;
+  left: -16px;
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
 }

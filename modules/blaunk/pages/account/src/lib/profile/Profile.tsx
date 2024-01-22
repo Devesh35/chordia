@@ -15,6 +15,7 @@ const tabs = (isEdit: boolean) =>
     label: item,
     content: (
       <FormSection
+        hasBG
         isEdit={isEdit}
         section={profileSections}
         selected={toLowerCase(item)}

@@ -1,6 +1,3 @@
-export { FormFormSection, FormFormSectionList } from './FormFormSection';
-export {
-  FormDocumentSection,
-  FormDocumentSectionList,
-} from './FormDocumentSection';
+export { FormFormSection } from './FormFormSection';
 export { FormSection } from './FormSection';
+export { FormSectionHeader } from './FormSectionHeader';

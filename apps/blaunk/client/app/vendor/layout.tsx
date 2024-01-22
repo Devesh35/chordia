@@ -1,4 +1,14 @@
 import { Routes } from '@md/blaunk/config';
-import { withPageTitle } from '@li/design/enhancers';
+import { ReactChildren } from '@li/types/shared';
+import styles from '../base.module.css';
 
-export default withPageTitle(Routes.vendor.title);
+const Index = ({ children }: ReactChildren) => {
+  return (
+    <>
+      <title>{Routes.vendor.title}</title>
+      <div className={styles['page-small']}>{children}</div>
+    </>
+  );
+};
+
+export default Index;

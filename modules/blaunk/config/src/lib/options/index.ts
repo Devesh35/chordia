@@ -24,6 +24,7 @@ export { ProductTypeOptions } from './Product';
 export { ProductSpecification } from './ProductSpecification';
 export { profileSections } from './Profile';
 export { Routes } from './Routes';
+export { subscriptionConfig, subscriptionMenuOptions } from './Subscription';
 export { Units } from './Units';
 export { PaymentOption, UserCategoryOption } from './User';
 export {
