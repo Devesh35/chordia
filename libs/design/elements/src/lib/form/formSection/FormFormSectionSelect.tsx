@@ -9,7 +9,7 @@ import {
 import formStyles from './form.module.css';
 import { Select } from '../Select';
 import { FormSectionHeader } from './FormSectionHeader';
-import { FormSectionBase } from './FormSection';
+import { FormSection } from './FormSection';
 
 export const FormFormSectionSelect = <T extends FormGroupBase>({
   title,
@@ -40,7 +40,7 @@ export const FormFormSectionSelect = <T extends FormGroupBase>({
         className={formStyles['form-group-select']}
       />
       {selected && sectionItem && (
-        <FormSectionBase selected={selected.id} section={section} />
+        <FormSection selected={selected.id} section={section} />
       )}
     </>
   );

@@ -1,6 +1,10 @@
 'use client';
 
-import { FormFormSection, FormSection } from '@li/design/elements';
+import {
+  FormConfigProvider,
+  FormFormSection,
+  FormSection,
+} from '@li/design/elements';
 import {
   BGTProductDetails,
   CompanyProfile,
@@ -24,24 +28,17 @@ export const BGT = () => {
   const [data, setData] = useState<QuantityType[]>([]);
 
   return (
-    <>
-      <FormSection
-        isEdit
-        section={BGTProductDetails}
-        selected={'product-details'}
-      />
+    <FormConfigProvider isEdit hasBG>
+      <FormSection section={BGTProductDetails} selected={'product-details'} />
       <QuantitySection data={data} onChange={setData} />
-      <FormSection
-        isEdit
-        section={BGTProductDetails}
-        selected={'product-image'}
-      />
+      <FormSection section={BGTProductDetails} selected={'product-image'} />
+
       {specifications.map((section) => (
-        <FormFormSection {...section} isEdit expandable />
+        <FormFormSection {...section} expandable />
       ))}
 
       <Disclaimer />
       <FormAction />
-    </>
+    </FormConfigProvider>
   );
 };

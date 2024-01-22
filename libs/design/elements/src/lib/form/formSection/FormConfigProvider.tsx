@@ -1,5 +1,7 @@
+'use client';
+
 import { ReactChildren } from '@li/types/shared';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 type FormValues = {
   isEdit: boolean;
@@ -16,13 +18,17 @@ type FormConfig = FormValues & FormSetter;
 const FormConfigContext = createContext<FormConfig | null>(null);
 
 export const FormConfigProvider = ({
-  defaultValue,
+  isEdit: edit,
+  hasBG: bg,
   children,
-}: ReactChildren & {
-  defaultValue?: Partial<FormValues>;
-}) => {
-  const [isEdit, setIsEdit] = useState(defaultValue?.isEdit || false);
-  const [hasBG, setHasBG] = useState(defaultValue?.hasBG || false);
+}: ReactChildren & Partial<FormValues>) => {
+  const [isEdit, setIsEdit] = useState(false);
+  const [hasBG, setHasBG] = useState(false);
+
+  useEffect(() => {
+    if (edit !== undefined) setIsEdit(edit);
+    if (bg !== undefined) setHasBG(bg);
+  }, [edit, bg]);
 
   return (
     <FormConfigContext.Provider value={{ isEdit, hasBG, setHasBG, setIsEdit }}>
