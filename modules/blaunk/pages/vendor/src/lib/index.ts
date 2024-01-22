@@ -1,2 +1,2 @@
 export { Dashboard } from './Dashboard';
-export { Subscription } from './Subscription';
+export * from './subscription';

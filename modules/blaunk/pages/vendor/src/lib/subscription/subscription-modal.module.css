@@ -1,0 +1,23 @@
+.content {
+  min-height: 64vh;
+}
+
+.content label {
+  display: block;
+  padding-top: 8px;
+}
+
+.total-wrapper {
+  margin-block: 1rem;
+}
+
+.charges {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--gray300);
+}
+
+.proceed {
+  margin: 1rem auto 0;
+}

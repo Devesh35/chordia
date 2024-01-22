@@ -12,4 +12,4 @@ export { InputAndSelect, type InputAndSelectProps } from './InputAndSelect';
 export { InputArea, type InputAreaProps } from './InputArea';
 export { PasswordInput } from './PasswordInput';
 export { PhoneInput } from './PhoneInput';
-export { Select } from './Select';
+export { Select, SelectSuper } from './Select';

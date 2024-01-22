@@ -7,4 +7,5 @@ export const productType = [
   'Boutique',
   'Store',
 ] as const;
+export type ProductType = Lowercase<(typeof productType)[number]>;
 export const ProductTypeOptions = optionsFromStrings(productType);

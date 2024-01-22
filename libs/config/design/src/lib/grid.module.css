@@ -56,6 +56,9 @@
 /* Tablet */
 @media (min-width: 577px) and (max-width: 992px) {
   .grid {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .grid-t-8 {
     grid-template-columns: repeat(8, 1fr);
   }
 
@@ -84,6 +87,9 @@
   }
   .col-t-8 {
     grid-column: span 8;
+  }
+  .col-t-9 {
+    grid-column: span 9;
   }
 }
 
