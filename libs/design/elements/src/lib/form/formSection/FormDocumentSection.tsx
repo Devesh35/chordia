@@ -8,7 +8,11 @@ import type { FormDocumentSection as FDS } from '@li/types/design';
 import { withCondition } from '@li/design/enhancers';
 import { FormSectionHeader } from './FormSectionHeader';
 
-export const FormDocumentSection = ({ section }: { section: FDS }) => {
+export const FormDocumentSection = <T, D>({
+  section,
+}: {
+  section: FDS<T, D>;
+}) => {
   return (
     <section className={formStyles.section}>
       <FormSectionHeader
@@ -39,7 +43,13 @@ export const FormDocumentSection = ({ section }: { section: FDS }) => {
   );
 };
 
-export const FormDocumentSectionList = ({ sections }: { sections: FDS[] }) =>
-  sections.map((section) => (
-    <FormDocumentSection key={section.id} section={section} />
-  ));
+export const FormDocumentSectionList = <T, D>({
+  sections,
+}: {
+  sections: FDS<T, D>[];
+}) =>
+  sections.map((section) =>
+    withCondition(!!section.items.length)(
+      <FormDocumentSection key={`${section.id}`} section={section} />,
+    ),
+  );

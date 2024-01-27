@@ -9,7 +9,7 @@ import { useFormConfig } from './FormConfigProvider';
 import styles from './form.module.css';
 import formStyles from '../form.module.css';
 
-export const FormItem = (props: FormSectionItem) => {
+export const FormItem = <D,>(props: FormSectionItem<D>) => {
   const { isEdit, hasBG } = useFormConfig();
 
   return (

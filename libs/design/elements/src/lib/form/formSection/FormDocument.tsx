@@ -7,7 +7,7 @@ import { Input } from '../Input';
 import { FormDocument as FD } from '@li/types/design';
 import { useFormConfig } from './FormConfigProvider';
 
-export const FormDocument = (props: FD) => {
+export const FormDocument = <D,>(props: FD<D>) => {
   const { isEdit, hasBG } = useFormConfig();
 
   return (

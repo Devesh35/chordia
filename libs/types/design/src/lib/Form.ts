@@ -1,6 +1,6 @@
 import { SelectItem, SelectItemElement } from './Select';
 
-type FromList<T extends readonly string[]> = Readonly<T[number]>;
+type FromList<T extends readonly string[]> = Readonly<T[keyof T]>;
 
 export type FormSectionItem<D = string> = {
   id: D;
@@ -44,11 +44,15 @@ export type FormDocumentSection<T = string, D = string> = {
   verification?: boolean;
 };
 
+type FormBaseDataStrings = readonly string[];
+type FormBaseDataRecord = Record<string, FormBaseDataStrings | undefined>;
+
+type FormBaseData = FormBaseDataStrings | FormBaseDataRecord;
 type FormBase = {
   // list of full section id | record of section id and list of item id
-  form?: readonly string[] | Record<string, readonly string[] | undefined>;
+  form?: FormBaseData;
   // list of full document id | record of document id and list of item id
-  document?: readonly string[] | Record<string, readonly string[] | undefined>;
+  document?: FormBaseData;
 };
 
 type FormGroup = Record<string, FormBase>;
@@ -57,41 +61,35 @@ export type FormGroupBaseItem = FormBase | FormGroup;
 
 export type FormGroupBase = Record<string, FormGroupBaseItem>;
 
-type FS<
-  T extends FormGroupBase,
-  K extends keyof T,
-> = T[K]['form'] extends ReadonlyArray<string>
-  ? { form: FormSection<FromList<T[K]['form']>>[] }
-  : T[K]['form'] extends Record<string, ReadonlyArray<string> | undefined>
+type FS<D extends FormBaseData> = D extends FormBaseDataStrings
+  ? { form: FormSection<FromList<D>>[] }
+  : D extends FormBaseDataRecord
   ? {
       form: FormSection<
-        keyof T[K]['form'],
-        T[K]['form'][keyof T[K]['form']] extends ReadonlyArray<string>
-          ? FromList<T[K]['form'][keyof T[K]['form']]>
-          : string
+        keyof D,
+        D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string
       >[];
     }
   : never;
 
-type FDS<
-  T extends FormGroupBase,
-  K extends keyof T,
-> = T[K]['document'] extends ReadonlyArray<string>
-  ? { document: FormDocumentSection<FromList<T[K]['document']>>[] }
-  : T[K]['document'] extends Record<string, ReadonlyArray<string> | undefined>
+type FDS<D extends FormBaseData> = D extends FormBaseDataStrings
+  ? { document: FormDocumentSection<FromList<D>>[] }
+  : D extends FormBaseDataRecord
   ? {
       document: FormDocumentSection<
-        keyof T[K]['document'],
-        T[K]['document'][keyof T[K]['document']] extends ReadonlyArray<string>
-          ? FromList<T[K]['document'][keyof T[K]['document']]>
-          : string
+        keyof D,
+        D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string
       >[];
     }
   : never;
 
 type GroupToBase<T extends FormGroupBase> = {
   [K in keyof T]: T[K] extends FormBase
-    ? FS<T, K> | FDS<T, K>
+    ?
+        | (T[K]['form'] extends FormBaseData ? FS<T[K]['form']> : never)
+        | (T[K]['document'] extends FormBaseData
+            ? FDS<T[K]['document']>
+            : never)
     : T[K] extends FormGroup
     ? { title: string; options: SelectItemElement[]; items: GroupToBase<T[K]> }
     : never;

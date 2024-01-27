@@ -1,6 +1,6 @@
 import { FormSectionGroup } from '@li/types/design';
 import { tourSegmentOptions } from '../Tour';
-import { CountriesOption } from '../Country';
+import { Address } from '../Address';
 
 const tourSection = {
   'tour-details': {
@@ -36,55 +36,7 @@ export const TourProductDetails: FormSectionGroup<typeof tourSection> = {
           },
         ],
       },
-      {
-        id: 'address',
-        title: 'Address',
-        items: [
-          {
-            id: 'address',
-            label: 'Address',
-            placeholder: 'Address',
-          },
-          {
-            id: 'address2',
-            label: 'Address 2',
-            placeholder: 'Address 2',
-          },
-          {
-            id: 'landmark',
-            label: 'Landmark',
-            placeholder: 'Landmark',
-          },
-          {
-            id: 'district',
-            label: 'District',
-            placeholder: 'District',
-          },
-          {
-            id: 'city',
-            label: 'City',
-            placeholder: 'City',
-          },
-          {
-            id: 'zip',
-            label: 'Zip',
-            placeholder: 'Zip',
-            type: 'number',
-          },
-          {
-            id: 'state',
-            label: 'State',
-            placeholder: 'State',
-          },
-          {
-            id: 'country',
-            type: 'select',
-            label: 'Country',
-            placeholder: 'Country',
-            options: CountriesOption,
-          },
-        ],
-      },
+      Address,
     ],
   },
   'tour-desc': {
