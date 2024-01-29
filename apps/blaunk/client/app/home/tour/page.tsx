@@ -1,3 +1,5 @@
+import { Tour } from '@md/blaunk/pages/home';
+
 export default async function Index() {
-  return <div>Tour</div>;
+  return <Tour />;
 }

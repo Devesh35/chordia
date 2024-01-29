@@ -1,6 +1,6 @@
 import { SelectItem, SelectItemElement } from './Select';
 
-type FromList<T extends readonly string[]> = T[number];
+type FromList<T extends readonly string[]> = Readonly<T[keyof T]>;
 
 export type FormSectionItem<D = string> = {
   id: D;
@@ -44,12 +44,15 @@ export type FormDocumentSection<T = string, D = string> = {
   verification?: boolean;
 };
 
-// FIXME: this is not correct
+type FormBaseDataStrings = readonly string[];
+type FormBaseDataRecord = Record<string, FormBaseDataStrings | undefined>;
+
+type FormBaseData = FormBaseDataStrings | FormBaseDataRecord;
 type FormBase = {
-  // list of full section id
-  form?: readonly string[];
-  // list of individual document id
-  document?: readonly string[];
+  // list of full section id | record of section id and list of item id
+  form?: FormBaseData;
+  // list of full document id | record of document id and list of item id
+  document?: FormBaseData;
 };
 
 type FormGroup = Record<string, FormBase>;
@@ -58,16 +61,35 @@ export type FormGroupBaseItem = FormBase | FormGroup;
 
 export type FormGroupBase = Record<string, FormGroupBaseItem>;
 
+type FS<D extends FormBaseData> = D extends FormBaseDataStrings
+  ? { form: FormSection<FromList<D>>[] }
+  : D extends FormBaseDataRecord
+  ? {
+      form: FormSection<
+        keyof D,
+        D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string
+      >[];
+    }
+  : never;
+
+type FDS<D extends FormBaseData> = D extends FormBaseDataStrings
+  ? { document: FormDocumentSection<FromList<D>>[] }
+  : D extends FormBaseDataRecord
+  ? {
+      document: FormDocumentSection<
+        keyof D,
+        D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string
+      >[];
+    }
+  : never;
+
 type GroupToBase<T extends FormGroupBase> = {
   [K in keyof T]: T[K] extends FormBase
-    ? {
-        form?: T[K]['form'] extends ReadonlyArray<string>
-          ? FormSection<FromList<T[K]['form']>>[]
-          : undefined;
-        document?: T[K]['document'] extends ReadonlyArray<string>
-          ? FormDocumentSection<K, FromList<T[K]['document']>>[]
-          : undefined;
-      }
+    ?
+        | (T[K]['form'] extends FormBaseData ? FS<T[K]['form']> : never)
+        | (T[K]['document'] extends FormBaseData
+            ? FDS<T[K]['document']>
+            : never)
     : T[K] extends FormGroup
     ? { title: string; options: SelectItemElement[]; items: GroupToBase<T[K]> }
     : never;

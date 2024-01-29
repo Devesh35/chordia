@@ -1,20 +1,12 @@
 'use client';
 
-import {
-  FormConfigProvider,
-  FormFormSection,
-  FormSection,
-} from '@li/design/elements';
-import {
-  BGTProductDetails,
-  CompanyProfile,
-  Export,
-  ProductSpecification,
-} from '@md/blaunk/config';
+import { FormConfigProvider, FormSection } from '@li/design/elements';
+import { AddProductSpecifications, BGTProductDetails } from '@md/blaunk/config';
 import { QuantitySection } from './QuantitySection';
 import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
 import { useState } from 'react';
+import styles from './common.module.css';
 
 export type QuantityType = {
   id: string;
@@ -22,7 +14,6 @@ export type QuantityType = {
   price?: number;
   priceDollar?: number;
 };
-const specifications = [Export, ProductSpecification, CompanyProfile];
 
 export const BGT = () => {
   const [data, setData] = useState<QuantityType[]>([]);
@@ -30,13 +21,11 @@ export const BGT = () => {
   return (
     <FormConfigProvider isEdit hasBG>
       <FormSection section={BGTProductDetails} selected={'product-details'} />
-      <QuantitySection data={data} onChange={setData} />
+      <div className={styles.half}>
+        <QuantitySection data={data} onChange={setData} title="Quantity" />
+      </div>
       <FormSection section={BGTProductDetails} selected={'product-image'} />
-
-      {specifications.map((section) => (
-        <FormFormSection {...section} expandable />
-      ))}
-
+      <FormSection section={AddProductSpecifications} selected="options" />
       <Disclaimer />
       <FormAction />
     </FormConfigProvider>

@@ -9,5 +9,6 @@ export { Search } from './Search';
 export { Star } from './Star';
 export { StarHalf } from './StarHalf';
 export { TopFilled } from './TopFilled';
+export { Veg } from './Veg';
 export { Visibility } from './Visibility';
 export { VisibilityOff } from './VisibilityOff';

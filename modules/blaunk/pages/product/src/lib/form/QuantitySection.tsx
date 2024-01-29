@@ -2,7 +2,7 @@
 
 import {
   Button,
-  FormFormSection,
+  FormSectionHeader,
   Input,
   Labeled,
   Modal,
@@ -64,8 +64,10 @@ const getData = (data: QuantityType[]) => {
 
 export const QuantitySection = ({
   data,
+  title,
   onChange,
 }: {
+  title: string;
   data: QuantityType[];
   onChange: (data: QuantityType[]) => void;
 }) => {
@@ -76,7 +78,7 @@ export const QuantitySection = ({
 
   const updateQty = (id: keyof QuantityType) => (val: number) => {
     setQty((prev) => ({ ...prev, [id]: val }));
-    if (id === 'price') setQty((prev) => ({ ...prev, priceDollar: val / 80 }));
+    // if (id === 'price') setQty((prev) => ({ ...prev, priceDollar: val / 80 }));
   };
 
   const onClose = () => {
@@ -86,7 +88,7 @@ export const QuantitySection = ({
 
   const addQuantity: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    if (!qty.qty || !qty.price) return;
+    if (!qty.qty || !qty.price || !qty.priceDollar) return;
     setQuantity((prev) => {
       const newData = getData([...prev, { ...qty }]);
       onChange(newData.filter((item) => item.qty));
@@ -100,7 +102,7 @@ export const QuantitySection = ({
   };
 
   return (
-    <FormFormSection title="Product pricing">
+    <>
       <Modal isOpen={isModalOpen} onClose={onClose} title={'Add quantity'}>
         <form onSubmit={addQuantity}>
           <Labeled label="Quantity">
@@ -120,11 +122,22 @@ export const QuantitySection = ({
               onChange={(e) => updateQty('price')(+e.target.value)}
             />
           </Labeled>
+          <Labeled label={'Price($)'}>
+            <Input
+              type="number"
+              placeholder=""
+              prefix="$"
+              required
+              onChange={(e) => updateQty('priceDollar')(+e.target.value)}
+            />
+          </Labeled>
           <Button className={styles.submit} type="submit">
             Add
           </Button>
         </form>
       </Modal>
+      <FormSectionHeader title={title} />
+
       <div className={styles.quantity}>
         <Table
           columns={columns(onDelete)}
@@ -138,6 +151,6 @@ export const QuantitySection = ({
           Add quantity
         </Button>
       </div>
-    </FormFormSection>
+    </>
   );
 };

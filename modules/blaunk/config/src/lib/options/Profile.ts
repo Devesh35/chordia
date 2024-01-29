@@ -1,5 +1,5 @@
 import { FormSectionGroup } from '@li/types/design';
-import { CountriesOption, CountryCodeOptions } from './Country';
+import { CountryCodeOptions } from './Country';
 import { PaymentOption, UserCategoryOption } from './User';
 import { BankAccountType } from './General';
 import {
@@ -10,18 +10,22 @@ import {
   VendorNumberOfEmployees,
   VendorResponseTime,
 } from './VendorOptions';
+import { Address } from './Address';
 
 const profileSection = {
   personal: {
     form: ['personal', 'address', 'identification'],
-    document: [
-      'profilePhoto',
-      'idProof',
-      'signature',
-      'googleAddress',
-      'bankCheque',
-      'bankLetter',
-    ],
+    document: {
+      personal: [
+        'profilePhoto',
+        'idProof',
+        'signature',
+        'googleAddress',
+        'bankCheque',
+        'bankLetter',
+      ],
+      test: undefined,
+    },
   },
   general: {
     form: ['general'],
@@ -40,13 +44,15 @@ const profileSection = {
       'vendorResponse',
       'vendorIdentification',
     ],
-    document: [
-      'shopCertificate',
-      'tradeLicense',
-      'companyLogo',
-      'taxCertificate',
-      'license',
-    ],
+    document: {
+      vendor: [
+        'companyLogo',
+        'license',
+        'shopCertificate',
+        'taxCertificate',
+        'tradeLicense',
+      ],
+    },
   },
 } as const;
 
@@ -78,55 +84,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
         ],
       },
-      {
-        id: 'address',
-        title: 'Address',
-        items: [
-          {
-            id: 'address',
-            label: 'Address',
-            placeholder: 'Address',
-          },
-          {
-            id: 'address2',
-            label: 'Address 2',
-            placeholder: 'Address 2',
-          },
-          {
-            id: 'landmark',
-            label: 'Landmark',
-            placeholder: 'Landmark',
-          },
-          {
-            id: 'district',
-            label: 'District',
-            placeholder: 'District',
-          },
-          {
-            id: 'city',
-            label: 'City',
-            placeholder: 'City',
-          },
-          {
-            id: 'zip',
-            label: 'Zip',
-            placeholder: 'Zip',
-            type: 'number',
-          },
-          {
-            id: 'state',
-            label: 'State',
-            placeholder: 'State',
-          },
-          {
-            id: 'country',
-            type: 'select',
-            label: 'Country',
-            placeholder: 'Country',
-            options: CountriesOption,
-          },
-        ],
-      },
+      Address,
       {
         id: 'identification',
         title: 'Identification',
