@@ -13,8 +13,10 @@ backgroundsecondary
 backgroundselected
 backgroundtransparent
 Bajra
+Bandhan
 Bandhgala
 Belan
+Bento
 Beyblade
 bgt
 blaunk
@@ -25,6 +27,7 @@ Cabo
 cacheable
 Cantarell
 Chakla
+Chaturthi
 Chikoo
 Cholis
 Chordia
@@ -37,6 +40,7 @@ cssmodule
 Decoiler
 demoapp
 DGFT
+Dooj
 Dupattas
 Epilators
 Eway
@@ -44,12 +48,15 @@ Exim
 Faso
 FMCG
 FSSAI
+Ganesh 
 Gaurds
 Geogrids
 Geotextile
 Gota
+GSTITC
 Handi
 Hdpe
+Holi
 Idli
 IFSC
 Intelli
@@ -64,6 +71,7 @@ Kurta
 Ldpe
 Lehenga
 Leichtenstein
+malai
 Marino
 Masala
 MICR
@@ -93,6 +101,7 @@ primary
 primarydark
 Purlins
 Raddish
+Raksha 
 Rava
 Rawa
 Rica
@@ -127,5 +136,5 @@ transparentw80
 Ubtan
 veryfast
 xlarge
+xxlarge
 Zari
-GSTITC
