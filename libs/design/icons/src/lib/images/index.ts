@@ -1,0 +1,13 @@
+export { default as couple_friendly } from './couple_friendly.jpg';
+export { default as free_breakfast } from './free_breakfast.jpg';
+export { default as free_cancellation } from './free_cancellation.jpg';
+export { default as free_gifts } from './free_gifts.jpg';
+export { default as free_wifi } from './free_wifi.jpg';
+export { default as fssai } from './fssai.jpg';
+export { default as full_refund } from './full_refund.jpg';
+export { default as max_capacity } from './max_capacity.jpg';
+export { default as no_meals } from './no_meals.jpg';
+export { default as non_refundable } from './non_refundable.jpg';
+export { default as on_time_delivery } from './on_time_delivery.jpg';
+export { default as pet_friendly } from './pet_friendly.jpg';
+export { default as sold_out } from './sold_out.png';

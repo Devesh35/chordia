@@ -9,6 +9,7 @@ export {
 } from './Country';
 export { FooterDetails } from './Footer';
 export { BankAccountType, GSTOptions } from './General';
+export { IssueOptions } from './Issue';
 export { MenuBarItems } from './MenuBar';
 export {
   MenuCategories,

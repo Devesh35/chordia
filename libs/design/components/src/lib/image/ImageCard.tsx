@@ -8,10 +8,12 @@ type Props = {
   details: React.ReactNode;
   hasDivider?: boolean;
   className?: string;
+  topLeft?: React.ReactNode;
 };
 
-export const ImageCard = ({ image, details, className }: Props) => (
+export const ImageCard = ({ image, details, className, topLeft }: Props) => (
   <div className={clsx(styles.wrapper, className)}>
+    <div className={styles['top-left']}>{topLeft}</div>
     <Image {...image} />
     {details}
   </div>

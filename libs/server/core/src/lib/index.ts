@@ -1,1 +1,2 @@
-export const name = 'core';
+export * from './base';
+export * from './handlers';
