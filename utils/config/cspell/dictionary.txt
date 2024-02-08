@@ -138,3 +138,4 @@ veryfast
 xlarge
 xxlarge
 Zari
+Jewellery

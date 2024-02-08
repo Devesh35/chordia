@@ -1,0 +1,18 @@
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.grid {
+  gap: 2vw;
+}
+
+.grid > * {
+  border-radius: 0px;
+}
+
+.card {
+  border: 8px solid var(--primary200);
+  border-radius: 4px;
+}

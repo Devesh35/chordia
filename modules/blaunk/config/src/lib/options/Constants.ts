@@ -5,4 +5,5 @@ export const Constants = {
   homeBannerImageSizeMax: 700,
   homeBannerImageSizeMin: 500,
   b2bHomeBannerSize: 500,
+  boutiqueBannerSize: 600,
 } as const;

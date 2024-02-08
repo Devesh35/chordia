@@ -12,6 +12,15 @@ export const Veg = (props: SVGProps) => {
     >
       <g id="veg">
         <circle cx="12" cy="12" r="10" />
+        <rect
+          x="2"
+          y="2"
+          width="20"
+          height="20"
+          stroke="black"
+          strokeWidth="2"
+          fill="none"
+        />
       </g>
     </svg>
   );
