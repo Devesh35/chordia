@@ -67,7 +67,7 @@ export const InputArea = ({
         disabled={isDisabled}
         ref={inputRef}
         className={clsx(styles.input, sbs.dark)}
-        style={{ resize: 'none' }}
+        style={{ resize: 'none', minHeight: '120px' }}
       />
       {iconRight ? (
         <span

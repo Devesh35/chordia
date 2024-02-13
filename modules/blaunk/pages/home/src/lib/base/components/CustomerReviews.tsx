@@ -8,15 +8,17 @@ export const CustomerReviews = () => {
   return (
     <div className={clsx(styles.wrapper, grid['col-6'])}>
       <div className={styles.heading}>Customer speaks</div>
-      <div className={styles['carousal-wrapper']}>
-        <ScrollableSnap controls delta={200}>
-          {Array(15)
-            .fill(0)
-            .map((_, i) => (
-              <ReviewCard i={3 * i} key={i + 0} />
-            ))}
-        </ScrollableSnap>
-      </div>
+      <ScrollableSnap
+        controls
+        delta={200}
+        className={styles['carousal-wrapper']}
+      >
+        {Array(15)
+          .fill(0)
+          .map((_, i) => (
+            <ReviewCard i={3 * i} key={i + 0} />
+          ))}
+      </ScrollableSnap>
     </div>
   );
 };

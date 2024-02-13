@@ -23,9 +23,9 @@ export const Celeb = () => {
   return (
     <div>
       <SectionHeader sectionName="Celebrity Designers" />
-      <div className={styles.carousal}>
-        <ScrollableSnap delta={200}>{products}</ScrollableSnap>
-      </div>
+      <ScrollableSnap className={styles.carousal} delta={200} controls>
+        {products}
+      </ScrollableSnap>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 export { Cart } from './Cart';
 export { CircleClose } from './CircleClose';
+export { CircleEmpty } from './CircleEmpty';
+export { CircleFilled } from './CircleFilled';
 export { Dot } from './Dot';
 export { DownFilled } from './DownFilled';
 export { Heart } from './Heart';

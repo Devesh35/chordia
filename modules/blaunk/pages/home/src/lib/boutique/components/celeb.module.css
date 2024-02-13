@@ -2,10 +2,10 @@
   position: relative;
 }
 
-.carousal > div {
+.carousal {
   gap: 1rem;
 }
 
-.carousal > div > * {
+.carousal > * {
   min-width: 400px;
 }
