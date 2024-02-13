@@ -1,5 +1,6 @@
 export * from './AddProducts';
 export * from './BuyProducts';
+export { PriceSortOptions as PriceOptions, RatingOptions } from './BuyFilters';
 export { Constants } from './Constants';
 export {
   type AvailableCountryCode,

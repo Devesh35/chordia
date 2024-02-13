@@ -7,3 +7,10 @@ export {
   OccupationOptions,
   QuantityOptions,
 } from './Cake';
+export {
+  ArrivingTimeOptions,
+  LandmarkOptions,
+  PropertyTypeOptions,
+  RoomRequestOptions,
+  SpecialRequestsOptions,
+} from './Tour';

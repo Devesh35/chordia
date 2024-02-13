@@ -34,7 +34,7 @@ export const ScrollableSnap = ({
   };
 
   return (
-    <>
+    <div className={styles['controls-wrapper']}>
       {controls ? (
         <MoveControl onChange={onClick} className={styles.control} />
       ) : null}
@@ -49,6 +49,6 @@ export const ScrollableSnap = ({
       >
         {children}
       </div>
-    </>
+    </div>
   );
 };

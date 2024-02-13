@@ -9,8 +9,6 @@ export const RoomTypes = [
   '3 Adult + 2 Kid',
   '3 Adult',
   '4 Adult',
-  '100 Capacity',
-  'Above 200 Capacity',
 ] as const;
 
 export const RoomTypesOptions = optionsFromStrings(RoomTypes);

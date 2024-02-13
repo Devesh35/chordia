@@ -41,10 +41,3 @@
   margin-inline: auto;
   margin-bottom: 2rem;
 }
-
-.filter-wrapper {
-  gap: 2rem;
-  background-color: var(--white);
-  width: 80%;
-  margin: 0 auto;
-}

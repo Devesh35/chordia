@@ -3,6 +3,7 @@
   line-height: var(--line-height-p16);
   margin-bottom: 4px;
   color: var(--gray600);
+  flex-shrink: 0;
 }
 
 .inline {

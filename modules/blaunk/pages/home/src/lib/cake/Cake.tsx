@@ -4,6 +4,7 @@ import {
   Input,
   InputArea,
   Labeled,
+  ScrollableSnap,
   Select,
 } from '@li/design/elements';
 import {
@@ -19,7 +20,7 @@ import {
 import styles from './cake.module.css';
 import Image from 'next/image';
 import { Search } from './Search';
-import { Filter } from '../components/Filter';
+import { Filter } from './Filter';
 import clsx from 'clsx';
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
@@ -27,10 +28,15 @@ import {
   Heart,
   Star,
   Veg,
+  free_gifts,
+  full_refund,
   getStaticImageSrc,
+  on_time_delivery,
   sold_out,
 } from '@li/design/icons';
-import { AddOnCardLayout, PolicyAside, ReportIssue } from '../components';
+import { PolicyAside, ReportIssue } from '../components';
+import { AddOnCard } from '../components/AddOnCard';
+import { Tariff } from '../components/Tariff';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
@@ -45,6 +51,28 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   ),
 );
 
+const addOn = getRandomImagesArray(8)(600).map((src, i) => (
+  <AddOnCard
+    key={src}
+    image={{
+      src: src,
+      width: 120,
+      height: 120,
+      enlargedWidth: 600,
+      enlargedHeight: 600,
+      alt: 'random',
+    }}
+    items={[
+      ['Name', 'Strawberry Cake'],
+      ['MRP', '$20'],
+      ['Price', '$13'],
+      ['Rating', '4.5'],
+      ['Reviews', '1.5k Reviews'],
+      ['Weight', '1kg'],
+    ]}
+  />
+));
+
 const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
   <ImageCard
     key={i}
@@ -58,7 +86,7 @@ const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
     topLeft={<div className={styles['card-tag']}>Best seller</div>}
     details={
       <div className={styles.details}>
-        <Veg />
+        <Veg width={24} height={24} />
         <div className={styles['name-wrapper']}>
           <div className={styles['card-name']}>Strawberry Cake</div>
           <div className={styles.price}>$13</div>
@@ -142,9 +170,6 @@ export const Cake = () => {
                 <div className={styles.occasion}>{selectedCake.occasion}</div>
                 <div className={styles.type}>{selectedCake.type}</div>
               </div>
-              <div className={styles.delivery}>
-                Delivered by: {selectedCake.delivery}
-              </div>
               <div className={styles.timing}>
                 Shop timing: {selectedCake.timing}
               </div>
@@ -160,6 +185,27 @@ export const Cake = () => {
               <div className={styles['base-price']}>${selectedCake.price}</div>
             </div>
           </div>
+          <div className={styles.amenities}>
+            <Image
+              src={getStaticImageSrc(free_gifts)}
+              alt="free_gifts"
+              height={64}
+              width={150}
+            />
+            <Image
+              src={getStaticImageSrc(full_refund)}
+              alt="full_refund"
+              height={64}
+              width={150}
+            />
+            <Image
+              src={getStaticImageSrc(on_time_delivery)}
+              alt="on_time_delivery"
+              height={64}
+              width={150}
+            />
+          </div>
+
           <div className={styles['select-wrapper']}>
             <Labeled label="Shape">
               <Select options={CakeShapeOptions} />
@@ -184,11 +230,14 @@ export const Cake = () => {
           </div>
           <div className={styles.desc}>
             <div className={styles.info2}>
-              <Labeled label="Description">
-                <InputArea />
+              <Labeled label="Description" className={styles.desc} inline>
+                <InputArea placeholder="Product description (max 250 characters...)" />
               </Labeled>
               <Labeled label="Message" inline>
                 <Input placeholder="Message for vendor" />
+              </Labeled>
+              <Labeled label="Delivered by" inline>
+                {selectedCake.delivery}
               </Labeled>
               <Labeled label="Delivery charges" inline>
                 Free/NA
@@ -219,49 +268,13 @@ export const Cake = () => {
           </div>
         </div>
         <div className={clsx(grid['col-3'], styles.aside)}>
-          <p className={styles['aside-title']}>Tariff Details</p>
-          <div className={clsx(styles['aside-table'])}>
-            <p>Charges</p>
-            <span>Rs. 8600</span>
-          </div>
-          <div className={clsx(styles['aside-table'])}>
-            <p>Discounts</p>
-            <span>Rs. 2200</span>
-          </div>
-
-          <div className={clsx(styles['aside-table'])}>
-            <p>SubTotal</p>
-            <span>Rs. 8600</span>
-          </div>
-
-          <div className={clsx(styles['aside-table'])}>
-            <p>QTY No.</p>
-            <span>1</span>
-          </div>
-
-          <div className={clsx(styles['aside-table'])}>
-            <p>Service Charge</p>
-            <span>Rs.192</span>
-          </div>
-
-          <div
-            className={clsx(styles['aside-table'], styles['aside-table-main'])}
-          >
-            <p>To Pay</p>
-            <span className="h5">Rs.6492</span>
-          </div>
-
-          <Button className={styles['aside-table-action']}>Book Now</Button>
+          <Tariff />
 
           <PolicyAside />
         </div>
       </main>
       <div className={clsx(styles['add-on-header'])}>Add on</div>
-      <div className={clsx(styles['add-on'], grid.grid)}>
-        {Array.from({ length: 4 }).map((_, i) => (
-          <AddOnCardLayout key={i} />
-        ))}
-      </div>
+      <ScrollableSnap className={styles['add-on']}>{addOn}</ScrollableSnap>
     </div>
   );
 };
