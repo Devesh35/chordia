@@ -1,1 +1,1 @@
-export { QuantityType } from './general';
+export type { QuantityType } from './general';
