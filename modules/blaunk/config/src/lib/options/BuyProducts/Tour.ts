@@ -67,3 +67,89 @@ const specialRequests = [
 ];
 
 export const SpecialRequestsOptions = optionsFromStrings(specialRequests);
+
+export const AmenitiesItems = [
+  {
+    title: 'Safety & hygiene',
+    color: '#FDE9DA',
+    items: [
+      'Face shield',
+      'Sanitizer',
+      'On call doctor',
+      'Fire extinguisher',
+      'Locker',
+      'CCTV',
+      'Bath kit',
+    ],
+  },
+  {
+    title: 'Basic facilities',
+    color: '#DCDDFE',
+
+    items: [
+      'Swimming pool',
+      'Free parking',
+      'Wheelchair',
+      'Restaurant & Bar',
+      'Gym',
+      'Wake-up call',
+      'Kids play zone',
+    ],
+  },
+  {
+    title: 'Distance (in km)',
+    color: '#F3DCDC',
+
+    items: [
+      'Airport',
+      'Metro',
+      'Taxi stand',
+      'Railway station',
+      'Bus stand',
+      'Hospital',
+      'Shopping Mall',
+    ],
+  },
+  {
+    title: 'Paid Add-On',
+    color: '#E6E0ED',
+
+    items: [
+      'Guide',
+      'Luxury car',
+      'SPA',
+      'Butler',
+      'Adventure games',
+      'Meeting room',
+      'Airport hassle',
+    ],
+  },
+  {
+    title: 'Cuisine',
+    color: '#DCDAC1',
+
+    items: [
+      'Mexican',
+      'Jain',
+      'Indian',
+      'Italian',
+      'Thai',
+      'Arabic',
+      'Japanese',
+    ],
+  },
+  {
+    title: 'Amenities',
+    color: '#FFFFCD',
+
+    items: [
+      'Ironing',
+      'Refrigerator',
+      'Room heater',
+      'News paper',
+      'Tea/Coffee maker',
+      'Fruit basket',
+      'Welcome drink',
+    ],
+  },
+];

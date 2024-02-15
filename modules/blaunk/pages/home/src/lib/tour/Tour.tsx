@@ -35,6 +35,7 @@ import {
 import { PolicyAside, ReportIssue } from '../components';
 import { Tariff } from '../components/Tariff';
 import { YesNoOptions } from 'modules/blaunk/config/src/lib/options/General';
+import { Amenities } from './Amenities';
 
 const images = getRandomImagesArray(6)(
   Constants.b2bHomeBannerSize,
@@ -265,6 +266,9 @@ export const Tour = () => {
                 />
               </div>
             </div>
+          </div>
+          <div>
+            <Amenities />
           </div>
           <div className={clsx(styles['vendor-info'], styles.info2)}>
             <Labeled label="GST Invoice" inline>

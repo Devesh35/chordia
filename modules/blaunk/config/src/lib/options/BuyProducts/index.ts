@@ -8,6 +8,7 @@ export {
   QuantityOptions,
 } from './Cake';
 export {
+  AmenitiesItems,
   ArrivingTimeOptions,
   LandmarkOptions,
   PropertyTypeOptions,
