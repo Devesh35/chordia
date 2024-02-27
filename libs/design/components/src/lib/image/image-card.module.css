@@ -6,10 +6,22 @@
   background-color: var(--gray100);
   border-radius: var(--border-radius-medium);
   overflow: hidden;
+  position: relative;
 }
 
 .details {
   padding-right: 12px;
   margin: auto;
   margin-right: 0;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

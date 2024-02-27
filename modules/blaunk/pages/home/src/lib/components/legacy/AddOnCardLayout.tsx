@@ -59,9 +59,9 @@ export function AddOnCardLayout() {
           width="140"
           style={{ margin: 'auto', display: 'block' }}
         />
-        <div className="" style={{ textAlign: 'center' }}>
+        {/* <div className="" style={{ textAlign: 'center' }}>
           <input type="checkbox" />
-        </div>
+        </div> */}
 
         <table
           style={{
@@ -118,11 +118,6 @@ export function AddOnCardLayout() {
             </tr>
             <tr>
               <td>Quantity</td>
-              <td>-</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Size</td>
               <td>-</td>
               <td>
                 <select>

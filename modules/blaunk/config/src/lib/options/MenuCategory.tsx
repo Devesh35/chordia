@@ -30,6 +30,7 @@ export const MenuCategoriesId = [
   'electric_vehicle',
   'electrical',
   'electronics',
+  'financial_services',
   'food_and_beverages',
   'footwear',
   'gardening',
@@ -201,6 +202,10 @@ export const MenuCategories: CatCat[] = [
   {
     id: 'electronics',
     name: 'Electronics',
+  },
+  {
+    id: 'financial_services',
+    name: 'Financial services',
   },
   {
     id: 'food_and_beverages',
@@ -1209,6 +1214,15 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'washing_machine', label: 'Washing Machine' },
     { id: 'water_geysers', label: 'Water Geysers' },
     { id: 'water_purifiers', label: 'Water Purifiers' },
+  ],
+  financial_services: [
+    { id: 'mutual_fund_agent', label: 'Mutual Fund agent' },
+    { id: 'stock_broker', label: 'Stock Broker' },
+    { id: 'wealth_management', label: 'Wealth Management' },
+    { id: 'life_insurance', label: 'Life Insurance' },
+    { id: 'non_life_insurance', label: 'Non-Life insurance' },
+    { id: 'nbfc_agent', label: 'NBFC Agent' },
+    { id: 'scholarships', label: 'Scholarships' },
   ],
   food_and_beverages: [
     { id: 'aerated_drinks', label: 'Aerated Drinks' },

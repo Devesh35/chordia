@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import styles from './button.module.css';
 import { ReactChildren } from '@li/types/shared';
 
-type Variant = 'primary' | 'secondary' | 'outline' | 'text';
+type Variant = 'primary' | 'secondary' | 'outline' | 'text' | 'error';
 
 export type ButtonProps = {
   variant?: Variant;

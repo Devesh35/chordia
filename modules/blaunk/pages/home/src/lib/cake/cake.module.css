@@ -57,6 +57,15 @@
   font-size: 12px;
 }
 
+.item-half {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.item-rating {
+  padding: 4px 16px;
+}
+
 .main {
   background-color: var(--secondary);
   padding: 2rem;
@@ -84,10 +93,12 @@
   display: flex;
   justify-content: space-between;
 }
+
 .product-image-wrapper {
   background-color: var(--white);
   padding: 1rem;
   border-radius: var(--border-radius-xxlarge);
+  position: relative;
 }
 
 .product-image {
@@ -155,6 +166,7 @@
 .save {
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
+  color: blue;
 }
 
 .base-price {
@@ -166,13 +178,14 @@
 }
 
 .add-on-header {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+
   background-color: var(--primary);
   padding: 0.5rem 1rem;
-  width: 200px;
+  width: 100%;
   color: var(--onprimary);
   font-weight: var(--font-weight-bold);
-
-  margin: 0 1rem;
 }
 
 .add-on {
@@ -186,6 +199,12 @@
   flex-direction: column;
   gap: 0.5rem;
   margin: 0 1rem;
+}
+.info2-sub {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .select-wrapper {
@@ -215,4 +234,64 @@
   margin: 0 1rem;
   font-size: var(--font-size-h6);
   line-height: var(--line-height-h6);
+}
+
+.desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info3 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 1rem;
+  justify-content: space-between;
+}
+.card-tag {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-bottom-right-radius: var(--border-radius-medium);
+  background-color: var(--success300);
+  color: var(--white);
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+.image-tag {
+  position: absolute;
+  background-color: var(--success300);
+  color: var(--white);
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+  padding: 0.25rem 0.5rem;
+  top: 12;
+}
+.image-tag-left {
+  border-top-left-radius: var(--border-radius-medium);
+  border-bottom-right-radius: var(--border-radius-medium);
+  left: 12;
+}
+.image-tag-right {
+  border-top-right-radius: var(--border-radius-medium);
+  border-bottom-left-radius: var(--border-radius-medium);
+  right: 0;
+  padding-right: 1.5rem;
+  background-color: var(--white);
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.desc textarea {
+  min-height: 96px;
+}
+
+.amenities {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  gap: 12px;
 }

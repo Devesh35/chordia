@@ -13,10 +13,6 @@
 }
 
 .carousal-wrapper {
-  position: relative;
-}
-
-.carousal-wrapper > div {
   gap: 1rem;
 }
 

@@ -4,6 +4,7 @@ import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
 import { RoomsSection } from './RoomsSection';
 import styles from './common.module.css';
+import { Amenities } from './Amenities';
 
 export type RoomType = {
   id: string;
@@ -32,6 +33,8 @@ export const Tour = () => {
           <RoomsSection data={[]} />
         </div>
       </div>
+      <Amenities />
+
       <FormSection section={TourProductDetails} selected="tour-image" />
 
       <Disclaimer />

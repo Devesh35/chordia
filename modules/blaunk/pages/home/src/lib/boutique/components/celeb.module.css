@@ -1,0 +1,11 @@
+.carousal {
+  position: relative;
+}
+
+.carousal {
+  gap: 1rem;
+}
+
+.carousal > * {
+  min-width: 400px;
+}

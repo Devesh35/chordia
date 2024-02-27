@@ -8,6 +8,11 @@ export const Routes = {
       title: 'Cart | Blaunk',
       path: '/account/cart',
     },
+    ledger: {
+      isProtected: true,
+      title: 'My Ledger | Blaunk',
+      path: '/account/ledger',
+    },
     orders: {
       isProtected: true,
       title: 'My Orders | Blaunk',

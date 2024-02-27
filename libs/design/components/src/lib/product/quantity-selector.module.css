@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--primary200);
+  width: min-content;
+  font-size: var(--font-size-h6);
+}
+
+.item {
+  padding: 0.25rem 1rem;
+  text-align: center;
+}
+
+.button {
+  font-size: var(--font-size-h5);
+  cursor: pointer;
+}
+
+.quantity {
+  width: 50px;
+}

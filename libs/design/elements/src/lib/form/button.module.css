@@ -65,6 +65,24 @@
   background-color: var(--transparent);
 }
 
+.error {
+  color: var(--white);
+  background-color: var(--error300);
+  border: none;
+}
+.error:hover {
+  color: var(--white);
+  background-color: var(--error400);
+}
+.error:active {
+  color: var(--white);
+  background-color: var(--error400);
+}
+.error[disabled] {
+  color: var(--white);
+  background-color: var(--error100);
+}
+
 .button[disabled],
 .button[disabled]:hover,
 .button[disabled]:active {

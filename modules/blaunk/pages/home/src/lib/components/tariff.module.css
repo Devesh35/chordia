@@ -1,0 +1,26 @@
+.aside-title {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary);
+  text-align: center;
+  border: 1px solid var(--primary);
+}
+
+.aside-table {
+  border: 1px solid var(--primary);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aside-table-main {
+  color: var(--primarydark);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+}
+.aside-table-action {
+  margin-top: 0.5rem;
+  width: 100%;
+}

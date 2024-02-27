@@ -1,0 +1,23 @@
+.filter-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  background-color: var(--secondarydark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-large);
+}
+.filter-wrapper > * {
+  flex: 1;
+}
+
+.filter-wrapper label {
+  display: block;
+  text-align: center;
+}
+
+.filter-wrapper {
+  gap: 2rem;
+  background-color: var(--white);
+  width: 80%;
+  margin: 0 auto;
+}

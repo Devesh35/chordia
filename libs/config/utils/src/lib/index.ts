@@ -1,3 +1,4 @@
+export { transposeArray } from './Array';
 export {
   isSelectItemDivider,
   optionsFromObject,

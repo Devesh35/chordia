@@ -1,8 +1,9 @@
 .label {
   font-size: var(--font-size-p16);
   line-height: var(--line-height-p16);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   color: var(--gray600);
+  flex-shrink: 0;
 }
 
 .inline {

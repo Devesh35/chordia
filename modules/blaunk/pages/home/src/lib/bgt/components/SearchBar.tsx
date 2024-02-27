@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Input, Labeled, Select } from '@li/design/elements';
 import {
   CountriesOption,

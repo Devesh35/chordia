@@ -29,6 +29,7 @@ export const NavMenuItems: NavMenuItem[] = [
   { id: 'divider' },
   { id: 'orders', item: 'Orders', path: Routes.account.orders.path },
   { id: 'wishlist', item: 'Wishlist', path: Routes.account.wishlist.path },
+  { id: 'ledger', item: 'Ledger', path: Routes.account.ledger.path },
   { id: 'wallet', item: 'Wallet', isDisabled: true },
   { id: 'divider' },
   { id: 'seller', item: 'Become a seller', path: Routes.vendor.register.path },

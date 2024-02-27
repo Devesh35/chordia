@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import './global.css';
+import './base.css';
 import styles from './base.module.css';
 import blaunkStyles from './blaunk.module.css';
 import { MenuBar, NavHeader, PageFooter } from '@md/blaunk/pages/layout';

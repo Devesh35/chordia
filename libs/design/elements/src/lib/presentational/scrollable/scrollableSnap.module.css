@@ -1,3 +1,7 @@
+.controls-wrapper {
+  position: relative;
+}
+
 .wrapper {
   display: flex;
   white-space: nowrap;
@@ -17,6 +21,7 @@
   scroll-snap-align: start;
 }
 
-.control{
+.control {
   padding-inline: 24px;
+  z-index: var(--layer-floating);
 }

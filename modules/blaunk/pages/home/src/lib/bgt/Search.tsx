@@ -1,5 +1,3 @@
-'use client';
-
 import { SearchTable } from './components/SearchTable';
 import { SearchBar } from './components/SearchBar';
 

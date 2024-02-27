@@ -8,7 +8,7 @@ export const PolicyAside = () => {
           className="text-center"
           style={{
             color: '#fff',
-            width: '50%',
+            width: '100%',
             margin: '0px',
             marginBottom: '0.3rem',
             marginTop: '0.8rem',
@@ -41,7 +41,7 @@ export const PolicyAside = () => {
           className="text-center"
           style={{
             color: '#fff',
-            width: '50%',
+            width: '100%',
             margin: '0px',
             marginBottom: '0.3rem',
             marginTop: '0.8rem',
@@ -74,7 +74,7 @@ export const PolicyAside = () => {
           className="text-center"
           style={{
             color: '#fff',
-            width: '50%',
+            width: '100%',
             margin: '0px',
             marginBottom: '0.3rem',
             marginTop: '0.8rem',

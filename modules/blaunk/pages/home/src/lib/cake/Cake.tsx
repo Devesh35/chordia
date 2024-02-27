@@ -1,8 +1,10 @@
 import {
+  Button,
   Carousal,
   Input,
   InputArea,
   Labeled,
+  ScrollableSnap,
   Select,
 } from '@li/design/elements';
 import {
@@ -18,12 +20,24 @@ import {
 import styles from './cake.module.css';
 import Image from 'next/image';
 import { Search } from './Search';
-import { Filter } from '../components/Filter';
+import { Filter } from './Filter';
 import clsx from 'clsx';
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
-import { Star, Veg } from '@li/design/icons';
-import { AddOnCardLayout, PolicyAside } from '../components';
+import {
+  Heart,
+  Star,
+  Veg,
+  free_gifts,
+  full_refund,
+  getStaticImageSrc,
+  on_time_delivery,
+  sold_out,
+} from '@li/design/icons';
+import { PolicyAside, ReportIssue } from '../components';
+import { AddOnCard } from '../components/AddOnCard';
+import { Tariff } from '../components/Tariff';
+import { CustomerReviews } from '../base/components/CustomerReviews';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
@@ -38,6 +52,28 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   ),
 );
 
+const addOn = getRandomImagesArray(8)(600).map((src, i) => (
+  <AddOnCard
+    key={src}
+    image={{
+      src: src,
+      width: 120,
+      height: 120,
+      enlargedWidth: 600,
+      enlargedHeight: 600,
+      alt: 'random',
+    }}
+    items={[
+      ['Article', 'Strawberry Cake'],
+      ['MRP', '$20'],
+      ['Price', '$13'],
+      // ['Rating', '4.5'],
+      // ['Reviews', '1.5k Reviews'],
+      ['Weight', '1kg'],
+    ]}
+  />
+));
+
 const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
   <ImageCard
     key={i}
@@ -48,9 +84,10 @@ const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
       height: 300,
       alt: 'random',
     }}
+    topLeft={<div className={styles['card-tag']}>Best seller</div>}
     details={
       <div className={styles.details}>
-        <Veg />
+        <Veg width={24} height={24} />
         <div className={styles['name-wrapper']}>
           <div className={styles['card-name']}>Strawberry Cake</div>
           <div className={styles.price}>$13</div>
@@ -66,8 +103,18 @@ const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
   />
 ));
 
-const product = getRandomImagesArray(2)(600, 600, 'cake').map((src) => (
+const product = getRandomImagesArray(2)(600, 600, 'cake').map((src, i) => (
   <div className={styles['product-image-wrapper']}>
+    <div className={clsx(styles['image-tag'], styles['image-tag-left'])}>
+      Best seller
+    </div>
+    <div className={clsx(styles['image-tag'], styles['image-tag-right'])}>
+      <Heart
+        width={24}
+        height={24}
+        fill={i === 0 ? 'var(--primary)' : 'var(--white)'}
+      />
+    </div>
     <Image
       src={src}
       width={600}
@@ -112,12 +159,17 @@ export const Cake = () => {
           <div className={clsx(styles.details, styles['details-main'])}>
             <Veg />
             <div className={styles.info}>
-              <div className={styles.name}>{selectedCake.name}</div>
+              <div className={styles['item-half']}>
+                <div className={styles.name}>{selectedCake.name}</div>
+                <div className={clsx(styles.rating, styles['item-rating'])}>
+                  {selectedCake.rating}{' '}
+                  <Star fill="var(--secondary)" width={16} height={16} />
+                </div>
+              </div>
               <div className={styles.address}>{selectedCake.address}</div>
-              <div className={styles.type}>{selectedCake.type}</div>
-              <div className={styles.occasion}>{selectedCake.occasion}</div>
-              <div className={styles.delivery}>
-                Delivered by: {selectedCake.delivery}
+              <div className={styles['item-half']}>
+                <div className={styles.occasion}>{selectedCake.occasion}</div>
+                <div className={styles.type}>{selectedCake.type}</div>
               </div>
               <div className={styles.timing}>
                 Shop timing: {selectedCake.timing}
@@ -134,6 +186,27 @@ export const Cake = () => {
               <div className={styles['base-price']}>${selectedCake.price}</div>
             </div>
           </div>
+          <div className={styles.amenities}>
+            <Image
+              src={getStaticImageSrc(free_gifts)}
+              alt="free_gifts"
+              height={48}
+              width={100}
+            />
+            <Image
+              src={getStaticImageSrc(full_refund)}
+              alt="full_refund"
+              height={48}
+              width={100}
+            />
+            <Image
+              src={getStaticImageSrc(on_time_delivery)}
+              alt="on_time_delivery"
+              height={48}
+              width={100}
+            />
+          </div>
+
           <div className={styles['select-wrapper']}>
             <Labeled label="Shape">
               <Select options={CakeShapeOptions} />
@@ -156,36 +229,82 @@ export const Cake = () => {
               </Labeled>
             </div>
           </div>
-          <div className={styles.info2}>
-            <Labeled label="Description">
-              <InputArea />
-            </Labeled>
-            <Labeled label="Message" inline>
-              <Input placeholder="Message for vendor" />
-            </Labeled>
-            <Labeled label="Delivery charges" inline>
-              Free/NA
-            </Labeled>
-            <Labeled label="Delivery area" inline>
-              Temple (2.5km)
-            </Labeled>
+          <div className={styles.desc}>
+            <div className={styles.info2}>
+              <Labeled label="Description" className={styles.desc} inline>
+                <InputArea placeholder="Product description (max 250 characters...)" />
+              </Labeled>
+              <Labeled label="Message" inline>
+                <Input placeholder="Message on cake (Maximum 5 words)" />
+              </Labeled>
+              <div className={styles['info2-sub']}>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Delivered by :</td>
+                      <td>{selectedCake.delivery}</td>
+                    </tr>
+                    <tr>
+                      <td>Delivery charges :</td>
+                      <td>Free/NA</td>
+                    </tr>
+                    <tr>
+                      <td>Min-Basket value :</td>
+                      <td>Rs.250</td>
+                    </tr>
+                    <tr>
+                      <td>Delivery area :</td>
+                      <td>Temple (2.5km)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className={styles.info3}>
+              <Button variant="error">Remind Me</Button>
+              <div className={styles['sold-out']}>
+                <Image
+                  src={getStaticImageSrc(sold_out)}
+                  alt="sold_out"
+                  width={200}
+                  height={100}
+                />
+              </div>
+            </div>
           </div>
-          <div className={styles['vendor-info']}>
-            <div>Deal: Orders above Rs 5000 get gift hamper worth rs 500</div>
-            <div>Vendor details: Company cake & co, Kalyan</div>
-            <div>Vendor GST/Vat No:</div>
+          <div className={clsx(styles['vendor-info'], styles['info2-sub'])}>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Deal :</td>
+                  <td>Orders above Rs 5000 get gift hamper worth rs 500</td>
+                </tr>
+                <tr>
+                  <td>Vendor details :</td>
+                  <td>Company cake & co, Kalyan</td>
+                </tr>
+                <tr>
+                  <td>Vendor GST/Vat No :</td>
+                  <td>ABCD1920AHS2839</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className={styles['report-issue']}>
+            <ReportIssue name={selectedCake.name} />
           </div>
         </div>
         <div className={clsx(grid['col-3'], styles.aside)}>
+          <Tariff />
+
           <PolicyAside />
         </div>
       </main>
       <div className={clsx(styles['add-on-header'])}>Add on</div>
-      <div className={clsx(styles['add-on'], grid.grid)}>
-        {Array.from({ length: 4 }).map((_, i) => (
-          <AddOnCardLayout key={i} />
-        ))}
-      </div>
+      <ScrollableSnap className={styles['add-on']} controls>
+        {addOn}
+      </ScrollableSnap>
+      <CustomerReviews />
     </div>
   );
 };

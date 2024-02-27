@@ -10,3 +10,7 @@
   gap: 12px;
   align-items: center;
 }
+
+.no-gap {
+  gap: 0px;
+}

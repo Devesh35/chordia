@@ -17,6 +17,7 @@ export type InputAreaProps =
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     disableWrapperFocus?: boolean;
+    height?: number;
   };
 
 export const InputArea = ({
@@ -27,6 +28,7 @@ export const InputArea = ({
   iconLeft,
   iconRight,
   disableWrapperFocus = false,
+  height,
   ...props
 }: InputAreaProps) => {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -67,7 +69,7 @@ export const InputArea = ({
         disabled={isDisabled}
         ref={inputRef}
         className={clsx(styles.input, sbs.dark)}
-        style={{ resize: 'none' }}
+        style={{ resize: 'none', minHeight: height || '120px' }}
       />
       {iconRight ? (
         <span
