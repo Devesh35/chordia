@@ -9,6 +9,7 @@
     "lint:f": "nx run-many --all --skip-nx-cahce --base origin/dev --target=lint --parallel=3",
     "test:f": "nx run-many --all --skip-nx-cahce --base origin/dev --target=test --parallel=3",
     "build:f": "nx run-many --all --skip-nx-cahce --base origin/dev --target=build --parallel=3",
+    "build:s": "nx run-many --all --target=build --parallel=3",
     "spell": "cspell {libs,apps,modules}/**/*.{ts,tsx,css} --no-progress",
     "admin": "nx run blaunk-admin:serve",
     "design": "nx run design-storybook:storybook",
