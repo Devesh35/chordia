@@ -1,10 +1,15 @@
 'use client';
-import { Table, TableColumn } from '@li/design/elements';
+import { TableColumn } from '@li/design/elements';
 import styles from './search.module.css';
+import tableStyles from './table.module.css';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { QuantityType } from '@md/blaunk/types';
+import { useState } from 'react';
+import { SelectedItem } from './SelectedItem';
+import { withCondition } from '@li/design/enhancers';
 
 export type TData = {
+  id: string;
   name: string;
   date: number;
   country: string;
@@ -42,8 +47,9 @@ const columns: TableColumn<TData>[] = [
 ];
 
 const dummy: TData = {
+  id: 'id',
   date: 1702818046082,
-  country: 'country',
+  country: 'IN',
   vendorId: 'vendorId',
   city: 'city',
   group: 'group',
@@ -70,17 +76,50 @@ const dummy: TData = {
 
 const mockData: TData[] = new Array(10).fill(dummy);
 
-type Props = {
-  onRowSelect?: (data: TData) => void;
-};
+export const SearchTable = () => {
+  const [selected, setSelected] = useState<number>();
 
-export const SearchTable = ({ onRowSelect }: Props) => {
   return (
-    <Table
-      data={mockData}
-      columns={columns}
-      onRowClick={onRowSelect}
-      className={styles['search-table']}
-    />
+    <div>
+      <table className={tableStyles.table}>
+        <thead>
+          <tr>
+            <th></th>
+            {columns.map((c) => (
+              <td key={c.id} className={styles.header}>
+                {c.name}
+              </td>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {mockData.map((d, i) => (
+            <>
+              <tr key={i}>
+                <td
+                  className={styles['row-open']}
+                  onClick={() => setSelected(i)}
+                >
+                  +
+                </td>
+                {columns.map(({ id }) => (
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignoreF
+                  <td key={`${id}-${d.id}`}>{d[id]}</td>
+                ))}
+              </tr>
+              {withCondition(selected === i)(
+                <tr>
+                  <td></td>
+                  <td colSpan={columns.length}>
+                    <SelectedItem data={d} />
+                  </td>
+                </tr>,
+              )}
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };

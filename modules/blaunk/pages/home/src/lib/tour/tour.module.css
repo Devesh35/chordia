@@ -166,13 +166,14 @@
 .save {
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
+  color: blue;
 }
 
 .base-price {
   font-size: var(--font-size-h3);
   line-height: var(--line-height-h3);
   text-decoration: line-through;
-  color: var(--gray600);
+  color: var(--error400);
   text-decoration-thickness: 4px;
 }
 
@@ -180,7 +181,7 @@
   font-size: var(--font-size-h3);
   line-height: var(--line-height-h3);
 
-  background-color: var(--primary);
+  background-color: var(--primary400);
   padding: 0.5rem 1rem;
   width: 100%;
   color: var(--onprimary);

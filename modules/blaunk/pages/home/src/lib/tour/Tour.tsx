@@ -182,7 +182,7 @@ export const Tour = () => {
                 <div className={styles.type}>{selectedTour.type}</div>
               </div>
               <div className={styles.timing}>
-                Check-in timing: {selectedTour.timing}
+                Check-in Timing: {selectedTour.timing}
               </div>
             </div>
             <div className={styles['price-info']}>
@@ -200,20 +200,20 @@ export const Tour = () => {
             <Image
               src={getStaticImageSrc(free_gifts)}
               alt="free_gifts"
-              height={64}
-              width={150}
+              height={48}
+              width={100}
             />
             <Image
               src={getStaticImageSrc(full_refund)}
               alt="full_refund"
-              height={64}
-              width={150}
+              height={48}
+              width={100}
             />
             <Image
               src={getStaticImageSrc(on_time_delivery)}
               alt="on_time_delivery"
-              height={64}
-              width={150}
+              height={48}
+              width={100}
             />
           </div>
           <div className={styles['select-wrapper']}>
@@ -271,16 +271,34 @@ export const Tour = () => {
             <Amenities />
           </div>
           <div className={clsx(styles['vendor-info'], styles.info2)}>
-            <Labeled label="GST Invoice" inline>
-              <Select options={YesNoOptions} />
-            </Labeled>
-            <Labeled label="Special request" inline>
-              <Select options={SpecialRequestsOptions} />
-            </Labeled>
-
-            <div>Deal: Orders above Rs 5000 get gift hamper worth rs 500</div>
-            <div>Vendor details: Company cake & co, Kalyan</div>
-            <div>Vendor GST/Vat No:</div>
+            <table>
+              <tbody>
+                <tr>
+                  <td>GST Invoice</td>
+                  <td>
+                    <Select options={YesNoOptions} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Special request</td>
+                  <td>
+                    <Select options={SpecialRequestsOptions} />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Deal :</td>
+                  <td>Orders above Rs 5000 get gift hamper worth rs 500</td>
+                </tr>
+                <tr>
+                  <td>Vendor details :</td>
+                  <td>Company cake & co, Kalyan</td>
+                </tr>
+                <tr>
+                  <td>Vendor GST/Vat No :</td>
+                  <td>ABCD1920AHS2839</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div className={styles['report-issue']}>
             <ReportIssue name={selectedTour.name} />

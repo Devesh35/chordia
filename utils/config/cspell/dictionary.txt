@@ -140,3 +140,4 @@ xlarge
 xxlarge
 Zari
 Jewellery
+nbfc

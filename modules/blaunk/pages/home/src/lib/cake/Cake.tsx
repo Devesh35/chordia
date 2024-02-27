@@ -37,6 +37,7 @@ import {
 import { PolicyAside, ReportIssue } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
 import { Tariff } from '../components/Tariff';
+import { CustomerReviews } from '../base/components/CustomerReviews';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
@@ -63,11 +64,11 @@ const addOn = getRandomImagesArray(8)(600).map((src, i) => (
       alt: 'random',
     }}
     items={[
-      ['Name', 'Strawberry Cake'],
+      ['Article', 'Strawberry Cake'],
       ['MRP', '$20'],
       ['Price', '$13'],
-      ['Rating', '4.5'],
-      ['Reviews', '1.5k Reviews'],
+      // ['Rating', '4.5'],
+      // ['Reviews', '1.5k Reviews'],
       ['Weight', '1kg'],
     ]}
   />
@@ -189,20 +190,20 @@ export const Cake = () => {
             <Image
               src={getStaticImageSrc(free_gifts)}
               alt="free_gifts"
-              height={64}
-              width={150}
+              height={48}
+              width={100}
             />
             <Image
               src={getStaticImageSrc(full_refund)}
               alt="full_refund"
-              height={64}
-              width={150}
+              height={48}
+              width={100}
             />
             <Image
               src={getStaticImageSrc(on_time_delivery)}
               alt="on_time_delivery"
-              height={64}
-              width={150}
+              height={48}
+              width={100}
             />
           </div>
 
@@ -234,17 +235,30 @@ export const Cake = () => {
                 <InputArea placeholder="Product description (max 250 characters...)" />
               </Labeled>
               <Labeled label="Message" inline>
-                <Input placeholder="Message for vendor" />
+                <Input placeholder="Message on cake (Maximum 5 words)" />
               </Labeled>
-              <Labeled label="Delivered by" inline>
-                {selectedCake.delivery}
-              </Labeled>
-              <Labeled label="Delivery charges" inline>
-                Free/NA
-              </Labeled>
-              <Labeled label="Delivery area" inline>
-                Temple (2.5km)
-              </Labeled>
+              <div className={styles['info2-sub']}>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Delivered by :</td>
+                      <td>{selectedCake.delivery}</td>
+                    </tr>
+                    <tr>
+                      <td>Delivery charges :</td>
+                      <td>Free/NA</td>
+                    </tr>
+                    <tr>
+                      <td>Min-Basket value :</td>
+                      <td>Rs.250</td>
+                    </tr>
+                    <tr>
+                      <td>Delivery area :</td>
+                      <td>Temple (2.5km)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className={styles.info3}>
               <Button variant="error">Remind Me</Button>
@@ -258,10 +272,23 @@ export const Cake = () => {
               </div>
             </div>
           </div>
-          <div className={styles['vendor-info']}>
-            <div>Deal: Orders above Rs 5000 get gift hamper worth rs 500</div>
-            <div>Vendor details: Company cake & co, Kalyan</div>
-            <div>Vendor GST/Vat No:</div>
+          <div className={clsx(styles['vendor-info'], styles['info2-sub'])}>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Deal :</td>
+                  <td>Orders above Rs 5000 get gift hamper worth rs 500</td>
+                </tr>
+                <tr>
+                  <td>Vendor details :</td>
+                  <td>Company cake & co, Kalyan</td>
+                </tr>
+                <tr>
+                  <td>Vendor GST/Vat No :</td>
+                  <td>ABCD1920AHS2839</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div className={styles['report-issue']}>
             <ReportIssue name={selectedCake.name} />
@@ -274,7 +301,10 @@ export const Cake = () => {
         </div>
       </main>
       <div className={clsx(styles['add-on-header'])}>Add on</div>
-      <ScrollableSnap className={styles['add-on']}>{addOn}</ScrollableSnap>
+      <ScrollableSnap className={styles['add-on']} controls>
+        {addOn}
+      </ScrollableSnap>
+      <CustomerReviews />
     </div>
   );
 };

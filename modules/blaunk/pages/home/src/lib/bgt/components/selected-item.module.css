@@ -90,6 +90,7 @@
   border: 1px solid var(--primarydark);
   padding: 0.25rem;
   margin-bottom: 0.5rem;
+  background-color: var(--primary050);
 }
 .tariff > div {
   display: flex;
@@ -99,4 +100,9 @@
 .tariff-submit {
   margin-left: auto;
   margin-bottom: 0.5rem;
+}
+
+.ps-wrapper {
+  background-color: var(--primary050);
+  padding: 1rem 0;
 }

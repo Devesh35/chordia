@@ -10,6 +10,7 @@ const landmark = [
   'Bus stand',
   'Church',
   'College',
+  'Hospital',
   'Lake',
   'Metro',
   'Railway station',

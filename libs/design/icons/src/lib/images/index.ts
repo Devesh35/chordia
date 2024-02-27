@@ -1,3 +1,4 @@
+export { default as assurance } from './assurance.png';
 export { default as couple_friendly } from './couple_friendly.jpg';
 export { default as free_breakfast } from './free_breakfast.jpg';
 export { default as free_cancellation } from './free_cancellation.jpg';

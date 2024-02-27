@@ -34,10 +34,10 @@ const columns = (): TableColumn<LedgerType>[] => [
     id: 'paymentMode',
     name: 'Payment Mode',
   },
-  {
-    id: 'quantity',
-    name: 'Quantity',
-  },
+  // {
+  //   id: 'quantity',
+  //   name: 'Quantity',
+  // },
   {
     id: 'debit',
     name: 'Debit',
@@ -56,7 +56,7 @@ const dummyData: LedgerType[] = Array.from({ length: 10 }).map((_, index) => ({
   balance: 100,
   credit: 100,
   debit: 200,
-  date: '2021-01-01',
+  date: '01-01-2024',
   particulars: 'TRX NUMBER: 123456',
   paymentMode: 'Cash',
   product: 'Product Name',

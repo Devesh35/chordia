@@ -166,6 +166,7 @@
 .save {
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
+  color: blue;
 }
 
 .base-price {
@@ -198,6 +199,12 @@
   flex-direction: column;
   gap: 0.5rem;
   margin: 0 1rem;
+}
+.info2-sub {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .select-wrapper {

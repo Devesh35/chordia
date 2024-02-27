@@ -26,12 +26,7 @@ export const Tariff = () => {
       </div>
 
       <div className={clsx(styles['aside-table'])}>
-        <p>Service Charge</p>
-        <span>Rs.192</span>
-      </div>
-
-      <div className={clsx(styles['aside-table'])}>
-        <p>Voucher code</p>
+        <p>Voucher</p>
         <span>
           <Input />
         </span>
@@ -40,6 +35,11 @@ export const Tariff = () => {
       <div className={clsx(styles['aside-table'])}>
         <p>Total</p>
         <span>Rs.300</span>
+      </div>
+
+      <div className={clsx(styles['aside-table'])}>
+        <p>Service Charge</p>
+        <span>Rs.0</span>
       </div>
 
       <div className={clsx(styles['aside-table'], styles['aside-table-main'])}>

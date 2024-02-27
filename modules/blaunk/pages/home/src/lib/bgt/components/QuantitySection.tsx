@@ -105,6 +105,10 @@ export const QuantitySection = ({
           <span>Bank charges</span>
           <span>10</span>
         </div>
+        <div>
+          <span>Total</span>
+          <span>100</span>
+        </div>
       </div>
       <Button className={styles['tariff-submit']}>Submit</Button>
     </div>
