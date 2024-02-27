@@ -18,7 +18,6 @@ const PSTitles = AddProductSpecifications.options.form.map((p) => p.title);
 const PSItems = transposeArray(
   AddProductSpecifications.options.form.map((p) => p.items),
 );
-console.log('PSItems', PSItems);
 
 export const SelectedItem = ({ data }: Props) => {
   return (
