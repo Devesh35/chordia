@@ -16,3 +16,4 @@ export { default as SriLanka } from './SriLanka';
 export { default as Thailand } from './Thailand';
 export { default as UnitedArabEmirates } from './UnitedArabEmirates';
 export { default as Vietnam } from './Vietnam';
+export { default as Qatar } from './Qatar';

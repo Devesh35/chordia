@@ -4,7 +4,8 @@ import { AdSection } from '@md/blaunk/design';
 
 import styles from './buy.module.css';
 import Image from 'next/image';
-import { Search } from './Search';
+import { SearchBar } from './components/SearchBar';
+import { SearchTable } from './components/SearchTable';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
@@ -28,7 +29,8 @@ export const BGTBuy = () => {
         </Carousal>
       </div>
       <AdSection />
-      <Search />
+      <SearchBar />
+      <SearchTable />
     </div>
   );
 };

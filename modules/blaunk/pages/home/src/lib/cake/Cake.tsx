@@ -23,7 +23,6 @@ import { Search } from './Search';
 import { Filter } from './Filter';
 import clsx from 'clsx';
 import { grid } from '@li/config/design';
-import { ImageCard } from '@li/design/components';
 import {
   Heart,
   Star,
@@ -34,10 +33,11 @@ import {
   on_time_delivery,
   sold_out,
 } from '@li/design/icons';
-import { PolicyAside, ReportIssue } from '../components';
+import { DetailsTable, PolicyAside, ReportIssue } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
 import { Tariff } from '../components/Tariff';
 import { CustomerReviews } from '../base/components/CustomerReviews';
+import { ProductCard, ProductWrapper } from '../components/ProductCard';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
@@ -75,31 +75,16 @@ const addOn = getRandomImagesArray(8)(600).map((src, i) => (
 ));
 
 const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
-  <ImageCard
+  <ProductCard
     key={i}
-    className={grid['col-2']}
-    image={{
-      src: src,
-      width: 300,
-      height: 300,
-      alt: 'random',
+    src={src}
+    details={{
+      isVeg: true,
+      name: 'Strawberry Cake',
+      price: '$13',
+      rating: '4.5',
+      reviewCount: '1.5k',
     }}
-    topLeft={<div className={styles['card-tag']}>Best seller</div>}
-    details={
-      <div className={styles.details}>
-        <Veg width={24} height={24} />
-        <div className={styles['name-wrapper']}>
-          <div className={styles['card-name']}>Strawberry Cake</div>
-          <div className={styles.price}>$13</div>
-        </div>
-        <div className={styles['rating-wrapper']}>
-          <div className={styles.rating}>
-            4.5 <Star fill="var(--secondary)" width={16} height={16} />
-          </div>
-          <span className={styles['review-count']}>1.5k Reviews</span>
-        </div>
-      </div>
-    }
   />
 ));
 
@@ -148,9 +133,7 @@ export const Cake = () => {
       </div>
       <Search />
       <Filter />
-      <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>
-        {products}
-      </div>
+      <ProductWrapper>{products}</ProductWrapper>
       <main className={clsx(styles.main, grid.grid)}>
         <div className={clsx(grid['col-9'], styles.content)}>
           <div className={clsx(styles['product-image-container'])}>
@@ -238,26 +221,15 @@ export const Cake = () => {
                 <Input placeholder="Message on cake (Maximum 5 words)" />
               </Labeled>
               <div className={styles['info2-sub']}>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Delivered by :</td>
-                      <td>{selectedCake.delivery}</td>
-                    </tr>
-                    <tr>
-                      <td>Delivery charges :</td>
-                      <td>Free/NA</td>
-                    </tr>
-                    <tr>
-                      <td>Min-Basket value :</td>
-                      <td>Rs.250</td>
-                    </tr>
-                    <tr>
-                      <td>Delivery area :</td>
-                      <td>Temple (2.5km)</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <DetailsTable
+                  data={[
+                    ['Delivery by', selectedCake.delivery],
+                    ['Delivery charges', 'Free/NA'],
+                    ['Min-Basket value', 'Rs.250'],
+                    ['Land mark', 'Temple'],
+                    ['Free delivery', '2.5km'],
+                  ]}
+                />
               </div>
             </div>
             <div className={styles.info3}>
@@ -272,23 +244,15 @@ export const Cake = () => {
               </div>
             </div>
           </div>
-          <div className={clsx(styles['vendor-info'], styles['info2-sub'])}>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Deal :</td>
-                  <td>Orders above Rs 5000 get gift hamper worth rs 500</td>
-                </tr>
-                <tr>
-                  <td>Vendor details :</td>
-                  <td>Company cake & co, Kalyan</td>
-                </tr>
-                <tr>
-                  <td>Vendor GST/Vat No :</td>
-                  <td>ABCD1920AHS2839</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className={clsx(styles['vendor-info'])}>
+            <DetailsTable
+              keyColWidth={160}
+              data={[
+                ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
+                ['Vendor details', 'Company cake & co, Kalyan'],
+                ['Vendor GST/Vat No', 'ABCD1920AHS2839'],
+              ]}
+            />
           </div>
           <div className={styles['report-issue']}>
             <ReportIssue name={selectedCake.name} />

@@ -1,0 +1,16 @@
+.table {
+  min-width: 80%;
+}
+
+.table,
+.table td,
+.table th {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  text-align: start !important;
+}
+
+.table td {
+  padding: 0.125rem 0.25rem;
+  border: none !important;
+}

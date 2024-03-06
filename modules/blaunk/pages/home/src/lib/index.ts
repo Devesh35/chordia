@@ -3,3 +3,4 @@ export * from './bgt';
 export * from './boutique';
 export * from './cake';
 export * from './tour';
+export * from './store';

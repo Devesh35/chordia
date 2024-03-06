@@ -41,3 +41,14 @@
   margin-inline: auto;
   margin-bottom: 2rem;
 }
+
+.country-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.country-cell > svg {
+  height: 16px;
+}

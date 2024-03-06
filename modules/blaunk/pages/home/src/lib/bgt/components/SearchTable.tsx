@@ -1,5 +1,5 @@
 'use client';
-import { TableColumn } from '@li/design/elements';
+
 import styles from './search.module.css';
 import tableStyles from './table.module.css';
 import { getRandomImagesArray } from '@md/blaunk/config';
@@ -7,12 +7,15 @@ import { QuantityType } from '@md/blaunk/types';
 import { useState } from 'react';
 import { SelectedItem } from './SelectedItem';
 import { withCondition } from '@li/design/enhancers';
+import clsx from 'clsx';
+import { CountryCode } from '@li/types/config';
+import { CountryFlag, CountryName } from '@li/config/options';
 
 export type TData = {
   id: string;
   name: string;
-  date: number;
-  country: string;
+  date: string;
+  country: CountryCode;
   vendorId: string;
   city: string;
   group: string;
@@ -31,7 +34,7 @@ export type TData = {
   state: string;
 };
 
-const columns: TableColumn<TData>[] = [
+const columns = [
   { id: 'date', name: 'Date' },
   { id: 'country', name: 'Country' },
   { id: 'vendorId', name: 'Vendor ID' },
@@ -44,12 +47,12 @@ const columns: TableColumn<TData>[] = [
   { id: 'quantity', name: 'Quantity' },
   { id: 'price', name: 'Price' },
   { id: 'membership', name: 'Membership' },
-];
+] as const;
 
 const dummy: TData = {
   id: 'id',
-  date: 1702818046082,
-  country: 'IN',
+  date: '12 feb 2024',
+  country: 'in',
   vendorId: 'vendorId',
   city: 'city',
   group: 'group',
@@ -84,7 +87,7 @@ export const SearchTable = () => {
       <table className={tableStyles.table}>
         <thead>
           <tr>
-            <th></th>
+            <td></td>
             {columns.map((c) => (
               <td key={c.id} className={styles.header}>
                 {c.name}
@@ -97,15 +100,23 @@ export const SearchTable = () => {
             <>
               <tr key={i}>
                 <td
-                  className={styles['row-open']}
-                  onClick={() => setSelected(i)}
+                  className={clsx(styles['row-open'], 'clickable')}
+                  onClick={() =>
+                    selected === i ? setSelected(undefined) : setSelected(i)
+                  }
                 >
-                  +
+                  {withCondition(selected === i)('-', '+')}
                 </td>
                 {columns.map(({ id }) => (
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignoreF
-                  <td key={`${id}-${d.id}`}>{d[id]}</td>
+                  <td key={`${id}-${d.id}`}>
+                    {withCondition(id === 'country')(
+                      <div className={styles['country-cell']}>
+                        {CountryFlag[d.country]?.Flag}
+                        {CountryName[d.country]}
+                      </div>,
+                      d[id],
+                    )}
+                  </td>
                 ))}
               </tr>
               {withCondition(selected === i)(
