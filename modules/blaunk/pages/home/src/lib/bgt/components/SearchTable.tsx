@@ -6,10 +6,11 @@ import { getRandomImagesArray } from '@md/blaunk/config';
 import { QuantityType } from '@md/blaunk/types';
 import { useState } from 'react';
 import { SelectedItem } from './SelectedItem';
-import { withCondition } from '@li/design/enhancers';
+import { withCondition, withConditionCase } from '@li/design/enhancers';
 import clsx from 'clsx';
 import { CountryCode } from '@li/types/config';
 import { CountryFlag, CountryName } from '@li/config/options';
+import { SwitchArrows } from '@li/design/icons';
 
 export type TData = {
   id: string;
@@ -81,6 +82,7 @@ const mockData: TData[] = new Array(10).fill(dummy);
 
 export const SearchTable = () => {
   const [selected, setSelected] = useState<number>();
+  const [currency, setCurrency] = useState<'₹' | '$'>('₹');
 
   return (
     <div>
@@ -90,7 +92,23 @@ export const SearchTable = () => {
             <td></td>
             {columns.map((c) => (
               <td key={c.id} className={styles.header}>
-                {c.name}
+                {withConditionCase(c.id)({
+                  price: (
+                    <div className={styles['price-header']}>
+                      Price {currency} (
+                      <SwitchArrows
+                        onClick={() =>
+                          setCurrency(currency === '₹' ? '$' : '₹')
+                        }
+                        className={'clickable'}
+                        width={16}
+                        height={16}
+                      />
+                      )
+                    </div>
+                  ),
+                  default: c.name,
+                })}
               </td>
             ))}
           </tr>

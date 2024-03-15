@@ -3,8 +3,23 @@ import Image from 'next/image';
 import styles from './store.module.css';
 import { Carousal } from '@li/design/elements';
 import { AdSection } from '@md/blaunk/design';
-import { StoreSearch } from './StoreSearch';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
+import { SearchBar } from '../components/SearchBar';
+
+export type StoreItem = {
+  name: string;
+  rating: string;
+  reviewCount: string;
+  images: string[];
+  timings: string;
+  description: string;
+  city: string;
+  area: string;
+  pinCode: string;
+  freeDelivery: boolean;
+  deliveredBy: string;
+  dispatchTime: string;
+};
 
 const images = getRandomImagesArray(6)(
   Constants.b2bHomeBannerSize,
@@ -43,7 +58,7 @@ export const Store = () => {
         </Carousal>
       </div>
       <AdSection />
-      <StoreSearch />
+      <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
     </div>
   );
