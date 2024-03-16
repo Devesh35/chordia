@@ -66,6 +66,10 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+.details {
+  display: flex;
+  gap: 1rem;
+}
 
 .details-main {
   align-items: flex-start;

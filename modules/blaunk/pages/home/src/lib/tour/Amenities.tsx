@@ -27,7 +27,7 @@ export const Amenities = () => {
                 <td key={`${i}-${index}`}>
                   {index === distanceIndex ? (
                     <div className={clsx('flex', 'justify-content-between')}>
-                      <Checkbox label={i} readonly />
+                      <Checkbox label={i} readonly value={true} />
                       <span>0.5 km</span>
                     </div>
                   ) : (

@@ -13,7 +13,6 @@ import {
   CakeWeightOptions,
   Constants,
   DeliveryTimeOptions,
-  QuantityOptions,
   getRandomImagesArray,
 } from '@md/blaunk/config';
 
@@ -169,26 +168,6 @@ export const Cake = () => {
               <div className={styles['base-price']}>${selectedCake.price}</div>
             </div>
           </div>
-          <div className={styles.amenities}>
-            <Image
-              src={getStaticImageSrc(free_gifts)}
-              alt="free_gifts"
-              height={48}
-              width={100}
-            />
-            <Image
-              src={getStaticImageSrc(full_refund)}
-              alt="full_refund"
-              height={48}
-              width={100}
-            />
-            <Image
-              src={getStaticImageSrc(on_time_delivery)}
-              alt="on_time_delivery"
-              height={48}
-              width={100}
-            />
-          </div>
 
           <div className={styles['select-wrapper']}>
             <Labeled label="Shape">
@@ -205,7 +184,7 @@ export const Cake = () => {
             </Labeled>
             <div className={styles['sub-select-wrapper']}>
               <Labeled label="Quantity">
-                <Select options={QuantityOptions} />
+                <Input type="number" />
               </Labeled>
               <Labeled label="Weight">
                 <Select options={CakeWeightOptions} />
@@ -231,6 +210,26 @@ export const Cake = () => {
                   ]}
                 />
               </div>
+              <div className={styles.amenities}>
+                <Image
+                  src={getStaticImageSrc(free_gifts)}
+                  alt="free_gifts"
+                  height={40}
+                  width={80}
+                />
+                <Image
+                  src={getStaticImageSrc(full_refund)}
+                  alt="full_refund"
+                  height={40}
+                  width={80}
+                />
+                <Image
+                  src={getStaticImageSrc(on_time_delivery)}
+                  alt="on_time_delivery"
+                  height={40}
+                  width={80}
+                />
+              </div>
             </div>
             <div className={styles.info3}>
               <Button variant="error">Remind Me</Button>
@@ -248,6 +247,7 @@ export const Cake = () => {
             <DetailsTable
               keyColWidth={160}
               data={[
+                ['Complimentary', 'Knife, Candles, Box packing'],
                 ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
                 ['Vendor details', 'Company cake & co, Kalyan'],
                 ['Vendor GST/Vat No', 'ABCD1920AHS2839'],

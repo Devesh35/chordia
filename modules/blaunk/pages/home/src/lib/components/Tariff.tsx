@@ -5,19 +5,19 @@ import { Button, Input } from '@li/design/elements';
 export const Tariff = () => {
   return (
     <>
-      <p className={styles['aside-title']}>Tariff Details</p>
+      <p className={styles['aside-title']}>Tariff Details (Rs)</p>
       <div className={clsx(styles['aside-table'])}>
         <p>Charges</p>
-        <span>Rs. 8600</span>
+        <span> 8600</span>
       </div>
       <div className={clsx(styles['aside-table'])}>
         <p>Discounts</p>
-        <span>Rs. 2200</span>
+        <span> 2200</span>
       </div>
 
       <div className={clsx(styles['aside-table'])}>
         <p>SubTotal</p>
-        <span>Rs. 8600</span>
+        <span> 8600</span>
       </div>
 
       <div className={clsx(styles['aside-table'])}>
@@ -27,24 +27,25 @@ export const Tariff = () => {
 
       <div className={clsx(styles['aside-table'])}>
         <p>Voucher</p>
-        <span>
+        <span className={styles['voucher-input']}>
           <Input />
+          Off 50
         </span>
       </div>
 
       <div className={clsx(styles['aside-table'])}>
         <p>Total</p>
-        <span>Rs.300</span>
+        <span>300</span>
       </div>
 
       <div className={clsx(styles['aside-table'])}>
         <p>Service Charge</p>
-        <span>Rs.0</span>
+        <span>0</span>
       </div>
 
       <div className={clsx(styles['aside-table'], styles['aside-table-main'])}>
-        <p>To Pay</p>
-        <span className="h5">Rs.300</span>
+        <p>To Pay (CoD)</p>
+        <span className="h5">300</span>
       </div>
 
       <Button className={styles['aside-table-action']}>Book Now</Button>
