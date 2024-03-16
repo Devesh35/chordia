@@ -5,6 +5,7 @@ import { Carousal } from '@li/design/elements';
 import { AdSection } from '@md/blaunk/design';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { SearchBar } from '../components/SearchBar';
+import { SelectedItem } from './components/SelectedItem';
 
 export type StoreItem = {
   name: string;
@@ -19,6 +20,32 @@ export type StoreItem = {
   freeDelivery: boolean;
   deliveredBy: string;
   dispatchTime: string;
+  gstInvoice: string;
+  print: string;
+  giftWrap: string;
+  cartValue: string;
+  currency: string;
+};
+
+const dummyItem: StoreItem = {
+  name: 'Bikaner sweets',
+  rating: '4.5',
+  reviewCount: '1.5k',
+  images: getRandomImagesArray(6)(600, 800, 'food'),
+  timings: '9:00 AM - 9:00 PM',
+  description:
+    'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years.',
+  city: 'Bikaner',
+  area: 'Main Gate',
+  pinCode: '334001',
+  freeDelivery: true,
+  deliveredBy: 'Bikaner sweets',
+  dispatchTime: '30 min',
+  gstInvoice: 'Available',
+  print: 'Not available',
+  giftWrap: 'Available',
+  cartValue: '250/500/1000',
+  currency: 'INR',
 };
 
 const images = getRandomImagesArray(6)(
@@ -60,6 +87,9 @@ export const Store = () => {
       <AdSection />
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
+      <SelectedItem data={dummyItem} />
+      <AdSection />
+      <AdSection />
     </div>
   );
 };
