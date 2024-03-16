@@ -28,10 +28,24 @@ export const PolicyAside = () => {
             Subject to availability and Confirmation SMS
           </p>
         </span>
-        <span className="d-inline-flex justify-content-center">
+        {/* <span className="d-inline-flex justify-content-center">
           <span>*</span>
           <p className="ml-2 m-0">
             Carry valid ID & Address proof(Aadhar,DL,Passport)
+          </p>
+        </span> */}
+        <span className="d-inline-flex justify-content-center">
+          <span>*</span>
+          <p className="ml-2 m-0">Any advance paid at your own risk</p>
+        </span>
+        <span className="d-inline-flex justify-content-center">
+          <span>*</span>
+          <p className="ml-2 m-0">Cancellation subjected to vendor policy</p>
+        </span>
+        <span className="d-inline-flex justify-content-center">
+          <span>*</span>
+          <p className="ml-2 m-0">
+            Customer will get blocked if refuse to buy an order
           </p>
         </span>
       </div>

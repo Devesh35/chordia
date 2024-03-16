@@ -15,3 +15,5 @@ export { TopFilled } from './TopFilled';
 export { Veg } from './Veg';
 export { Visibility } from './Visibility';
 export { VisibilityOff } from './VisibilityOff';
+export { SwitchArrows } from './SwitchArrows';
+export { CircleInfo } from './CircleInfo';

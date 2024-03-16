@@ -4,4 +4,4 @@ export {
   optionsFromObject,
   optionsFromStrings,
 } from './Select';
-export { capitalize, toLowerCase } from './String';
+export { capitalize, fromCamelCase, toLowerCase } from './String';

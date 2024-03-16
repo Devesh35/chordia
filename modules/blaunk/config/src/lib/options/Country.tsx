@@ -19,6 +19,7 @@ const codes = [
   'th',
   'ae',
   'vn',
+  'qa',
 ] as const;
 
 export type AvailableCountryCode = (typeof codes)[number];

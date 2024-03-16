@@ -49,6 +49,7 @@ export const SearchBar = () => {
       </Labeled>
       <Labeled label="Pin-code">
         <Input
+          type="number"
           placeholder="Enter Pin-code"
           className={styles['search-bar-items']}
         />

@@ -8,6 +8,7 @@ import clsx from 'clsx';
 type CheckboxProps = {
   label: string;
   readonly?: boolean;
+  value?: boolean;
   onChange?: (checked: boolean) => void;
 } & Partial<ClassName>;
 
@@ -16,6 +17,7 @@ export const Checkbox = ({
   onChange,
   className,
   readonly,
+  value,
 }: CheckboxProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     onChange?.(event.target.checked);
@@ -24,9 +26,9 @@ export const Checkbox = ({
     <label className={clsx(styles.label, className)}>
       <input
         type="checkbox"
-        onChange={handleChange}
+        onChange={readonly ? undefined : handleChange}
+        checked={value}
         className={styles.input}
-        disabled={readonly}
       />
       {label}
     </label>

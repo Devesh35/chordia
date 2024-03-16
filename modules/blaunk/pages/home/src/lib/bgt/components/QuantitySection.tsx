@@ -6,6 +6,7 @@ import { CircleEmpty, CircleFilled } from '@li/design/icons';
 import { QuantityType } from '@md/blaunk/types';
 import { useMemo, useState } from 'react';
 import styles from './selected-item.module.css';
+import { DetailsTable } from '../../components';
 
 export const defaultQty = (): QuantityType => ({
   id: `${+new Date()}`,
@@ -57,14 +58,14 @@ const columns = (
   },
 ];
 
-export const QuantitySection = ({
+export const OrderEstimate = ({
   data,
   title,
 }: {
   title: string;
   data: QuantityType[];
 }) => {
-  const [quantity, setQuantity] = useState<string>();
+  const [quantity, setQuantity] = useState<string>(data[0].id);
 
   const selectedQuantity = useMemo(
     () => data.find((d) => d.id === quantity),
@@ -81,34 +82,17 @@ export const QuantitySection = ({
         />
       </Labeled>
       <div className={styles.tariff}>
-        <div>
-          <span>Value</span>
-          <span>{selectedQuantity?.price}</span>
-        </div>
-        <div>
-          <span>Commission</span>
-          <span>25</span>
-        </div>
-        <div>
-          <span>Tax</span>
-          <span>51</span>
-        </div>
-        <div>
-          <span>Logistics</span>
-          <span>10</span>
-        </div>
-        <div>
-          <span>Rebate</span>
-          <span>10</span>
-        </div>
-        <div>
-          <span>Bank charges</span>
-          <span>10</span>
-        </div>
-        <div>
-          <span>Total</span>
-          <span>100</span>
-        </div>
+        <DetailsTable
+          data={[
+            ['Value', `Rs ${selectedQuantity?.price || 0}`],
+            ['Commission', `Rs ${25}`],
+            ['Tax', `Rs ${51}`],
+            ['Logistics', `Rs ${10}`],
+            ['Rebate', `Rs ${10}`],
+            ['Bank charges', `Rs ${10}`],
+            ['Total', `Rs ${100}`],
+          ]}
+        />
       </div>
       <Button className={styles['tariff-submit']}>Submit</Button>
     </div>

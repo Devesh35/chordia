@@ -21,7 +21,7 @@ import clsx from 'clsx';
 import { grid } from '@li/config/design';
 import { useState } from 'react';
 
-const SocialItem = ({ label, i }: { label: string; i: number }) => (
+export const SocialItem = ({ label, i }: { label: string; i: number }) => (
   <ImageCardDetails
     image={{
       src: `https://source.unsplash.com/random/80x${80 + i}`,

@@ -32,7 +32,7 @@ import {
   on_time_delivery,
   sold_out,
 } from '@li/design/icons';
-import { PolicyAside, ReportIssue } from '../components';
+import { DetailsTable, PolicyAside, ReportIssue } from '../components';
 import { Tariff } from '../components/Tariff';
 import { YesNoOptions } from 'modules/blaunk/config/src/lib/options/General';
 import { Amenities } from './Amenities';
@@ -196,26 +196,7 @@ export const Tour = () => {
               <div className={styles['base-price']}>${selectedTour.price}</div>
             </div>
           </div>
-          <div className={styles.amenities}>
-            <Image
-              src={getStaticImageSrc(free_gifts)}
-              alt="free_gifts"
-              height={48}
-              width={100}
-            />
-            <Image
-              src={getStaticImageSrc(full_refund)}
-              alt="full_refund"
-              height={48}
-              width={100}
-            />
-            <Image
-              src={getStaticImageSrc(on_time_delivery)}
-              alt="on_time_delivery"
-              height={48}
-              width={100}
-            />
-          </div>
+
           <div className={styles['select-wrapper']}>
             <div className={clsx(styles['sub-select-wrapper-equal'])}>
               <Labeled label="Check in">
@@ -245,15 +226,36 @@ export const Tour = () => {
           </div>
           <div className={styles.desc}>
             <div className={styles.info2}>
-              <Labeled label="Room size" inline>
-                250 sq.ft
-              </Labeled>
-              <Labeled label="Landmark" inline>
-                Temple (2.5km)
-              </Labeled>
-              <Labeled label="Description" className={styles.desc} inline>
-                <InputArea placeholder="Product description (max 250 characters...)" />
-              </Labeled>
+              <DetailsTable
+                data={[
+                  ['Room size', '250 sq.ft'],
+                  ['Landmark', 'Temple (2.5km)'],
+                  [
+                    'Description',
+                    <InputArea placeholder="Product description (max 250 characters...)" />,
+                  ],
+                ]}
+              />
+              <div className={styles.amenities}>
+                <Image
+                  src={getStaticImageSrc(free_gifts)}
+                  alt="free_gifts"
+                  height={40}
+                  width={80}
+                />
+                <Image
+                  src={getStaticImageSrc(full_refund)}
+                  alt="full_refund"
+                  height={40}
+                  width={80}
+                />
+                <Image
+                  src={getStaticImageSrc(on_time_delivery)}
+                  alt="on_time_delivery"
+                  height={40}
+                  width={80}
+                />
+              </div>
             </div>
             <div className={styles.info3}>
               <Button variant="error">Remind Me</Button>

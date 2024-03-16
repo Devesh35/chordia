@@ -1,0 +1,58 @@
+.grid {
+  gap: 2rem;
+  margin: 0 2rem 2rem;
+}
+
+.card-tag {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-bottom-right-radius: var(--border-radius-medium);
+  background-color: var(--success300);
+  color: var(--white);
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+.details {
+  display: flex;
+  gap: 12px;
+  padding: 0 1rem 0.5rem;
+  width: 100%;
+  align-items: center;
+}
+.name-wrapper {
+  flex: 1;
+}
+
+.card-name {
+  color: black;
+  font-size: 16px;
+}
+
+.price {
+  color: var(--primarydark);
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+}
+
+.rating-wrapper {
+  align-self: flex-end;
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100vh;
+  background-color: var(--primary);
+  font-size: 14px;
+  color: var(--secondary);
+  padding: 4px;
+}
+
+.review-count {
+  color: var(--primary);
+  font-size: 12px;
+}

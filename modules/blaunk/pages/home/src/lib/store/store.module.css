@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 1rem;
+}
+.carousal-wrapper {
+  height: var(--b2b-home-banner-size);
+}

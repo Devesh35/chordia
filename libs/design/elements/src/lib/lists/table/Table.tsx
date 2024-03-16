@@ -7,7 +7,7 @@ import clsx from 'clsx';
 type TData = { [K in string]: any };
 
 export type TableColumn<T extends TData, C extends T[keyof T] = T[keyof T]> = {
-  id: keyof T | (string & NonNullable<unknown>);
+  id: keyof T;
   name: string;
   cellFormat?: (cellData: C) => React.ReactNode;
 };

@@ -13,6 +13,9 @@
 .search-bar-wrapper label {
   display: block;
   text-align: center;
+  width: 100%;
+  justify-content: center;
+  gap: 4px;
 }
 
 .search-bar-items {
@@ -40,4 +43,20 @@
   width: 90%;
   margin-inline: auto;
   margin-bottom: 2rem;
+}
+
+.country-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.country-cell > svg {
+  height: 16px;
+}
+
+.price-header {
+  display: flex;
+  align-items: center;
 }

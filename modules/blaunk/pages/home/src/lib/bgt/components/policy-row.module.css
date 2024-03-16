@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  border: 1px solid var(--gray400);
+  border-radius: var(--border-radius-large);
+}
+
+.share-wrapper {
+  min-width: 360px;
+}
+.share-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.share-url {
+  border: 1px solid var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.share-url-box {
+  margin: 0.125rem auto;
+}
+.share-url-button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.125rem 1rem;
+}
+
+.issue-wrapper {
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.issue-wrapper > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.issue-return {
+  color: skyblue;
+}
+.issue-report {
+  color: var(--error300);
+}
+
+.social-wrapper {
+  max-width: 480px;
+}
