@@ -1,7 +1,7 @@
-import { Routes } from '@md/blaunk/config';
 import { ReactChildren } from '@li/types/shared';
-import styles from '../base.module.css';
+import { Routes } from '@md/blaunk/config';
 import clsx from 'clsx';
+import styles from '../base.module.css';
 
 const Index = ({ children }: ReactChildren) => {
   return (

@@ -1,6 +1,6 @@
 'use client';
-import './global.css';
 import styles from './base.module.css';
+import './global.css';
 
 import { useEffect } from 'react';
 
