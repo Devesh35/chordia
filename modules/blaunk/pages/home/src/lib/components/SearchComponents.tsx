@@ -1,6 +1,6 @@
 import { Button, Input, Labeled, Select } from '@li/design/elements';
 import { Article, Brand, Globe, Group, Store } from '@li/design/icons';
-import { ReactChildren } from '@li/types/shared';
+import { ArrayElement, ReactChildren } from '@li/types/shared';
 import {
   CountriesOption,
   MenuCategoriesIdType,
@@ -8,7 +8,6 @@ import {
   SubMenuOptions,
   storeOptions,
 } from '@md/blaunk/config';
-import { ArrayElement } from '@md/blaunk/types';
 import clsx from 'clsx';
 import styles from './search.module.css';
 
