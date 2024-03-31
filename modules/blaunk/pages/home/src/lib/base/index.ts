@@ -1,1 +1,1 @@
-export { Home, type HomeProps } from './Home';
+export { Home } from './Home';
