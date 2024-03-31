@@ -1,4 +1,5 @@
 export { transposeArray } from './Array';
+export { limitDecimal } from './Numbers';
 export {
   isSelectItemDivider,
   optionsFromObject,

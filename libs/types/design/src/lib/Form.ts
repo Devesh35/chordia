@@ -7,7 +7,7 @@ export type FormSectionItem<D = string> = {
   label: string;
   size?: number;
   placeholder: string;
-  isNotEditable?: true;
+  isReadOnly?: true;
   required?: boolean;
 } & (
   | { type?: 'text' | 'number' | 'email' | 'date' }

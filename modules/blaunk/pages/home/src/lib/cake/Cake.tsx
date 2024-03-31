@@ -16,11 +16,6 @@ import {
   getRandomImagesArray,
 } from '@md/blaunk/config';
 
-import styles from './cake.module.css';
-import Image from 'next/image';
-import { Search } from './Search';
-import { Filter } from './Filter';
-import clsx from 'clsx';
 import { grid } from '@li/config/design';
 import {
   Heart,
@@ -32,11 +27,16 @@ import {
   on_time_delivery,
   sold_out,
 } from '@li/design/icons';
+import { CustomerReviews } from '@md/blaunk/design';
+import clsx from 'clsx';
+import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssue } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
-import { Tariff } from '../components/Tariff';
-import { CustomerReviews } from '../base/components/CustomerReviews';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
+import { Tariff } from '../components/Tariff';
+import { Filter } from './Filter';
+import { Search } from './Search';
+import styles from './cake.module.css';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
@@ -191,12 +191,55 @@ export const Cake = () => {
               </Labeled>
             </div>
           </div>
+          <div className={styles.amenities}>
+            <Image
+              src={getStaticImageSrc(free_gifts)}
+              alt="free_gifts"
+              height={40}
+              width={80}
+            />
+            <Image
+              src={getStaticImageSrc(full_refund)}
+              alt="full_refund"
+              height={40}
+              width={80}
+            />
+            <Image
+              src={getStaticImageSrc(on_time_delivery)}
+              alt="on_time_delivery"
+              height={40}
+              width={80}
+            />
+            <Image
+              src={getStaticImageSrc(free_gifts)}
+              alt="free_gifts"
+              height={40}
+              width={80}
+            />
+            <Image
+              src={getStaticImageSrc(full_refund)}
+              alt="full_refund"
+              height={40}
+              width={80}
+            />
+            <Image
+              src={getStaticImageSrc(on_time_delivery)}
+              alt="on_time_delivery"
+              height={40}
+              width={80}
+            />
+          </div>
           <div className={styles.desc}>
             <div className={styles.info2}>
-              <Labeled label="Description" className={styles.desc} inline>
+              <Labeled
+                labelWidth={80}
+                label="Description"
+                className={styles.desc}
+                inline
+              >
                 <InputArea placeholder="Product description (max 250 characters...)" />
               </Labeled>
-              <Labeled label="Message" inline>
+              <Labeled labelWidth={80} label="Message" inline>
                 <Input placeholder="Message on cake (Maximum 5 words)" />
               </Labeled>
               <div className={styles['info2-sub']}>
@@ -205,29 +248,9 @@ export const Cake = () => {
                     ['Delivery by', selectedCake.delivery],
                     ['Delivery charges', 'Free/NA'],
                     ['Min-Basket value', 'Rs.250'],
-                    ['Land mark', 'Temple'],
+                    // ['Land mark', 'Temple'],
                     ['Free delivery', '2.5km'],
                   ]}
-                />
-              </div>
-              <div className={styles.amenities}>
-                <Image
-                  src={getStaticImageSrc(free_gifts)}
-                  alt="free_gifts"
-                  height={40}
-                  width={80}
-                />
-                <Image
-                  src={getStaticImageSrc(full_refund)}
-                  alt="full_refund"
-                  height={40}
-                  width={80}
-                />
-                <Image
-                  src={getStaticImageSrc(on_time_delivery)}
-                  alt="on_time_delivery"
-                  height={40}
-                  width={80}
                 />
               </div>
             </div>
@@ -247,7 +270,7 @@ export const Cake = () => {
             <DetailsTable
               keyColWidth={160}
               data={[
-                ['Complimentary', 'Knife, Candles, Box packing'],
+                ['Complimentary', 'Knife, Candles, Box packing, Card, Flower'],
                 ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
                 ['Vendor details', 'Company cake & co, Kalyan'],
                 ['Vendor GST/Vat No', 'ABCD1920AHS2839'],

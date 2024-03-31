@@ -64,6 +64,7 @@ Intelli
 Ivoire
 Jawar
 Jeggings
+Jewellery
 Kadhai
 Kajal
 Khalbatta
@@ -81,6 +82,7 @@ Mojaris
 Monopods
 Mosambi
 Namkeen
+nbfc
 Neue
 nrwl
 onblack
@@ -139,5 +141,3 @@ veryfast
 xlarge
 xxlarge
 Zari
-Jewellery
-nbfc

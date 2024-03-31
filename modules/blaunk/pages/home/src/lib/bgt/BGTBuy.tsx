@@ -1,13 +1,13 @@
 import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
-import { AdSection } from '@md/blaunk/design';
+import { RollingAd } from '@md/blaunk/design';
 
-import styles from './buy.module.css';
 import Image from 'next/image';
+import styles from './buy.module.css';
 import { SearchBar } from './components/SearchBar';
 import { SearchTable } from './components/SearchTable';
 
-const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
+const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map(
   (src, i) => (
     <Image
       key={src}
@@ -28,7 +28,7 @@ export const BGTBuy = () => {
           {images}
         </Carousal>
       </div>
-      <AdSection />
+      <RollingAd />
       <SearchBar />
       <SearchTable />
     </div>

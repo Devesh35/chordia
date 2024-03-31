@@ -129,6 +129,7 @@
   --layer-base: 0;
   --layer-first: 1;
   --layer-floating: 10;
+  --layer-floating-2: 20;
   --layer-modal: 100;
 
   /* shadow */

@@ -1,18 +1,18 @@
 'use client';
 
+import { gs } from '@li/config/design';
+import { withCondition, withConditionCase } from '@li/design/enhancers';
 import { SelectItemElement } from '@li/types/design';
+import clsx from 'clsx';
+import { useState } from 'react';
+import { Labeled } from '../decorators';
+import { Modal } from '../overlays';
+import { Loader } from '../status';
+import { Button } from './Button';
 import { Input, InputProps } from './Input';
 import { Select } from './Select';
 import inputStyles from './input-select.module.css';
 import styles from './phone-input.module.css';
-import clsx from 'clsx';
-import { Button } from './Button';
-import { gs } from '@li/config/design';
-import { Modal } from '../overlays';
-import { useState } from 'react';
-import { withCondition, withConditionCase } from '@li/design/enhancers';
-import { Loader } from '../status';
-import { Labeled } from '../decorators';
 
 type Props = {
   countryCodes: SelectItemElement[];
@@ -30,6 +30,7 @@ export const PhoneInput = ({
 }: InputProps & Props) => {
   const [status, setStatus] = useState<Status>('not-sent');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [phone, setPhone] = useState('');
 
   const onOTPSend = () => {
     if (!onSendOTP) return;
@@ -98,6 +99,8 @@ export const PhoneInput = ({
       <Input
         className={clsx(inputStyles.input, styles['phone-input'])}
         type="number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value.slice(0, 10))}
         {...props}
       />
       <Button

@@ -1,5 +1,6 @@
 import { FormSection } from '@li/types/design';
 import { CountriesOption } from './Country';
+import { CurrencyCodeOptions } from './Currency';
 
 export const Address: FormSection = {
   id: 'address',
@@ -47,6 +48,13 @@ export const Address: FormSection = {
       label: 'Country',
       placeholder: 'Country',
       options: CountriesOption,
+    },
+    {
+      id: 'currency',
+      type: 'select',
+      label: 'Currency',
+      placeholder: 'Currency',
+      options: CurrencyCodeOptions,
     },
   ],
 };

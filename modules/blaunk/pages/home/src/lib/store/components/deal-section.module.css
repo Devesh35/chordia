@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 5rem;
+}
+
+.deal {
+  width: 240px;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary075);
+  border: 1px solid var(--gray800);
+  border-radius: var(--border-radius-large);
+}

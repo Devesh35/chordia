@@ -1,6 +1,3 @@
-import Image from 'next/image';
-import { SocialItem } from '../../base/components/FindVendors';
-import styles from './policy-row.module.css';
 import {
   CircleInfo,
   Facebook,
@@ -11,6 +8,9 @@ import {
   getStaticImageSrc,
   no_meals,
 } from '@li/design/icons';
+import Image from 'next/image';
+import { SocialItem } from './SocialItem';
+import styles from './policy-row.module.css';
 
 const Share = () => (
   <div className={styles['share-wrapper']}>
@@ -50,23 +50,26 @@ export const PolicyRow = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles['social-wrapper']}>
-        <SocialItem label="Ask anything on whatsapp" i={1} />
+        <SocialItem type="whatsapp" />
       </div>
       <Image
+        className={styles.thumbs}
         src={getStaticImageSrc(fssai)}
         alt="fssai"
         width={120}
         height={80}
       />
       <Image
+        className={styles.thumbs}
         src={getStaticImageSrc(free_wifi)}
-        alt="fssai"
+        alt="free_wifi"
         width={120}
         height={80}
       />
       <Image
+        className={styles.thumbs}
         src={getStaticImageSrc(no_meals)}
-        alt="fssai"
+        alt="no_meals"
         width={120}
         height={80}
       />

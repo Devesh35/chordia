@@ -1,11 +1,11 @@
-import { Carousal, ScrollableSnap } from '@li/design/elements';
 import { CountryCard } from '@li/design/components';
-import Image from 'next/image';
+import { Carousal, ScrollableSnap } from '@li/design/elements';
 import {
   AvailableCountries,
   Constants,
   getRandomImagesArray,
 } from '@md/blaunk/config';
+import Image from 'next/image';
 import styles from './top-section.module.css';
 
 const images = getRandomImagesArray(6)(
@@ -26,7 +26,7 @@ export const TopSection = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles['carousal-wrapper']}>
-        <Carousal pagination="left" autoInterval={10000} enablePagination>
+        <Carousal pagination="left" autoInterval={5000} enablePagination>
           {images}
         </Carousal>
       </div>

@@ -5,6 +5,7 @@
   justify-content: space-between;
   border: 1px solid var(--gray400);
   border-radius: var(--border-radius-large);
+  align-items: center;
 }
 
 .share-wrapper {
@@ -57,4 +58,8 @@
 
 .social-wrapper {
   max-width: 480px;
+}
+
+.thumbs {
+  outline: 1px solid var(--gray400);
 }

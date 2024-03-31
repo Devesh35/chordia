@@ -16,11 +16,6 @@ import {
   getRandomImagesArray,
 } from '@md/blaunk/config';
 
-import styles from './tour.module.css';
-import Image from 'next/image';
-import { Search } from './Search';
-import { Filter } from './Filter';
-import clsx from 'clsx';
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
 import {
@@ -32,10 +27,15 @@ import {
   on_time_delivery,
   sold_out,
 } from '@li/design/icons';
+import clsx from 'clsx';
+import { YesNoOptions } from 'modules/blaunk/config/src/lib/options/General';
+import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssue } from '../components';
 import { Tariff } from '../components/Tariff';
-import { YesNoOptions } from 'modules/blaunk/config/src/lib/options/General';
 import { Amenities } from './Amenities';
+import { Filter } from './Filter';
+import { Search } from './Search';
+import styles from './tour.module.css';
 
 const images = getRandomImagesArray(6)(
   Constants.b2bHomeBannerSize,
@@ -89,6 +89,7 @@ const products = getRandomImagesArray(18)(300, 300, 'hotel').map((src, i) => (
       alt: 'random',
     }}
     topLeft={<div className={styles['card-tag']}>Best seller</div>}
+    // topRight={}
     details={
       <div className={styles.details}>
         <div className={styles['name-wrapper']}>

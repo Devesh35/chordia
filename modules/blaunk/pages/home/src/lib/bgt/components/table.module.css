@@ -27,3 +27,19 @@
 .header {
   font-weight: var(--font-weight-semibold);
 }
+
+.country-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.country-cell > svg {
+  height: 16px;
+}
+
+.price-header {
+  display: flex;
+  align-items: center;
+}

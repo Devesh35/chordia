@@ -1,6 +1,7 @@
 import { CountryFlag, CountryName, CountryPhoneCode } from '@li/config/options';
 import { optionsFromObject } from '@li/config/utils';
 import { Country } from '@li/types/config';
+import { AvailableCurrencyCode } from './Currency';
 
 const codes = [
   'in',
@@ -31,6 +32,7 @@ export const AvailableCountries = codes
           id: code,
           code: CountryPhoneCode[code],
           name: CountryName[code],
+          currency: AvailableCurrencyCode[code],
           ...CountryFlag[code]!,
         }
       : undefined,

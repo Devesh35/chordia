@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.select-type {
+  margin: 0 auto;
+  min-width: 480px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.select-type > label {
+  flex-shrink: 0;
+}
+.select-type > div {
+  max-width: 240px;
+  min-width: 80px;
+}

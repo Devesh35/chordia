@@ -1,12 +1,12 @@
-import Image from 'next/image';
 import { Badge, Input, Link } from '@li/design/elements';
+import { withConditionCase } from '@li/design/enhancers';
 import { Cart, Search } from '@li/design/icons';
 import { Routes, logoLarge } from '@md/blaunk/config';
-import styles from './navHeader.module.css';
-import { MenuBar } from './MenuBar';
 import clsx from 'clsx';
+import Image from 'next/image';
+import { MenuBar } from './MenuBar';
 import { NavHeaderMenu } from './NavHeaderMenu';
-import { withConditionCase } from '@li/design/enhancers';
+import styles from './navHeader.module.css';
 
 type NavHeaderProps = {
   content: 'menu-bar' | 'search';
@@ -48,7 +48,7 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
         <Link className={styles.item} href={Routes.account.cart.path}>
           Cart
           <Badge content={3}>
-            <Cart stroke="var(--onprimarydarkaccent)" width={24} height={24} />
+            <Cart color="var(--onprimarydarkaccent)" width={24} height={24} />
           </Badge>
         </Link>
         <Link href={Routes.auth.login.path} className={styles.item}>

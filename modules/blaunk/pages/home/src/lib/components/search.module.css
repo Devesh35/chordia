@@ -35,9 +35,3 @@
 .search-bar-items-last {
   border-radius: 0 100vh 100vh 0;
 }
-
-.search-table {
-  width: 90%;
-  margin-inline: auto;
-  margin-bottom: 2rem;
-}

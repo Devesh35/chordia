@@ -42,6 +42,7 @@ export const ProductInfo = ({ data }: Props) => {
             ['Origin', data.origin],
             ['State', data.state],
             ['Type', data.type],
+            ['Company', data.company],
           ]}
         />
       </div>

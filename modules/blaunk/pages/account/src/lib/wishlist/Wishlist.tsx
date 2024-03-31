@@ -1,6 +1,6 @@
 import { PageHeader, ScrollableSnap } from '@li/design/elements';
-import styles from './wishlist.module.css';
 import WishlistItem, { dummyItems } from './WishlistItem';
+import styles from './wishlist.module.css';
 
 const sections = ['Boutique', 'Cake', 'Tour', 'Store'];
 
@@ -13,7 +13,11 @@ export const Wishlist = () => {
           <div className={styles.section}>
             <div className={styles['section-title']}>{section}</div>
             <div className={styles['section-items-wrapper']}>
-              <ScrollableSnap controls className={styles['section-items']}>
+              <ScrollableSnap
+                controls
+                className={styles['section-items']}
+                delta={440}
+              >
                 {dummyItems.map((item) => (
                   <WishlistItem {...item} key={item.name} />
                 ))}

@@ -1,38 +1,38 @@
 'use client';
 
-import styles from './search.module.css';
-import tableStyles from './table.module.css';
+import { CountryFlag, CountryName } from '@li/config/options';
+import { withCondition, withConditionCase } from '@li/design/enhancers';
+import { SwitchArrows } from '@li/design/icons';
+import { CountryCode } from '@li/types/config';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { QuantityType } from '@md/blaunk/types';
+import clsx from 'clsx';
 import { useState } from 'react';
 import { SelectedItem } from './SelectedItem';
-import { withCondition, withConditionCase } from '@li/design/enhancers';
-import clsx from 'clsx';
-import { CountryCode } from '@li/types/config';
-import { CountryFlag, CountryName } from '@li/config/options';
-import { SwitchArrows } from '@li/design/icons';
+import tableStyles from './table.module.css';
 
 export type TData = {
   id: string;
-  name: string;
-  date: string;
-  country: CountryCode;
-  vendorId: string;
-  city: string;
-  group: string;
   article: string;
-  itemCode: string;
   brand: string;
-  type: string;
-  quantity: number;
+  city: string;
+  company: string;
+  country: CountryCode;
+  date: string;
+  group: string;
+  images: string[];
+  itemCode: string;
+  membership: string;
+  name: string;
+  origin: string;
   price: number;
   priceList: QuantityType[];
-  membership: string;
+  quantity: number;
   rating: number;
-  images: string[];
   reviews: number;
-  origin: string;
   state: string;
+  type: string;
+  vendorId: string;
 };
 
 const columns = [
@@ -47,29 +47,30 @@ const columns = [
   { id: 'type', name: 'Type' },
   { id: 'quantity', name: 'Quantity' },
   { id: 'price', name: 'Price' },
-  { id: 'membership', name: 'Membership' },
+  // { id: 'membership', name: 'Membership' },
 ] as const;
 
 const dummy: TData = {
   id: 'id',
-  date: '12 feb 2024',
+  article: 'Article',
+  brand: 'Brand',
+  city: 'City',
+  company: 'Chordia',
   country: 'in',
-  vendorId: 'vendorId',
-  city: 'city',
-  group: 'group',
-  article: 'article',
-  itemCode: 'itemCode',
-  brand: 'brand',
-  type: 'Manufacturer',
-  rating: 4,
-  quantity: 100,
-  price: 100,
+  date: '12 feb 2024',
+  group: 'Group',
+  images: getRandomImagesArray(4)(600, 600, 'clothes'),
+  itemCode: 'ItemCode',
   membership: 'membership',
   name: 'Product name',
-  images: getRandomImagesArray(4)(600, 600, 'clothes'),
   origin: 'India',
-  state: 'Maharashtra',
+  price: 100,
+  quantity: 100,
+  rating: 4,
   reviews: 100,
+  state: 'Maharashtra',
+  type: 'Manufacturer',
+  vendorId: 'vendorId',
   priceList: [
     { id: '1', quantity: 1, price: 100, priceDollar: 1.0 },
     { id: '10', quantity: 10, price: 90, priceDollar: 0.9 },
@@ -78,11 +79,12 @@ const dummy: TData = {
   ],
 };
 
+export type CurrencyType = '₹' | '$';
 const mockData: TData[] = new Array(10).fill(dummy);
 
 export const SearchTable = () => {
   const [selected, setSelected] = useState<number>();
-  const [currency, setCurrency] = useState<'₹' | '$'>('₹');
+  const [currency, setCurrency] = useState<CurrencyType>('₹');
 
   return (
     <div>
@@ -91,10 +93,10 @@ export const SearchTable = () => {
           <tr>
             <td></td>
             {columns.map((c) => (
-              <td key={c.id} className={styles.header}>
+              <td key={c.id} className={tableStyles.header}>
                 {withConditionCase(c.id)({
                   price: (
-                    <div className={styles['price-header']}>
+                    <div className={tableStyles['price-header']}>
                       Price {currency} (
                       <SwitchArrows
                         onClick={() =>
@@ -118,7 +120,7 @@ export const SearchTable = () => {
             <>
               <tr key={i}>
                 <td
-                  className={clsx(styles['row-open'], 'clickable')}
+                  className={clsx(tableStyles['row-open'], 'clickable')}
                   onClick={() =>
                     selected === i ? setSelected(undefined) : setSelected(i)
                   }
@@ -128,7 +130,7 @@ export const SearchTable = () => {
                 {columns.map(({ id }) => (
                   <td key={`${id}-${d.id}`}>
                     {withCondition(id === 'country')(
-                      <div className={styles['country-cell']}>
+                      <div className={tableStyles['country-cell']}>
                         {CountryFlag[d.country]?.Flag}
                         {CountryName[d.country]}
                       </div>,
@@ -141,7 +143,7 @@ export const SearchTable = () => {
                 <tr>
                   <td></td>
                   <td colSpan={columns.length}>
-                    <SelectedItem data={d} />
+                    <SelectedItem data={d} currency={currency} />
                   </td>
                 </tr>,
               )}

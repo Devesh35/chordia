@@ -207,9 +207,11 @@ export type CountryFlag = {
 };
 export type CountryName = string;
 export type CountryPhoneCode = string;
+export type CountryCurrency = string;
 
 export type Country = CountryFlag & {
   id: CountryCode;
   name: CountryName;
   code: CountryPhoneCode;
+  currency: CountryCurrency;
 };

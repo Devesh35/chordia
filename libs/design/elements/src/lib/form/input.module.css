@@ -29,8 +29,15 @@
 }
 
 .icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   color: var(--gray600);
   margin-right: 0.75rem;
+}
+.icon > svg {
+  width: 24px;
+  height: 24px;
 }
 .icon-disabled {
   color: var(--textdisabled);

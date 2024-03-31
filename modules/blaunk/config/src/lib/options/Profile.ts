@@ -1,7 +1,9 @@
 import { FormSectionGroup } from '@li/types/design';
+import { Address } from './Address';
+import { BankNameOptions } from './Bank';
 import { CountryCodeOptions } from './Country';
-import { PaymentOption, UserCategoryOption } from './User';
 import { BankAccountType } from './General';
+import { PaymentOption, UserCategoryOption } from './User';
 import {
   VendorCertificate,
   VendorFirm,
@@ -10,20 +12,12 @@ import {
   VendorNumberOfEmployees,
   VendorResponseTime,
 } from './VendorOptions';
-import { Address } from './Address';
 
 const profileSection = {
   personal: {
     form: ['personal', 'address', 'identification'],
     document: {
-      personal: [
-        'profilePhoto',
-        'idProof',
-        'signature',
-        'googleAddress',
-        'bankCheque',
-        'bankLetter',
-      ],
+      personal: ['profilePhoto', 'idProof', 'googleAddress'],
       test: undefined,
     },
   },
@@ -51,6 +45,9 @@ const profileSection = {
         'shopCertificate',
         'taxCertificate',
         'tradeLicense',
+        'signature',
+        'bankCheque',
+        'bankLetter',
       ],
     },
   },
@@ -78,7 +75,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'phone',
             type: 'phone',
             label: 'Phone',
-            isNotEditable: true,
+            isReadOnly: true,
             placeholder: 'Phone number',
             countryCodes: CountryCodeOptions,
           },
@@ -136,13 +133,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
               'Passport',
             ],
           },
-          { id: 'bankCheque', label: 'Bank Cheque', required: true },
-          {
-            id: 'bankLetter',
-            label: 'Bank Letter',
-            placeholder: ['Brand authorization', 'Bank authorization'],
-          },
-          { id: 'signature', label: 'Signature' },
           { id: 'googleAddress', label: 'Google Address' },
         ],
       },
@@ -156,19 +146,19 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'referCode',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Refer code',
             placeholder: 'Refer code',
           },
           {
             id: 'grade',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Grade',
             placeholder: 'Grade',
           },
           {
             id: 'status',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Status',
             placeholder: 'Status',
           },
@@ -221,6 +211,8 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
                 id: 'bankName',
                 label: 'Bank name',
                 placeholder: 'Bank name',
+                type: 'select',
+                options: BankNameOptions,
               },
               {
                 id: 'accountNumber',
@@ -313,7 +305,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'vendorCode',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Vendor code',
             placeholder: 'Vendor code',
           },
@@ -337,7 +329,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'companyName',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Company name',
             placeholder: 'Company name',
           },
@@ -418,7 +410,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
           {
             id: 'agentShare',
-            isNotEditable: true,
+            isReadOnly: true,
             type: 'number',
             label: 'Agent Share (%)',
             placeholder: 'Share',
@@ -452,31 +444,31 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'pan',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'PAN',
             placeholder: 'Pending',
           },
           {
             id: 'aadhar',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Aadhar',
             placeholder: 'Pending',
           },
           {
             id: 'kyc',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'KYC',
             placeholder: 'Pending',
           },
           {
             id: 'agreement',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Agreement',
             placeholder: 'Pending',
           },
           {
             id: 'confirmation',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Confirmation',
             placeholder: 'Pending',
           },
@@ -489,6 +481,12 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         title: 'Documents',
         verification: true,
         items: [
+          { id: 'bankCheque', label: 'Bank Cheque', required: true },
+          {
+            id: 'bankLetter',
+            label: 'Bank Letter',
+            placeholder: ['Brand authorization', 'Bank authorization'],
+          },
           { id: 'companyLogo', label: 'Company Logo' },
           { id: 'license', label: 'License FSSAI/ISO' },
           { id: 'shopCertificate', label: 'Shop & Est/Govt Certificate' },
@@ -498,6 +496,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             label: 'Trade License',
             placeholder: ['Exim', 'Trade mark'],
           },
+          { id: 'signature', label: 'Signature' },
         ],
       },
     ],

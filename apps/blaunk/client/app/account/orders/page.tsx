@@ -1,3 +1,5 @@
+import { Order } from '@md/blaunk/pages/account';
+
 export default async function Index() {
-  return <div>Orders</div>;
+  return <Order />;
 }

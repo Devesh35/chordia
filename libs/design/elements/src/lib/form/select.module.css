@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  width: 100%;
 }
 .wrapper:focus-within {
   outline: 1px solid var(--primary500);
@@ -10,7 +11,6 @@
   height: 100%;
   border-radius: var(--border-radius-medium);
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 /* layers */
@@ -26,6 +26,7 @@
   font-size: var(--font-size-h6);
   line-height: var(--line-height-h6);
   color: var(--gray600);
+  flex: 1;
 }
 .title-selected {
   color: var(--gray800);
@@ -49,7 +50,7 @@
 /* layers */
 .option-wrapper {
   min-width: 90%;
-  z-index: var(--layer-floating);
+  z-index: var(--layer-floating-2);
   position: absolute;
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-l);
@@ -84,7 +85,7 @@
   padding: 4px;
   position: absolute;
   width: 100%;
-  z-index: var(--layer-floating);
+  z-index: var(--layer-floating-2);
 }
 .option-control > svg {
   width: 12px;
@@ -98,4 +99,17 @@
 }
 .option-down {
   bottom: 0;
+}
+
+.left-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.75rem;
+  flex: 0 0 24px;
+}
+
+.left-icon > * {
+  width: 24px;
+  height: 24px;
+  color: var(--gray600);
 }

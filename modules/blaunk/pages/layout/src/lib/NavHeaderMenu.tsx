@@ -1,8 +1,8 @@
 'use client';
 
 import { Select } from '@li/design/elements';
-import { useRouter } from 'next/navigation';
 import { NavMenuItems } from '@md/blaunk/config';
+import { useRouter } from 'next/navigation';
 import styles from './navHeader.module.css';
 
 export const NavHeaderMenu = () => {

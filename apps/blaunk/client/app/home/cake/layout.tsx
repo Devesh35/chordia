@@ -1,4 +1,4 @@
-import { Routes } from '@md/blaunk/config';
 import { withPageTitle } from '@li/design/enhancers';
+import { Routes } from '@md/blaunk/config';
 
 export default withPageTitle(Routes.home.cake.title);

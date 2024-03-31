@@ -1,27 +1,10 @@
 'use client';
 
-import {
-  Button,
-  FormConfigProvider,
-  FormSection,
-  PageHeader,
-  TabNav,
-} from '@li/design/elements';
+import { Button, FormConfigProvider, PageHeader } from '@li/design/elements';
 import { withCondition } from '@li/design/enhancers';
-import { profileSections } from '@md/blaunk/config';
-import styles from './profile.module.css';
 import { useState } from 'react';
-import { toLowerCase } from '@li/config/utils';
-
-const tabItems = ['Personal', 'General', 'Bank', 'Vendor'] as const;
-
-const tabs = tabItems.map((item) => ({
-  id: toLowerCase(item),
-  label: item,
-  content: (
-    <FormSection section={profileSections} selected={toLowerCase(item)} />
-  ),
-}));
+import { ProfileContent } from './ProfileContent';
+import styles from './profile.module.css';
 
 export const Profile = () => {
   const [isEdit, setIsEdit] = useState(false);
@@ -37,7 +20,7 @@ export const Profile = () => {
         }
       />
       <FormConfigProvider isEdit={isEdit} hasBG>
-        <TabNav tabs={tabs} className={styles.content} />
+        <ProfileContent />
       </FormConfigProvider>
 
       {withCondition(isEdit)(

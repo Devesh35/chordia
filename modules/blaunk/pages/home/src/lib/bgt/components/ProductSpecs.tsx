@@ -1,5 +1,5 @@
-import { AddProductSpecifications } from '@md/blaunk/config';
 import { transposeArray } from '@li/config/utils';
+import { AddProductSpecifications } from '@md/blaunk/config';
 import tableStyles from './table.module.css';
 
 const PSTitles = AddProductSpecifications.options.form.map((p) => p.title);
@@ -7,7 +7,7 @@ const PSItems = transposeArray(
   AddProductSpecifications.options.form.map((p) => p.items),
 );
 
-export const ProductPS = () => {
+export const ProductSpecs = () => {
   return (
     <table className={tableStyles.table}>
       <thead>
