@@ -24,8 +24,20 @@
   flex: 1 0.5 240px;
   min-width: 240px;
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.form > * {
+  flex: 1;
+}
+
+.form-item {
+  min-width: 160px;
+}
+.form-item-full {
+  min-width: 240px;
 }
 
 .input-area {
@@ -46,17 +58,4 @@
   width: 100%;
   height: 64px;
   font-size: var(--font-size-h4);
-}
-
-.details {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  text-align: right;
-}
-
-.social-link {
-  color: var(--interactive);
-  cursor: pointer;
-  float: right;
 }

@@ -1,32 +1,28 @@
-import { TopSection } from './components/TopSection';
-import { Placeholder } from './components/Placeholder';
-import { FindVendors } from './components/FindVendors';
-import { CustomerReviews } from './components/CustomerReviews';
+import { grid } from '@li/config/design';
+import { CustomerReviews, RollingAd } from '@md/blaunk/design';
+import clsx from 'clsx';
+import { BannerSection } from './components/BannerSection';
 import { CategorySearch } from './components/CategorySearch';
 import { ExploreWorld } from './components/ExploreWorld';
+import { FindVendors } from './components/FindVendors';
 import { MoreStores } from './components/MoreStores';
-import { TrendyStars } from './components/TrendyStars';
+import { Placeholder } from './components/Placeholder';
 import { StoreAds } from './components/StoreAds';
-import { AdSection } from '@md/blaunk/design';
+import { TopSection } from './components/TopSection';
+import { TrendyStars } from './components/TrendyStars';
 import styles from './home.module.css';
-import { BannerSection } from './components/BannerSection';
-import { grid } from '@li/config/design';
-import clsx from 'clsx';
 
-/* eslint-disable-next-line */
-export type HomeProps = {};
-
-export function Home(props: HomeProps) {
+export const Home = () => {
   return (
     <div className={styles.wrapper}>
       <TopSection />
-      <AdSection size={150} />
+      <RollingAd size={150} />
       <Placeholder height={200} />
       <div className={clsx(styles.section, grid.grid)}>
         <FindVendors />
         <CustomerReviews />
       </div>
-      <BannerSection size={300} />
+      <BannerSection size={301} />
       <CategorySearch />
       <ExploreWorld />
       <MoreStores />
@@ -35,4 +31,4 @@ export function Home(props: HomeProps) {
       <Placeholder height={200} />
     </div>
   );
-}
+};

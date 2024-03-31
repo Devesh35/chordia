@@ -1,11 +1,11 @@
-import { Constants, getRandomImagesArray } from '@md/blaunk/config';
-import Image from 'next/image';
-import styles from './store.module.css';
 import { Carousal } from '@li/design/elements';
-import { AdSection } from '@md/blaunk/design';
+import { Constants, getRandomImagesArray } from '@md/blaunk/config';
+import { RollingAd } from '@md/blaunk/design';
+import Image from 'next/image';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { SearchBar } from '../components/SearchBar';
 import { SelectedItem } from './components/SelectedItem';
+import styles from './store.module.css';
 
 export type StoreItem = {
   name: string;
@@ -84,12 +84,12 @@ export const Store = () => {
           {images}
         </Carousal>
       </div>
-      <AdSection />
+      <RollingAd />
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
       <SelectedItem data={dummyItem} />
-      <AdSection />
-      <AdSection />
+      <RollingAd />
+      <RollingAd />
     </div>
   );
 };

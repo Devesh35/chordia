@@ -1,15 +1,15 @@
 'use client';
 
 import { useCyclicRange } from '@li/design/hooks';
+import { ReactChildren } from '@li/types/shared';
+import clsx from 'clsx';
 import React, { forwardRef, useEffect } from 'react';
+import { MoveControl, PaginationDots } from '../../decorators';
 import {
   PolymorphicComponentProp,
   PolymorphicComponentPropWithRef,
 } from '../../poly';
-import { PaginationDots, MoveControl } from '../../decorators';
-import clsx from 'clsx';
 import styles from './carousal.module.css';
-import { ReactChildren } from '@li/types/shared';
 
 type Variant = 'light' | 'dark';
 type ControlSize = 'small' | 'large';

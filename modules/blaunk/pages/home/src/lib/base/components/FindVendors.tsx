@@ -1,43 +1,25 @@
 'use client';
 
+import { grid } from '@li/config/design';
 import {
+  Button,
+  InputAndSelect,
+  InputArea,
+  Labeled,
+  Select,
+} from '@li/design/elements';
+import {
+  CountriesOption,
   MenuCategoriesIdType,
   MenuOptions,
   Purpose,
   SubMenuOptions,
   Units,
 } from '@md/blaunk/config';
-import { ImageCardDetails } from '@li/design/components';
-import {
-  Button,
-  Divider,
-  InputAndSelect,
-  InputArea,
-  Labeled,
-  Select,
-} from '@li/design/elements';
-import styles from './find-vendors.module.css';
+import { SocialItem } from '@md/blaunk/design';
 import clsx from 'clsx';
-import { grid } from '@li/config/design';
 import { useState } from 'react';
-
-export const SocialItem = ({ label, i }: { label: string; i: number }) => (
-  <ImageCardDetails
-    image={{
-      src: `https://source.unsplash.com/random/80x${80 + i}`,
-      width: 80,
-      height: 80,
-      alt: 'random',
-    }}
-    details={
-      <div className={styles.details}>
-        {label}
-        <Divider color="var(--gray800)" />
-        <div className={styles['social-link']}>Click here</div>
-      </div>
-    }
-  />
-);
+import styles from './find-vendors.module.css';
 
 export const FindVendors = () => {
   const [selectedMenu, setSelectedMenu] = useState<MenuCategoriesIdType>();
@@ -47,7 +29,14 @@ export const FindVendors = () => {
       <div className={styles.heading}>Let us help you find best vendors</div>
       <div className={styles.content}>
         <div className={styles.form}>
-          <Labeled label="Group">
+          <Labeled label="Country" className={styles['form-item']}>
+            <Select
+              placeholder="Select country"
+              options={CountriesOption}
+              maxHeight={200}
+            />
+          </Labeled>
+          <Labeled label="Group" className={styles['form-item']}>
             <Select
               placeholder="Select group"
               options={MenuOptions}
@@ -55,7 +44,7 @@ export const FindVendors = () => {
               onChange={(e) => setSelectedMenu(e?.id)}
             />
           </Labeled>
-          <Labeled label="Article/service name">
+          <Labeled label="Article/service name" className={styles['form-item']}>
             <Select
               placeholder="Select article"
               options={
@@ -66,13 +55,13 @@ export const FindVendors = () => {
               maxHeight={200}
             />
           </Labeled>
-          <Labeled label="Purpose">
+          <Labeled label="Purpose" className={styles['form-item']}>
             <Select
               options={Purpose.map((i) => ({ id: i.id, item: i.label }))}
               placeholder="Select purpose"
             />
           </Labeled>
-          <Labeled label="Qty">
+          <Labeled label="Qty" className={styles['form-item-full']}>
             <InputAndSelect
               input={{ placeholder: 'Enter qty', type: 'number' }}
               select={{
@@ -83,7 +72,7 @@ export const FindVendors = () => {
               inputFlex={0.9}
             />
           </Labeled>
-          <Labeled label="Requirements">
+          <Labeled label="Requirements" className={styles['form-item-full']}>
             <InputArea
               rows={4}
               className={styles['input-area']}
@@ -92,8 +81,8 @@ export const FindVendors = () => {
           </Labeled>
         </div>
         <div className={styles.action}>
-          <SocialItem label="Ask anything on whatsapp" i={1}></SocialItem>
-          <SocialItem label="Mail us on email" i={2}></SocialItem>
+          <SocialItem type="whatsapp" />
+          <SocialItem type="gmail" />
           <Button>Submit requirements</Button>
         </div>
       </div>

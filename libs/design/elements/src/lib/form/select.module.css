@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  width: 100%;
 }
 .wrapper:focus-within {
   outline: 1px solid var(--primary500);

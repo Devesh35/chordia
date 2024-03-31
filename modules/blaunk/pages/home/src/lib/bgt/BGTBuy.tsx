@@ -1,9 +1,9 @@
 import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
-import { AdSection } from '@md/blaunk/design';
+import { RollingAd } from '@md/blaunk/design';
 
-import styles from './buy.module.css';
 import Image from 'next/image';
+import styles from './buy.module.css';
 import { SearchBar } from './components/SearchBar';
 import { SearchTable } from './components/SearchTable';
 
@@ -28,7 +28,7 @@ export const BGTBuy = () => {
           {images}
         </Carousal>
       </div>
-      <AdSection />
+      <RollingAd />
       <SearchBar />
       <SearchTable />
     </div>

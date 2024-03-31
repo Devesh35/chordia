@@ -1,19 +1,19 @@
 'use client';
 
-import { CategorySelection } from './CategorySelection';
-import { useState } from 'react';
+import { sbs } from '@li/config/design';
+import { ImageCardOverlay } from '@li/design/components';
+import { Divider, TagGroup } from '@li/design/elements';
+import { Star } from '@li/design/icons';
 import {
   MenuCategoriesIdType,
   SubCategories,
   getRandomImagesArray,
 } from '@md/blaunk/config';
-import { Divider, TagGroup } from '@li/design/elements';
-import { ImageCardOverlay } from '@li/design/components';
-import { Star } from '@li/design/icons';
 import { SectionHeader } from '@md/blaunk/design';
-import styles from './category-search.module.css';
 import clsx from 'clsx';
-import { sbs } from '@li/config/design';
+import { useState } from 'react';
+import { CategorySelection } from './CategorySelection';
+import styles from './category-search.module.css';
 
 const images = getRandomImagesArray(12)(225);
 

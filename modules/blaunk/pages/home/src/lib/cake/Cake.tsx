@@ -16,11 +16,6 @@ import {
   getRandomImagesArray,
 } from '@md/blaunk/config';
 
-import styles from './cake.module.css';
-import Image from 'next/image';
-import { Search } from './Search';
-import { Filter } from './Filter';
-import clsx from 'clsx';
 import { grid } from '@li/config/design';
 import {
   Heart,
@@ -32,11 +27,16 @@ import {
   on_time_delivery,
   sold_out,
 } from '@li/design/icons';
+import { CustomerReviews } from '@md/blaunk/design';
+import clsx from 'clsx';
+import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssue } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
-import { Tariff } from '../components/Tariff';
-import { CustomerReviews } from '../base/components/CustomerReviews';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
+import { Tariff } from '../components/Tariff';
+import { Filter } from './Filter';
+import { Search } from './Search';
+import styles from './cake.module.css';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   (src, i) => (
