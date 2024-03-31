@@ -1,11 +1,12 @@
 import { Button, Input, Labeled, Select } from '@li/design/elements';
-import { Article, Brand, Globe, Group } from '@li/design/icons';
+import { Article, Brand, Globe, Group, Store } from '@li/design/icons';
 import { ReactChildren } from '@li/types/shared';
 import {
   CountriesOption,
   MenuCategoriesIdType,
   MenuOptions,
   SubMenuOptions,
+  storeOptions,
 } from '@md/blaunk/config';
 import { ArrayElement } from '@md/blaunk/types';
 import clsx from 'clsx';
@@ -13,13 +14,10 @@ import styles from './search.module.css';
 
 type SearchBaseProps<S> = {
   onChange?: (item?: S) => void;
-};
-
-type CountrySearchProps = SearchBaseProps<
-  ArrayElement<typeof CountriesOption>
-> & {
   isStart?: boolean;
 };
+
+type CountrySearchProps = SearchBaseProps<ArrayElement<typeof CountriesOption>>;
 
 type GroupSearchProps = SearchBaseProps<ArrayElement<typeof MenuOptions>>;
 
@@ -27,6 +25,8 @@ type ArticleSearchProps<S extends MenuCategoriesIdType = MenuCategoriesIdType> =
   SearchBaseProps<ArrayElement<(typeof SubMenuOptions)[S]>> & {
     selectedMenu?: S;
   };
+
+type StoreSearchProps = SearchBaseProps<ArrayElement<typeof storeOptions>>;
 
 export const SearchBarWrapper = ({ children }: ReactChildren) => (
   <div className={styles['search-bar-wrapper']}>{children}</div>
@@ -72,6 +72,19 @@ export const ArticleSearch = ({ selectedMenu }: ArticleSearchProps) => (
     />
   </Labeled>
 );
+export const StoreSearch = ({ isStart, onChange }: StoreSearchProps) => (
+  <Labeled label="Store">
+    <Select
+      iconLeft={<Store />}
+      placeholder="Select Store type"
+      className={clsx(styles['search-bar-items'], {
+        [styles['search-bar-items-start']]: isStart,
+      })}
+      options={storeOptions}
+      onChange={onChange}
+    />
+  </Labeled>
+);
 
 export const BrandSearch = () => (
   <Labeled label="Brand">
@@ -94,13 +107,6 @@ export const AddressSearch = () => (
     </Labeled>
     <Labeled label="Area">
       <Input placeholder="Enter Area" className={styles['search-bar-items']} />
-    </Labeled>
-    <Labeled label="Pin-code">
-      <Input
-        type="number"
-        placeholder="Enter Pin-code"
-        className={styles['search-bar-items']}
-      />
     </Labeled>
   </>
 );

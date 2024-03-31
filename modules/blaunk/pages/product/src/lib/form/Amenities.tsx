@@ -1,7 +1,7 @@
 import { Checkbox, Input } from '@li/design/elements';
 import { AmenitiesItems } from '@md/blaunk/config';
-import styles from './amenities.module.css';
 import clsx from 'clsx';
+import styles from './amenities.module.css';
 
 function transposeArray(array: string[][]) {
   const newArray: string[][] = [[]];
@@ -43,7 +43,7 @@ export const Amenities = () => {
                     <div className={clsx('flex', 'justify-content-between')}>
                       <Checkbox label={i} />
                       <span>
-                        <Input className={styles.input} />
+                        <Input className={styles.input} type="number" />
                       </span>
                     </div>
                   ) : (

@@ -1,5 +1,6 @@
 import { FormSectionGroup } from '@li/types/design';
 import { Address } from './Address';
+import { BankNameOptions } from './Bank';
 import { CountryCodeOptions } from './Country';
 import { BankAccountType } from './General';
 import { PaymentOption, UserCategoryOption } from './User';
@@ -74,7 +75,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'phone',
             type: 'phone',
             label: 'Phone',
-            isNotEditable: true,
+            isReadOnly: true,
             placeholder: 'Phone number',
             countryCodes: CountryCodeOptions,
           },
@@ -145,19 +146,19 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'referCode',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Refer code',
             placeholder: 'Refer code',
           },
           {
             id: 'grade',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Grade',
             placeholder: 'Grade',
           },
           {
             id: 'status',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Status',
             placeholder: 'Status',
           },
@@ -210,6 +211,8 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
                 id: 'bankName',
                 label: 'Bank name',
                 placeholder: 'Bank name',
+                type: 'select',
+                options: BankNameOptions,
               },
               {
                 id: 'accountNumber',
@@ -302,7 +305,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'vendorCode',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Vendor code',
             placeholder: 'Vendor code',
           },
@@ -326,7 +329,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'companyName',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Company name',
             placeholder: 'Company name',
           },
@@ -407,7 +410,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
           {
             id: 'agentShare',
-            isNotEditable: true,
+            isReadOnly: true,
             type: 'number',
             label: 'Agent Share (%)',
             placeholder: 'Share',
@@ -441,31 +444,31 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         items: [
           {
             id: 'pan',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'PAN',
             placeholder: 'Pending',
           },
           {
             id: 'aadhar',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Aadhar',
             placeholder: 'Pending',
           },
           {
             id: 'kyc',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'KYC',
             placeholder: 'Pending',
           },
           {
             id: 'agreement',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Agreement',
             placeholder: 'Pending',
           },
           {
             id: 'confirmation',
-            isNotEditable: true,
+            isReadOnly: true,
             label: 'Confirmation',
             placeholder: 'Pending',
           },

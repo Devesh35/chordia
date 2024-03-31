@@ -17,6 +17,7 @@ export { RightArrow as AngleRight } from './RightArrow';
 export { Search } from './Search';
 export { Star } from './Star';
 export { StarHalf } from './StarHalf';
+export { Store } from './Store';
 export { SwitchArrows } from './SwitchArrows';
 export { TopFilled } from './TopFilled';
 export { Veg } from './Veg';

@@ -8,5 +8,6 @@ export {
   GroupSearch,
   SearchBarWrapper,
   SearchButton,
+  StoreSearch,
 } from './SearchComponents';
 export * from './legacy';

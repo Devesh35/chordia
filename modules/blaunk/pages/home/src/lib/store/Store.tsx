@@ -3,7 +3,8 @@ import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import Image from 'next/image';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
-import { SearchBar } from '../components/SearchBar';
+import { DealSection } from './components/DealSection';
+import { SearchBar } from './components/SearchBar';
 import { SelectedItem } from './components/SelectedItem';
 import styles from './store.module.css';
 
@@ -65,7 +66,7 @@ const images = getRandomImagesArray(6)(
   />
 ));
 
-const products = getRandomImagesArray(18)(300, 300, 'food').map((src, i) => (
+const products = getRandomImagesArray(18)(300, 300, 'items').map((src, i) => (
   <ProductCard
     key={i}
     src={src}
@@ -81,12 +82,15 @@ const products = getRandomImagesArray(18)(300, 300, 'food').map((src, i) => (
 export const Store = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles['carousal-wrapper']}>
-        <Carousal pagination="bottom" autoInterval={10000} enablePagination>
-          {images}
-        </Carousal>
+      <div>
+        <div className={styles['carousal-wrapper']}>
+          <Carousal pagination="bottom" autoInterval={10000} enablePagination>
+            {images}
+          </Carousal>
+        </div>
+        <RollingAd size={40} />
       </div>
-      <RollingAd />
+      <DealSection />
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
       <SelectedItem data={dummyItem} />

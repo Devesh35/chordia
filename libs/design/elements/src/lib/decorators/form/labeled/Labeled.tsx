@@ -1,16 +1,25 @@
+import { ClassName, ReactChildren } from '@li/types/shared';
 import clsx from 'clsx';
 import styles from './labeled.module.css';
-import { ClassName, ReactChildren } from '@li/types/shared';
 
 type Props = {
   label: string;
   inline?: true;
+  labelWidth?: number;
 } & ReactChildren &
   Partial<ClassName>;
 
-export const Labeled = ({ label, children, inline, className }: Props) => (
+export const Labeled = ({
+  label,
+  children,
+  inline,
+  className,
+  labelWidth,
+}: Props) => (
   <div className={clsx({ [styles.inline]: inline }, className)}>
-    <label className={styles.label}>{label}</label>
+    <label className={styles.label} style={{ minWidth: labelWidth }}>
+      {label}
+    </label>
     {children}
   </div>
 );

@@ -1,10 +1,10 @@
 import { FormConfigProvider, FormSection } from '@li/design/elements';
 import { TourProductDetails } from '@md/blaunk/config';
+import { Amenities } from './Amenities';
 import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
 import { RoomsSection } from './RoomsSection';
 import styles from './common.module.css';
-import { Amenities } from './Amenities';
 
 export type RoomType = {
   id: string;

@@ -1,7 +1,7 @@
 import { FormSectionGroup } from '@li/types/design';
+import { GSTOptions } from '../General';
 import { MenuOptions, SubMenuOptions } from '../MenuCategory';
 import { UserCategoryOption } from '../User';
-import { GSTOptions } from '../General';
 
 const bgtSection = {
   'product-details': {
@@ -65,6 +65,13 @@ export const BGTProductDetails: FormSectionGroup<typeof bgtSection> = {
             label: 'Details',
             placeholder: 'Details',
             type: 'area',
+          },
+          {
+            id: 'commission',
+            label: 'Blaunk commission',
+            placeholder: '2.5%',
+            type: 'text',
+            isReadOnly: true,
           },
         ],
       },

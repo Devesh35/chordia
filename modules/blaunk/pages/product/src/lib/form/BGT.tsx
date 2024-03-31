@@ -2,10 +2,10 @@
 
 import { FormConfigProvider, FormSection } from '@li/design/elements';
 import { AddProductSpecifications, BGTProductDetails } from '@md/blaunk/config';
-import { QuantitySection } from './QuantitySection';
+import { useState } from 'react';
 import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
-import { useState } from 'react';
+import { QuantitySection } from './QuantitySection';
 import styles from './common.module.css';
 
 export type QuantityType = {

@@ -7,7 +7,7 @@ export type ExtendableFormSectionItem<D = string> = {
   label: string;
   size?: number;
   placeholder: string;
-  isNotEditable?: true;
+  isReadOnly?: true;
   required?: boolean;
 } & (
   | { type?: 'text' | 'number' | 'email' | 'date' }
@@ -101,7 +101,9 @@ type FS<D extends ExtendableFormBaseData> =
 
 type GroupToBase<T extends ExtendableFormGroupBase> = {
   [K in keyof T]: T[K] extends ExtendableFormBase
-    ? T[K]['form'] extends ExtendableFormBaseData ? FS<T[K]['form']> : never
+    ? T[K]['form'] extends ExtendableFormBaseData
+      ? FS<T[K]['form']>
+      : never
     : // | (T[K]['document'] extends ExtendableFormBaseData
     //     ? FDS<T[K]['document']>
     //     : never)
