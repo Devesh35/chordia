@@ -12,6 +12,7 @@ export { Group } from './Group';
 export { Heart } from './Heart';
 export { LeftArrow as AngleLeft } from './LeftArrow';
 export { Microphone } from './Microphone';
+export { PDF } from './PDF';
 export { RightArrow as AngleRight } from './RightArrow';
 export { Search } from './Search';
 export { Star } from './Star';
