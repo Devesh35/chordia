@@ -1,6 +1,6 @@
 import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
-import { RollingAd } from '@md/blaunk/design';
+import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import Image from 'next/image';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { SearchBar } from '../components/SearchBar';
@@ -8,26 +8,28 @@ import { SelectedItem } from './components/SelectedItem';
 import styles from './store.module.css';
 
 export type StoreItem = {
+  id: string;
+  area: string;
+  cartValue: string;
+  city: string;
+  currency: string;
+  deliveredBy: string;
+  description: string;
+  dispatchTime: string;
+  delivery: string;
+  giftWrap: string;
+  gstInvoice: string;
+  images: string[];
   name: string;
+  pinCode: string;
+  print: string;
   rating: string;
   reviewCount: string;
-  images: string[];
   timings: string;
-  description: string;
-  city: string;
-  area: string;
-  pinCode: string;
-  freeDelivery: boolean;
-  deliveredBy: string;
-  dispatchTime: string;
-  gstInvoice: string;
-  print: string;
-  giftWrap: string;
-  cartValue: string;
-  currency: string;
 };
 
 const dummyItem: StoreItem = {
+  id: 'string',
   name: 'Bikaner sweets',
   rating: '4.5',
   reviewCount: '1.5k',
@@ -38,13 +40,13 @@ const dummyItem: StoreItem = {
   city: 'Bikaner',
   area: 'Main Gate',
   pinCode: '334001',
-  freeDelivery: true,
+  delivery: '$25',
   deliveredBy: 'Bikaner sweets',
   dispatchTime: '30 min',
   gstInvoice: 'Available',
   print: 'Not available',
   giftWrap: 'Available',
-  cartValue: '250/500/1000',
+  cartValue: '250', //500/1000',
   currency: 'INR',
 };
 
@@ -88,8 +90,9 @@ export const Store = () => {
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
       <SelectedItem data={dummyItem} />
-      <RollingAd />
-      <RollingAd />
+      <CustomerReviews />
+      <RollingAd size={150} />
+      <RollingAd size={301} />
     </div>
   );
 };

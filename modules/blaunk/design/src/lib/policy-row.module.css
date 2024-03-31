@@ -59,3 +59,7 @@
 .social-wrapper {
   max-width: 480px;
 }
+
+.thumbs {
+  outline: 1px solid var(--gray400);
+}

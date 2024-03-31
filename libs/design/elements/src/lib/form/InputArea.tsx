@@ -1,10 +1,10 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
-import clsx from 'clsx';
-import styles from './input.module.css';
-import formStyles from './form.module.css';
 import { sbs } from '@li/config/design';
+import clsx from 'clsx';
+import { useCallback, useRef } from 'react';
+import formStyles from './form.module.css';
+import styles from './input.module.css';
 
 type InputVariant = 'error' | 'success' | 'warning' | 'default';
 
@@ -50,6 +50,7 @@ export const InputArea = ({
         },
         props.className,
       )}
+      style={{ resize: 'none', minHeight: height || '128px' }}
       onClick={focusInput}
     >
       {iconLeft ? (

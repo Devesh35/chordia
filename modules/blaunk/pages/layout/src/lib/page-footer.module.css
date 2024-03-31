@@ -33,6 +33,7 @@
   color: var(--onprimary);
   cursor: pointer;
   display: block;
+  margin-bottom: 0.5rem;
 }
 
 .content {

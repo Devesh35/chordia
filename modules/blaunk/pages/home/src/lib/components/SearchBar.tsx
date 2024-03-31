@@ -14,7 +14,7 @@ export const SearchBar = () => {
 
   return (
     <SearchBarWrapper>
-      <CountrySearch />
+      <CountrySearch isStart />
       <AddressSearch />
       <Labeled label="Name">
         <Input

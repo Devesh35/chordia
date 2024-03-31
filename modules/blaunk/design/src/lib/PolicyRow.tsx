@@ -8,8 +8,8 @@ import {
   getStaticImageSrc,
   no_meals,
 } from '@li/design/icons';
-import { SocialItem } from './SocialItem';
 import Image from 'next/image';
+import { SocialItem } from './SocialItem';
 import styles from './policy-row.module.css';
 
 const Share = () => (
@@ -53,20 +53,23 @@ export const PolicyRow = () => {
         <SocialItem type="whatsapp" />
       </div>
       <Image
+        className={styles.thumbs}
         src={getStaticImageSrc(fssai)}
         alt="fssai"
         width={120}
         height={80}
       />
       <Image
+        className={styles.thumbs}
         src={getStaticImageSrc(free_wifi)}
-        alt="fssai"
+        alt="free_wifi"
         width={120}
         height={80}
       />
       <Image
+        className={styles.thumbs}
         src={getStaticImageSrc(no_meals)}
-        alt="fssai"
+        alt="no_meals"
         width={120}
         height={80}
       />

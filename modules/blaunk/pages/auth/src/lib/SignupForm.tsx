@@ -8,8 +8,8 @@ import {
   PasswordInput,
   PhoneInput,
 } from '@li/design/elements';
-import styles from './common.module.css';
 import { CountryCodeOptions, Routes } from '@md/blaunk/config';
+import styles from './common.module.css';
 
 const sendOTP = () => {
   return new Promise<void>((resolve, reject) => {

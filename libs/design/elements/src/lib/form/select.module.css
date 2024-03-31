@@ -50,7 +50,7 @@
 /* layers */
 .option-wrapper {
   min-width: 90%;
-  z-index: var(--layer-floating);
+  z-index: var(--layer-floating-2);
   position: absolute;
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-l);
@@ -85,7 +85,7 @@
   padding: 4px;
   position: absolute;
   width: 100%;
-  z-index: var(--layer-floating);
+  z-index: var(--layer-floating-2);
 }
 .option-control > svg {
   width: 12px;

@@ -24,7 +24,7 @@ const detailsOrder: (keyof StoreItem)[] = [
   'city',
   'area',
   'pinCode',
-  'freeDelivery',
+  'delivery',
   'deliveredBy',
   'dispatchTime',
   'gstInvoice',
