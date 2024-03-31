@@ -7,7 +7,7 @@ import styles from './buy.module.css';
 import { SearchBar } from './components/SearchBar';
 import { SearchTable } from './components/SearchTable';
 
-const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
+const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map(
   (src, i) => (
     <Image
       key={src}

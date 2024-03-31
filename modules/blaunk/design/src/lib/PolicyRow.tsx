@@ -8,7 +8,7 @@ import {
   getStaticImageSrc,
   no_meals,
 } from '@li/design/icons';
-import { SocialItem } from '@md/blaunk/design';
+import { SocialItem } from './SocialItem';
 import Image from 'next/image';
 import styles from './policy-row.module.css';
 

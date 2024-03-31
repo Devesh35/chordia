@@ -1,19 +1,20 @@
+import { fromCamelCase } from '@li/config/utils';
 import {
   Carousal,
   InputArea,
   Labeled,
   ScrollableSnap,
 } from '@li/design/elements';
-import styles from './selected-item.module.css';
-import Image from 'next/image';
-import { StoreItem } from '../Store';
-import clsx from 'clsx';
 import { assurance, getStaticImageSrc } from '@li/design/icons';
+import clsx from 'clsx';
+import Image from 'next/image';
 import { DetailsTable } from '../../components';
-import { fromCamelCase } from '@li/config/utils';
-import { PolicyRow } from '../../bgt/components/PolicyRow';
-import { AddOnCard } from '../../components/AddOnCard';
+import { StoreItem } from '../Store';
+import styles from './selected-item.module.css';
+
 import { getRandomImagesArray } from '@md/blaunk/config';
+import { PolicyRow } from '@md/blaunk/design';
+import { AddOnCard } from '../../components/AddOnCard';
 
 type Props = {
   data: StoreItem;

@@ -1,16 +1,16 @@
 'use client';
 
-import { DownFilled, TopFilled } from '@li/design/icons';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import clsx from 'clsx';
-import styles from './select.module.css';
-import formStyles from './form.module.css';
 import { sbs } from '@li/config/design';
-import { SelectItem } from '@li/types/design';
-import { Divider } from '../presentational';
 import { isSelectItemDivider } from '@li/config/utils';
 import { withCondition } from '@li/design/enhancers';
 import { useHoverScroll } from '@li/design/hooks';
+import { DownFilled, TopFilled } from '@li/design/icons';
+import { SelectItem } from '@li/types/design';
+import clsx from 'clsx';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Divider } from '../presentational';
+import formStyles from './form.module.css';
+import styles from './select.module.css';
 
 export type SelectProps<K extends string, S extends SelectItem<K>> = {
   options: S[];
@@ -20,6 +20,7 @@ export type SelectProps<K extends string, S extends SelectItem<K>> = {
   defaultItem?: S;
   onChange?: (item?: S) => void;
   maxHeight?: number | true;
+  iconLeft?: React.ReactNode;
 };
 
 export const Select = <K extends string, S extends SelectItem<K>>({
@@ -29,6 +30,7 @@ export const Select = <K extends string, S extends SelectItem<K>>({
   className,
   defaultItem,
   placeholder,
+  iconLeft,
   maxHeight = 400,
 }: SelectProps<K, S>) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,9 +78,8 @@ export const Select = <K extends string, S extends SelectItem<K>>({
       onMouseLeave={() => setIsOpen(false)}
     >
       <header className={styles.header} onClick={toggleAccordion}>
-        {Header ? (
-          Header
-        ) : (
+        {iconLeft && <span className={styles['left-icon']}>{iconLeft}</span>}
+        {Header || (
           <span
             className={clsx(styles.title, {
               [styles['title-selected']]: !!selected?.id,

@@ -1,12 +1,14 @@
 'use client';
 
 import { gs } from '@li/config/design';
+import { limitDecimal } from '@li/config/utils';
 import { Button, Labeled, Table, TableColumn } from '@li/design/elements';
 import { CircleEmpty, CircleFilled } from '@li/design/icons';
 import { QuantityType } from '@md/blaunk/types';
 import { useMemo, useState } from 'react';
-import styles from './selected-item.module.css';
 import { DetailsTable } from '../../components';
+import { CurrencyType } from './SearchTable';
+import styles from './selected-item.module.css';
 
 export const defaultQty = (): QuantityType => ({
   id: `${+new Date()}`,
@@ -58,18 +60,25 @@ const columns = (
   },
 ];
 
-export const OrderEstimate = ({
-  data,
-  title,
-}: {
+type Props = {
   title: string;
   data: QuantityType[];
-}) => {
+  currency: CurrencyType;
+};
+
+const limit = limitDecimal(2);
+
+export const OrderEstimate = ({ data, title, currency }: Props) => {
   const [quantity, setQuantity] = useState<string>(data[0].id);
 
   const selectedQuantity = useMemo(
     () => data.find((d) => d.id === quantity),
     [data, quantity],
+  );
+
+  const price = useMemo(
+    () => selectedQuantity?.price || 0,
+    [selectedQuantity?.price],
   );
 
   return (
@@ -84,13 +93,13 @@ export const OrderEstimate = ({
       <div className={styles.tariff}>
         <DetailsTable
           data={[
-            ['Value', `Rs ${selectedQuantity?.price || 0}`],
-            ['Commission', `Rs ${25}`],
-            ['Tax', `Rs ${51}`],
-            ['Logistics', `Rs ${10}`],
-            ['Rebate', `Rs ${10}`],
-            ['Bank charges', `Rs ${10}`],
-            ['Total', `Rs ${100}`],
+            ['Value', limit(price)],
+            ['Tax', limit(price * 0.18)],
+            ['Commission', limit(price * 0.025)],
+            ['Logistics', limit(price * 0.02)],
+            ['Rebate', limit(price * 0.02)],
+            ['Bank charges', limit(price * 0.01)],
+            ['Total', limit(price * 1.26)],
           ]}
         />
       </div>
