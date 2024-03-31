@@ -1,7 +1,8 @@
 import { FormSectionGroup } from '@li/types/design';
+import { Address } from './Address';
 import { CountryCodeOptions } from './Country';
-import { PaymentOption, UserCategoryOption } from './User';
 import { BankAccountType } from './General';
+import { PaymentOption, UserCategoryOption } from './User';
 import {
   VendorCertificate,
   VendorFirm,
@@ -10,7 +11,6 @@ import {
   VendorNumberOfEmployees,
   VendorResponseTime,
 } from './VendorOptions';
-import { Address } from './Address';
 
 const profileSection = {
   personal: {
