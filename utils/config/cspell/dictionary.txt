@@ -141,3 +141,4 @@ veryfast
 xlarge
 xxlarge
 Zari
+MSME

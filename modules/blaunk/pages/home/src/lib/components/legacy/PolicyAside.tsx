@@ -84,7 +84,7 @@ export const PolicyAside = () => {
       </div>
 
       <div>
-        <p
+        {/* <p
           className="text-center"
           style={{
             color: '#fff',
@@ -97,7 +97,7 @@ export const PolicyAside = () => {
           }}
         >
           Special Request
-        </p>
+        </p> */}
         <span className="d-inline-flex justify-content-center">
           <span>*</span>{' '}
           <p className="ml-2 m-0">

@@ -1,12 +1,12 @@
 'use client';
 
 import { grid } from '@li/config/design';
-import formStyles from './form.module.css';
+import { withCondition } from '@li/design/enhancers';
+import type { FormDocumentSection as FDS } from '@li/types/design';
 import clsx from 'clsx';
 import { FormDocument } from './FormDocument';
-import type { FormDocumentSection as FDS } from '@li/types/design';
-import { withCondition } from '@li/design/enhancers';
 import { FormSectionHeader } from './FormSectionHeader';
+import formStyles from './form.module.css';
 
 export const FormDocumentSection = <T, D>({
   section,
@@ -19,7 +19,11 @@ export const FormDocumentSection = <T, D>({
         title={section.title}
         sub={withCondition(!!section.verification)(
           <div className={formStyles.verification}>
-            Subject to verification & confirmation
+            <div>Subject to verification & confirmation</div>
+            <ul className={formStyles.ul}>
+              <li>Document should be clear and visible</li>
+              <li>Size less than 150kb</li>
+            </ul>
           </div>,
         )}
       />
@@ -33,6 +37,7 @@ export const FormDocumentSection = <T, D>({
       >
         {section.items.map((item) => (
           <div
+            key={`${item.id}`}
             className={clsx(grid[`col-2`], grid['col-t-4'], grid['col-m-6'])}
           >
             <FormDocument {...item} />

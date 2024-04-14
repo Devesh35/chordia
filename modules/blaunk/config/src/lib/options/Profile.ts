@@ -1,14 +1,15 @@
+import { arrayOf, optionsFromStrings } from '@li/config/utils';
 import { FormSectionGroup } from '@li/types/design';
 import { Address } from './Address';
 import { BankNameOptions } from './Bank';
 import { CountryCodeOptions } from './Country';
-import { BankAccountType } from './General';
-import { PaymentOption, UserCategoryOption } from './User';
+import { BankAccountType, YesNoOptions } from './General';
+import { IndustrySectorOptions } from './Industry';
+import { UserCategoryOption } from './User';
 import {
   VendorCertificate,
   VendorFirm,
   VendorFirmBranchCount,
-  VendorLanguage,
   VendorNumberOfEmployees,
   VendorResponseTime,
 } from './VendorOptions';
@@ -64,12 +65,14 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'name',
             label: 'Name',
             placeholder: 'Name',
+            isReadOnly: true,
           },
           {
             id: 'email',
             type: 'email',
             label: 'Email',
             placeholder: 'Email',
+            isReadOnly: true,
           },
           {
             id: 'phone',
@@ -111,6 +114,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             label: 'Aadhar',
             placeholder: 'Aadhar number',
             type: 'number',
+            maxLen: 12,
           },
         ],
       },
@@ -169,13 +173,13 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Category',
             options: UserCategoryOption,
           },
-          {
-            id: 'payMode',
-            type: 'select',
-            label: 'Pay mode',
-            placeholder: 'Pay mode',
-            options: PaymentOption,
-          },
+          // {
+          //   id: 'payMode',
+          //   type: 'select',
+          //   label: 'Pay mode',
+          //   placeholder: 'Pay mode',
+          //   options: PaymentOption,
+          // },
         ],
       },
     ],
@@ -303,24 +307,25 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         id: 'vendor',
         title: 'Vendor',
         items: [
-          {
-            id: 'vendorCode',
-            isReadOnly: true,
-            label: 'Vendor code',
-            placeholder: 'Vendor code',
-          },
+          // {
+          //   id: 'vendorCode',
+          //   isReadOnly: true,
+          //   label: 'Vendor code',
+          //   placeholder: 'Vendor code',
+          // },
           {
             id: 'exportEnquiry',
-            type: 'yes-no',
+            type: 'select',
             label: 'Export enquiry',
             placeholder: '',
+            options: YesNoOptions,
           },
-          {
-            id: 'blaunkAssurance',
-            type: 'yes-no',
-            label: 'Blaunk Assurance',
-            placeholder: '',
-          },
+          // {
+          //   id: 'blaunkAssurance',
+          //   type: 'yes-no',
+          //   label: 'Blaunk Assurance',
+          //   placeholder: '',
+          // },
         ],
       },
       {
@@ -345,13 +350,14 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             type: 'number',
             label: 'Year of incorporation (YYYY)',
             placeholder: 'Year of incorporation',
+            maxLen: 4,
           },
           {
             id: 'industrySector',
-            // type: 'select',
+            type: 'select',
             label: 'Industry Sector',
             placeholder: 'Industry Sector',
-            // options: VendorIndustrySector,
+            options: IndustrySectorOptions,
           },
           {
             id: 'certificate',
@@ -364,13 +370,16 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'annualTurnover',
             type: 'number',
             label: 'Annual turnover (in Lakhs)',
-            placeholder: 'Annual turnover',
+            placeholder: '00.00',
           },
           {
             id: 'totalDirectors',
-            type: 'number',
+            type: 'select',
             label: 'Total Directors',
             placeholder: 'Total Directors',
+            options: optionsFromStrings(
+              arrayOf(10).map((_, i) => (i < 9 ? `${i + 1}` : '10+')),
+            ),
           },
           {
             id: 'noOfBranch',
@@ -389,13 +398,23 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           {
             id: 'gst',
             type: 'number',
-            label: 'GST',
-            placeholder: 'GST',
+            label: 'VAT/TAX/GST No',
+            placeholder: 'VAT/TAX/GST No',
           },
           {
             id: 'tanNo',
             label: 'TAN No',
             placeholder: 'TAN No',
+          },
+          {
+            id: 'panNo',
+            label: 'PAN No',
+            placeholder: 'PAN No',
+          },
+          {
+            id: 'ciNo',
+            label: "Co's identification No",
+            placeholder: 'CIN',
           },
         ],
       },
@@ -425,16 +444,15 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           {
             id: 'responseTime',
             type: 'select',
-            label: 'Response Time',
+            label: 'Response Time (Hrs)',
             placeholder: 'Response Time',
             options: VendorResponseTime,
           },
           {
             id: 'communicationMode',
-            type: 'select',
-            label: 'Communication Mode',
+            type: 'text',
+            label: 'Communication Language',
             placeholder: 'Communication Mode',
-            options: VendorLanguage,
           },
         ],
       },
@@ -496,7 +514,11 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             label: 'Trade License',
             placeholder: ['Exim', 'Trade mark'],
           },
-          { id: 'signature', label: 'Signature' },
+          {
+            id: 'signature',
+            label: 'Signature',
+            placeholder: `Uploaded signature only with black pen and clear white back ground`,
+          },
         ],
       },
     ],

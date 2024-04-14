@@ -1,10 +1,10 @@
-import { getRandomImagesArray } from '@md/blaunk/config';
 import { Carousal } from '@li/design/elements';
+import { getRandomImagesArray } from '@md/blaunk/config';
 import Image from 'next/image';
-import styles from './store-ads.module.css';
 import { Placeholder } from './Placeholder';
+import styles from './store-ads.module.css';
 
-const img = getRandomImagesArray(3)(600, 1920).map((src) => (
+const img = getRandomImagesArray(3)(600, 1921).map((src) => (
   <Image key={src} src={src} width={1914} height={600} alt="tour" />
 ));
 

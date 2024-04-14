@@ -33,13 +33,12 @@
 .item-label > label {
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
+  flex: 0.4;
 }
 
 .item-label > span,
 .item-label > div {
-  width: 60%;
-  max-width: 60%;
-  min-width: 60%;
+  flex: 0.6;
 }
 
 .item-label > span {
@@ -139,4 +138,8 @@
 .document-content-bg {
   border: none;
   background-color: var(--white);
+}
+
+.ul {
+  margin-left: 1rem;
 }

@@ -1,12 +1,12 @@
 'use client';
 
-import clsx from 'clsx';
-import type { FormSection as FS } from '@li/types/design';
 import { grid } from '@li/config/design';
-import formStyles from './form.module.css';
+import { withCondition } from '@li/design/enhancers';
+import type { FormSection as FS } from '@li/types/design';
+import clsx from 'clsx';
 import { FormItem } from './FormItem';
 import { FormSectionHeader } from './FormSectionHeader';
-import { withCondition } from '@li/design/enhancers';
+import formStyles from './form.module.css';
 
 const FormFormSection = <T, D>({ section }: { section: FS<T, D> }) => (
   <section className={clsx(formStyles.section)}>

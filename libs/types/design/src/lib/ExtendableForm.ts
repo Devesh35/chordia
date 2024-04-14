@@ -19,7 +19,7 @@ export type ExtendableFormSectionItem<D = string> = {
     }
   | {
       type?: 'select-submenu';
-      super: string;
+      super: D;
       options: { [k: string]: SelectItem[] };
     }
 );

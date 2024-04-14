@@ -1,5 +1,4 @@
 import {
-  Button,
   Carousal,
   Input,
   InputArea,
@@ -33,12 +32,13 @@ import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssue } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
+import { RemindMe } from '../components/RemindMe';
 import { Tariff } from '../components/Tariff';
 import { Filter } from './Filter';
 import { Search } from './Search';
 import styles from './cake.module.css';
 
-const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
+const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map(
   (src, i) => (
     <Image
       key={src}
@@ -51,7 +51,7 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920).map(
   ),
 );
 
-const addOn = getRandomImagesArray(8)(600).map((src, i) => (
+const addOn = getRandomImagesArray(7)(600).map((src, i) => (
   <AddOnCard
     key={src}
     image={{
@@ -68,7 +68,7 @@ const addOn = getRandomImagesArray(8)(600).map((src, i) => (
       ['Price', '$13'],
       // ['Rating', '4.5'],
       // ['Reviews', '1.5k Reviews'],
-      ['Weight', '1kg'],
+      ['Weight/Units', '1kg'],
     ]}
   />
 ));
@@ -159,13 +159,15 @@ export const Cake = () => {
             </div>
             <div className={styles['price-info']}>
               <div className={styles['selling-price']}>
-                ${selectedCake.sellingPrice}
+                {selectedCake.sellingPrice}
               </div>
               <div className={styles['save']}>
-                You save: $
-                <span>{selectedCake.price - selectedCake.sellingPrice}</span>{' '}
+                You save:
+                <span>
+                  {selectedCake.price - selectedCake.sellingPrice}
+                </span>{' '}
               </div>
-              <div className={styles['base-price']}>${selectedCake.price}</div>
+              <div className={styles['base-price']}>{selectedCake.price}</div>
             </div>
           </div>
 
@@ -255,7 +257,7 @@ export const Cake = () => {
               </div>
             </div>
             <div className={styles.info3}>
-              <Button variant="error">Remind Me</Button>
+              <RemindMe name={selectedCake.name} />
               <div className={styles['sold-out']}>
                 <Image
                   src={getStaticImageSrc(sold_out)}
@@ -266,7 +268,7 @@ export const Cake = () => {
               </div>
             </div>
           </div>
-          <div className={clsx(styles['vendor-info'])}>
+          <div className={clsx(styles['vendor-info'], styles.desc)}>
             <DetailsTable
               keyColWidth={160}
               data={[
@@ -274,6 +276,21 @@ export const Cake = () => {
                 ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
                 ['Vendor details', 'Company cake & co, Kalyan'],
                 ['Vendor GST/Vat No', 'ABCD1920AHS2839'],
+              ]}
+            />
+            <DetailsTable
+              keyColWidth={160}
+              data={[
+                ['Are you Govt registered Shop', 'Yes'],
+                ['Supply from ', 'Cloud Kitchen'],
+                ['Customized Order ', 'Yes'],
+                ['Response Time ', 'Immediate'],
+                ['Preparation Time ', 'Within 2 hrs'],
+                [
+                  'Delivery Condition ',
+                  'We Accept & Deliver your valued orders only on our shop Timing.',
+                ],
+                ['Bulk', 'No'],
               ]}
             />
           </div>
@@ -288,7 +305,7 @@ export const Cake = () => {
         </div>
       </main>
       <div className={clsx(styles['add-on-header'])}>Add on</div>
-      <ScrollableSnap className={styles['add-on']} controls>
+      <ScrollableSnap className={styles['add-on']} controls delta={240}>
         {addOn}
       </ScrollableSnap>
       <CustomerReviews />

@@ -1,7 +1,7 @@
 import { Profile } from '@li/design/components';
+import { SelectItem } from '@li/types/design';
 import { getRandomImagesArray } from '../utils';
 import { Routes } from './Routes';
-import { SelectItem } from '@li/types/design';
 
 const src = getRandomImagesArray(1)(64, 64)[0];
 
@@ -9,7 +9,7 @@ export type NavMenuItem = SelectItem & { path?: string };
 
 export const NavMenuItems: NavMenuItem[] = [
   {
-    id: 'profile',
+    id: 'profile-card',
     item: (
       <Profile
         image={src}

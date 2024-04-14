@@ -13,3 +13,7 @@ export function transposeArray<T>(array: T[][]) {
 
   return newArray;
 }
+
+export function arrayOf(n: number) {
+  return new Array(n).fill(0);
+}

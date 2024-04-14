@@ -1,13 +1,13 @@
 'use client';
 
 import { withCondition } from '@li/design/enhancers';
-import styles from './form.module.css';
+import { FormDocument as FD } from '@li/types/design';
 import clsx from 'clsx';
 import { Input } from '../Input';
-import { FormDocument as FD } from '@li/types/design';
 import { useFormConfig } from './FormConfigProvider';
+import styles from './form.module.css';
 
-export const FormDocument = <D,>(props: FD<D>) => {
+export const FormDocument = <D,>({ placeholder, ...props }: FD<D>) => {
   const { isEdit, hasBG } = useFormConfig();
 
   return (
@@ -29,9 +29,15 @@ export const FormDocument = <D,>(props: FD<D>) => {
         {withCondition(isEdit)(
           <label className={styles['document-update']}>Click to update</label>,
         )}
-        {props.placeholder?.map((p) => (
-          <li>{p}</li>
-        ))}
+        {typeof placeholder === 'string' ? (
+          <span>{placeholder}</span>
+        ) : (
+          <ul className={styles.ul}>
+            {placeholder?.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

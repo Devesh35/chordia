@@ -3,7 +3,6 @@
 import { sbs } from '@li/config/design';
 import { ImageCardOverlay } from '@li/design/components';
 import { Divider, TagGroup } from '@li/design/elements';
-import { Star } from '@li/design/icons';
 import {
   MenuCategoriesIdType,
   SubCategories,
@@ -41,7 +40,7 @@ export const CategorySearch = () => {
           <div className={clsx(styles['item-wrapper'], sbs.dark)}>
             {images.map((src) => (
               <ImageCardOverlay
-                isClickable
+                // isClickable
                 key={src}
                 image={{
                   width: 225,
@@ -49,29 +48,29 @@ export const CategorySearch = () => {
                   alt: 'img',
                   src: src,
                 }}
-                bottom={
-                  <div className={styles['item-label']}>
-                    <div>
-                      <div className={styles['item-title']}>Product name</div>
-                      <div className={styles['item-sub-title']}>
-                        Sub-category name
-                      </div>
-                    </div>
-                    ₹ 1,000
-                  </div>
-                }
-                top={
-                  <div className={styles['item-rating-wrapper']}>
-                    <div className={styles['item-rating']}>
-                      4.5{' '}
-                      <Star
-                        fill="var(--backgroundsecondary)"
-                        width={16}
-                        height={16}
-                      />
-                    </div>
-                  </div>
-                }
+                // bottom={
+                //   <div className={styles['item-label']}>
+                //     <div>
+                //       <div className={styles['item-title']}>Product name</div>
+                //       <div className={styles['item-sub-title']}>
+                //         Sub-category name
+                //       </div>
+                //     </div>
+                //     ₹ 1,000
+                //   </div>
+                // }
+                // top={
+                //   <div className={styles['item-rating-wrapper']}>
+                //     <div className={styles['item-rating']}>
+                //       4.5{' '}
+                //       <Star
+                //         fill="var(--backgroundsecondary)"
+                //         width={16}
+                //         height={16}
+                //       />
+                //     </div>
+                //   </div>
+                // }
               />
             ))}
           </div>

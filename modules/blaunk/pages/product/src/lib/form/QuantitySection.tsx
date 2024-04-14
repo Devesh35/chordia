@@ -1,5 +1,6 @@
 'use client';
 
+import { gs } from '@li/config/design';
 import {
   Button,
   FormSectionHeader,
@@ -10,10 +11,9 @@ import {
   TableColumn,
 } from '@li/design/elements';
 import { CircleClose } from '@li/design/icons';
-import { gs } from '@li/config/design';
-import styles from './bgt.module.css';
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler, useCallback, useState } from 'react';
 import { QuantityType } from './BGT';
+import styles from './bgt.module.css';
 
 export const defaultQty = (): QuantityType => ({
   id: `${+new Date()}`,
@@ -86,16 +86,17 @@ export const QuantitySection = ({
     setIsModalOpen(false);
   };
 
-  const addQuantity: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    if (!qty.qty || !qty.price || !qty.priceDollar) return;
-    setQuantity((prev) => {
-      const newData = getData([...prev, { ...qty }]);
+  const addQuantity: FormEventHandler<HTMLFormElement> = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (!qty.qty || !qty.price || !qty.priceDollar) return;
+      const newData = getData([...quantity, { ...qty }]);
+      setQuantity(newData);
       onChange(newData.filter((item) => item.qty));
-      return newData;
-    });
-    onClose();
-  };
+      onClose();
+    },
+    [onChange, qty, quantity],
+  );
 
   const onDelete = (id: string) => {
     setQuantity((prev) => getData(prev.filter((item) => item.id !== id)));
@@ -116,7 +117,6 @@ export const QuantitySection = ({
           <Labeled label={'Price(₹)'}>
             <Input
               type="number"
-              placeholder=""
               prefix="₹"
               required
               onChange={(e) => updateQty('price')(+e.target.value)}
@@ -125,7 +125,6 @@ export const QuantitySection = ({
           <Labeled label={'Price($)'}>
             <Input
               type="number"
-              placeholder=""
               prefix="$"
               required
               onChange={(e) => updateQty('priceDollar')(+e.target.value)}
