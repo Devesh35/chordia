@@ -1,12 +1,12 @@
 import { Labeled, Select } from '@li/design/elements';
-import styles from './filter.module.css';
-import clsx from 'clsx';
 import {
   LandmarkOptions,
   PriceOptions,
   PropertyTypeOptions,
   RatingOptions,
 } from '@md/blaunk/config';
+import clsx from 'clsx';
+import styles from './filter.module.css';
 
 export const Filter = () => {
   return (

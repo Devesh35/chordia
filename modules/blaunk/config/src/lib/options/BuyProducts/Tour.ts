@@ -1,6 +1,28 @@
 import { optionsFromStrings } from '@li/config/utils';
 
-const propertyType = ['Hotel'];
+const propertyType = [
+  'Hotel',
+  'Banquet Hall',
+  'Buffet Lunch',
+  'Cottage',
+  'Day-out Package',
+  'Event',
+  'Guest House',
+  'Holiday Homes',
+  'Holiday Club',
+  'Home Stay',
+  'Hostel',
+  'Hotels',
+  'Lodge',
+  'Marriage Hall',
+  'Motels',
+  'Pg - Men',
+  'Pg - Women',
+  'Resorts',
+  'Service Apartment',
+  'Studio',
+  'Vila',
+];
 
 export const PropertyTypeOptions = optionsFromStrings(propertyType);
 
@@ -56,6 +78,7 @@ const roomRequest = Array.from({ length: 10 }, (_, i) => `${i + 1}`);
 export const RoomRequestOptions = optionsFromStrings(roomRequest);
 
 const specialRequests = [
+  'Request for bulk booking',
   'Request for Butler',
   'Request for Rooms Noise free',
   'Request for Room with View',

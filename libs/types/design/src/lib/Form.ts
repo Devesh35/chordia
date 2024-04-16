@@ -9,17 +9,24 @@ export type FormSectionItem<D = string> = {
   placeholder: string;
   isReadOnly?: true;
   required?: boolean;
+  maxLen?: number;
 } & (
-  | { type?: 'text' | 'number' | 'email' | 'date' }
-  | { type?: 'yes-no' | 'area' }
-  | { type?: 'phone'; countryCodes: SelectItemElement[] }
+  | { type?: 'text' | 'email' | 'date' | 'area'; value?: string }
+  | { type?: 'number'; value?: number }
+  | {
+      type?: 'phone';
+      countryCodes: SelectItemElement[];
+      value?: SelectItemElement;
+    }
   | {
       type?: 'select';
       options: SelectItem[];
+      value?: SelectItemElement;
     }
   | {
       type?: 'select-submenu';
       super: string;
+      value?: SelectItemElement;
       options: { [k: string]: SelectItem[] };
     }
 );
@@ -33,7 +40,7 @@ export type FormSection<T = string, D = string> = {
 export type FormDocument<T = string> = {
   id: T;
   label: string;
-  placeholder?: string[];
+  placeholder?: string[] | string;
   required?: boolean;
 };
 

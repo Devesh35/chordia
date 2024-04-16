@@ -55,11 +55,6 @@ export const ProductSpecification: FormSection = {
       placeholder: 'Return Days',
     },
     {
-      id: 'consumable',
-      label: 'Consumable',
-      placeholder: 'Consumable',
-    },
-    {
       id: 'dateOfPosting',
       label: 'Date of Posting',
       placeholder: 'Date of Posting',

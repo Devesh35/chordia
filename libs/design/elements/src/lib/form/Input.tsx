@@ -1,9 +1,9 @@
 'use client';
 
-import { useCallback, useRef } from 'react';
 import clsx from 'clsx';
-import styles from './input.module.css';
+import { ChangeEvent, useCallback, useRef, useState } from 'react';
 import formStyles from './form.module.css';
+import styles from './input.module.css';
 
 type InputVariant = 'error' | 'success' | 'warning' | 'primary';
 
@@ -15,6 +15,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   disableWrapperFocus?: boolean;
+  maxLen?: number;
 };
 
 export const Input = ({
@@ -25,13 +26,22 @@ export const Input = ({
   iconLeft,
   iconRight,
   disableWrapperFocus = false,
+  maxLen = Infinity,
   ...props
 }: InputProps) => {
+  const [value, setValue] = useState('');
+
   const inputRef = useRef<HTMLInputElement>(null);
   const focusInput = useCallback(() => {
     if (disableWrapperFocus) return;
     inputRef.current?.focus();
   }, [disableWrapperFocus]);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.slice(0, maxLen);
+    setValue(value);
+    props?.onChange?.(e);
+  };
 
   return (
     <div
@@ -64,6 +74,8 @@ export const Input = ({
         disabled={isDisabled}
         ref={inputRef}
         className={styles.input}
+        value={value}
+        onChange={onChange}
       />
       {iconRight ? (
         <span

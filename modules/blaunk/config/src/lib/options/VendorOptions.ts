@@ -29,6 +29,7 @@ const vendorCertificate = [
   'ISO',
   'Food safety',
   'BIS',
+  'MSME',
   'Drugs',
   'Trademark',
 ] as const;

@@ -98,14 +98,13 @@ export const BrandSearch = () => (
 export const AddressSearch = () => (
   <>
     <Labeled label="City">
-      <Select
-        placeholder="Select City"
-        className={styles['search-bar-items']}
-        options={[{ id: '0', item: 'Select Country first', isDisabled: true }]}
-      />
+      <Input placeholder="Enter City" className={styles['search-bar-items']} />
     </Labeled>
-    <Labeled label="Area">
-      <Input placeholder="Enter Area" className={styles['search-bar-items']} />
+    <Labeled label="Pin code">
+      <Input
+        placeholder="Enter Pin code"
+        className={styles['search-bar-items']}
+      />
     </Labeled>
   </>
 );

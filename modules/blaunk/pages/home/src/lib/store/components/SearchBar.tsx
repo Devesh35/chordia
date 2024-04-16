@@ -2,7 +2,6 @@
 
 import {
   AddressSearch,
-  ArticleSearch,
   CountrySearch,
   SearchBarWrapper,
   SearchButton,
@@ -17,7 +16,6 @@ export const SearchBar = () => {
       <StoreSearch isStart />
       <CountrySearch />
       <AddressSearch />
-      <ArticleSearch />
       <SearchButton />
     </SearchBarWrapper>
   );

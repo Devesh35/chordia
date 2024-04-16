@@ -1,8 +1,6 @@
 import {
-  Button,
   Carousal,
   Input,
-  InputArea,
   Labeled,
   ScrollableSnap,
   Select,
@@ -28,9 +26,9 @@ import {
   sold_out,
 } from '@li/design/icons';
 import clsx from 'clsx';
-import { YesNoOptions } from 'modules/blaunk/config/src/lib/options/General';
 import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssue } from '../components';
+import { RemindMe } from '../components/RemindMe';
 import { Tariff } from '../components/Tariff';
 import { Amenities } from './Amenities';
 import { Filter } from './Filter';
@@ -188,13 +186,15 @@ export const Tour = () => {
             </div>
             <div className={styles['price-info']}>
               <div className={styles['selling-price']}>
-                ${selectedTour.sellingPrice}
+                {selectedTour.sellingPrice}
               </div>
               <div className={styles['save']}>
-                You save: $
-                <span>{selectedTour.price - selectedTour.sellingPrice}</span>{' '}
+                You save:
+                <span>
+                  {selectedTour.price - selectedTour.sellingPrice}
+                </span>{' '}
               </div>
-              <div className={styles['base-price']}>${selectedTour.price}</div>
+              <div className={styles['base-price']}>{selectedTour.price}</div>
             </div>
           </div>
 
@@ -233,7 +233,7 @@ export const Tour = () => {
                   ['Landmark', 'Temple (2.5km)'],
                   [
                     'Description',
-                    <InputArea placeholder="Product description (max 250 characters...)" />,
+                    'Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city.',
                   ],
                 ]}
               />
@@ -259,7 +259,7 @@ export const Tour = () => {
               </div>
             </div>
             <div className={styles.info3}>
-              <Button variant="error">Remind Me</Button>
+              <RemindMe name={selectedTour.name} hasBulk />
               <div className={styles['sold-out']}>
                 <Image
                   src={getStaticImageSrc(sold_out)}
@@ -277,13 +277,7 @@ export const Tour = () => {
             <table>
               <tbody>
                 <tr>
-                  <td>GST Invoice</td>
-                  <td>
-                    <Select options={YesNoOptions} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Special request</td>
+                  <td>Special Request</td>
                   <td>
                     <Select options={SpecialRequestsOptions} />
                   </td>
@@ -293,11 +287,15 @@ export const Tour = () => {
                   <td>Orders above Rs 5000 get gift hamper worth rs 500</td>
                 </tr>
                 <tr>
-                  <td>Vendor details :</td>
+                  <td>GST Invoice</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Vendor Details :</td>
                   <td>Company cake & co, Kalyan</td>
                 </tr>
                 <tr>
-                  <td>Vendor GST/Vat No :</td>
+                  <td>Vendor GST/VAT No :</td>
                   <td>ABCD1920AHS2839</td>
                 </tr>
               </tbody>

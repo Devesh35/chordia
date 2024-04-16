@@ -1,12 +1,16 @@
 import { optionsFromStrings } from '@li/config/utils';
 
 const userCategory = [
+  'Agent',
+  'C&F Agent',
+  'Dealer',
+  'Distributer',
+  'Farmer',
+  'Individual',
   'Manufacturer',
+  'Re-seller',
   'Retailer',
   'Stockist',
-  'Dealer',
-  'Agent',
-  'Farmer',
   'Trader',
 ] as const;
 

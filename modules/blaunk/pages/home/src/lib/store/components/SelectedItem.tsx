@@ -33,7 +33,7 @@ const detailsOrder: (keyof StoreItem)[] = [
   'cartValue',
   'currency',
 ];
-const addOn = getRandomImagesArray(20)(600, 600, 'food').map((src, i) => (
+const addOn = getRandomImagesArray(5)(600, 600, 'food').map((src, i) => (
   <AddOnCard
     key={src}
     image={{
@@ -84,8 +84,8 @@ export const SelectedItem = ({ data }: Props) => {
         </div>
         <div className={styles['product-info']}>
           <div className={clsx(styles['product-header'])}>
-            <div>Vendor details:</div>
-            <div>Open</div>
+            {/* <div>Vendor details:</div>
+            <div>Open</div> */}
           </div>
           <div className={styles['product-info-section']}>
             <div className={styles['product-info-left']}>
@@ -113,6 +113,8 @@ export const SelectedItem = ({ data }: Props) => {
         </div>
       </div>
       <PolicyRow />
+      <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
+      <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
     </div>
   );

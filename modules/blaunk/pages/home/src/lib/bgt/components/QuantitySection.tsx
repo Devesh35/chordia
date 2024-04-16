@@ -77,8 +77,8 @@ export const OrderEstimate = ({ data, title, currency }: Props) => {
   );
 
   const price = useMemo(
-    () => selectedQuantity?.price || 0,
-    [selectedQuantity?.price],
+    () => (selectedQuantity?.price || 0) * (selectedQuantity?.quantity || 0),
+    [selectedQuantity],
   );
 
   return (
@@ -96,9 +96,11 @@ export const OrderEstimate = ({ data, title, currency }: Props) => {
             ['Value', limit(price)],
             ['Tax', limit(price * 0.18)],
             ['Commission', limit(price * 0.025)],
-            ['Logistics', limit(price * 0.02)],
-            ['Rebate', limit(price * 0.02)],
-            ['Bank charges', limit(price * 0.01)],
+            ['Insurance', limit(price * 0.0)],
+            ['Logistics', limit(price * 0.0)],
+            ['Packing', limit(price * 0.0)],
+            ['Rebate', limit(price * 0.0)],
+            ['Bank charges', limit(price * 0.0)],
             ['Total', limit(price * 1.26)],
           ]}
         />

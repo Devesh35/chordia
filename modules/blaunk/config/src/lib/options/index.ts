@@ -18,6 +18,7 @@ export {
 export { FooterDetails } from './Footer';
 export { BankAccountType, GSTOptions } from './General';
 export { Grade, GradeOptions } from './Grade';
+export { IndustrySectorOptions } from './Industry';
 export { IssueOptions } from './Issue';
 export { MenuBarItems } from './MenuBar';
 export {

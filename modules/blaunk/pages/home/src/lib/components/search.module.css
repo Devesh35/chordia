@@ -1,7 +1,7 @@
 .search-bar-wrapper {
   display: flex;
   align-items: flex-end;
-  gap: 1px;
+  gap: 2px;
   background-color: var(--secondarydark);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-large);

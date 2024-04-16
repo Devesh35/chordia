@@ -23,11 +23,14 @@
   line-height: var(--line-height-p14);
   height: 24px;
   padding: 2px 8px;
-  cursor: pointer;
   background-color: var(--transparent20);
 }
 
-.item:hover {
+.item-selectable {
+  cursor: pointer;
+}
+
+.item-selectable:hover {
   background-color: var(--transparent40);
 }
 .item-selected {
