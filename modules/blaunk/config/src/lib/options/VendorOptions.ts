@@ -1,11 +1,28 @@
 import { optionsFromStrings } from '@li/config/utils';
 
 export const Purpose = [
-  { id: 'selling', label: 'For selling' },
   { id: 'buying', label: 'For buying' },
   { id: 're_selling', label: 'For reselling' },
   { id: 'looking_for_vendor', label: 'Looking for vendor' },
 ];
+
+const vendorRequirement = [
+  'Packed Articles',
+  'Unpacked Articles',
+  'Factory Second Articles',
+  'Assorted Articles',
+  'Organic Articles',
+  'Refurbished Articles',
+  'Customized Articles',
+  'Partially Damaged Articles',
+  'QC Required',
+  'QC Done',
+  'Sell Within Country',
+  'Export Quality ',
+  'Export Enquiry',
+  'Others',
+] as const;
+export const VendorRequirementOptions = optionsFromStrings(vendorRequirement);
 
 const vendorFirm = [
   'Proprietorship',

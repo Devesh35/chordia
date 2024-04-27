@@ -12,6 +12,7 @@ import {
   CakeWeightOptions,
   Constants,
   DeliveryTimeOptions,
+  QuantityOptions,
   getRandomImagesArray,
 } from '@md/blaunk/config';
 
@@ -186,7 +187,7 @@ export const Cake = () => {
             </Labeled>
             <div className={styles['sub-select-wrapper']}>
               <Labeled label="Quantity">
-                <Input type="number" />
+                <Select options={QuantityOptions} />
               </Labeled>
               <Labeled label="Weight">
                 <Select options={CakeWeightOptions} />

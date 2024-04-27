@@ -2,6 +2,11 @@ import { SelectItem, SelectItemElement } from './Select';
 
 type FromList<T extends readonly string[]> = Readonly<T[keyof T]>;
 
+export type PhoneValue = {
+  country: SelectItemElement;
+  number: string;
+};
+
 export type FormSectionItem<D = string> = {
   id: D;
   label: string;
@@ -9,25 +14,44 @@ export type FormSectionItem<D = string> = {
   placeholder: string;
   isReadOnly?: true;
   required?: boolean;
-  maxLen?: number;
 } & (
-  | { type?: 'text' | 'email' | 'date' | 'area'; value?: string }
-  | { type?: 'number'; value?: number }
+  | {
+      type?: 'text' | 'email' | 'date' | 'area';
+      value?: string;
+      onChange?: (value?: string) => void;
+      maxLen?: number;
+    }
+  | {
+      type?: 'number';
+      value?: number;
+      onChange?: (value?: number) => void;
+      maxLen?: number;
+    }
   | {
       type?: 'phone';
       countryCodes: SelectItemElement[];
-      value?: SelectItemElement;
+      value?: PhoneValue;
+      onChange?: (value?: PhoneValue) => void;
     }
   | {
       type?: 'select';
       options: SelectItem[];
       value?: SelectItemElement;
+      onChange?: (value?: SelectItem) => void;
     }
   | {
       type?: 'select-submenu';
-      super: string;
+      options: SelectItem[];
       value?: SelectItemElement;
-      options: { [k: string]: SelectItem[] };
+      onChange?: (value?: SelectItem) => void;
+      optionsSub: { [k: string]: SelectItem[] };
+      sub: {
+        id: D;
+        label: string;
+        placeholder: string;
+        value?: SelectItemElement;
+        onChange?: (value?: SelectItem) => void;
+      };
     }
 );
 

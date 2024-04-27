@@ -1,7 +1,7 @@
 import { arrayOf, optionsFromStrings } from '@li/config/utils';
 import { FormSectionGroup } from '@li/types/design';
 import { Address } from './Address';
-import { BankNameOptions } from './Bank';
+import { CountryBanksOptions } from './Banks';
 import { CountryCodeOptions } from './Country';
 import { BankAccountType, YesNoOptions } from './General';
 import { IndustrySectorOptions } from './Industry';
@@ -216,8 +216,9 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
                 label: 'Bank name',
                 placeholder: 'Bank name',
                 type: 'select',
-                options: BankNameOptions,
+                options: CountryBanksOptions.in,
               },
+
               {
                 id: 'accountNumber',
                 label: 'Account number',

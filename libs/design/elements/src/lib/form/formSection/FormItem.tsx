@@ -12,6 +12,65 @@ import styles from './form.module.css';
 export const FormItem = <D,>(props: FormSectionItem<D>) => {
   const { isEdit, hasBG } = useFormConfig();
 
+  if (props.type === 'select-submenu') {
+    return (
+      <>
+        <Labeled
+          label={`${props.label}:`}
+          inline
+          className={clsx(
+            grid[`col-4`],
+            grid['col-t-4'],
+            grid['col-m-6'],
+            styles['item-label'],
+            { [styles['item-label-bg']]: hasBG },
+          )}
+        >
+          {isEdit && !props.isReadOnly ? (
+            <FormItemElement {...props} />
+          ) : (
+            <span className={formStyles['item-wrapper']}>
+              {props.placeholder}
+            </span>
+          )}
+        </Labeled>
+        <Labeled
+          label={`${props.sub.label}:`}
+          inline
+          className={clsx(
+            grid[`col-4`],
+            grid['col-t-4'],
+            grid['col-m-6'],
+            styles['item-label'],
+            { [styles['item-label-bg']]: hasBG },
+          )}
+        >
+          {isEdit && !props.isReadOnly ? (
+            <FormItemElement
+              {...props}
+              {...props.sub}
+              options={
+                props.value?.id
+                  ? props.optionsSub[props.value.id]
+                  : [
+                      {
+                        id: 'no-parent',
+                        item: `Select ${props.label} first`,
+                        isDisabled: true,
+                      },
+                    ]
+              }
+            />
+          ) : (
+            <span className={formStyles['item-wrapper']}>
+              {props.sub.placeholder}
+            </span>
+          )}
+        </Labeled>
+      </>
+    );
+  }
+
   return (
     <Labeled
       label={`${props.label}:`}

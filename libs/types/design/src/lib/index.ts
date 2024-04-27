@@ -1,11 +1,12 @@
 export type {
-  FormGroupBase,
   FormDocument,
   FormDocumentSection,
+  FormGroupBase,
   FormGroupBaseItem,
   FormSection,
-  FormSectionItem,
   FormSectionGroup,
+  FormSectionItem,
+  PhoneValue,
 } from './Form';
 export type {
   SelectItem,

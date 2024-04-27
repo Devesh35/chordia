@@ -1,15 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { grid } from '@li/config/design';
 import {
   FormGroupBase,
   FormSectionGroup,
   SelectItemElement,
 } from '@li/types/design';
-import formStyles from './form.module.css';
+import clsx from 'clsx';
+import { useState } from 'react';
 import { Select } from '../Select';
-import { FormSectionHeader } from './FormSectionHeader';
 import { FormSection } from './FormSection';
+import { FormSectionHeader } from './FormSectionHeader';
+import formStyles from './form.module.css';
 
 export const FormFormSectionSelect = <T extends FormGroupBase>({
   title,
@@ -25,23 +27,30 @@ export const FormFormSectionSelect = <T extends FormGroupBase>({
   >(options[0]);
 
   const sectionItem = selected ? section[selected.id] : undefined;
-  console.log('selected', selected);
 
   return (
-    <>
+    <section className={formStyles.section}>
       <FormSectionHeader
         title={title}
         className={formStyles['form-group-select-header']}
       />
-      <Select
-        options={options}
-        onChange={setSelected}
-        defaultItem={selected}
-        className={formStyles['form-group-select']}
-      />
+      <div className={clsx(formStyles['section-content'], grid.grid)}>
+        <Select
+          options={options}
+          onChange={setSelected}
+          defaultItem={selected}
+          className={clsx(
+            formStyles['form-group-select'],
+            grid[`col-3`],
+            grid['col-t-3'],
+            grid['col-m-6'],
+          )}
+        />{' '}
+      </div>
+
       {selected && sectionItem && (
         <FormSection selected={selected.id} section={section} />
       )}
-    </>
+    </section>
   );
 };
