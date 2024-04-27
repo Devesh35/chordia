@@ -1,11 +1,9 @@
 import { FormSectionGroup } from '@li/types/design';
 import { GSTOptions } from '../General';
+import { MenuOptions, SubMenuOptions } from '../MenuCategory';
 import { UserCategoryOption } from '../User';
 
 const bgtSection = {
-  // 'product-group': {
-  //   form: ['product-group'],
-  // },
   'product-details': {
     form: ['product-details'],
   },
@@ -15,37 +13,25 @@ const bgtSection = {
 } as const;
 
 export const BGTProductDetails: FormSectionGroup<typeof bgtSection> = {
-  // 'product-group': {
-  //   form: [
-  //     {
-  //       id: 'product-group',
-  //       title: 'Product Group',
-  //       items: [
-  //         {
-  //           id: 'group',
-  //           label: 'Group',
-  //           placeholder: 'Group',
-  //           type: 'select',
-  //           options: MenuOptions,
-  //         },
-  //         {
-  //           id: 'article',
-  //           label: 'Article',
-  //           placeholder: 'Article',
-  //           type: 'select-submenu',
-  //           super: 'group',
-  //           options: SubMenuOptions,
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
   'product-details': {
     form: [
       {
         id: 'product-details',
         title: 'Product details',
         items: [
+          {
+            id: 'group',
+            label: 'Group',
+            placeholder: 'Group',
+            type: 'select-submenu',
+            options: MenuOptions,
+            optionsSub: SubMenuOptions,
+            sub: {
+              id: 'article',
+              label: 'Article',
+              placeholder: 'Article',
+            },
+          },
           {
             id: 'brand',
             label: 'Brand',

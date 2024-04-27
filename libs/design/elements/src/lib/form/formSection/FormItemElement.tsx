@@ -69,15 +69,13 @@ export const FormItemElement = <D,>(item: FormSectionItem<D>) => {
     );
   }
 
-  if (item.type === 'text')
-    return (
-      <Input
-        placeholder={item.placeholder}
-        maxLen={item.maxLen}
-        value={item.value}
-        onChange={(e) => item.onChange?.(e.target.value)}
-      />
-    );
-
-  return null;
+  return (
+    <Input
+      placeholder={item.placeholder}
+      value={item.value as string}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      onChange={(e) => item.onChange?.(e.target.value)}
+    />
+  );
 };
