@@ -1,5 +1,5 @@
 export * from './AddProducts';
-export { BankNameOptions } from './Bank';
+export { CountryBanks, CountryBanksOptions } from './Banks';
 export { PriceSortOptions as PriceOptions, RatingOptions } from './BuyFilters';
 export * from './BuyProducts';
 export { Constants } from './Constants';
@@ -55,5 +55,6 @@ export {
   VendorIndustrySector,
   VendorLanguage,
   VendorNumberOfEmployees,
+  VendorRequirementOptions,
   VendorResponseTime,
 } from './VendorOptions';

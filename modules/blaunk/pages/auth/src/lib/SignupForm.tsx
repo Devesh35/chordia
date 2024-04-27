@@ -8,7 +8,9 @@ import {
   PasswordInput,
   PhoneInput,
 } from '@li/design/elements';
+import { PhoneValue } from '@li/types/design';
 import { CountryCodeOptions, Routes } from '@md/blaunk/config';
+import { useState } from 'react';
 import styles from './common.module.css';
 
 const sendOTP = () => {
@@ -28,6 +30,11 @@ const verifyOTP = () => {
 };
 
 export const SignupForm = () => {
+  const [phone, setPhone] = useState<PhoneValue>({
+    country: CountryCodeOptions[0],
+    number: '',
+  });
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>Sign up</div>
@@ -37,6 +44,8 @@ export const SignupForm = () => {
           countryCodes={CountryCodeOptions}
           onSendOTP={sendOTP}
           onVerifyOTP={verifyOTP}
+          value={phone}
+          onChange={setPhone}
         />
       </Labeled>
       <Labeled label="Email">

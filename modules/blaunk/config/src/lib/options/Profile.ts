@@ -1,8 +1,8 @@
 import { arrayOf, optionsFromStrings } from '@li/config/utils';
 import { FormSectionGroup } from '@li/types/design';
 import { Address } from './Address';
-import { BankNameOptions } from './Bank';
-import { CountryCodeOptions } from './Country';
+import { CountryBanksOptions } from './Banks';
+import { CountriesOption, CountryCodeOptions } from './Country';
 import { BankAccountType, YesNoOptions } from './General';
 import { IndustrySectorOptions } from './Industry';
 import { UserCategoryOption } from './User';
@@ -26,9 +26,8 @@ const profileSection = {
     form: ['general'],
   },
   bank: {
-    bankIndia: { form: ['bankIndia'] },
+    bank: { form: ['bank'] },
     upi: { form: ['upi'] },
-    bankInternational: { form: ['bankInternational'] },
     qrCode: { document: ['qrCode'] },
   },
   vendor: {
@@ -188,16 +187,12 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
     title: 'Bank',
     options: [
       {
-        id: 'bankIndia',
-        item: 'Indian Bank',
+        id: 'bank',
+        item: 'Bank',
       },
       {
         id: 'upi',
         item: 'UPI',
-      },
-      {
-        id: 'bankInternational',
-        item: 'International Bank',
       },
       {
         id: 'qrCode',
@@ -205,19 +200,40 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
       },
     ],
     items: {
-      bankIndia: {
+      bank: {
         form: [
           {
-            id: 'bankIndia',
-            title: 'Indian Bank',
+            id: 'bank',
+            title: 'Bank',
             items: [
               {
-                id: 'bankName',
-                label: 'Bank name',
-                placeholder: 'Bank name',
-                type: 'select',
-                options: BankNameOptions,
+                id: 'country',
+                label: 'Country',
+                placeholder: 'Country',
+                type: 'select-submenu',
+                options: CountriesOption,
+                optionsSub: CountryBanksOptions,
+                sub: {
+                  id: 'bankName',
+                  label: 'Bank name',
+                  placeholder: 'Bank name',
+                },
               },
+              // {
+              //   id: 'country',
+              //   label: 'Country',
+              //   placeholder: 'Country',
+              //   type: 'select',
+              //   options: CountriesOption,
+              // },
+              // {
+              //   id: 'bankName',
+              //   label: 'Bank name',
+              //   placeholder: 'Bank name',
+              //   type: 'select',
+              //   options: CountryBanksOptions.in,
+              // },
+
               {
                 id: 'accountNumber',
                 label: 'Account number',
@@ -254,31 +270,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
                 id: 'upiId',
                 label: 'UPI ID',
                 placeholder: 'UPI ID',
-              },
-            ],
-          },
-        ],
-      },
-      bankInternational: {
-        form: [
-          {
-            id: 'bankInternational',
-            title: 'International Bank',
-            items: [
-              {
-                id: 'bankName',
-                label: 'Bank name',
-                placeholder: 'Bank name',
-              },
-              {
-                id: 'accountNumber',
-                label: 'Account number',
-                placeholder: 'Account number',
-              },
-              {
-                id: 'micr',
-                label: 'MICR',
-                placeholder: 'MICR',
               },
             ],
           },

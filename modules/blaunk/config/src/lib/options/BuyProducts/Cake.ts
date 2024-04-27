@@ -110,7 +110,7 @@ const deliveryTime = [
 
 export const DeliveryTimeOptions = optionsFromStrings(deliveryTime);
 
-const quantity = Array.from({ length: 5 }, (_, i) => String(i + 1));
+const quantity = Array.from({ length: 6 }, (_, i) => String(i + 1));
 
 export const QuantityOptions = optionsFromStrings(quantity);
 

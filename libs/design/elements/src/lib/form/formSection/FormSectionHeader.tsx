@@ -1,7 +1,7 @@
 import type { FormSection as FS } from '@li/types/design';
-import formStyles from './form.module.css';
 import { ClassName } from '@li/types/shared';
 import clsx from 'clsx';
+import formStyles from './form.module.css';
 
 export type FormSectionTitle = { title: FS['title'] };
 

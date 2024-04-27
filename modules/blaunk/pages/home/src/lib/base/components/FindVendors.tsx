@@ -1,13 +1,7 @@
 'use client';
 
 import { grid } from '@li/config/design';
-import {
-  Button,
-  InputAndSelect,
-  InputArea,
-  Labeled,
-  Select,
-} from '@li/design/elements';
+import { Button, InputAndSelect, Labeled, Select } from '@li/design/elements';
 import {
   CountriesOption,
   MenuCategoriesIdType,
@@ -15,6 +9,7 @@ import {
   Purpose,
   SubMenuOptions,
   Units,
+  VendorRequirementOptions,
 } from '@md/blaunk/config';
 import { SocialItem } from '@md/blaunk/design';
 import clsx from 'clsx';
@@ -26,7 +21,9 @@ export const FindVendors = () => {
 
   return (
     <div className={clsx(styles.wrapper, grid['col-6'])}>
-      <div className={styles.heading}>Let us help you find best vendors</div>
+      <div className={styles.heading}>
+        Let us help you find the best venders
+      </div>
       <div className={styles.content}>
         <div className={styles.form}>
           <Labeled label="Country" className={styles['form-item']}>
@@ -73,11 +70,10 @@ export const FindVendors = () => {
             />
           </Labeled>
           <Labeled label="Requirements" className={styles['form-item-full']}>
-            <InputArea
-              rows={4}
-              className={styles['input-area']}
-              placeholder="Specify your requirements in max 500 words e.g. Name, color, size, MOQ, material, custom, etc."
-            />{' '}
+            <Select
+              placeholder="Select requirement"
+              options={VendorRequirementOptions}
+            />
           </Labeled>
         </div>
         <div className={styles.action}>

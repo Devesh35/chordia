@@ -6,12 +6,10 @@ import {
   CountrySearch,
   SearchBarWrapper,
   SearchButton,
-} from './SearchComponents';
+} from '@md/blaunk/design';
 import styles from './search.module.css';
 
 export const SearchBar = () => {
-  // const [selectedMenu, setSelectedMenu] = useState<MenuCategoriesIdType>();
-
   return (
     <SearchBarWrapper>
       <CountrySearch isStart />

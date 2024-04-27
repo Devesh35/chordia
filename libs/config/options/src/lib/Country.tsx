@@ -18,16 +18,16 @@ import {
   Vietnam,
 } from '@li/design/icons';
 import type {
-  CountryCode,
   CountryFlag as CF,
   CountryName as CN,
   CountryPhoneCode as CPC,
+  CountryCode,
 } from '@li/types/config';
 
 export const CountryName: { [k in CountryCode]: CN } = {
   ad: 'Andorra',
   // ae: 'United Arab Emirates',
-  ae: 'UAE',
+  ae: 'UAE-Dubai',
   af: 'Afghanistan',
   ag: 'Antigua & Barbuda',
   al: 'Albania',

@@ -7,10 +7,15 @@ import { Labeled } from '../../decorators';
 import formStyles from '../form.module.css';
 import { useFormConfig } from './FormConfigProvider';
 import { FormItemElement } from './FormItemElement';
+import { FormItemSubMenu } from './FormItemSubMenu';
 import styles from './form.module.css';
 
 export const FormItem = <D,>(props: FormSectionItem<D>) => {
   const { isEdit, hasBG } = useFormConfig();
+
+  if (props.type === 'select-submenu') {
+    return <FormItemSubMenu {...props} />;
+  }
 
   return (
     <Labeled

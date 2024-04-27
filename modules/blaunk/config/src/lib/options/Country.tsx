@@ -3,7 +3,7 @@ import { optionsFromObject } from '@li/config/utils';
 import { Country } from '@li/types/config';
 import { AvailableCurrencyCode } from './Currency';
 
-const codes = [
+export const availableCountryCode = [
   'in',
   'bh',
   'bd',
@@ -23,9 +23,9 @@ const codes = [
   'qa',
 ] as const;
 
-export type AvailableCountryCode = (typeof codes)[number];
+export type AvailableCountryCode = (typeof availableCountryCode)[number];
 
-export const AvailableCountries = codes
+export const AvailableCountries = availableCountryCode
   .map<Country | undefined>((code) =>
     CountryFlag[code]
       ? {
