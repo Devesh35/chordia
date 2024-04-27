@@ -14,6 +14,7 @@ export const FormItemSubMenu = <D,>(props: FormSectionItem<D>) => {
   const { isEdit, hasBG } = useFormConfig();
   const [superSelect, onSuperSelect] = useState<SelectItem>();
 
+  // using reach-hook-form would have been a lot better
   if (props.type === 'select-submenu') {
     const onSuperSelectChange = (e?: SelectItem) => {
       console.log(e);
