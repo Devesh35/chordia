@@ -229,6 +229,12 @@ export const Routes = {
       title: 'Vendor Register | Blaunk',
       path: '/vendor/register',
     },
+    requirement: {
+      seller: true,
+      isProtected: true,
+      title: 'Requirement | Blaunk',
+      path: '/vendor/requirement',
+    },
     dashboard: {
       seller: true,
       isProtected: true,

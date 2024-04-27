@@ -1,7 +1,6 @@
 'use client';
 
 import { MenuCategoriesIdType } from '@md/blaunk/config';
-import { useState } from 'react';
 import {
   ArticleSearch,
   BrandSearch,
@@ -9,7 +8,8 @@ import {
   GroupSearch,
   SearchBarWrapper,
   SearchButton,
-} from '../../components';
+} from '@md/blaunk/design';
+import { useState } from 'react';
 
 export const SearchBar = () => {
   const [selectedMenu, setSelectedMenu] = useState<MenuCategoriesIdType>();

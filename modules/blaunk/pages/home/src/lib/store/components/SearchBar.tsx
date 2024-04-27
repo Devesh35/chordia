@@ -6,7 +6,7 @@ import {
   SearchBarWrapper,
   SearchButton,
   StoreSearch,
-} from '../../components';
+} from '@md/blaunk/design';
 
 export const SearchBar = () => {
   // const [selectedMenu, setSelectedMenu] = useState<MenuCategoriesIdType>();
