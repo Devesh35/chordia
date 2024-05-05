@@ -45,6 +45,7 @@ export type FormSectionItem<D = string> = {
       value?: SelectItemElement;
       onChange?: (value?: SelectItem) => void;
       optionsSub: { [k: string]: SelectItem[] };
+      reverseOrder?: boolean;
       sub: {
         id: D;
         label: string;

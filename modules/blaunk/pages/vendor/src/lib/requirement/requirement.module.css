@@ -1,6 +1,11 @@
+.table {
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+}
+
 .table th {
   padding: unset;
-  padding-left: 0.5rem;
+  padding-inline: 0.5rem;
 }
 
 .table th,

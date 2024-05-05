@@ -9,6 +9,7 @@ export {
   CountryCodeOptions,
   type AvailableCountryCode,
 } from './Country';
+export { CountryStateOptions } from './CountryStates';
 export {
   AvailableCurrencyCode,
   CountryCurrency,

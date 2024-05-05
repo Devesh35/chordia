@@ -30,7 +30,7 @@ import {
 import { CustomerReviews } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { DetailsTable, PolicyAside, ReportIssue } from '../components';
+import { DetailsTable, PolicyAside, ReportIssueTable } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { RemindMe } from '../components/RemindMe';
@@ -295,14 +295,16 @@ export const Cake = () => {
               ]}
             />
           </div>
-          <div className={styles['report-issue']}>
+          {/* <div className={styles['report-issue']}>
             <ReportIssue name={selectedCake.name} />
-          </div>
+          </div> */}
         </div>
         <div className={clsx(grid['col-3'], styles.aside)}>
-          <Tariff />
-
-          <PolicyAside />
+          <div>
+            <Tariff />
+            <PolicyAside />
+          </div>
+          <ReportIssueTable />
         </div>
       </main>
       <div className={clsx(styles['add-on-header'])}>Add on</div>

@@ -33,6 +33,8 @@ type VenderSearch = {
   vendorCode: string;
   vendorCity: string;
   vendorMobile: string;
+  totalSearch: number;
+  numberOfComplains: number;
 };
 
 const columns = (
@@ -87,6 +89,14 @@ const columns = (
     name: 'Vendor Mobile',
   },
   {
+    id: 'totalSearch',
+    name: 'Total search',
+  },
+  {
+    id: 'numberOfComplains',
+    name: 'No. complains',
+  },
+  {
     id: 'id',
     name: 'Report',
     cellFormat: (data) => (
@@ -112,6 +122,8 @@ const data: VenderSearch[] = [
     vendorCode: 'OFN0294-104',
     vendorCity: 'Mumbai',
     vendorMobile: '9839854788',
+    numberOfComplains: 1,
+    totalSearch: 10,
   },
   {
     id: '2',
@@ -127,6 +139,8 @@ const data: VenderSearch[] = [
     vendorCode: 'OFN0294-104',
     vendorCity: 'Mumbai',
     vendorMobile: '9839854788',
+    numberOfComplains: 1,
+    totalSearch: 10,
   },
   {
     id: '3',
@@ -142,6 +156,8 @@ const data: VenderSearch[] = [
     vendorCode: 'OFN0294-104',
     vendorCity: 'Mumbai',
     vendorMobile: '9839854788',
+    numberOfComplains: 1,
+    totalSearch: 10,
   },
   {
     id: '4',
@@ -157,6 +173,8 @@ const data: VenderSearch[] = [
     vendorCode: 'OFN0294-104',
     vendorCity: 'Mumbai',
     vendorMobile: '9839854788',
+    numberOfComplains: 1,
+    totalSearch: 10,
   },
   {
     id: '5',
@@ -172,6 +190,8 @@ const data: VenderSearch[] = [
     vendorCode: 'OFN0294-104',
     vendorCity: 'Mumbai',
     vendorMobile: '9839854788',
+    numberOfComplains: 1,
+    totalSearch: 10,
   },
   {
     id: '6',
@@ -187,6 +207,8 @@ const data: VenderSearch[] = [
     vendorCode: 'OFN0294-104',
     vendorCity: 'Mumbai',
     vendorMobile: '9839854788',
+    numberOfComplains: 1,
+    totalSearch: 10,
   },
 ];
 

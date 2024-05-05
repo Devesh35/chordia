@@ -23,65 +23,78 @@ export const FormItemSubMenu = <D,>(props: FormSectionItem<D>) => {
       props.onChange?.(e);
     };
 
-    return (
+    const mainSelect = (
+      <Labeled
+        label={`${props.label}:`}
+        inline
+        className={clsx(
+          grid[`col-4`],
+          grid['col-t-4'],
+          grid['col-m-6'],
+          styles['item-label'],
+          { [styles['item-label-bg']]: hasBG },
+        )}
+      >
+        {isEdit && !props.isReadOnly ? (
+          <FormItemElement
+            {...props}
+            type="select"
+            onChange={onSuperSelectChange}
+          />
+        ) : (
+          <span className={formStyles['item-wrapper']}>
+            {props.placeholder}
+          </span>
+        )}
+      </Labeled>
+    );
+
+    const subSelect = (
+      <Labeled
+        label={`${props.sub.label}:`}
+        inline
+        className={clsx(
+          grid[`col-4`],
+          grid['col-t-4'],
+          grid['col-m-6'],
+          styles['item-label'],
+          { [styles['item-label-bg']]: hasBG },
+        )}
+      >
+        {isEdit && !props.isReadOnly ? (
+          <FormItemElement
+            {...props}
+            {...props.sub}
+            type="select"
+            options={
+              superSelect?.id
+                ? props.optionsSub[superSelect.id]
+                : [
+                    {
+                      id: 'no-parent',
+                      item: `Select ${props.label} first`,
+                      isDisabled: true,
+                    },
+                  ]
+            }
+          />
+        ) : (
+          <span className={formStyles['item-wrapper']}>
+            {props.sub.placeholder}
+          </span>
+        )}
+      </Labeled>
+    );
+
+    return props.reverseOrder ? (
       <>
-        <Labeled
-          label={`${props.label}:`}
-          inline
-          className={clsx(
-            grid[`col-4`],
-            grid['col-t-4'],
-            grid['col-m-6'],
-            styles['item-label'],
-            { [styles['item-label-bg']]: hasBG },
-          )}
-        >
-          {isEdit && !props.isReadOnly ? (
-            <FormItemElement
-              {...props}
-              type="select"
-              onChange={onSuperSelectChange}
-            />
-          ) : (
-            <span className={formStyles['item-wrapper']}>
-              {props.placeholder}
-            </span>
-          )}
-        </Labeled>
-        <Labeled
-          label={`${props.sub.label}:`}
-          inline
-          className={clsx(
-            grid[`col-4`],
-            grid['col-t-4'],
-            grid['col-m-6'],
-            styles['item-label'],
-            { [styles['item-label-bg']]: hasBG },
-          )}
-        >
-          {isEdit && !props.isReadOnly ? (
-            <FormItemElement
-              {...props}
-              {...props.sub}
-              type="select"
-              options={
-                superSelect?.id
-                  ? props.optionsSub[superSelect.id]
-                  : [
-                      {
-                        id: 'no-parent',
-                        item: `Select ${props.label} first`,
-                        isDisabled: true,
-                      },
-                    ]
-              }
-            />
-          ) : (
-            <span className={formStyles['item-wrapper']}>
-              {props.sub.placeholder}
-            </span>
-          )}
-        </Labeled>
+        {subSelect}
+        {mainSelect}
+      </>
+    ) : (
+      <>
+        {mainSelect}
+        {subSelect}
       </>
     );
   }

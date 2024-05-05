@@ -11,7 +11,7 @@ import styles from './store.module.css';
 export type StoreItem = {
   id: string;
   area: string;
-  cartValue: string;
+  minCartValue: string;
   city: string;
   currency: string;
   deliveredBy: string;
@@ -34,7 +34,7 @@ const dummyItem: StoreItem = {
   name: 'Bikaner sweets',
   rating: '4.5',
   reviewCount: '1.5k',
-  images: getRandomImagesArray(6)(600, 800, 'food'),
+  images: getRandomImagesArray(3)(450, 800, 'food'),
   timings: '9:00 AM - 9:00 PM',
   description:
     'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years.',
@@ -47,7 +47,7 @@ const dummyItem: StoreItem = {
   gstInvoice: 'Available',
   print: 'Not available',
   giftWrap: 'Available',
-  cartValue: '250', //500/1000',
+  minCartValue: '250', //500/1000',
   currency: 'INR',
 };
 

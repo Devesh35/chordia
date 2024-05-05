@@ -13,7 +13,6 @@ import { StoreItem } from '../Store';
 import styles from './selected-item.module.css';
 
 import { getRandomImagesArray } from '@md/blaunk/config';
-import { PolicyRow } from '@md/blaunk/design';
 import { AddOnCard } from '../../components/AddOnCard';
 
 type Props = {
@@ -28,12 +27,12 @@ const detailsOrder: (keyof StoreItem)[] = [
   'deliveredBy',
   'dispatchTime',
   'gstInvoice',
-  'print',
   'giftWrap',
-  'cartValue',
+  'minCartValue',
   'currency',
+  'timings',
 ];
-const addOn = getRandomImagesArray(5)(600, 600, 'food').map((src, i) => (
+const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
   <AddOnCard
     key={src}
     image={{
@@ -44,6 +43,7 @@ const addOn = getRandomImagesArray(5)(600, 600, 'food').map((src, i) => (
       enlargedHeight: 600,
       alt: 'random',
     }}
+    quantityDropDown
     items={[
       ['Article', 'Strawberry Cake'],
       ['MRP', '$20'],
@@ -65,17 +65,17 @@ export const SelectedItem = ({ data }: Props) => {
     <div className={styles.wrapper}>
       <div className={styles['product-details']}>
         <div className={styles['product-image']}>
-          <div className={clsx(styles['product-header'])}>
+          {/* <div className={clsx(styles['product-header'])}>
             <div>{data.name}</div>
             <div>{data.timings}</div>
-          </div>
+          </div> */}
           <Carousal className={styles['product-images']}>
             {data.images.map((src, i) => (
               <Image
                 key={src}
                 src={src}
                 width={800}
-                height={600}
+                height={450}
                 alt={data.name}
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
@@ -90,13 +90,16 @@ export const SelectedItem = ({ data }: Props) => {
           <div className={styles['product-info-section']}>
             <div className={styles['product-info-left']}>
               <div className={styles['product-header']}>
+                {data.name}
                 <Image
                   src={getStaticImageSrc(assurance)}
                   alt="Bk assurance"
                   width={120}
                   height={40}
                 />
-                <div>Rating 4.5</div>
+                <div className={styles['product-header-rating']}>
+                  Rating 4.5
+                </div>
               </div>
               <div className={styles['product-header']}>
                 <div className={styles['deal']}>Deal</div>
@@ -112,7 +115,7 @@ export const SelectedItem = ({ data }: Props) => {
           </div>
         </div>
       </div>
-      <PolicyRow />
+      {/* <PolicyRow /> */}
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
