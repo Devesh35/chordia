@@ -13,7 +13,6 @@ import { StoreItem } from '../Store';
 import styles from './selected-item.module.css';
 
 import { getRandomImagesArray } from '@md/blaunk/config';
-import { PolicyRow } from '@md/blaunk/design';
 import { AddOnCard } from '../../components/AddOnCard';
 
 type Props = {
@@ -75,7 +74,7 @@ export const SelectedItem = ({ data }: Props) => {
                 key={src}
                 src={src}
                 width={800}
-                height={600}
+                height={450}
                 alt={data.name}
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
@@ -112,7 +111,7 @@ export const SelectedItem = ({ data }: Props) => {
           </div>
         </div>
       </div>
-      <PolicyRow />
+      {/* <PolicyRow /> */}
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>

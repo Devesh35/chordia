@@ -27,7 +27,7 @@ import {
 } from '@li/design/icons';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { DetailsTable, PolicyAside, ReportIssue } from '../components';
+import { DetailsTable, PolicyAside, ReportIssueTable } from '../components';
 import { RemindMe } from '../components/RemindMe';
 import { Tariff } from '../components/Tariff';
 import { Amenities } from './Amenities';
@@ -301,13 +301,16 @@ export const Tour = () => {
               </tbody>
             </table>
           </div>
-          <div className={styles['report-issue']}>
+          {/* <div className={styles['report-issue']}>
             <ReportIssue name={selectedTour.name} />
-          </div>
+          </div> */}
         </div>
         <div className={clsx(grid['col-3'], styles.aside)}>
-          <Tariff />
-          <PolicyAside />
+          <div>
+            <Tariff />
+            <PolicyAside />
+          </div>
+          <ReportIssueTable />
         </div>
       </main>
       <div className={clsx(styles['add-on-header'])}>Recently viewed</div>

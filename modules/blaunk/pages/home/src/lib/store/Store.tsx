@@ -34,7 +34,7 @@ const dummyItem: StoreItem = {
   name: 'Bikaner sweets',
   rating: '4.5',
   reviewCount: '1.5k',
-  images: getRandomImagesArray(6)(600, 800, 'food'),
+  images: getRandomImagesArray(6)(200, 800, 'food'),
   timings: '9:00 AM - 9:00 PM',
   description:
     'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years.',
