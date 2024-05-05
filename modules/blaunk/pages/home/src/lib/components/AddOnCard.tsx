@@ -1,25 +1,36 @@
+import { QuantitySelector } from '@li/design/components';
 import {
   Button,
   EnlargeableImage,
   EnlargeableImageProps,
+  Select,
 } from '@li/design/elements';
-import styles from './add-on-card.module.css';
+import { QuantityOptions } from '@md/blaunk/config';
 import clsx from 'clsx';
-import { QuantitySelector } from '@li/design/components';
+import styles from './add-on-card.module.css';
 
 type AddOnCardProps = {
   image: EnlargeableImageProps;
   items: [string, string][];
+  quantityDropDown?: boolean;
 };
 
-export const AddOnCard = ({ image, items }: AddOnCardProps) => {
+export const AddOnCard = ({
+  image,
+  items,
+  quantityDropDown = false,
+}: AddOnCardProps) => {
   return (
     <div className={styles.card}>
       <EnlargeableImage {...image} />
       <div className={clsx(styles.item)}>
         <span>Quantity</span>
         <span className={styles.quantity}>
-          <QuantitySelector max={20} />
+          {quantityDropDown ? (
+            <Select options={QuantityOptions} maxHeight={200} />
+          ) : (
+            <QuantitySelector max={20} />
+          )}
         </span>
       </div>
       {items.map(([label, value]) => (
