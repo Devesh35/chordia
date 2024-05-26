@@ -52,7 +52,7 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map(
   ),
 );
 
-const addOn = getRandomImagesArray(7)(600).map((src, i) => (
+const addOn = getRandomImagesArray(3)(600).map((src, i) => (
   <AddOnCard
     key={src}
     image={{
@@ -69,7 +69,7 @@ const addOn = getRandomImagesArray(7)(600).map((src, i) => (
       ['Price', '$13'],
       // ['Rating', '4.5'],
       // ['Reviews', '1.5k Reviews'],
-      ['Weight/Units', '1kg'],
+      // ['Weight/Units', '1kg'],
     ]}
   />
 ));
@@ -149,7 +149,7 @@ export const Cake = () => {
                   <Star fill="var(--secondary)" width={16} height={16} />
                 </div>
               </div>
-              <div className={styles.address}>{selectedCake.address}</div>
+              {/* <div className={styles.address}>{selectedCake.address}</div> */}
               <div className={styles['item-half']}>
                 <div className={styles.occasion}>{selectedCake.occasion}</div>
                 <div className={styles.type}>{selectedCake.type}</div>
@@ -252,7 +252,7 @@ export const Cake = () => {
                     ['Delivery charges', 'Free/NA'],
                     ['Min-Basket value', 'Rs.250'],
                     // ['Land mark', 'Temple'],
-                    ['Free delivery', '2.5km'],
+                    ['Free delivery', 'Up to 2.5km'],
                   ]}
                 />
               </div>
@@ -275,7 +275,8 @@ export const Cake = () => {
               data={[
                 ['Complimentary', 'Knife, Candles, Box packing, Card, Flower'],
                 ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
-                ['Vendor details', 'Company cake & co, Kalyan'],
+                ['Vendor details', 'Company cake & co'],
+                ['Address', selectedCake.address],
                 ['Vendor GST/Vat No', 'ABCD1920AHS2839'],
               ]}
             />
@@ -291,7 +292,8 @@ export const Cake = () => {
                   'Delivery Condition ',
                   'We Accept & Deliver your valued orders only on our shop Timing.',
                 ],
-                ['Bulk', 'No'],
+                ['Party orders', 'No'],
+                ['GST Invoice', 'Yes'],
               ]}
             />
           </div>
@@ -299,8 +301,8 @@ export const Cake = () => {
             <ReportIssue name={selectedCake.name} />
           </div> */}
         </div>
-        <div className={clsx(grid['col-3'], styles.aside)}>
-          <div>
+        <div className={clsx(grid['col-3'])}>
+          <div className={styles.aside}>
             <Tariff />
             <PolicyAside />
           </div>

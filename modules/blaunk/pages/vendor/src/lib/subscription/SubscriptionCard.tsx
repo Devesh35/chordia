@@ -1,20 +1,22 @@
 'use client';
 
 import { capitalize } from '@li/config/utils';
-import styles from './subscription.module.css';
 import { Button, Modal } from '@li/design/elements';
 import { withConditionCase } from '@li/design/enhancers';
-import clsx from 'clsx';
 import { ClassName } from '@li/types/shared';
+import { ProductType, SubscriptionStatus } from '@md/blaunk/config';
+import clsx from 'clsx';
 import { useState } from 'react';
 import { NewSubscription } from './NewSubscription';
-import { ProductType, SubscriptionStatus } from '@md/blaunk/config';
+import styles from './subscription.module.css';
 
 type SubscriptionCardProps = {
   id: ProductType;
   icon: string;
   name: string;
   status?: SubscriptionStatus;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ui?: any;
 } & Partial<ClassName>;
 
 export const SubscriptionCard = ({
@@ -23,6 +25,7 @@ export const SubscriptionCard = ({
   name,
   status = 'inactive',
   className,
+  ui,
 }: SubscriptionCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +36,7 @@ export const SubscriptionCard = ({
         onClose={() => setIsOpen(false)}
         title="Subscription"
       >
-        <NewSubscription id={id} />
+        <NewSubscription id={id} ui={ui} />
       </Modal>
 
       <div

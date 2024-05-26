@@ -22,6 +22,7 @@ import styles from './requirement.module.css';
 type VenderSearch = {
   id: string;
   country: string;
+  pinCode: string;
   group: string;
   article: string;
   purpose: string;
@@ -43,6 +44,10 @@ const columns = (
   {
     id: 'country',
     name: 'Country',
+  },
+  {
+    id: 'pinCode',
+    name: 'Pin-code',
   },
   {
     id: 'group',
@@ -124,6 +129,7 @@ const data: VenderSearch[] = [
     vendorMobile: '9839854788',
     numberOfComplains: 1,
     totalSearch: 10,
+    pinCode: '400001',
   },
   {
     id: '2',
@@ -141,6 +147,7 @@ const data: VenderSearch[] = [
     vendorMobile: '9839854788',
     numberOfComplains: 1,
     totalSearch: 10,
+    pinCode: '400001',
   },
   {
     id: '3',
@@ -158,6 +165,7 @@ const data: VenderSearch[] = [
     vendorMobile: '9839854788',
     numberOfComplains: 1,
     totalSearch: 10,
+    pinCode: '400001',
   },
   {
     id: '4',
@@ -175,6 +183,7 @@ const data: VenderSearch[] = [
     vendorMobile: '9839854788',
     numberOfComplains: 1,
     totalSearch: 10,
+    pinCode: '400001',
   },
   {
     id: '5',
@@ -192,6 +201,7 @@ const data: VenderSearch[] = [
     vendorMobile: '9839854788',
     numberOfComplains: 1,
     totalSearch: 10,
+    pinCode: '400001',
   },
   {
     id: '6',
@@ -209,6 +219,7 @@ const data: VenderSearch[] = [
     vendorMobile: '9839854788',
     numberOfComplains: 1,
     totalSearch: 10,
+    pinCode: '400001',
   },
 ];
 

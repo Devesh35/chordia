@@ -45,9 +45,19 @@ export const ProductSpecification: FormSection = {
       placeholder: 'Weight',
     },
     {
+      id: 'shipping-weight',
+      label: 'Shipping weight',
+      placeholder: 'Shipping Weight',
+    },
+    {
       id: 'dimensionLxBxH',
       label: 'Dimension LxBxH (cms)',
       placeholder: 'Dimension LxBxH (cms)',
+    },
+    {
+      id: 'dimensionLxBxH-inch',
+      label: 'Dimension LxBxH (inch)',
+      placeholder: 'Dimension LxBxH (inch)',
     },
     {
       id: 'returnDays',

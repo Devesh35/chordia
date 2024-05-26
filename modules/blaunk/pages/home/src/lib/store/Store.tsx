@@ -27,6 +27,8 @@ export type StoreItem = {
   rating: string;
   reviewCount: string;
   timings: string;
+  complaintsRaised: number;
+  complaintsResolved: number;
 };
 
 const dummyItem: StoreItem = {
@@ -49,6 +51,8 @@ const dummyItem: StoreItem = {
   giftWrap: 'Available',
   minCartValue: '250', //500/1000',
   currency: 'INR',
+  complaintsRaised: 10,
+  complaintsResolved: 5,
 };
 
 const images = getRandomImagesArray(6)(

@@ -172,6 +172,13 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Category',
             options: UserCategoryOption,
           },
+          {
+            id: 'voucher-code',
+            type: 'select',
+            label: 'Enable code',
+            placeholder: 'Enable',
+            options: YesNoOptions,
+          },
           // {
           //   id: 'payMode',
           //   type: 'select',

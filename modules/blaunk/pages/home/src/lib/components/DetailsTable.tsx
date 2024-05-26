@@ -1,6 +1,6 @@
 import { ClassName } from '@li/types/shared';
-import styles from './details-table.module.css';
 import clsx from 'clsx';
+import styles from './details-table.module.css';
 
 type Props = {
   data: [string, React.ReactNode][];

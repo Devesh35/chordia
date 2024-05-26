@@ -39,6 +39,13 @@ export const AddOnCard = ({
           <span>{value}</span>
         </div>
       ))}
+      <div className={styles.item}>
+        <span>Weight/Units</span>
+        <span>
+          <QuantitySelector max={6} />
+        </span>
+      </div>
+
       <Button variant="secondary">Add to cart</Button>
     </div>
   );

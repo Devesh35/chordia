@@ -101,4 +101,22 @@ export const subscriptionConfig = {
       },
     ],
   },
+  requirement: {
+    id: 'requirement',
+    name: 'Requirement',
+    icon: randomImageUrl(96),
+    items: [
+      {
+        category: 'All',
+        options: [
+          { page: 1, fee: 100 },
+          { page: 3, fee: 275 },
+          { page: 6, fee: 500 },
+        ],
+      },
+    ],
+    ui: {
+      Listing: 'Validity (months)',
+    },
+  },
 } as const;
