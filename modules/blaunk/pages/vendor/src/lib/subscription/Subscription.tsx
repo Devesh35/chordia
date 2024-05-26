@@ -1,11 +1,11 @@
+import { grid } from '@li/config/design';
 import {
   ProductType,
   SubscriptionStatus,
   subscriptionConfig,
 } from '@md/blaunk/config';
-import { SubscriptionCard } from './SubscriptionCard';
-import { grid } from '@li/config/design';
 import clsx from 'clsx';
+import { SubscriptionCard } from './SubscriptionCard';
 import styles from './subscription.module.css';
 
 const dummy = [
@@ -27,6 +27,10 @@ const dummy = [
   },
   {
     id: 'cake',
+    status: 'inactive' as const,
+  },
+  {
+    id: 'requirement',
     status: 'inactive' as const,
   },
 ].reduce((a, c) => ({ ...a, [c.id]: c.status }), {}) as Record<

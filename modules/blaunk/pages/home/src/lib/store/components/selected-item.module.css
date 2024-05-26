@@ -140,8 +140,8 @@
 }
 
 .product-info-right > table {
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
 }
 
 .product-info-right > table td {

@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import styles from './quantity-selector.module.css';
 import { useState } from 'react';
+import styles from './quantity-selector.module.css';
 
 type Props = {
   max: number;

@@ -1,8 +1,9 @@
 import { FormSectionGroup } from '@li/types/design';
-import { tourSegmentOptions } from '../Tour';
 import { Address } from '../Address';
-import { ArrivingTimeOptions, SpecialRequestsOptions } from '../BuyProducts';
+import { SpecialRequestsOptions } from '../BuyProducts';
+import { CountryCodeOptions } from '../Country';
 import { YesNoOptions } from '../General';
+import { tourSegmentOptions } from '../Tour';
 
 const tourSection = {
   'tour-details': {
@@ -54,10 +55,11 @@ export const TourProductDetails: FormSectionGroup<typeof tourSection> = {
           },
           {
             id: 'timing',
-            label: 'Timing',
-            placeholder: 'Timing',
-            type: 'select',
-            options: ArrivingTimeOptions,
+            label: 'Check-In time',
+            placeholder: 'Enter Check-In time',
+            type: 'text',
+            // type: 'select',
+            // options: ArrivingTimeOptions,
           },
           {
             id: 'availability',
@@ -77,6 +79,25 @@ export const TourProductDetails: FormSectionGroup<typeof tourSection> = {
             label: 'Size (Sq.ft.)',
             placeholder: 'Size',
             type: 'number',
+          },
+          {
+            id: 'phone',
+            label: 'Contact Number',
+            placeholder: 'Contact Number',
+            type: 'phone',
+            countryCodes: CountryCodeOptions,
+          },
+          {
+            id: 'special-offer',
+            label: 'Special Offer',
+            placeholder: 'Special Offer',
+            type: 'text',
+          },
+          {
+            id: 'pet-policy',
+            label: 'Deal',
+            placeholder: 'Deal',
+            type: 'text',
           },
         ],
       },

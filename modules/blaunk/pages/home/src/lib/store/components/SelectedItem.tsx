@@ -31,6 +31,8 @@ const detailsOrder: (keyof StoreItem)[] = [
   'minCartValue',
   'currency',
   'timings',
+  'complaintsRaised',
+  'complaintsResolved',
 ];
 const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
   <AddOnCard
@@ -110,7 +112,7 @@ export const SelectedItem = ({ data }: Props) => {
               </Labeled>
             </div>
             <div className={styles['product-info-right']}>
-              <DetailsTable data={detailsData} keyColWidth={200} />
+              <DetailsTable   data={detailsData} keyColWidth={220} />
             </div>
           </div>
         </div>

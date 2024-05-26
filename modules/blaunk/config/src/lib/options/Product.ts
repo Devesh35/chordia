@@ -1,8 +1,8 @@
 import { optionsFromStrings } from '@li/config/utils';
 import { FormSectionGroup } from '@li/types/design';
+import { CompanyProfile } from './CompanyProfile';
 import { Export } from './Export';
 import { ProductSpecification } from './ProductSpecification';
-import { CompanyProfile } from './CompanyProfile';
 
 export const productType = [
   'BGT',
@@ -10,6 +10,7 @@ export const productType = [
   'Cake',
   'Boutique',
   'Store',
+  'requirement',
 ] as const;
 export type ProductType = Lowercase<(typeof productType)[number]>;
 export const ProductTypeOptions = optionsFromStrings(productType);

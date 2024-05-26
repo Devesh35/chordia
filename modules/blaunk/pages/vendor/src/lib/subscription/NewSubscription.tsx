@@ -7,16 +7,17 @@ import {
   Select,
   SelectSuper,
 } from '@li/design/elements';
+import { withCondition } from '@li/design/enhancers';
+import { SelectItemElement } from '@li/types/design';
 import { ProductType, subscriptionConfig } from '@md/blaunk/config';
-import styles from './subscription-modal.module.css';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
-import { SelectItemElement } from '@li/types/design';
-import { withCondition } from '@li/design/enhancers';
+import styles from './subscription-modal.module.css';
 
 type OptionType = SelectItemElement & { item: number; fee: number };
-
-export const NewSubscription = ({ id }: { id: ProductType }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Props = { id: ProductType; ui?: any };
+export const NewSubscription = ({ id, ui }: Props) => {
   const selectedItem = subscriptionConfig[id].items;
 
   const [selectedCategory, setSelectedCategory] = useState<SelectItemElement>();
@@ -48,12 +49,14 @@ export const NewSubscription = ({ id }: { id: ProductType }) => {
     [selectedItemCategory],
   );
 
+  console.log({ selectedCategory, selectedItemCategory, selectedOption });
+
   return (
     <div className={styles.content}>
       <Labeled label="Category">
         <Select options={categoryOptions} onChange={setSelectedCategory} />
       </Labeled>
-      <Labeled label="Listing Page">
+      <Labeled label={ui?.Listing || 'Listing Page'}>
         {withCondition(!!selectedCategory)(
           <Select
             options={listingOptions}
@@ -70,10 +73,16 @@ export const NewSubscription = ({ id }: { id: ProductType }) => {
           <div className={clsx(styles['total-wrapper'])}>
             <div className={styles.charges}>Charges</div>
             <Labeled label="Fees">
-              <Input isReadOnly value={selectedOption?.fee || 0} />
+              <span className={styles['fees-item']}>
+                {selectedOption?.fee || 0}
+              </span>
+              {/* <Input isReadOnly value={selectedOption?.fee || 0} /> */}
             </Labeled>
             <Labeled label="GST (18%)">
-              <Input isReadOnly value={(selectedOption?.fee || 0) * 0.18} />
+              <span className={styles['fees-item']}>
+                {(selectedOption?.fee || 0) * 0.18}
+              </span>
+              {/* <Input isReadOnly value={(selectedOption?.fee || 0) * 0.18} /> */}
             </Labeled>
             {withCondition(!!selectedOption?.fee)(
               <Labeled label="Voucher">
@@ -81,7 +90,10 @@ export const NewSubscription = ({ id }: { id: ProductType }) => {
               </Labeled>,
             )}
             <Labeled label="Total">
-              <Input isReadOnly value={(selectedOption?.fee || 0) * 1.18} />
+              <span className={styles['fees-item']}>
+                {(selectedOption?.fee || 0) * 1.18}
+              </span>
+              {/* <Input isReadOnly value={(selectedOption?.fee || 0) * 1.18} /> */}
             </Labeled>
           </div>
           <Button className={styles.proceed}>Proceed</Button>

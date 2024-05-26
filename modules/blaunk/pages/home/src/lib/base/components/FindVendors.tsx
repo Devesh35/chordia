@@ -1,7 +1,13 @@
 'use client';
 
 import { grid } from '@li/config/design';
-import { Button, InputAndSelect, Labeled, Select } from '@li/design/elements';
+import {
+  Button,
+  Input,
+  InputAndSelect,
+  Labeled,
+  Select,
+} from '@li/design/elements';
 import {
   CountriesOption,
   MenuCategoriesIdType,
@@ -33,6 +39,9 @@ export const FindVendors = () => {
               maxHeight={200}
             />
           </Labeled>
+          <Labeled label="Pin-code" className={styles['form-item']}>
+            <Input placeholder="Enter pin-code" type="number" />
+          </Labeled>
           <Labeled label="Group" className={styles['form-item']}>
             <Select
               placeholder="Select group"
@@ -52,12 +61,6 @@ export const FindVendors = () => {
               maxHeight={200}
             />
           </Labeled>
-          <Labeled label="Purpose" className={styles['form-item']}>
-            <Select
-              options={Purpose.map((i) => ({ id: i.id, item: i.label }))}
-              placeholder="Select purpose"
-            />
-          </Labeled>
           <Labeled label="Qty" className={styles['form-item-full']}>
             <InputAndSelect
               input={{ placeholder: 'Enter qty', type: 'number' }}
@@ -69,7 +72,13 @@ export const FindVendors = () => {
               inputFlex={0.9}
             />
           </Labeled>
-          <Labeled label="Requirements" className={styles['form-item-full']}>
+          <Labeled label="Purpose" className={styles['form-item-full']}>
+            <Select
+              options={Purpose.map((i) => ({ id: i.id, item: i.label }))}
+              placeholder="Select purpose"
+            />
+          </Labeled>
+          <Labeled label="Requirements" className={styles['form-item']}>
             <Select
               placeholder="Select requirement"
               options={VendorRequirementOptions}

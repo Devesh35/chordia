@@ -9,7 +9,7 @@ export const ReportIssueTable = () => {
         keyColWidth={200}
         data={[
           ['Number of complaints', '10'],
-          ['complaints resolved', '5'],
+          ['Complaints resolved', '5'],
         ]}
       />
     </div>

@@ -38,7 +38,7 @@ export const NavMenuItems: NavMenuItem[] = [
   { id: 'shipments', item: 'Shipments', path: Routes.vendor.shipments.path },
   {
     id: 'requirement',
-    item: 'Requirement',
+    item: 'Search buyer',
     path: Routes.vendor.requirement.path,
   },
   { id: 'divider' },
