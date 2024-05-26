@@ -4,14 +4,15 @@ import { capitalize } from '@li/config/utils';
 import { Button, Modal } from '@li/design/elements';
 import { withConditionCase } from '@li/design/enhancers';
 import { ClassName } from '@li/types/shared';
-import { ProductType, SubscriptionStatus } from '@md/blaunk/config';
+import { SubscriptionStatus } from '@md/blaunk/config';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { NewSubscription } from './NewSubscription';
+import { SubscriptionProduct } from './Subscription';
 import styles from './subscription.module.css';
 
 type SubscriptionCardProps = {
-  id: ProductType;
+  id: SubscriptionProduct;
   icon: string;
   name: string;
   status?: SubscriptionStatus;

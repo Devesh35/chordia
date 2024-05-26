@@ -9,14 +9,15 @@ import {
 } from '@li/design/elements';
 import { withCondition } from '@li/design/enhancers';
 import { SelectItemElement } from '@li/types/design';
-import { ProductType, subscriptionConfig } from '@md/blaunk/config';
+import { subscriptionConfig } from '@md/blaunk/config';
 import clsx from 'clsx';
 import { useEffect, useMemo, useState } from 'react';
+import { SubscriptionProduct } from './Subscription';
 import styles from './subscription-modal.module.css';
 
 type OptionType = SelectItemElement & { item: number; fee: number };
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Props = { id: ProductType; ui?: any };
+type Props = { id: SubscriptionProduct; ui?: any };
 export const NewSubscription = ({ id, ui }: Props) => {
   const selectedItem = subscriptionConfig[id].items;
 

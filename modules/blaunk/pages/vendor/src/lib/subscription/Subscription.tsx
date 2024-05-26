@@ -8,6 +8,8 @@ import clsx from 'clsx';
 import { SubscriptionCard } from './SubscriptionCard';
 import styles from './subscription.module.css';
 
+export type SubscriptionProduct = ProductType | 'requirement';
+
 const dummy = [
   {
     id: 'bgt',
@@ -34,7 +36,7 @@ const dummy = [
     status: 'inactive' as const,
   },
 ].reduce((a, c) => ({ ...a, [c.id]: c.status }), {}) as Record<
-  ProductType,
+  SubscriptionProduct,
   SubscriptionStatus
 >;
 
