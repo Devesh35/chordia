@@ -235,6 +235,10 @@ export const Tour = () => {
                     'Description',
                     'Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city.',
                   ],
+                  ['Pet allowed', 'Yes'],
+                  ['Taxes', 'Extra'],
+                  ['Currency  Exchange', 'No'],
+                  ['Pay Mode', 'Cash'],
                 ]}
               />
               <div className={styles.amenities}>
@@ -274,32 +278,22 @@ export const Tour = () => {
             <Amenities />
           </div>
           <div className={clsx(styles['vendor-info'], styles.info2)}>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Special Request</td>
-                  <td>
-                    <Select options={SpecialRequestsOptions} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Deal :</td>
-                  <td>Orders above Rs 5000 get gift hamper worth rs 500</td>
-                </tr>
-                <tr>
-                  <td>GST Invoice</td>
-                  <td>Yes</td>
-                </tr>
-                <tr>
-                  <td>Vendor Details :</td>
-                  <td>Company cake & co, Kalyan</td>
-                </tr>
-                <tr>
-                  <td>Vendor GST/VAT No :</td>
-                  <td>ABCD1920AHS2839</td>
-                </tr>
-              </tbody>
-            </table>
+            <DetailsTable
+              data={[
+                [
+                  'Special Request',
+                  <Select options={SpecialRequestsOptions} />,
+                ],
+                ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
+                ['GST Invoice', 'Yes'],
+                ['Company name ', 'Company cake & co, Kalyan'],
+                ['Address', 'Kalyan, 400400'],
+                ['Reception no.', '+919929988288'],
+                ['Whatsapp ', '+918899889988'],
+                ['Cus care email', 'cake@company.co'],
+                ['Vendor GST/VAT No', 'ABCD1920AHS2839'],
+              ]}
+            />
           </div>
           {/* <div className={styles['report-issue']}>
             <ReportIssue name={selectedTour.name} />

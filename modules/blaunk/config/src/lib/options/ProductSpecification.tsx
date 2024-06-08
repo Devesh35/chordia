@@ -4,6 +4,11 @@ export const ProductSpecification: FormSection = {
   id: 'productSpecificationDetails',
   title: 'Product Specification Details',
   items: [
+    { id: 'Group', label: 'Group', placeholder: 'mens' },
+    { id: 'Brand', label: 'Brand', placeholder: 'Armani' },
+    { id: 'Article', label: 'Article', placeholder: 'Jeans' },
+    { id: 'HSN code', label: 'HSN code', placeholder: '23456778' },
+    { id: 'Tax Rate', label: 'Tax Rate', placeholder: '5%' },
     {
       id: 'material',
       label: 'Material',

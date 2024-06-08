@@ -17,12 +17,12 @@ export const QuantitySelector = ({ max, dx = 1 }: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={clsx(styles.item, styles.button)} onClick={update(dx)}>
-        +
-      </div>
-      <div className={clsx(styles.item, styles.quantity)}>{quantity}</div>
       <div className={clsx(styles.item, styles.button)} onClick={update(-dx)}>
         -
+      </div>
+      <div className={clsx(styles.item, styles.quantity)}>{quantity}</div>
+      <div className={clsx(styles.item, styles.button)} onClick={update(dx)}>
+        +
       </div>
     </div>
   );

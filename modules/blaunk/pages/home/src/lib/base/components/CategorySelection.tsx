@@ -1,8 +1,8 @@
+import { sbs } from '@li/config/design';
 import { Accordion } from '@li/design/elements';
 import { MenuCategories, MenuCategoriesIdType } from '@md/blaunk/config';
-import styles from './category-selection.module.css';
 import clsx from 'clsx';
-import { sbs } from '@li/config/design';
+import styles from './category-selection.module.css';
 
 type Props = {
   selectedCategory: MenuCategoriesIdType;

@@ -45,9 +45,9 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
       enlargedHeight: 600,
       alt: 'random',
     }}
+    name="Strawberry Cake"
     quantityDropDown
     items={[
-      ['Article', 'Strawberry Cake'],
       ['MRP', '$20'],
       ['Price', '$13'],
       // ['Rating', '4.5'],
@@ -112,7 +112,7 @@ export const SelectedItem = ({ data }: Props) => {
               </Labeled>
             </div>
             <div className={styles['product-info-right']}>
-              <DetailsTable   data={detailsData} keyColWidth={220} />
+              <DetailsTable data={detailsData} keyColWidth={220} />
             </div>
           </div>
         </div>

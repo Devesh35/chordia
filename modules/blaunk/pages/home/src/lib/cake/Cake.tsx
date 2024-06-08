@@ -52,9 +52,10 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map(
   ),
 );
 
-const addOn = getRandomImagesArray(3)(600).map((src, i) => (
+const addOn = getRandomImagesArray(6)(600).map((src, i) => (
   <AddOnCard
     key={src}
+    name="Strawberry Cake"
     image={{
       src: src,
       width: 120,
@@ -64,13 +65,13 @@ const addOn = getRandomImagesArray(3)(600).map((src, i) => (
       alt: 'random',
     }}
     items={[
-      ['Article', 'Strawberry Cake'],
       ['MRP', '$20'],
       ['Price', '$13'],
       // ['Rating', '4.5'],
       // ['Reviews', '1.5k Reviews'],
       // ['Weight/Units', '1kg'],
     ]}
+    weightSelect
   />
 ));
 
@@ -278,11 +279,7 @@ export const Cake = () => {
                 ['Vendor details', 'Company cake & co'],
                 ['Address', selectedCake.address],
                 ['Vendor GST/Vat No', 'ABCD1920AHS2839'],
-              ]}
-            />
-            <DetailsTable
-              keyColWidth={160}
-              data={[
+
                 ['Are you Govt registered Shop', 'Yes'],
                 ['Supply from ', 'Cloud Kitchen'],
                 ['Customized Order ', 'Yes'],

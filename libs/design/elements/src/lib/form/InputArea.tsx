@@ -66,7 +66,7 @@ export const InputArea = ({
       <textarea
         {...props}
         prefix={prefix}
-        readOnly={isReadOnly}
+        readOnly={isReadOnly || !props.onChange}
         disabled={isDisabled}
         ref={inputRef}
         className={clsx(styles.input, sbs.dark)}
