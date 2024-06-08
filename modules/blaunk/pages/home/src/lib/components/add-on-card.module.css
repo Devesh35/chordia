@@ -17,5 +17,5 @@
 }
 
 .quantity {
-  flex: 0.5;
+  flex: 0 0 100px;
 }

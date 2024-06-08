@@ -1,4 +1,7 @@
-import { QuantitySelector } from '@li/design/components';
+import {
+  QuantitySelector,
+  QuantitySelectorDropdown,
+} from '@li/design/components';
 import {
   Button,
   EnlargeableImage,
@@ -12,17 +15,47 @@ import styles from './add-on-card.module.css';
 type AddOnCardProps = {
   image: EnlargeableImageProps;
   items: [string, string][];
+  name: string;
   quantityDropDown?: boolean;
+  weightSelect?: boolean;
 };
+
+const options = [
+  {
+    id: '1',
+    item: '1 Kg',
+  },
+  {
+    id: '2',
+    item: '2 Kg',
+  },
+  {
+    id: '3',
+    item: '3 Kg',
+  },
+  {
+    id: '4',
+    item: '4 Kg',
+  },
+  {
+    id: '5',
+    item: '5 Kg',
+  },
+];
 
 export const AddOnCard = ({
   image,
   items,
+  name,
   quantityDropDown = false,
+  weightSelect = false,
 }: AddOnCardProps) => {
   return (
     <div className={styles.card}>
       <EnlargeableImage {...image} />
+      <div className={styles.item}>
+        <span>{name}</span>
+      </div>
       <div className={clsx(styles.item)}>
         <span>Quantity</span>
         <span className={styles.quantity}>
@@ -33,18 +66,21 @@ export const AddOnCard = ({
           )}
         </span>
       </div>
+      {weightSelect && (
+        <div className={styles.item}>
+          <span>Weight/Units</span>
+          <span className={styles.quantity}>
+            <QuantitySelectorDropdown maxHeight={140} options={options} />
+          </span>
+        </div>
+      )}
+
       {items.map(([label, value]) => (
         <div key={label} className={styles.item}>
           <span>{label}</span>
           <span>{value}</span>
         </div>
       ))}
-      <div className={styles.item}>
-        <span>Weight/Units</span>
-        <span>
-          <QuantitySelector max={6} />
-        </span>
-      </div>
 
       <Button variant="secondary">Add to cart</Button>
     </div>

@@ -85,3 +85,6 @@ const vendorResponseTime = [
 export const VendorResponseTime = optionsFromStrings(vendorResponseTime);
 const vendorLanguage = ['English', 'Hindi', 'Tamil', 'Urdu', 'Arabic'] as const;
 export const VendorLanguage = optionsFromStrings(vendorLanguage);
+
+const paymentType = ['Cash', 'Debit card', 'Credit Card', 'Wallet'];
+export const PaymentType = optionsFromStrings(paymentType);

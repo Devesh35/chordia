@@ -45,6 +45,7 @@ export const MenuCategoriesId = [
   'machinery',
   'packaging',
   'plastic_ware',
+  'resort_club',
   'sports',
   'stationery',
   'textile_fabrics',
@@ -258,6 +259,7 @@ export const MenuCategories: CatCat[] = [
     name: 'Packaging',
   },
   { id: 'plastic_ware', name: 'Plastic Ware' },
+  { id: 'resort_club', name: 'Resort & Club' },
   { id: 'sports', name: 'Sports' },
   {
     id: 'stationery',
@@ -850,10 +852,12 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'pen drives', label: 'Pen Drives' },
     { id: 'printers', label: 'Printers' },
     { id: 'ram', label: 'Ram' },
+    { id: 'refurbished', label: 'Refurbished' },
     { id: 'ssd card', label: 'SSD Card' },
     { id: 'tablet accessories', label: 'Tablet Accessories' },
     { id: 'usb gadgets', label: 'USB Gadgets' },
     { id: 'usb hubs', label: 'USB Hubs' },
+    { id: 'used_articles', label: 'Used Articles' },
     { id: 'vga_cable', label: 'Vga Cable' },
     {
       id: 'integrated power supplies',
@@ -1238,8 +1242,10 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'fitness', label: 'Fitness' },
     { id: 'immersion_rods', label: 'Immersion Rods' },
     { id: 'inverters', label: 'Inverters' },
+    { id: 'juicer', label: 'Juicer' },
     { id: 'led_tv', label: 'Led Tv' },
     { id: 'microwave_oven', label: 'Microwave Oven' },
+    { id: 'mixer_grinder', label: 'Mixer & Grinder' },
     { id: 'otg', label: 'Otg' },
     { id: 'refrigerator', label: 'Refrigerator' },
     { id: 'sewing_machine', label: 'Sewing Machine' },
@@ -2546,6 +2552,12 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   cleaners: [],
   handmade_emporium: [],
   plastic_ware: [],
+  resort_club: [
+    { id: 'club membership', label: 'Club membership' },
+    { id: 'used club resort ', label: 'Used Club resort ' },
+    { id: 're sale  membership', label: 'Re sale  Membership' },
+    { id: 'day package', label: 'Day Package' },
+  ],
 };
 
 export const SubMenuOptions: {

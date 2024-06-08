@@ -1,5 +1,7 @@
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
+const scrollInterval_ms = 10;
+
 export const useHoverScroll = (
   ref: RefObject<HTMLDivElement>,
   speed: number = 2,
@@ -22,7 +24,7 @@ export const useHoverScroll = (
           if (scrollDirection === 'horizontal')
             element.scrollLeft += scrollStep;
           else element.scrollTop += scrollStep;
-        }, 10),
+        }, scrollInterval_ms),
       );
       setDirection(dx);
     },
@@ -30,9 +32,15 @@ export const useHoverScroll = (
   );
 
   const handleMouseLeave = useCallback(() => {
+    console.log('called');
     if (hoverId) clearInterval(hoverId);
     setHoverId(undefined);
   }, [hoverId]);
+
+  const handleScrollEnd = useCallback(() => {
+    const extraSteps = endOffset / speed;
+    setTimeout(handleMouseLeave, extraSteps * scrollInterval_ms);
+  }, [endOffset, handleMouseLeave, speed]);
 
   // This does not work as intended
   // useEffect(() => {
@@ -41,9 +49,9 @@ export const useHoverScroll = (
 
   // Stops the scroll when the scroll reaches the top or bottom
   useEffect(() => {
-    if (direction === 1 && isEndTwo) handleMouseLeave();
-    if (direction === -1 && isEndOne) handleMouseLeave();
-  }, [direction, handleMouseLeave, isEndTwo, isEndOne]);
+    if (direction === 1 && isEndTwo) handleScrollEnd();
+    if (direction === -1 && isEndOne) handleScrollEnd();
+  }, [direction, handleScrollEnd, isEndTwo, isEndOne]);
 
   useEffect(() => {
     const currentRef = ref.current;
