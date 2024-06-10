@@ -47,12 +47,13 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
     }}
     name="Strawberry Cake"
     quantityDropDown
+    weightSelect
     items={[
       ['MRP', '$20'],
       ['Price', '$13'],
       // ['Rating', '4.5'],
       // ['Reviews', '1.5k Reviews'],
-      ['Weight', '1kg'],
+      // ['Weight', '1kg'],
     ]}
   />
 ));

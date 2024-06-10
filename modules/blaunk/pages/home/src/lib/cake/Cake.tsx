@@ -298,11 +298,9 @@ export const Cake = () => {
             <ReportIssue name={selectedCake.name} />
           </div> */}
         </div>
-        <div className={clsx(grid['col-3'])}>
-          <div className={styles.aside}>
-            <Tariff />
-            <PolicyAside />
-          </div>
+        <div className={clsx(grid['col-3'], styles.aside)}>
+          <Tariff />
+          <PolicyAside />
           <ReportIssueTable />
         </div>
       </main>

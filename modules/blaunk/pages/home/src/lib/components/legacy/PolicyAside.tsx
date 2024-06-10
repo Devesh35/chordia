@@ -81,9 +81,9 @@ export const PolicyAside = () => {
           <span>*</span>
           <p className="ml-2 m-0">We maintain timing,service & delivery</p>
         </span>
-      </div>
+        {/* </div> */}
 
-      <div>
+        {/* <div> */}
         {/* <p
           className="text-center"
           style={{
@@ -153,8 +153,6 @@ export const PolicyAside = () => {
           </p>
         </span>
       </div>
-
-      
     </>
   );
 };

@@ -25,6 +25,7 @@ import {
   on_time_delivery,
   sold_out,
 } from '@li/design/icons';
+import { CustomerReviews } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssueTable } from '../components';
@@ -231,10 +232,28 @@ export const Tour = () => {
                 data={[
                   ['Room size', '250 sq.ft'],
                   ['Landmark', 'Temple (2.5km)'],
-                  [
-                    'Description',
-                    'Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city.',
-                  ],
+                ]}
+              />
+            </div>
+            <div className={styles.info3}>
+              <RemindMe name={selectedTour.name} hasBulk />
+            </div>
+          </div>
+
+          <div className={styles.description}>
+            <DetailsTable
+              data={[
+                [
+                  'Description',
+                  'Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city. Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city. Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city. Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a memorable stay in the heart of the city.',
+                ],
+              ]}
+            />
+          </div>
+          <div className={styles.desc}>
+            <div className={styles.info2}>
+              <DetailsTable
+                data={[
                   ['Pet allowed', 'Yes'],
                   ['Taxes', 'Extra'],
                   ['Currency  Exchange', 'No'],
@@ -263,7 +282,6 @@ export const Tour = () => {
               </div>
             </div>
             <div className={styles.info3}>
-              <RemindMe name={selectedTour.name} hasBulk />
               <div className={styles['sold-out']}>
                 <Image
                   src={getStaticImageSrc(sold_out)}
@@ -300,13 +318,13 @@ export const Tour = () => {
           </div> */}
         </div>
         <div className={clsx(grid['col-3'], styles.aside)}>
-          <div>
-            <Tariff />
-            <PolicyAside />
-          </div>
+          <Tariff />
+          <PolicyAside />
           <ReportIssueTable />
         </div>
       </main>
+      <CustomerReviews />
+
       <div className={clsx(styles['add-on-header'])}>Recently viewed</div>
       <ScrollableSnap className={styles['add-on']} controls>
         {recentViews}
