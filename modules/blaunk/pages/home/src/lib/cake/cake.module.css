@@ -45,9 +45,12 @@
 }
 .aside {
   width: 100%;
-  background-color: var(--white);
+}
+.aside > div {
   border-radius: var(--border-radius-large);
+  background-color: var(--white);
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .product-image-container {

@@ -1,10 +1,10 @@
+import { Button, Input } from '@li/design/elements';
 import clsx from 'clsx';
 import styles from './tariff.module.css';
-import { Button, Input } from '@li/design/elements';
 
 export const Tariff = () => {
   return (
-    <>
+    <div>
       <p className={styles['aside-title']}>Tariff Details (Rs)</p>
       <div className={clsx(styles['aside-table'])}>
         <p>Charges</p>
@@ -49,6 +49,6 @@ export const Tariff = () => {
       </div>
 
       <Button className={styles['aside-table-action']}>Book Now</Button>
-    </>
+    </div>
   );
 };

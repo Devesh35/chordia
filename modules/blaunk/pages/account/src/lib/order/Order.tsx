@@ -22,7 +22,7 @@ const mockItems: OrderItemType[] = getRandomImagesArray(4)(
   id: `${i}`,
   image: src,
   date: '24-2-24',
-  name: 'Product name',
+  name: 'Vendor name',
   rating: 4,
   review: 'Good',
   status: 'delivered',
