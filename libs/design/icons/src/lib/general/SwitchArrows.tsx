@@ -6,7 +6,7 @@ export const SwitchArrows = (props: SVGProps) => {
       color="#000000"
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 512 512"
       height="24px"
       width="24px"

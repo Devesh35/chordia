@@ -12,7 +12,7 @@ import Image from 'next/image';
 import { SocialItem } from './SocialItem';
 import styles from './policy-row.module.css';
 
-const Share = () => (
+export const Share = () => (
   <div className={styles['share-wrapper']}>
     <div className={styles['share-icons']}>
       <div className={styles.icon}>

@@ -1,6 +1,6 @@
 export { RollingAd } from './AdSection';
 export { CustomerReviews } from './CustomerReviews';
-export { PolicyRow } from './PolicyRow';
+export { PolicyRow, Share } from './PolicyRow';
 export {
   AddressSearch,
   ArticleSearch,

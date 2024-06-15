@@ -3,9 +3,20 @@
   flex-direction: column;
   padding: 12px;
   gap: 24px;
-  max-width: 1440px;
-  margin: 0 auto;
-  width: 100%;
+  /* width: 100%; */
+}
+
+.content {
+  gap: 1rem;
+}
+
+.content > div {
+  min-width: 500px;
+  border: 2px solid var(--primarydark);
+  border-radius: var(--border-radius-large);
+  min-height: 500px;
+  height: fit-content;
+  overflow: hidden;
 }
 
 .product-details {
@@ -13,53 +24,41 @@
   gap: 12px;
 }
 
-.product-image {
-  flex: 1;
-  width: 500px;
-  height: 500px;
+.product-image,
+.product-image > div {
+  width: 496px;
+  height: 496px;
 }
 
 .product-info {
-  flex: 1.5;
-  display: flex;
-  gap: 12px;
-  border: 2px solid var(--primarydark);
-  border-radius: var(--border-radius-large);
-}
-
-.product-info-left {
-  flex: 1.25;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  border-right: 2px solid var(--primarydark);
-  border-radius: var(--border-radius-large);
-  padding: 12px;
-}
-
-.product-info-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-right: 12px;
-}
-
-.product-info-origin {
-  width: 50%;
-}
-.product-info-origin > div {
-  display: flex;
-  justify-content: space-between;
-}
-.product-info-origin > div > span {
-  font-weight: var(--font-weight-semibold);
+  padding: 0.5rem;
 }
 
 .name {
   font-size: var(--font-size-h2);
   line-height: var(--line-height-h2);
   font-weight: var(--font-weight-semibold);
+}
+
+.description {
+  padding: 1rem;
+}
+
+.return-name,
+.description label {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-semibold);
+}
+
+.return-desc {
+  text-wrap: wrap;
+  text-align: start;
+  color: var(--error400);
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
 }
 
 .quantity {
@@ -69,6 +68,22 @@
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
   font-weight: var(--font-weight-semibold);
+}
+
+.return-table * {
+  border: 1px solid var(--primarydark);
+  text-wrap: wrap;
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+}
+
+.return-table-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border: 1px solid var(--primarydark);
+  border-bottom: 0;
+  background-color: var(--primary100);
 }
 
 .table th {

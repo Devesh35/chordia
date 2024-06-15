@@ -42,7 +42,6 @@ const columns = [
   { id: 'city', name: 'City' },
   { id: 'group', name: 'Group' },
   { id: 'article', name: 'Article' },
-  { id: 'itemCode', name: 'Item Code' },
   { id: 'brand', name: 'Brand' },
   { id: 'type', name: 'Type' },
   { id: 'quantity', name: 'Quantity' },
@@ -87,7 +86,7 @@ export const SearchTable = () => {
   const [currency, setCurrency] = useState<CurrencyType>('₹');
 
   return (
-    <div>
+    <div className={tableStyles['table-wrapper']}>
       <table className={tableStyles.table}>
         <thead>
           <tr>
