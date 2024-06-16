@@ -1,9 +1,11 @@
 import { fromCamelCase } from '@li/config/utils';
 import {
+  Button,
   Carousal,
   InputArea,
   Labeled,
   ScrollableSnap,
+  Select,
 } from '@li/design/elements';
 import { assurance, getStaticImageSrc } from '@li/design/icons';
 import clsx from 'clsx';
@@ -45,16 +47,34 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
       enlargedHeight: 600,
       alt: 'random',
     }}
-    name="Strawberry Cake"
+    name="Store"
     quantityDropDown
     weightSelect
     items={[
-      ['MRP', '$20'],
-      ['Price', '$13'],
-      // ['Rating', '4.5'],
-      // ['Reviews', '1.5k Reviews'],
-      // ['Weight', '1kg'],
+      [
+        'Color',
+        <Select
+          maxHeight={160}
+          options={[
+            { id: '1', item: 'Red' },
+            { id: '2', item: 'Blue' },
+            { id: '3', item: 'Green' },
+            { id: '4', item: 'Yellow' },
+            { id: '5', item: 'Black' },
+          ]}
+        />,
+      ],
     ]}
+    actionRow={
+      <div className={styles['addon-action']}>
+        <div className={styles['addon-cost']}>
+          <span className={styles['addon-cut']}>$20</span>
+          <span>$7 </span>
+          <span className={styles['addon-price']}>$13 </span>
+        </div>
+        <Button variant="secondary">Add to cart</Button>
+      </div>
+    }
   />
 ));
 
