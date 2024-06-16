@@ -150,4 +150,24 @@
 
 .addon {
   gap: 1rem;
+  padding-bottom: 120px;
+}
+
+.addon-action {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+.addon-cost {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.addon-cut {
+  text-decoration: line-through;
+}
+.addon-price {
+  font-weight: var(--font-weight-semibold);
+  color: var(--primarydark);
 }

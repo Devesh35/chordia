@@ -1,12 +1,6 @@
-.table-wrapper {
-  width: 80%;
-  margin: 0 auto;
-}
-
 .table {
   margin: 0 auto 1rem;
-  table-layout: fixed;
-  width: 100%;
+  min-width: 80%;
 }
 
 .table,

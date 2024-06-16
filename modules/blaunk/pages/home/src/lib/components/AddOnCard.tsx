@@ -14,10 +14,11 @@ import styles from './add-on-card.module.css';
 
 type AddOnCardProps = {
   image: EnlargeableImageProps;
-  items: [string, string][];
+  items: [string, React.ReactNode][];
   name: string;
   quantityDropDown?: boolean;
   weightSelect?: boolean;
+  actionRow?: React.ReactNode;
 };
 
 const options = [
@@ -49,6 +50,7 @@ export const AddOnCard = ({
   name,
   quantityDropDown = false,
   weightSelect = false,
+  actionRow,
 }: AddOnCardProps) => {
   return (
     <div className={styles.card}>
@@ -82,7 +84,7 @@ export const AddOnCard = ({
         </div>
       ))}
 
-      <Button variant="secondary">Add to cart</Button>
+      {actionRow || <Button variant="secondary">Add to cart</Button>}
     </div>
   );
 };

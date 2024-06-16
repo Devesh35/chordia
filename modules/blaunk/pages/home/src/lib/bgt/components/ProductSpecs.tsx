@@ -1,6 +1,6 @@
 import { transposeArray } from '@li/config/utils';
 import { AddProductSpecifications } from '@md/blaunk/config';
-import tableStyles from './table.module.css';
+import tableStyles from './table-inner.module.css';
 
 const PSTitles = AddProductSpecifications.options.form.map((p) => p.title);
 const PSItems = transposeArray(
