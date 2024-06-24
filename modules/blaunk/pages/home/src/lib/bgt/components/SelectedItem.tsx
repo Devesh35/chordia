@@ -20,7 +20,6 @@ export const SelectedItem = ({ data, currency }: Props) => {
         <ProductImage data={data.images} name={data.name} />
         <ProductInfo data={data} />
         <ProductDescription />
-        <ReturnPolicy />
         <OrderEstimate
           currency={currency}
           data={data.priceList}
@@ -29,6 +28,18 @@ export const SelectedItem = ({ data, currency }: Props) => {
       </ScrollableSnap>
       <div className={styles['ps-wrapper']}>
         <ProductSpecs />
+      </div>
+      <div className={styles['bottom-wrapper']}>
+        <div>
+          <ReturnPolicy />
+        </div>
+        {/* <div>
+          <OrderEstimate
+            currency={currency}
+            data={data.priceList}
+            title="Order estimates"
+          />
+        </div> */}
       </div>
     </div>
   );
