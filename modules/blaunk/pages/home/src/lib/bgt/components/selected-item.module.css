@@ -121,3 +121,20 @@
   background-color: var(--primary050);
   padding: 1rem 0;
 }
+
+.bottom-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.bottom-wrapper > div {
+  min-width: 320px;
+  max-width: 480px;
+}
+
+.estimate-table td {
+  padding: 0 !important;
+}

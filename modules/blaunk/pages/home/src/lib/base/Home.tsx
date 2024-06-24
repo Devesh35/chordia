@@ -1,4 +1,5 @@
 import { grid } from '@li/config/design';
+import { Excel } from '@li/design/components';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import clsx from 'clsx';
 import { BannerSection } from './components/BannerSection';
@@ -28,6 +29,8 @@ export const Home = () => {
       <MoreStores />
       <TrendyStars />
       <StoreAds />
+      <Placeholder height={200} />
+      <Excel />
       <Placeholder height={200} />
     </div>
   );

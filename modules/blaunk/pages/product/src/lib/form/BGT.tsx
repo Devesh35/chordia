@@ -21,6 +21,7 @@ import { PropsWithChildren, useState } from 'react';
 import { Disclaimer } from './Disclaimer';
 import { FormAction } from './FormAction';
 import { QuantitySection } from './QuantitySection';
+import { SizeTable } from './SizeTable';
 import styles from './common.module.css';
 
 export type QuantityType = {
@@ -79,6 +80,7 @@ export const BGT = () => {
       <div className={styles.half}>
         <QuantitySection data={data} onChange={setData} title="Quantity" />
       </div>
+      <SizeTable />
       <FormSection section={BGTProductDetails} selected={'product-image'} />
       <FormSection section={AddProductSpecifications} selected="options" />
       <Disclaimer />

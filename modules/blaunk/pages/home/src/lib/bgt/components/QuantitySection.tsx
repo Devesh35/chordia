@@ -92,6 +92,7 @@ export const OrderEstimate = ({ data, title, currency }: Props) => {
       </Labeled>
       <div className={styles.tariff}>
         <DetailsTable
+          className={styles['estimate-table']}
           data={[
             ['Value', limit(price)],
             ['Tax', limit(price * 0.18)],
