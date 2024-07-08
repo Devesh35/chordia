@@ -16,7 +16,7 @@ type Props = {
 export const SelectedItem = ({ data, currency }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <ScrollableSnap className={styles.content} controls>
+      <ScrollableSnap className={styles.content} controls delta={120}>
         <ProductImage data={data.images} name={data.name} />
         <ProductInfo data={data} />
         <ProductDescription />
@@ -27,19 +27,10 @@ export const SelectedItem = ({ data, currency }: Props) => {
         />
       </ScrollableSnap>
       <div className={styles['ps-wrapper']}>
-        <ProductSpecs />
-      </div>
-      <div className={styles['bottom-wrapper']}>
-        <div>
+        <ScrollableSnap controls delta={200}>
+          <ProductSpecs />
           <ReturnPolicy />
-        </div>
-        {/* <div>
-          <OrderEstimate
-            currency={currency}
-            data={data.priceList}
-            title="Order estimates"
-          />
-        </div> */}
+        </ScrollableSnap>
       </div>
     </div>
   );

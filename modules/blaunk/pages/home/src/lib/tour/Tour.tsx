@@ -1,10 +1,4 @@
-import {
-  Carousal,
-  Input,
-  Labeled,
-  ScrollableSnap,
-  Select,
-} from '@li/design/elements';
+import { Carousal, Input, Labeled, Select } from '@li/design/elements';
 import {
   ArrivingTimeOptions,
   Constants,
@@ -29,6 +23,7 @@ import { CustomerReviews } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssueTable } from '../components';
+import { DealsAndOffer } from '../components/DealsAndOffer';
 import { RemindMe } from '../components/RemindMe';
 import { Tariff } from '../components/Tariff';
 import { Amenities } from './Amenities';
@@ -48,32 +43,6 @@ const images = getRandomImagesArray(6)(
     height={Constants.b2bHomeBannerSize}
     alt="random"
     loading={i === 0 ? 'eager' : 'lazy'}
-  />
-));
-
-const recentViews = getRandomImagesArray(8)(600, 600, 'hotels').map((src) => (
-  <ImageCard
-    className={styles['recent-card']}
-    key={src}
-    image={{
-      src: src,
-      width: 300,
-      height: 300,
-      alt: 'random',
-    }}
-    details={
-      <div
-        className={clsx(
-          'flex-column',
-          'align-items-center',
-          styles['recent-card-details'],
-        )}
-      >
-        <div className={styles.name}>Hotel name</div>
-        <div className={styles.price}>Marine Drive</div>
-        <div className={styles.price}>Mumbai</div>
-      </div>
-    }
   />
 ));
 
@@ -126,14 +95,6 @@ const product = getRandomImagesArray(2)(600, 600, 'hotels').map((src, i) => (
       className={styles['product-image']}
     />
   </div>
-));
-
-const ads = getRandomImagesArray(10)(300, 300, 'hotels').map((src, i) => (
-  <Image key={i} src={src} width={300} height={300} alt={'random'} />
-));
-
-const adsLarge = getRandomImagesArray(10)(400, 800, 'hotels').map((src, i) => (
-  <Image key={i} src={src} width={800} height={400} alt={'random'} />
 ));
 
 const selectedTour = {
@@ -323,28 +284,9 @@ export const Tour = () => {
           <ReportIssueTable />
         </div>
       </main>
-      <CustomerReviews />
 
-      <div className={clsx(styles['add-on-header'])}>Recently viewed</div>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {recentViews}
-      </ScrollableSnap>
-      <div className={clsx(styles['deals-offer'])}>Deals & Offer</div>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {ads}
-      </ScrollableSnap>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {ads}
-      </ScrollableSnap>
-      <div className={clsx(styles['deals-offer'], styles['new-destinations'])}>
-        Explore new destinations
-      </div>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge}
-      </ScrollableSnap>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge}
-      </ScrollableSnap>
+      <CustomerReviews />
+      <DealsAndOffer />
     </div>
   );
 };

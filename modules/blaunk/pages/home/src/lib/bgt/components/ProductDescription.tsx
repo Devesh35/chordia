@@ -5,7 +5,7 @@ export const ProductDescription = () => {
   return (
     <div className={styles.description}>
       <Labeled label="Description">
-        <InputArea placeholder="Max 250 characters" height={240} />
+        <InputArea placeholder="Max 250 characters" height={400} />
       </Labeled>
     </div>
   );

@@ -7,6 +7,7 @@ import { DealSection } from './components/DealSection';
 import { SearchBar } from './components/SearchBar';
 import { SelectedItem } from './components/SelectedItem';
 import styles from './store.module.css';
+import { DealsAndOffer } from '../components/DealsAndOffer';
 
 export type StoreItem = {
   id: string;
@@ -98,9 +99,9 @@ export const Store = () => {
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
       <SelectedItem data={dummyItem} />
+
       <CustomerReviews />
-      <RollingAd size={150} />
-      <RollingAd size={301} />
+      <DealsAndOffer />
     </div>
   );
 };

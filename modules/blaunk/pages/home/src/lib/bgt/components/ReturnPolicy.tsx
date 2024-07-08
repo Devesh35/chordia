@@ -3,7 +3,7 @@ import styles from './selected-item.module.css';
 
 export const ReturnPolicy = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles['policy-wrapper']}>
       <div className={styles['return-name']}>Return Policy</div>
       <div className={styles['return-desc']}>
         If Customer found to misuse excessively Returning / Cancelling order or
