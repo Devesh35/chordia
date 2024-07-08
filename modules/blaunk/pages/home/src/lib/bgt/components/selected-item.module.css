@@ -138,3 +138,7 @@
 .estimate-table td {
   padding: 0 !important;
 }
+
+.policy-wrapper {
+  min-width: 360px;
+}

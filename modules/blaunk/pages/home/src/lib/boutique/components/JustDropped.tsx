@@ -1,8 +1,8 @@
 import { grid } from '@li/config/design';
-import { SectionHeader } from '@md/blaunk/design';
-import styles from './just-dropped.module.css';
 import { getRandomImagesArray } from '@md/blaunk/config';
+import { SectionHeader } from '@md/blaunk/design';
 import clsx from 'clsx';
+import styles from './just-dropped.module.css';
 import { ProductCard } from './ProductCard';
 
 const products = getRandomImagesArray(12)(400, 400, 'saree').map((src, i) => (
@@ -12,7 +12,7 @@ const products = getRandomImagesArray(12)(400, 400, 'saree').map((src, i) => (
 export const JustDropped = () => {
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="JUST DROPPED" />
+      <SectionHeader sectionName="WOMEN'S COLLECTION" />
       <div className={clsx(grid.grid, styles.grid)}>{products}</div>
     </div>
   );

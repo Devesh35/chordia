@@ -32,6 +32,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { DetailsTable, PolicyAside, ReportIssueTable } from '../components';
 import { AddOnCard } from '../components/AddOnCard';
+import { DealsAndOffer } from '../components/DealsAndOffer';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { RemindMe } from '../components/RemindMe';
 import { Tariff } from '../components/Tariff';
@@ -308,7 +309,9 @@ export const Cake = () => {
       <ScrollableSnap className={styles['add-on']} controls delta={240}>
         {addOn}
       </ScrollableSnap>
+
       <CustomerReviews />
+      <DealsAndOffer />
     </div>
   );
 };

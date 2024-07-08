@@ -1,8 +1,10 @@
 import { SectionHeader } from '@md/blaunk/design';
 import { Placeholder } from '../base/components/Placeholder';
+import { DealsAndOffer } from '../components/DealsAndOffer';
 import styles from './boutique.module.css';
 import { Celeb } from './components/Celeb';
 import { Jewellery } from './components/Jewellery';
+import { Jewellery2 } from './components/Jewellery2';
 import { JustDropped } from './components/JustDropped';
 import { PickYourStyle } from './components/PickYourStyle';
 import { StyleOnRent } from './components/StyleOnRent';
@@ -23,9 +25,10 @@ export const Boutique = () => {
       <PickYourStyle />
       <Jewellery />
       <Placeholder height={400} />
-      <Celeb />
+      <Jewellery2 />
       <Placeholder height={400} />
       <TwoImages />
+      <DealsAndOffer />
     </div>
   );
 };

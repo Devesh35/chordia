@@ -24,6 +24,7 @@ export const ProductInfo = ({ data }: Props) => {
           ['Origin', data.origin],
           ['State', data.state],
           ['Type', data.type],
+          ['Size-chart', 'chart.pdf'],
           [
             'Membership',
             <div className={clsx('no-shrink')}>

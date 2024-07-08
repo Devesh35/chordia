@@ -180,22 +180,6 @@
   text-decoration-thickness: 4px;
 }
 
-.add-on-header {
-  font-size: var(--font-size-h3);
-  line-height: var(--line-height-h3);
-
-  background-color: var(--primary400);
-  padding: 0.5rem 1rem;
-  width: 100%;
-  color: var(--onprimary);
-  font-weight: var(--font-weight-bold);
-}
-
-.add-on {
-  gap: 1rem;
-  margin: 1rem;
-}
-
 .info2 {
   width: 50%;
   display: flex;
@@ -299,26 +283,6 @@
 
 .select-wrapper-small-item {
   flex: 0.2;
-}
-
-.recent-card {
-  min-width: 300px;
-}
-
-.recent-card-details {
-  padding-bottom: 1rem;
-}
-
-.deals-offer {
-  color: var(--primary400);
-  font-size: var(--font-size-h3);
-  line-height: var(--line-height-h3);
-  font-weight: var(--font-weight-semibold);
-  padding-left: 2rem;
-}
-
-.new-destinations {
-  color: var(--error300);
 }
 
 .description {
