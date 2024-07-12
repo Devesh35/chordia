@@ -54,7 +54,8 @@
 }
 
 .return-desc {
-  text-wrap: wrap;
+  width: 100%;
+  text-wrap: wrap !important;
   text-align: start;
   color: var(--error400);
   font-size: var(--font-size-p14);
@@ -140,5 +141,7 @@
 }
 
 .policy-wrapper {
-  min-width: 360px;
+  min-width: calc(360px + (1 * 2rem));
+  padding-right: 2rem;
+  max-width: calc(480px + (1 * 2rem));
 }
