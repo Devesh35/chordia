@@ -1,16 +1,16 @@
+import { ImageCardOverlay } from '@li/design/components';
 import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray } from '@md/blaunk/config';
-import { ImageCardOverlay } from '@li/design/components';
 import { SectionHeader } from '@md/blaunk/design';
 import styles from './trendy-stores.module.css';
 
-const images = getRandomImagesArray(3)(500, 600).map((src) => (
+const images = getRandomImagesArray(2)(500, 900).map((src) => (
   <ImageCardOverlay
     isClickable
     key={src}
     image={{
       src,
-      width: 600,
+      width: 900,
       height: 500,
       alt: 'random',
     }}

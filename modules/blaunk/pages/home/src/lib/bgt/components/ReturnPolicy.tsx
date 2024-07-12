@@ -21,6 +21,7 @@ export const ReturnPolicy = () => {
         <DetailsTable
           keyColWidth={200}
           className={styles['return-table']}
+          noSemiColon
           data={[
             ['Product Differ from Image', 'No'],
             ['Quantity Shortage', 'NA'],
