@@ -2,10 +2,7 @@ export const randomImageUrl = (
   height: number,
   width?: number,
   category?: string,
-) =>
-  `https://source.unsplash.com/random/${width || height}x${height}${
-    category ? `?${category}` : ''
-  }`;
+) => `https://picsum.photos/${width || height}/${height}`;
 
 export const getRandomImagesArray =
   (arraySize: number) =>

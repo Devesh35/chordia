@@ -1,8 +1,7 @@
-import { Labeled, Select } from '@li/design/elements';
+import { Input, Labeled, Select } from '@li/design/elements';
 import {
   LandmarkOptions,
   PriceOptions,
-  PropertyTypeOptions,
   RatingOptions,
 } from '@md/blaunk/config';
 import clsx from 'clsx';
@@ -17,8 +16,8 @@ export const Filter = () => {
       <Labeled label="Rating" inline>
         <Select options={RatingOptions} />
       </Labeled>
-      <Labeled label="Property" inline>
-        <Select options={PropertyTypeOptions} />
+      <Labeled label="Name" inline>
+        <Input placeholder="Search name" />
       </Labeled>
       <Labeled label="Landmark" inline>
         <Select options={LandmarkOptions} />

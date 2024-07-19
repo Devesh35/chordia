@@ -7,16 +7,12 @@
   width: 100%;
 }
 
-.product-details {
-  display: flex;
-  gap: 12px;
-}
-
-.product-image {
+.product-section-box {
   flex: 1;
-  width: 500px;
+  min-width: 500px;
   height: 450px;
 }
+
 .product-images {
   border-radius: var(--border-radius-large);
   overflow: hidden;
@@ -62,7 +58,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 12px;
-  border: 2px solid var(--primarydark);
+  border: 1px solid var(--primarydark);
   border-radius: var(--border-radius-large);
 }
 
@@ -170,4 +166,8 @@
 .addon-price {
   font-weight: var(--font-weight-semibold);
   color: var(--primarydark);
+}
+
+.product-section {
+  gap: 2rem;
 }

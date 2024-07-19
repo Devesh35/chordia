@@ -1,11 +1,18 @@
-import { SearchBar } from '../components/SearchBar';
+import {
+  AddressSearch,
+  CountrySearch,
+  SearchBarWrapper,
+  SearchButton,
+} from '@md/blaunk/design';
+import { PropertyTypeSearch } from 'modules/blaunk/design/src/lib/SearchComponents';
 
 export const Search = () => {
   return (
-    <>
-      <SearchBar />
-
-      <div></div>
-    </>
+    <SearchBarWrapper>
+      <CountrySearch isStart />
+      <AddressSearch />
+      <PropertyTypeSearch />
+      <SearchButton />
+    </SearchBarWrapper>
   );
 };

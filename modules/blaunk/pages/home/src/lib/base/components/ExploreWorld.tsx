@@ -1,21 +1,21 @@
 'use client';
 
+import { CountryFlag } from '@li/config/options';
+import { ImageCardOverlay } from '@li/design/components';
 import { Carousal, Select } from '@li/design/elements';
-import { useState } from 'react';
+import { SelectItemElement } from '@li/types/design';
 import {
   AvailableCountryCode,
   CountriesOption,
   getRandomImagesArray,
   randomImageUrl,
 } from '@md/blaunk/config';
-import { ImageCardOverlay } from '@li/design/components';
-import Image from 'next/image';
 import { SectionHeader } from '@md/blaunk/design';
+import Image from 'next/image';
+import { useState } from 'react';
 import styles from './explore.module.css';
-import { CountryFlag } from '@li/config/options';
-import { SelectItemElement } from '@li/types/design';
 
-const ads = getRandomImagesArray(10)(400, 300).map((src) => (
+const ads = getRandomImagesArray(5)(400, 300).map((src) => (
   <ImageCardOverlay
     isClickable
     key={src}
@@ -60,8 +60,9 @@ export const ExploreWorld = () => {
         {Array(4)
           .fill(0)
           .map((_, i) => (
-            <div className={styles.content} key={i}>
-              {ads}
+            <div key={i}>
+              <div className={styles.content}>{ads}</div>
+              <div className={styles.content}>{ads}</div>
             </div>
           ))}
       </Carousal>
