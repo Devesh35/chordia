@@ -3,7 +3,7 @@
   position: relative;
 }
 .carousal-wrapper {
-  height: 60vh;
+  height: 90vh;
   min-height: var(--home-banner-image-size-min);
   max-height: var(--home-banner-image-size-max);
 }

@@ -7,14 +7,14 @@ import {
   ScrollableSnap,
   Select,
 } from '@li/design/elements';
-import { assurance, getStaticImageSrc } from '@li/design/icons';
-import clsx from 'clsx';
 import Image from 'next/image';
 import { DetailsTable } from '../../components';
 import { StoreItem } from '../Store';
 import styles from './selected-item.module.css';
 
+import { assurance, getStaticImageSrc } from '@li/design/icons';
 import { getRandomImagesArray } from '@md/blaunk/config';
+import clsx from 'clsx';
 import { AddOnCard } from '../../components/AddOnCard';
 
 type Props = {
@@ -22,9 +22,6 @@ type Props = {
 };
 
 const detailsOrder: (keyof StoreItem)[] = [
-  'city',
-  'area',
-  'pinCode',
   'delivery',
   'deliveredBy',
   'dispatchTime',
@@ -32,9 +29,9 @@ const detailsOrder: (keyof StoreItem)[] = [
   'giftWrap',
   'minCartValue',
   'currency',
-  'timings',
-  'complaintsRaised',
-  'complaintsResolved',
+  'party',
+  'customized',
+  'freeDelivery',
 ];
 const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
   <AddOnCard
@@ -86,12 +83,12 @@ export const SelectedItem = ({ data }: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles['product-details']}>
-        <div className={styles['product-image']}>
+      <ScrollableSnap className={styles['product-section']} controls>
+        <div className={styles['product-section-box']}>
           {/* <div className={clsx(styles['product-header'])}>
-            <div>{data.name}</div>
-            <div>{data.timings}</div>
-          </div> */}
+              <div>{data.name}</div>
+              <div>{data.timings}</div>
+            </div> */}
           <Carousal className={styles['product-images']}>
             {data.images.map((src, i) => (
               <Image
@@ -105,39 +102,73 @@ export const SelectedItem = ({ data }: Props) => {
             ))}
           </Carousal>
         </div>
-        <div className={styles['product-info']}>
-          <div className={clsx(styles['product-header'])}>
-            {/* <div>Vendor details:</div>
-            <div>Open</div> */}
+        <div
+          className={clsx(
+            styles['product-section-box'],
+            styles['product-info-right'],
+          )}
+        >
+          <div className={styles['product-header']}>
+            <div>{data.name}</div>
+            <div>{data.timings}</div>
           </div>
-          <div className={styles['product-info-section']}>
-            <div className={styles['product-info-left']}>
-              <div className={styles['product-header']}>
-                {data.name}
-                <Image
-                  src={getStaticImageSrc(assurance)}
-                  alt="Bk assurance"
-                  width={120}
-                  height={40}
-                />
-                <div className={styles['product-header-rating']}>
-                  Rating 4.5
-                </div>
-              </div>
-              <div className={styles['product-header']}>
-                <div className={styles['deal']}>Deal</div>
-                <div className={styles['deal']}>Deal</div>
-              </div>
-              <Labeled label="Description">
-                <InputArea value={data.description} />
-              </Labeled>
+          <DetailsTable
+            keyColWidth={160}
+            data={[
+              ['City', data.city],
+              ['Area', data.area],
+              ['Pin code', data.pinCode],
+            ]}
+          />
+          <Image
+            src={getStaticImageSrc(assurance)}
+            alt="Bk assurance"
+            width={120}
+            height={40}
+          />
+          <DetailsTable
+            keyColWidth={160}
+            data={[
+              ['Rating', data.rating],
+              ['Complaints Raised', data.complaintsRaised],
+              ['Complaints Resolved', data.complaintsResolved],
+              ['Contact no', data.contactNo],
+            ]}
+          />
+
+          {/* <div className={styles['product-header']}>
+              <div className={styles['deal']}>Deal</div>
+              <div className={styles['deal']}>Deal</div>
             </div>
-            <div className={styles['product-info-right']}>
-              <DetailsTable data={detailsData} keyColWidth={220} />
-            </div>
-          </div>
+            */}
         </div>
-      </div>
+        <div
+          className={clsx(
+            styles['product-section-box'],
+            styles['product-info-right'],
+          )}
+        >
+          <DetailsTable data={detailsData} keyColWidth={220} />
+        </div>
+        <div
+          className={clsx(
+            styles['product-section-box'],
+            styles['product-info-right'],
+          )}
+        >
+          <Labeled label="Description">
+            <InputArea value={data.description} height={380} />
+          </Labeled>
+        </div>
+      </ScrollableSnap>
+      {/* <div className={styles['product-info']}>
+            <div className={clsx(styles['product-header'])}>
+              <div>Vendor details:</div>
+              <div>Open</div>
+            </div>
+            <div className={styles['product-info-section']}>
+            </div>
+          </div> */}
       {/* <PolicyRow /> */}
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
       <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>

@@ -5,6 +5,7 @@ import {
   CountriesOption,
   MenuCategoriesIdType,
   MenuOptions,
+  PropertyTypeOptions,
   SubMenuOptions,
   storeOptions,
 } from '@md/blaunk/config';
@@ -19,6 +20,9 @@ type SearchBaseProps<S> = {
 type CountrySearchProps = SearchBaseProps<ArrayElement<typeof CountriesOption>>;
 
 type GroupSearchProps = SearchBaseProps<ArrayElement<typeof MenuOptions>>;
+type PropertyTypeProps = SearchBaseProps<
+  ArrayElement<typeof PropertyTypeOptions>
+>;
 
 type ArticleSearchProps<S extends MenuCategoriesIdType = MenuCategoriesIdType> =
   SearchBaseProps<ArrayElement<(typeof SubMenuOptions)[S]>> & {
@@ -118,4 +122,15 @@ export const SearchButton = () => (
   >
     Search
   </Button>
+);
+
+export const PropertyTypeSearch = ({ onChange }: PropertyTypeProps) => (
+  <Labeled label="Property">
+    <Select
+      placeholder="Select Property"
+      className={clsx(styles['search-bar-items'])}
+      options={PropertyTypeOptions}
+      onChange={onChange}
+    />
+  </Labeled>
 );

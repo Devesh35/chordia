@@ -16,7 +16,7 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['source.unsplash.com'],
+    domains: ['picsum.photos'],
   },
 
   reactStrictMode: true,

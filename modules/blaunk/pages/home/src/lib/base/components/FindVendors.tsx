@@ -8,6 +8,7 @@ import {
   Labeled,
   Select,
 } from '@li/design/elements';
+import { SelectItemElement } from '@li/types/design';
 import {
   CountriesOption,
   MenuCategoriesIdType,
@@ -21,6 +22,11 @@ import { SocialItem } from '@md/blaunk/design';
 import clsx from 'clsx';
 import { useState } from 'react';
 import styles from './find-vendors.module.css';
+
+const purposeOptions: SelectItemElement[] = [
+  ...Purpose.map((i) => ({ id: i.id, item: i.label })),
+  ...VendorRequirementOptions,
+];
 
 export const FindVendors = () => {
   const [selectedMenu, setSelectedMenu] = useState<MenuCategoriesIdType>();
@@ -73,16 +79,10 @@ export const FindVendors = () => {
             />
           </Labeled>
           <Labeled label="Purpose" className={styles['form-item-full']}>
-            <Select
-              options={Purpose.map((i) => ({ id: i.id, item: i.label }))}
-              placeholder="Select purpose"
-            />
+            <Select options={purposeOptions} placeholder="Select purpose" />
           </Labeled>
-          <Labeled label="Requirements" className={styles['form-item']}>
-            <Select
-              placeholder="Select requirement"
-              options={VendorRequirementOptions}
-            />
+          <Labeled label="Value" className={styles['form-item']}>
+            <Input placeholder="Enter value" type="number" />
           </Labeled>
         </div>
         <div className={styles.action}>

@@ -26,8 +26,8 @@ export const TrendyStars = () => {
         {Array(5)
           .fill(0)
           .map((_, i) => (
-            <div className={styles.content} key={i}>
-              {images}
+            <div key={i}>
+              <div className={styles.content}>{images}</div>
             </div>
           ))}
       </Carousal>

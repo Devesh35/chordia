@@ -2,12 +2,12 @@ import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import Image from 'next/image';
+import { DealsAndOffer } from '../components/DealsAndOffer';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { DealSection } from './components/DealSection';
 import { SearchBar } from './components/SearchBar';
 import { SelectedItem } from './components/SelectedItem';
 import styles from './store.module.css';
-import { DealsAndOffer } from '../components/DealsAndOffer';
 
 export type StoreItem = {
   id: string;
@@ -27,9 +27,13 @@ export type StoreItem = {
   print: string;
   rating: string;
   reviewCount: string;
+  contactNo: string;
   timings: string;
   complaintsRaised: number;
   complaintsResolved: number;
+  party: string;
+  customized: string;
+  freeDelivery: string;
 };
 
 const dummyItem: StoreItem = {
@@ -42,6 +46,7 @@ const dummyItem: StoreItem = {
   description:
     'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years.',
   city: 'Bikaner',
+  contactNo: '1234567890',
   area: 'Main Gate',
   pinCode: '334001',
   delivery: '$25',
@@ -54,6 +59,9 @@ const dummyItem: StoreItem = {
   currency: 'INR',
   complaintsRaised: 10,
   complaintsResolved: 5,
+  party: 'Accepted',
+  customized: 'Yes',
+  freeDelivery: '2km',
 };
 
 const images = getRandomImagesArray(6)(
