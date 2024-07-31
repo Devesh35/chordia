@@ -52,7 +52,7 @@ export const FindVendors = () => {
             <Select
               placeholder="Select group"
               options={MenuOptions}
-              maxHeight={200}
+              maxHeight={300}
               onChange={(e) => setSelectedMenu(e?.id)}
             />
           </Labeled>
@@ -64,7 +64,7 @@ export const FindVendors = () => {
                   ? SubMenuOptions[selectedMenu]
                   : [{ id: '0', item: 'Select group first', isDisabled: true }]
               }
-              maxHeight={200}
+              maxHeight={300}
             />
           </Labeled>
           <Labeled label="Qty" className={styles['form-item-full']}>

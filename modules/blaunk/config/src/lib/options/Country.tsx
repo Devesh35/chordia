@@ -15,7 +15,7 @@ export const availableCountryCode = [
   'np',
   'ph',
   'sg',
-  'za',
+  // 'za',
   'lk',
   'th',
   'ae',
