@@ -367,17 +367,17 @@ export const countryStates: { [k in AvailableCountryCode]: string[] } = {
     'Vĩnh Phúc',
     'Yên Bái',
   ],
-  za: [
-    'Eastern Cape',
-    'Free State',
-    'Gauteng',
-    'KwaZulu-Natal',
-    'Limpopo',
-    'Mpumalanga',
-    'Northern Cape',
-    'North West',
-    'Western Cape',
-  ],
+  // za: [
+  //   'Eastern Cape',
+  //   'Free State',
+  //   'Gauteng',
+  //   'KwaZulu-Natal',
+  //   'Limpopo',
+  //   'Mpumalanga',
+  //   'Northern Cape',
+  //   'North West',
+  //   'Western Cape',
+  // ],
 };
 
 export const CountryStateOptions: {

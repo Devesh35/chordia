@@ -1,5 +1,4 @@
 import { SectionHeader } from '@md/blaunk/design';
-import { BannerSection } from '../base';
 import { Placeholder } from '../base/components/Placeholder';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import styles from './boutique.module.css';
@@ -26,7 +25,7 @@ export const Boutique = () => {
       <Jewellery2 />
       <Placeholder height={400} />
       <TwoImages /> */}
-      <BannerSection size={302} />
+      {/* <BannerSection size={302} /> */}
       <DealsAndOffer />
     </div>
   );

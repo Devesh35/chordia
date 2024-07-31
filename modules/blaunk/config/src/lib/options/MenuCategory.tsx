@@ -18,6 +18,7 @@ export const MenuCategoriesId = [
   'apparel-kids',
   'apparel-men',
   'apparel-women',
+  'astrologer',
   'bathroom_accessories',
   'chemicals',
   'cleaners',
@@ -26,6 +27,7 @@ export const MenuCategoriesId = [
   'cosmetic-men',
   'cosmetic-women',
   'cosmetics-kids',
+  'culture',
   'digital_signature',
   'electric_vehicle',
   'electrical',
@@ -46,11 +48,14 @@ export const MenuCategoriesId = [
   'packaging',
   'plastic_ware',
   'resort_club',
+  'service',
   'sports',
   'stationery',
   'textile_fabrics',
   'threads_and_laces',
   'toys',
+  'vehicle_operator',
+  'software_developer',
 ] as const;
 
 export type MenuCategoriesIdType = (typeof MenuCategoriesId)[number];
@@ -161,6 +166,10 @@ export const MenuCategories: CatCat[] = [
     ],
   },
   {
+    id: 'astrologer',
+    name: 'Astrologer',
+  },
+  {
     id: 'bathroom_accessories',
     name: 'Bathroom Accessories',
   },
@@ -194,6 +203,10 @@ export const MenuCategories: CatCat[] = [
         name: 'Women',
       },
     ],
+  },
+  {
+    id: 'culture',
+    name: 'Culture',
   },
   {
     id: 'digital_signature',
@@ -260,6 +273,14 @@ export const MenuCategories: CatCat[] = [
   },
   { id: 'plastic_ware', name: 'Plastic Ware' },
   { id: 'resort_club', name: 'Resort & Club' },
+  {
+    id: 'service',
+    name: 'Service',
+  },
+  {
+    id: 'software_developer',
+    name: 'Software Developer',
+  },
   { id: 'sports', name: 'Sports' },
   {
     id: 'stationery',
@@ -273,6 +294,10 @@ export const MenuCategories: CatCat[] = [
   {
     id: 'toys',
     name: 'Toys',
+  },
+  {
+    id: 'vehicle_operator',
+    name: 'Vehicle Operator',
   },
 ];
 
@@ -867,6 +892,11 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
       id: 'keyboards, mice & input devices',
       label: 'Keyboards, Mice & Input Devices',
     },
+    { id: 'laser printer', label: 'Laser Printer' },
+    { id: 'copier', label: 'Copier' },
+    { id: 'scanner', label: 'Scanner' },
+    { id: 'camera', label: 'Camera' },
+    { id: 'wi_fi adaptor', label: 'WiFi Adaptor' },
   ],
   construction: [
     {
@@ -2554,9 +2584,71 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   plastic_ware: [],
   resort_club: [
     { id: 'club membership', label: 'Club membership' },
-    { id: 'used club resort ', label: 'Used Club resort ' },
+    { id: 'used club resort', label: 'Used Club resort' },
     { id: 're sale  membership', label: 'Re sale  Membership' },
     { id: 'day package', label: 'Day Package' },
+  ],
+  service: [
+    { id: 'puncture', label: 'Puncture' },
+    { id: 'hair_salon', label: 'Hair salon' },
+    { id: 'spa', label: 'Spa' },
+    { id: 'mechanic 2 wheeler', label: 'Mechanic 2 wheeler' },
+    { id: 'mechanic 4 wheeler', label: 'Mechanic 4 wheeler' },
+    { id: 'nurse', label: 'Nurse' },
+    { id: 'mechanic_night', label: 'Mechanic ( Night)' },
+    { id: 'house_maid', label: 'House Maid' },
+    { id: 'house_cook', label: 'House Cook' },
+    { id: 'driver', label: 'Driver' },
+  ],
+  culture: [
+    { id: 'pandit', label: 'Pandit' },
+    { id: 'priest', label: 'Priest' },
+    { id: 'mehendi artist', label: 'Mehendi Artist' },
+    { id: 'tattoos', label: 'Tattoos' },
+    { id: 'nail designer', label: 'Nail Designer' },
+    { id: 'saree draper', label: 'Saree Draper' },
+    { id: 'makeup artist', label: 'Makeup Artist' },
+    { id: 'costume designer', label: 'Costume Designer' },
+    { id: 'pencil sketch', label: 'Pencil sketch' },
+    { id: 'portrait artists', label: 'Portrait Artists' },
+    { id: 'sculpture', label: 'Sculpture' },
+    { id: 'clay pottery', label: 'Clay Pottery' },
+  ],
+  vehicle_operator: [
+    { id: 'mini truck', label: 'Mini Truck' },
+    { id: 'tempo travels', label: 'Tempo Travels' },
+    { id: 'car', label: 'Car' },
+    { id: 'mini bus', label: 'Mini Bus' },
+    { id: 'vanity van', label: 'Vanity Van' },
+    { id: 'luxury car', label: 'Luxury Car' },
+    { id: 'shipping logistic', label: 'Shipping Logistic' },
+    { id: 'air cargo', label: 'Air Cargo' },
+    { id: 'domestic courier', label: 'Domestic courier' },
+    { id: 'international courier', label: 'International courier' },
+    { id: 'self drive car', label: 'Self Drive Car' },
+    { id: 'cargo lorry', label: 'Cargo Lorry' },
+    { id: 'door to door delivery', label: 'Door to Door Delivery' },
+  ],
+  software_developer: [
+    { id: 'word_press', label: 'WordPress' },
+    { id: 'php developer', label: 'PHP Developer' },
+    { id: 'mern developer', label: 'MERN Developer' },
+    { id: 'front end developer', label: 'Front end Developer' },
+    { id: 'ui / ux design', label: 'UI / UX Design' },
+    { id: 'back end developer', label: 'Back end Developer' },
+    { id: 'mobile app ( android)', label: 'Mobile App ( Android)' },
+    { id: 'mobile app ( i_os)', label: 'Mobile APP ( iOS)' },
+  ],
+  astrologer: [
+    { id: 'pandit', label: 'Pandit' },
+    { id: 'priest', label: 'Priest' },
+    { id: 'astrologer', label: 'Astrologer' },
+    { id: 'horoscope', label: 'Horoscope' },
+    { id: 'vastu shastra', label: 'Vastu Shastra' },
+    { id: 'palmistry', label: 'Palmistry' },
+    { id: 'tarot reading', label: 'Tarot Reading' },
+    { id: 'numerology', label: 'Numerology' },
+    { id: 'gemologist', label: 'Gemologist' },
   ],
 };
 
