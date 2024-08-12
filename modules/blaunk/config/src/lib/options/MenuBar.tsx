@@ -12,4 +12,10 @@ export const MenuBarItems = [
     path: Routes.home.boutique.path,
     icon: boutique,
   },
+  {
+    id: 'market',
+    name: 'Market',
+    path: Routes.home.market.path,
+    icon: boutique,
+  },
 ];
