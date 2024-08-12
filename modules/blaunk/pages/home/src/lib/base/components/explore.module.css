@@ -15,6 +15,9 @@
   display: block;
   box-shadow: var(--box-shadow-m);
 }
+.country > button {
+  width: 100%;
+}
 
 .banner {
   height: 200px;

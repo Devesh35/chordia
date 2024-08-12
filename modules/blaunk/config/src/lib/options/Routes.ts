@@ -95,6 +95,11 @@ export const Routes = {
       title: 'Tour | Blaunk',
       path: '/home/tour',
     },
+    market: {
+      isProtected: true,
+      title: 'Market | Blaunk',
+      path: '/home/market',
+    },
   },
   info: {
     isProtected: false,

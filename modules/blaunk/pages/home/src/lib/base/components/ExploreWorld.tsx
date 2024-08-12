@@ -2,7 +2,7 @@
 
 import { CountryFlag } from '@li/config/options';
 import { ImageCardOverlay } from '@li/design/components';
-import { Carousal, Select } from '@li/design/elements';
+import { Button, Carousal, Select } from '@li/design/elements';
 import { SelectItemElement } from '@li/types/design';
 import {
   AvailableCountryCode,
@@ -34,7 +34,7 @@ export const ExploreWorld = () => {
 
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="Explore the world" basic />
+      <SectionHeader sectionName="Market" basic />
       <div className={styles.header}>
         <div className={styles.country}>
           <Select
@@ -46,6 +46,7 @@ export const ExploreWorld = () => {
           {selectedCountry
             ? CountryFlag[selectedCountry.id]?.Flag
             : CountryFlag.in?.Flag}
+          <Button>View all</Button>
         </div>
         <div className={styles.banner}>
           <Image

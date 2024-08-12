@@ -28,7 +28,7 @@ export const BGTBuy = () => {
           {images}
         </Carousal>
       </div>
-      <RollingAd />
+      <RollingAd size={150} />
       <SearchBar />
       <SearchTable />
     </div>

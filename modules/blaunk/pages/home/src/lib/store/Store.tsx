@@ -101,7 +101,7 @@ export const Store = () => {
             {images}
           </Carousal>
         </div>
-        <RollingAd size={40} />
+        <RollingAd size={150} />
       </div>
       <DealSection />
       <SearchBar />

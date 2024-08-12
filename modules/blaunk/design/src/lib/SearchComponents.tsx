@@ -99,17 +99,31 @@ export const BrandSearch = () => (
   </Labeled>
 );
 
+export const PinCodeSearch = () => (
+  <Labeled label="Pin code">
+    <Input
+      placeholder="Enter Pin code"
+      className={styles['search-bar-items']}
+    />
+  </Labeled>
+);
+
+export const AreaSearch = () => (
+  <Labeled label="Area">
+    <Input placeholder="Enter Area" className={styles['search-bar-items']} />
+  </Labeled>
+);
+
+export const CitySearch = () => (
+  <Labeled label="City">
+    <Input placeholder="Enter City" className={styles['search-bar-items']} />
+  </Labeled>
+);
+
 export const AddressSearch = () => (
   <>
-    <Labeled label="City">
-      <Input placeholder="Enter City" className={styles['search-bar-items']} />
-    </Labeled>
-    <Labeled label="Pin code">
-      <Input
-        placeholder="Enter Pin code"
-        className={styles['search-bar-items']}
-      />
-    </Labeled>
+    <CitySearch />
+    <PinCodeSearch />
   </>
 );
 
