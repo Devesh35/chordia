@@ -23,3 +23,17 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.carousal {
+  height: 660px;
+}
+
+.banner {
+  height: 200px;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  background-color: #f4bc09;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

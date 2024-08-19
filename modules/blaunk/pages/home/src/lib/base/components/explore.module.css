@@ -23,6 +23,7 @@
   height: 200px;
   border-radius: var(--border-radius-large);
   overflow: hidden;
+  background-color: #f4bc09;
 }
 .content {
   margin: 12px 0;

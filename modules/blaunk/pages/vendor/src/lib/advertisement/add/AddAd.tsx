@@ -1,32 +1,19 @@
 'use client';
 
 import { grid } from '@li/config/design';
-import {
-  FormDocument,
-  FormSectionWrapper,
-  Input,
-  Labeled,
-  Select,
-} from '@li/design/elements';
+import { FormDocument, FormSectionWrapper, Input, Labeled, Select } from '@li/design/elements';
 import { SelectItem, SelectItemElement } from '@li/types/design';
-import {
-  AdvertisementSubTypeOptions,
-  AdvertisementTypeOptions,
-  CountriesOption,
-} from '@md/blaunk/config';
+import { AdvertisementSubTypeOptions, AdvertisementTypeOptions, CountriesOptionWithFlag } from '@md/blaunk/config';
 import clsx from 'clsx';
 import { useState } from 'react';
 
 const formItemClassName = clsx(grid[`col-2`], grid['col-t-3'], grid['col-m-6']);
 
 export const AddAd = () => {
-  const [selectedAdvertisement, setSelectedAdvertisement] =
-    useState<SelectItem>();
+  const [selectedAdvertisement, setSelectedAdvertisement] = useState<SelectItem>();
 
   const subAdvTypes: SelectItemElement[] = selectedAdvertisement
-    ? AdvertisementSubTypeOptions[
-        selectedAdvertisement?.id as keyof typeof AdvertisementSubTypeOptions
-      ]
+    ? AdvertisementSubTypeOptions[selectedAdvertisement?.id as keyof typeof AdvertisementSubTypeOptions]
     : [
         {
           id: '0',
@@ -38,7 +25,7 @@ export const AddAd = () => {
     <>
       <FormSectionWrapper>
         <Labeled label={'Country'} className={formItemClassName}>
-          <Select placeholder="Select Country" options={CountriesOption} />
+          <Select placeholder="Select Country" options={CountriesOptionWithFlag} />
         </Labeled>
         <Labeled label={'Type'} className={formItemClassName}>
           <Select

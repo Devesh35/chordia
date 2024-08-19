@@ -2,13 +2,14 @@
 
 import { CountryFlag } from '@li/config/options';
 import { ImageCardOverlay } from '@li/design/components';
-import { Button, Carousal, Select } from '@li/design/elements';
+import { Link, Select } from '@li/design/elements';
 import { SelectItemElement } from '@li/types/design';
 import {
   AvailableCountryCode,
-  CountriesOption,
+  blaunkMarketPlace,
+  CountriesOptionWithFlag,
   getRandomImagesArray,
-  randomImageUrl,
+  Routes,
 } from '@md/blaunk/config';
 import { SectionHeader } from '@md/blaunk/design';
 import Image from 'next/image';
@@ -29,8 +30,7 @@ const ads = getRandomImagesArray(5)(400, 300).map((src) => (
 ));
 
 export const ExploreWorld = () => {
-  const [selectedCountry, setSelectedCountry] =
-    useState<SelectItemElement<AvailableCountryCode>>();
+  const [selectedCountry, setSelectedCountry] = useState<SelectItemElement<AvailableCountryCode>>();
 
   return (
     <div className={styles.wrapper}>
@@ -38,26 +38,25 @@ export const ExploreWorld = () => {
       <div className={styles.header}>
         <div className={styles.country}>
           <Select
-            options={CountriesOption}
-            defaultItem={CountriesOption[0]}
+            options={CountriesOptionWithFlag}
+            defaultItem={CountriesOptionWithFlag[0]}
             onChange={setSelectedCountry}
             placeholder="Select a country"
           />
-          {selectedCountry
-            ? CountryFlag[selectedCountry.id]?.Flag
-            : CountryFlag.in?.Flag}
-          <Button>View all</Button>
+          {selectedCountry ? CountryFlag[selectedCountry.id]?.Flag : CountryFlag.in?.Flag}
+          <Link variant="button-primary" href={Routes.home.market.path}>
+            View all
+          </Link>
         </div>
         <div className={styles.banner}>
-          <Image
-            width={1500}
-            height={200}
-            alt="indian Ad"
-            src={randomImageUrl(200, 1000)}
-          />
+          <Image width={1500} height={200} alt="indian Ad" src={blaunkMarketPlace} style={{ objectFit: 'contain' }} />
         </div>
       </div>
-      <Carousal className={styles.carousal} variant="dark">
+      <div>
+        <div className={styles.content}>{ads}</div>
+        <div className={styles.content}>{ads}</div>
+      </div>
+      {/* <Carousal className={styles.carousal} variant="dark">
         {Array(4)
           .fill(0)
           .map((_, i) => (
@@ -66,7 +65,7 @@ export const ExploreWorld = () => {
               <div className={styles.content}>{ads}</div>
             </div>
           ))}
-      </Carousal>
+      </Carousal> */}
     </div>
   );
 };
