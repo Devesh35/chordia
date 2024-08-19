@@ -108,8 +108,22 @@
   opacity: 0;
   position: absolute;
   inset: 0;
-  height: 100%;
   pointer-events: all;
+}
+
+.document .document-input {
+  height: 100%;
+  padding: 0;
+}
+.document .document-input > input {
+  cursor: pointer;
+}
+
+.document-image {
+  margin-top: 5%;
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
 }
 
 .required {

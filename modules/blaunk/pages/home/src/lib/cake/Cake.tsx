@@ -311,7 +311,7 @@ export const Cake = () => {
       </ScrollableSnap>
 
       <CustomerReviews />
-      <DealsAndOffer />
+      <DealsAndOffer showRecent />
     </div>
   );
 };

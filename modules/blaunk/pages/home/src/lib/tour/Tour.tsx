@@ -286,7 +286,7 @@ export const Tour = () => {
       </main>
 
       <CustomerReviews />
-      <DealsAndOffer />
+      <DealsAndOffer showRecent />
     </div>
   );
 };

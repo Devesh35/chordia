@@ -1,0 +1,16 @@
+.title {
+  padding: 12px;
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+.disclaimer > div {
+  text-align: center;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
