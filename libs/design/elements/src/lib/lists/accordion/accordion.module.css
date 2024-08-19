@@ -12,6 +12,11 @@
   justify-content: space-between;
 }
 
+.header-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 .title {
   font-size: var(--font-size-h6);
   line-height: var(--line-height-h6);
@@ -31,7 +36,5 @@
 
 .content-wrapper {
   width: 100%;
-  height: 0;
-  overflow: hidden;
-  transition: height var(--duration-tr-veryfast) ease-in-out;
+  /* transition: height var(--duration-tr-veryfast) ease-in-out; */
 }

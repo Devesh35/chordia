@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChangeEvent, useCallback, useRef, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import formStyles from './form.module.css';
 import styles from './input.module.css';
 
@@ -16,6 +16,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   iconRight?: React.ReactNode;
   disableWrapperFocus?: boolean;
   maxLen?: number;
+  defaultValue?: string;
 };
 
 export const Input = ({
@@ -27,9 +28,12 @@ export const Input = ({
   iconRight,
   disableWrapperFocus = false,
   maxLen = Infinity,
+  defaultValue,
+  className,
   ...props
 }: InputProps) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(defaultValue);
+  useEffect(() => setValue(defaultValue), [defaultValue]);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const focusInput = useCallback(() => {
@@ -47,7 +51,7 @@ export const Input = ({
     <div
       className={clsx(
         formStyles['item-wrapper'],
-        props.className,
+        className,
         styles.wrapper,
         styles[variant],
         {

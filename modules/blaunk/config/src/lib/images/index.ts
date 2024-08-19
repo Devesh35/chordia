@@ -1,4 +1,5 @@
 export { default as bgt } from './bgt.jpg';
+export { default as blaunkMarketPlace } from './blaunk-market-place.gif';
 export { default as blaunkStore } from './blaunk-store.png';
 export { default as boutique } from './boutique.jpg';
 export { default as cake } from './cake.jpg';

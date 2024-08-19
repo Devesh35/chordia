@@ -1,8 +1,7 @@
 import { Carousal, Modal } from '@li/design/elements';
-import { Whatsapp } from '@li/design/icons';
+import { Location, Whatsapp } from '@li/design/icons';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import Image from 'next/image';
-import { DetailsTable } from '../components';
 import styles from './selected-item.module.css';
 
 type Props = {
@@ -11,14 +10,7 @@ type Props = {
 };
 
 const images = getRandomImagesArray(6)(500).map((src, i) => (
-  <Image
-    key={src}
-    src={src}
-    width={500}
-    height={500}
-    alt="random"
-    loading={i === 0 ? 'eager' : 'lazy'}
-  />
+  <Image key={src} src={src} width={500} height={500} alt="random" loading={i === 0 ? 'eager' : 'lazy'} />
 ));
 
 export const SelectedItem = ({ isOpen, onClose }: Props) => {
@@ -37,17 +29,17 @@ export const SelectedItem = ({ isOpen, onClose }: Props) => {
             <div className={styles.listing}>4 days ago</div>
           </div>
           <div className={styles.description}>
-            This dining set is perfect for family meals and small gatherings.
-            Its elegant design fits any home decor.
+            This dining set is perfect for family meals and small gatherings. Its elegant design fits any home decor.
           </div>
-          <DetailsTable
-            data={[
-              ['Area', 'Central park'],
-              ['Country', 'India'],
-              ['Condition', 'Good'],
-              ['Negotiable', 'Yes'],
-            ]}
-          />
+          <div>
+            <div className="flex align-items-center">
+              <Location color="red" width={16} height={16} />
+              &nbsp;Central park
+            </div>
+            <div>India</div>
+            <div>Good</div>
+            <div>Negotiable</div>
+          </div>
           <div className={styles['whatsapp-button']}>
             <Whatsapp />
             Chat on whatsapp

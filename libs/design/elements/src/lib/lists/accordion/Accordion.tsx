@@ -1,16 +1,18 @@
 'use client';
+import { withCondition } from '@li/design/enhancers';
 import { DownFilled } from '@li/design/icons';
+import { ClassName, ReactChildren } from '@li/types/shared';
+import clsx from 'clsx';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Divider } from '../../presentational';
-import { ClassName, ReactChildren } from '@li/types/shared';
 import styles from './accordion.module.css';
-import clsx from 'clsx';
 
 export type AccordionProps = {
   title: React.ReactNode;
   childHeight?: number;
   initialOpen?: boolean;
   updateParentHeight?: (height: number) => void;
+  variant?: 'primary' | 'secondary';
 } & ReactChildren &
   Partial<ClassName>;
 
@@ -21,14 +23,14 @@ export const Accordion = ({
   childHeight = 0,
   initialOpen = false,
   updateParentHeight,
+  variant = 'secondary',
 }: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(initialOpen);
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (contentRef.current)
-      setContentHeight(contentRef.current.scrollHeight + childHeight);
+    if (contentRef.current) setContentHeight(contentRef.current.scrollHeight + childHeight);
   }, [children, childHeight]);
 
   const toggleAccordion = useCallback(() => {
@@ -38,24 +40,27 @@ export const Accordion = ({
 
   return (
     <div className={clsx(styles.wrapper, className)}>
-      <header className={styles.header} onClick={toggleAccordion}>
+      <header
+        className={clsx(styles.header, {
+          [styles['header-primary']]: variant === 'primary',
+        })}
+        onClick={toggleAccordion}
+      >
         <span className={styles.title}>{title}</span>
         <div
           className={clsx(styles.icon, {
             [styles['icon-active']]: isOpen,
           })}
         >
-          <DownFilled fill="var(--onsecondaryaccent)" />
+          <DownFilled color={variant === 'primary' ? 'var(--onprimaryaccent)' : 'var(--onsecondaryaccent)'} />
         </div>
       </header>
-      {isOpen ? <Divider color="var(--secondarydark)" /> : null}
-      <main
-        className={styles['content-wrapper']}
-        style={{ height: isOpen ? contentHeight : '0' }}
-        ref={contentRef}
-      >
-        {children}
-      </main>
+      {withCondition(isOpen)(<Divider color="var(--secondarydark)" />)}
+      {withCondition(isOpen)(
+        <main className={styles['content-wrapper']} ref={contentRef}>
+          {children}
+        </main>,
+      )}
       <Divider color="var(--secondarydark)" />
     </div>
   );

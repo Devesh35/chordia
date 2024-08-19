@@ -6,7 +6,7 @@ export const Search = (props: SVGProps) => {
       viewBox="0 0 24 24"
       width={24}
       height={24}
-      stroke="#000000"
+      stroke="currentColor"
       fill="transparent"
       {...props}
     >

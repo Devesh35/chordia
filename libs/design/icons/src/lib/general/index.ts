@@ -11,6 +11,7 @@ export { Globe } from './Globe';
 export { Group } from './Group';
 export { Heart } from './Heart';
 export { LeftArrow as AngleLeft } from './LeftArrow';
+export { Location } from './Location';
 export { Microphone } from './Microphone';
 export { PDF } from './PDF';
 export { RightArrow as AngleRight } from './RightArrow';

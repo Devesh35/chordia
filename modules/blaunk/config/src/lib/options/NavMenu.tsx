@@ -39,6 +39,7 @@ export const NavMenuItems: NavMenuItem[] = [
   },
   { id: 'dashboard', item: 'Dashboard', path: Routes.vendor.dashboard.path },
   { id: 'product', item: 'Products', path: Routes.product.path },
+  { id: 'advertisement', item: 'Advertisement', path: Routes.vendor.advertisement.path },
   { id: 'shipments', item: 'Shipments', path: Routes.vendor.shipments.path },
   {
     id: 'requirement',
