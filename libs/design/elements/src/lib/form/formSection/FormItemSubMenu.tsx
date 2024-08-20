@@ -1,6 +1,5 @@
 'use client';
 
-import { grid } from '@li/config/design';
 import { FormSectionItem, SelectItem } from '@li/types/design';
 import clsx from 'clsx';
 import { useState } from 'react';
@@ -9,6 +8,7 @@ import formStyles from '../form.module.css';
 import { useFormConfig } from './FormConfigProvider';
 import { FormItemElement } from './FormItemElement';
 import styles from './form.module.css';
+import { blockFormItemStyles, inlineFormItemStyles } from './utils';
 
 export const FormItemSubMenu = <D,>(props: FormSectionItem<D>) => {
   const { isEdit, hasBG } = useFormConfig();
@@ -26,25 +26,16 @@ export const FormItemSubMenu = <D,>(props: FormSectionItem<D>) => {
     const mainSelect = (
       <Labeled
         label={`${props.label}:`}
-        inline
-        className={clsx(
-          grid[`col-4`],
-          grid['col-t-4'],
-          grid['col-m-6'],
-          styles['item-label'],
-          { [styles['item-label-bg']]: hasBG },
-        )}
+        inline={!props.block}
+        className={clsx(props.block ? blockFormItemStyles : inlineFormItemStyles, styles['item-label'], {
+          [styles['item-label-bg']]: hasBG,
+          [styles['item-label-inline']]: !props.block,
+        })}
       >
         {isEdit && !props.isReadOnly ? (
-          <FormItemElement
-            {...props}
-            type="select"
-            onChange={onSuperSelectChange}
-          />
+          <FormItemElement {...props} type="select" onChange={onSuperSelectChange} />
         ) : (
-          <span className={formStyles['item-wrapper']}>
-            {props.placeholder}
-          </span>
+          <span className={formStyles['item-wrapper']}>{props.placeholder}</span>
         )}
       </Labeled>
     );
@@ -52,14 +43,11 @@ export const FormItemSubMenu = <D,>(props: FormSectionItem<D>) => {
     const subSelect = (
       <Labeled
         label={`${props.sub.label}:`}
-        inline
-        className={clsx(
-          grid[`col-4`],
-          grid['col-t-4'],
-          grid['col-m-6'],
-          styles['item-label'],
-          { [styles['item-label-bg']]: hasBG },
-        )}
+        inline={!props.block}
+        className={clsx(props.block ? blockFormItemStyles : inlineFormItemStyles, styles['item-label'], {
+          [styles['item-label-bg']]: hasBG,
+          [styles['item-label-inline']]: !props.block,
+        })}
       >
         {isEdit && !props.isReadOnly ? (
           <FormItemElement
@@ -79,9 +67,7 @@ export const FormItemSubMenu = <D,>(props: FormSectionItem<D>) => {
             }
           />
         ) : (
-          <span className={formStyles['item-wrapper']}>
-            {props.sub.placeholder}
-          </span>
+          <span className={formStyles['item-wrapper']}>{props.sub.placeholder}</span>
         )}
       </Labeled>
     );

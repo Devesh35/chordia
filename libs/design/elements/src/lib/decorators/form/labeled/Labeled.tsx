@@ -4,18 +4,12 @@ import styles from './labeled.module.css';
 
 type Props = {
   label: string;
-  inline?: true;
+  inline?: boolean;
   labelWidth?: number;
 } & ReactChildren &
   Partial<ClassName>;
 
-export const Labeled = ({
-  label,
-  children,
-  inline,
-  className,
-  labelWidth,
-}: Props) => (
+export const Labeled = ({ label, children, inline, className, labelWidth }: Props) => (
   <div className={clsx({ [styles.inline]: inline }, className)}>
     <label className={styles.label} style={{ minWidth: labelWidth }}>
       {label}

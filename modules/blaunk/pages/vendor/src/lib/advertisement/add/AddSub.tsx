@@ -1,18 +1,10 @@
 'use client';
 
 import { grid } from '@li/config/design';
-import {
-  FormSectionWrapper,
-  Input,
-  Labeled,
-  Select,
-} from '@li/design/elements';
+import { FormSectionWrapper, Input, Labeled, Select } from '@li/design/elements';
 import { Search } from '@li/design/icons';
 import { SelectItem } from '@li/types/design';
-import {
-  SubscriptionOptions,
-  SubscriptionPlanOptions,
-} from '@md/blaunk/config';
+import { SubscriptionOptions, SubscriptionPlanOptions, SubscriptionType } from '@md/blaunk/config';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
@@ -29,31 +21,27 @@ const formItemClassName = clsx(grid[`col-2`], grid['col-t-3'], grid['col-m-6']);
 
 const today = new Date();
 
-export const AddSub = () => {
-  const [selectedSubscription, setSelectedSubscription] =
-    useState<SelectItem>();
-  const [selectedSubscriptionPlan, setSelectedSubscriptionPlan] =
-    useState<SubscriptionPlan>();
+type Props = {
+  onChangeType: (type: SubscriptionType) => void;
+};
+
+export const AddSub = ({ onChangeType }: Props) => {
+  const [selectedSubscription, setSelectedSubscription] = useState<SelectItem>();
+  const [selectedSubscriptionPlan, setSelectedSubscriptionPlan] = useState<SubscriptionPlan>();
   const [renew, setRenew] = useState<string>();
 
   const selectedSubscriptionPlans = selectedSubscription
-    ? SubscriptionPlanOptions[
-        selectedSubscription.id as keyof typeof SubscriptionPlanOptions
-      ]
+    ? SubscriptionPlanOptions[selectedSubscription.id as keyof typeof SubscriptionPlanOptions]
     : [noSubscriptionPlan];
 
   useEffect(() => {
     const newDate = new Date();
     console.log(selectedSubscriptionPlan);
     if (selectedSubscriptionPlan?.duration.years)
-      newDate.setFullYear(
-        newDate.getFullYear() + selectedSubscriptionPlan.duration.years,
-      );
+      newDate.setFullYear(newDate.getFullYear() + selectedSubscriptionPlan.duration.years);
 
     if (selectedSubscriptionPlan?.duration.months)
-      newDate.setMonth(
-        newDate.getMonth() + selectedSubscriptionPlan.duration.months,
-      );
+      newDate.setMonth(newDate.getMonth() + selectedSubscriptionPlan.duration.months);
     setRenew(newDate.toDateString());
   }, [selectedSubscriptionPlan]);
 
@@ -64,9 +52,13 @@ export const AddSub = () => {
       <FormSectionWrapper>
         <Labeled label={'Subscription'} className={formItemClassName}>
           <Select
+            defaultItem={SubscriptionOptions[0]}
             placeholder="Select Subscription"
             options={SubscriptionOptions}
-            onChange={(s) => setSelectedSubscription(s)}
+            onChange={(s) => {
+              setSelectedSubscription(s);
+              if (s?.id && s.id !== 'divider') onChangeType(s.id);
+            }}
           />
         </Labeled>
         <Labeled label={'Subscription Plan'} className={formItemClassName}>

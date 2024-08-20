@@ -10,12 +10,7 @@ const defaultOnChange = (v: unknown) => {};
 export const FormItemElement = <D,>(item: FormSectionItem<D>) => {
   if (item.type === 'select') {
     return (
-      <Select
-        placeholder={item.placeholder}
-        options={item.options}
-        onChange={item.onChange}
-        defaultItem={item.value}
-      />
+      <Select placeholder={item.placeholder} options={item.options} onChange={item.onChange} defaultItem={item.value} />
     );
   }
 
