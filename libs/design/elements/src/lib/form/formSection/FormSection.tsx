@@ -5,18 +5,12 @@ import { FormDocumentSectionList } from './FormDocumentSection';
 import { FormFormSectionList } from './FormFormSection';
 import { FormFormSectionSelect } from './FormFormSectionSelect';
 
-type FormSectionProps<
-  T extends FormGroupBase,
-  K extends keyof T & string = keyof T & string,
-> = {
+type FormSectionProps<T extends FormGroupBase, K extends keyof T & string = keyof T & string> = {
   selected: K;
   section: FormSectionGroup<T>;
 };
 
-export const FormSection = <
-  T extends FormGroupBase,
-  K extends keyof T & string = keyof T & string,
->({
+export const FormSection = <T extends FormGroupBase, K extends keyof T & string = keyof T & string>({
   selected,
   section,
 }: FormSectionProps<T, K>) => {
@@ -25,18 +19,10 @@ export const FormSection = <
 
   return (
     <>
-      {'form' in sectionItem && sectionItem.form && (
-        <FormFormSectionList sections={sectionItem.form} />
-      )}
-      {'document' in sectionItem && sectionItem.document && (
-        <FormDocumentSectionList sections={sectionItem.document} />
-      )}
+      {'form' in sectionItem && sectionItem.form && <FormFormSectionList sections={sectionItem.form} />}
+      {'document' in sectionItem && sectionItem.document && <FormDocumentSectionList sections={sectionItem.document} />}
       {'options' in sectionItem && (
-        <FormFormSectionSelect
-          title={sectionItem.title}
-          options={sectionItem.options}
-          section={sectionItem.items}
-        />
+        <FormFormSectionSelect title={sectionItem.title} options={sectionItem.options} section={sectionItem.items} />
       )}
     </>
   );

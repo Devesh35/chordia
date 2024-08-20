@@ -8,38 +8,27 @@ import { FormDocument } from './FormDocument';
 import { FormSectionHeader } from './FormSectionHeader';
 import formStyles from './form.module.css';
 
-export const FormDocumentSection = <T, D>({
-  section,
-}: {
-  section: FDS<T, D>;
-}) => {
+export const FormDocumentSection = <T, D>({ section }: { section: FDS<T, D> }) => {
   return (
     <section className={formStyles.section}>
-      <FormSectionHeader
-        title={section.title}
-        sub={withCondition(!!section.verification)(
-          <div className={formStyles.verification}>
-            <div>Subject to verification & confirmation</div>
-            <ul className={formStyles.ul}>
-              <li>Document should be clear and visible</li>
-              <li>Size less than 150kb</li>
-            </ul>
-          </div>,
-        )}
-      />
+      {withCondition(!section.noHeader)(
+        <FormSectionHeader
+          title={section.title}
+          sub={withCondition(!!section.verification)(
+            <div className={formStyles.verification}>
+              <div>Subject to verification & confirmation</div>
+              <ul className={formStyles.ul}>
+                <li>Document should be clear and visible</li>
+                <li>Size less than 150kb</li>
+              </ul>
+            </div>,
+          )}
+        />,
+      )}
 
-      <div
-        className={clsx(
-          formStyles['section-content-wrapper'],
-          formStyles['section-content'],
-          grid.grid,
-        )}
-      >
+      <div className={clsx(formStyles['section-content-wrapper'], formStyles['section-content'], grid.grid)}>
         {section.items.map((item) => (
-          <div
-            key={`${item.id}`}
-            className={clsx(grid[`col-2`], grid['col-t-4'], grid['col-m-6'])}
-          >
+          <div key={`${item.id}`} className={clsx(grid[`col-2`], grid['col-t-4'], grid['col-m-6'])}>
             <FormDocument {...item} />
           </div>
         ))}
@@ -48,13 +37,7 @@ export const FormDocumentSection = <T, D>({
   );
 };
 
-export const FormDocumentSectionList = <T, D>({
-  sections,
-}: {
-  sections: FDS<T, D>[];
-}) =>
+export const FormDocumentSectionList = <T, D>({ sections }: { sections: FDS<T, D>[] }) =>
   sections.map((section) =>
-    withCondition(!!section.items.length)(
-      <FormDocumentSection key={`${section.id}`} section={section} />,
-    ),
+    withCondition(!!section.items.length)(<FormDocumentSection key={`${section.id}`} section={section} />),
   );

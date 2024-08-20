@@ -1,7 +1,8 @@
 import { optionsFromStrings } from '@li/config/utils';
-import { SelectItem } from '@li/types/design';
+import { FormSectionGroup, SelectItem } from '@li/types/design';
+import { CountriesOptionWithFlag } from './Country';
 
-type SubscriptionType = 'advertisement' | 'blaunkDial' | 'marketFeed';
+export type SubscriptionType = 'advertisement' | 'blaunkDial' | 'marketFeed';
 
 export const SubscriptionOptions: SelectItem<SubscriptionType>[] = [
   { id: 'advertisement', item: 'Advertisement' },
@@ -95,13 +96,7 @@ export const AdvertisementTypeOptions = [
 ];
 
 export const AdvertisementSubTypeOptions = {
-  homePage: optionsFromStrings([
-    'Business Card',
-    'Slider',
-    'Category',
-    'Deal & Offer',
-    'Explore',
-  ]),
+  homePage: optionsFromStrings(['Business Card', 'Slider', 'Category', 'Deal & Offer', 'Explore']),
   bgt: optionsFromStrings(['Running ad', 'Slider']),
   tour: optionsFromStrings(['Deal & Offer', 'Explore']),
   cake: optionsFromStrings(['Deal & Offer', 'Explore']),
@@ -115,4 +110,72 @@ export const AdvertisementSubTypeOptions = {
     'Indian Celebrity Designer',
     'International Celebrity Designer',
   ]),
+};
+
+const AdvertisementFormSections = {
+  details: {
+    form: ['details'],
+  },
+  docs: {
+    document: ['images'],
+  },
+};
+
+export const AdvertisementForm: FormSectionGroup<typeof AdvertisementFormSections> = {
+  details: {
+    form: [
+      {
+        id: 'details',
+        title: 'Details',
+        noHeader: true,
+        items: [
+          {
+            id: 'country',
+            label: 'Country',
+            type: 'select',
+            block: true,
+            options: CountriesOptionWithFlag,
+            placeholder: 'Select Country',
+          },
+          {
+            id: 'type',
+            label: 'Type',
+            type: 'select-submenu',
+            block: true,
+            options: AdvertisementTypeOptions,
+            placeholder: 'Select Type',
+            optionsSub: AdvertisementSubTypeOptions,
+            sub: {
+              id: 'ads',
+              label: 'Ads',
+              placeholder: 'Select Ads',
+            },
+          },
+          {
+            id: 'pin-code',
+            label: 'Zip-code/Pin-code',
+            type: 'number',
+            block: true,
+            placeholder: 'Enter Pin-code',
+          },
+        ],
+      },
+    ],
+  },
+  docs: {
+    document: [
+      {
+        id: 'images',
+        title: 'Images',
+        noHeader: true,
+        items: [
+          {
+            id: 'images',
+            label: 'Ad Image',
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
 };

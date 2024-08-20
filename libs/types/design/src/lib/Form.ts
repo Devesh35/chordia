@@ -14,6 +14,7 @@ export type FormSectionItem<D = string> = {
   placeholder: string;
   isReadOnly?: true;
   required?: boolean;
+  block?: boolean;
 } & (
   | {
       type?: 'text' | 'email' | 'date' | 'area';
@@ -59,6 +60,7 @@ export type FormSectionItem<D = string> = {
 export type FormSection<T = string, D = string> = {
   id: T;
   title: string;
+  noHeader?: boolean;
   items: FormSectionItem<D>[];
 };
 
@@ -72,6 +74,7 @@ export type FormDocument<T = string> = {
 export type FormDocumentSection<T = string, D = string> = {
   id: T;
   title: string;
+  noHeader?: boolean;
   items: FormDocument<D>[];
   verification?: boolean;
 };
@@ -97,10 +100,7 @@ type FS<D extends FormBaseData> = D extends FormBaseDataStrings
   ? { form: FormSection<FromList<D>>[] }
   : D extends FormBaseDataRecord
   ? {
-      form: FormSection<
-        keyof D,
-        D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string
-      >[];
+      form: FormSection<keyof D, D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string>[];
     }
   : never;
 
@@ -108,10 +108,7 @@ type FDS<D extends FormBaseData> = D extends FormBaseDataStrings
   ? { document: FormDocumentSection<FromList<D>>[] }
   : D extends FormBaseDataRecord
   ? {
-      document: FormDocumentSection<
-        keyof D,
-        D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string
-      >[];
+      document: FormDocumentSection<keyof D, D[keyof D] extends FormBaseDataStrings ? FromList<D[keyof D]> : string>[];
     }
   : never;
 
@@ -119,9 +116,7 @@ type GroupToBase<T extends FormGroupBase> = {
   [K in keyof T]: T[K] extends FormBase
     ?
         | (T[K]['form'] extends FormBaseData ? FS<T[K]['form']> : never)
-        | (T[K]['document'] extends FormBaseData
-            ? FDS<T[K]['document']>
-            : never)
+        | (T[K]['document'] extends FormBaseData ? FDS<T[K]['document']> : never)
     : T[K] extends FormGroup
     ? { title: string; options: SelectItemElement[]; items: GroupToBase<T[K]> }
     : never;

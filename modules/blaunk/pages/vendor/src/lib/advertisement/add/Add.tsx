@@ -1,16 +1,29 @@
+'use client';
+import { fromCamelCase } from '@li/config/utils';
 import { Accordion, Button, FormConfigProvider } from '@li/design/elements';
+import { withConditionCase } from '@li/design/enhancers';
+import { SubscriptionType } from '@md/blaunk/config';
+import { useState } from 'react';
 import { AddAd } from './AddAd';
+import { AddDial } from './AddDial';
+import { AddMarket } from './AddMarket';
 import { AddSub } from './AddSub';
 import styles from './add.module.css';
 
 export const Add = () => {
+  const [type, setType] = useState<SubscriptionType>('advertisement');
+
   return (
     <FormConfigProvider isEdit>
-      <Accordion title={'Subscription'} variant="primary">
-        <AddSub />
+      <Accordion title={'Subscription'} variant="primary" initialOpen>
+        <AddSub onChangeType={setType} />
       </Accordion>
-      <Accordion title={'Advertisement'} variant="primary">
-        <AddAd />
+      <Accordion title={fromCamelCase(type)} variant="primary">
+        {withConditionCase(type)({
+          advertisement: <AddAd />,
+          marketFeed: <AddMarket />,
+          blaunkDial: <AddDial />,
+        })}
       </Accordion>
 
       <div className={styles.title}>Disclaimer</div>

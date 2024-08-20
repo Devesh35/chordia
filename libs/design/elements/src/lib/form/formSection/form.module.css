@@ -31,9 +31,11 @@
   height: fit-content;
 }
 .item-label > label {
+  flex: 0.4;
+}
+.item-label-inline > label {
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
-  flex: 0.4;
 }
 
 .item-label > span,
