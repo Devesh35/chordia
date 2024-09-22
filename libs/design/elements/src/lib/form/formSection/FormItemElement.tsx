@@ -64,6 +64,16 @@ export const FormItemElement = <D,>(item: FormSectionItem<D>) => {
     );
   }
 
+  if (item.type === 'date')
+    return (
+      <Input
+        placeholder={item.placeholder}
+        type={item.type}
+        value={item.value}
+        onChange={(e) => item.onChange?.(e.target.value)}
+      />
+    );
+
   return (
     <Input
       placeholder={item.placeholder}

@@ -31,13 +31,7 @@ const profileSection = {
     qrCode: { document: ['qrCode'] },
   },
   vendor: {
-    form: [
-      'vendor',
-      'vendorCompany',
-      'vendorAgent',
-      'vendorResponse',
-      'vendorIdentification',
-    ],
+    form: ['vendor', 'vendorCompany', 'vendorAgent', 'vendorResponse', 'vendorIdentification'],
     document: {
       vendor: [
         'companyLogo',
@@ -50,6 +44,15 @@ const profileSection = {
         'bankLetter',
       ],
     },
+  },
+  export: {
+    form: ['export'],
+  },
+  policy: {
+    form: ['policy'],
+  },
+  terms: {
+    form: ['terms'],
   },
 } as const;
 
@@ -99,9 +102,10 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Passport',
           },
           {
-            id: 'doi',
-            label: 'DOI',
-            placeholder: 'DOI',
+            id: 'dob',
+            label: 'DOB',
+            placeholder: 'DOB',
+            type: 'date',
           },
           {
             id: 'dl',
@@ -124,17 +128,12 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         title: 'Documents',
         verification: true,
         items: [
-          { id: 'profilePhoto', label: 'Profile Photo', required: true },
+          { id: 'profilePhoto', label: 'Profile Photo' },
           {
             id: 'idProof',
             label: 'ID Proof',
             required: true,
-            placeholder: [
-              'PAN Card',
-              'Driving License',
-              'Aadhar Card',
-              'Passport',
-            ],
+            placeholder: ['PAN Card', 'Driving License', 'Aadhar Card', 'Passport'],
           },
           { id: 'googleAddress', label: 'Google Address' },
         ],
@@ -375,9 +374,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             type: 'select',
             label: 'Total Directors',
             placeholder: 'Total Directors',
-            options: optionsFromStrings(
-              arrayOf(10).map((_, i) => (i < 9 ? `${i + 1}` : '10+')),
-            ),
+            options: optionsFromStrings(arrayOf(10).map((_, i) => (i < 9 ? `${i + 1}` : '10+'))),
           },
           {
             id: 'noOfBranch',
@@ -516,6 +513,62 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'signature',
             label: 'Signature',
             placeholder: `Uploaded signature only with black pen and clear white back ground`,
+          },
+        ],
+      },
+    ],
+  },
+  export: {
+    form: [
+      {
+        id: 'export',
+        title: 'Export',
+        items: [
+          {
+            id: 'exportEnquiry',
+            type: 'select',
+            label: 'Export enquiry',
+            placeholder: '',
+            options: YesNoOptions,
+          },
+          {
+            id: 'blaunkAssurance',
+            type: 'select',
+            label: 'Blaunk Assurance',
+            placeholder: '',
+            options: YesNoOptions,
+          },
+        ],
+      },
+    ],
+  },
+  policy: {
+    form: [
+      {
+        id: 'policy',
+        title: 'Policy',
+        items: [
+          {
+            id: 'policy',
+            type: 'text',
+            label: 'Policy',
+            placeholder: 'Policy',
+          },
+        ],
+      },
+    ],
+  },
+  terms: {
+    form: [
+      {
+        id: 'terms',
+        title: 'Terms',
+        items: [
+          {
+            id: 'terms',
+            type: 'text',
+            label: 'Terms',
+            placeholder: 'Terms',
           },
         ],
       },

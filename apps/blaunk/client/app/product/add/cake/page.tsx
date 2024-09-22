@@ -1,5 +1,5 @@
-import { Cake } from '@md/blaunk/pages/product';
+import { CakeForm } from "@md/blaunk/pages/product";
 
 export default async function Index() {
-  return <Cake />;
+  return <CakeForm />;
 }

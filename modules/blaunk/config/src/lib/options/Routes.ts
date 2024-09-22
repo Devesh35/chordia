@@ -95,10 +95,15 @@ export const Routes = {
       title: 'Tour | Blaunk',
       path: '/home/tour',
     },
-    market: {
+    // market: {
+    //   isProtected: true,
+    //   title: 'Market | Blaunk',
+    //   path: '/home/market',
+    // },
+    marketPlace: {
       isProtected: true,
-      title: 'Market | Blaunk',
-      path: '/home/market',
+      title: ' Market | Blaunk',
+      path: '/home/marketPlace',
     },
   },
   info: {
@@ -190,11 +195,6 @@ export const Routes = {
         isProtected: true,
         title: 'Add BGT | Blaunk',
         path: '/product/add/bgt',
-      },
-      boutique: {
-        isProtected: true,
-        title: 'Add Boutique | Blaunk',
-        path: '/product/add/boutique',
       },
       cake: {
         isProtected: true,

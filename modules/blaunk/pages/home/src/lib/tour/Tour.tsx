@@ -10,15 +10,7 @@ import {
 
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
-import {
-  Heart,
-  Star,
-  free_gifts,
-  full_refund,
-  getStaticImageSrc,
-  on_time_delivery,
-  sold_out,
-} from '@li/design/icons';
+import { Heart, Star, free_gifts, full_refund, getStaticImageSrc, on_time_delivery, sold_out } from '@li/design/icons';
 import { CustomerReviews } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -31,11 +23,7 @@ import { Filter } from './Filter';
 import { Search } from './Search';
 import styles from './tour.module.css';
 
-const images = getRandomImagesArray(6)(
-  Constants.b2bHomeBannerSize,
-  1920,
-  'hotels',
-).map((src, i) => (
+const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'hotels').map((src, i) => (
   <Image
     key={src}
     src={src}
@@ -77,23 +65,11 @@ const products = getRandomImagesArray(18)(300, 300, 'hotel').map((src, i) => (
 
 const product = getRandomImagesArray(2)(600, 600, 'hotels').map((src, i) => (
   <div className={styles['product-image-wrapper']}>
-    <div className={clsx(styles['image-tag'], styles['image-tag-left'])}>
-      Best seller
-    </div>
+    <div className={clsx(styles['image-tag'], styles['image-tag-left'])}>Best seller</div>
     <div className={clsx(styles['image-tag'], styles['image-tag-right'])}>
-      <Heart
-        width={24}
-        height={24}
-        fill={i === 0 ? 'var(--primary)' : 'var(--white)'}
-      />
+      <Heart width={24} height={24} fill={i === 0 ? 'var(--primary)' : 'var(--white)'} />
     </div>
-    <Image
-      src={src}
-      width={600}
-      height={600}
-      alt="random"
-      className={styles['product-image']}
-    />
+    <Image src={src} width={600} height={600} alt="random" className={styles['product-image']} />
   </div>
 ));
 
@@ -120,21 +96,16 @@ export const Tour = () => {
       </div>
       <Search />
       <Filter />
-      <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>
-        {products}
-      </div>
+      <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>{products}</div>
       <main className={clsx(styles.main, grid.grid)}>
         <div className={clsx(grid['col-9'], styles.content)}>
-          <div className={clsx(styles['product-image-container'])}>
-            {product}
-          </div>
+          <div className={clsx(styles['product-image-container'])}>{product}</div>
           <div className={clsx(styles.details, styles['details-main'])}>
             <div className={styles.info}>
               <div className={styles['item-half']}>
                 <div className={styles.name}>{selectedTour.name}</div>
                 <div className={clsx(styles.rating, styles['item-rating'])}>
-                  {selectedTour.rating}{' '}
-                  <Star fill="var(--secondary)" width={16} height={16} />
+                  {selectedTour.rating} <Star fill="var(--secondary)" width={16} height={16} />
                 </div>
               </div>
               <div className={styles.address}>{selectedTour.address}</div>
@@ -142,19 +113,13 @@ export const Tour = () => {
                 <div className={styles.occasion}>{selectedTour.occasion}</div>
                 <div className={styles.type}>{selectedTour.type}</div>
               </div>
-              <div className={styles.timing}>
-                Check-in Timing: {selectedTour.timing}
-              </div>
+              <div className={styles.timing}>Check-in Timing: {selectedTour.timing}</div>
             </div>
             <div className={styles['price-info']}>
-              <div className={styles['selling-price']}>
-                {selectedTour.sellingPrice}
-              </div>
+              <div className={styles['selling-price']}>{selectedTour.sellingPrice}</div>
               <div className={styles['save']}>
                 You save:
-                <span>
-                  {selectedTour.price - selectedTour.sellingPrice}
-                </span>{' '}
+                <span>{selectedTour.price - selectedTour.sellingPrice}</span>{' '}
               </div>
               <div className={styles['base-price']}>{selectedTour.price}</div>
             </div>
@@ -169,10 +134,7 @@ export const Tour = () => {
                 <Input type="date" />
               </Labeled>
             </div>
-            <Labeled
-              label="Days"
-              className={styles['select-wrapper-small-item']}
-            >
+            <Labeled label="Days" className={styles['select-wrapper-small-item']}>
               <Input type="number" isReadOnly value={4} />
             </Labeled>
             <Labeled label="Arriving time">
@@ -222,47 +184,24 @@ export const Tour = () => {
                 ]}
               />
               <div className={styles.amenities}>
-                <Image
-                  src={getStaticImageSrc(free_gifts)}
-                  alt="free_gifts"
-                  height={40}
-                  width={80}
-                />
-                <Image
-                  src={getStaticImageSrc(full_refund)}
-                  alt="full_refund"
-                  height={40}
-                  width={80}
-                />
-                <Image
-                  src={getStaticImageSrc(on_time_delivery)}
-                  alt="on_time_delivery"
-                  height={40}
-                  width={80}
-                />
+                <Image src={getStaticImageSrc(free_gifts)} alt="free_gifts" height={40} width={80} />
+                <Image src={getStaticImageSrc(full_refund)} alt="full_refund" height={40} width={80} />
+                <Image src={getStaticImageSrc(on_time_delivery)} alt="on_time_delivery" height={40} width={80} />
               </div>
             </div>
             <div className={styles.info3}>
               <div className={styles['sold-out']}>
-                <Image
-                  src={getStaticImageSrc(sold_out)}
-                  alt="sold_out"
-                  width={200}
-                  height={100}
-                />
+                <Image src={getStaticImageSrc(sold_out)} alt="sold_out" width={200} height={100} />
               </div>
             </div>
           </div>
           <div>
-            <Amenities />
+            <Amenities isReadOnly />
           </div>
           <div className={clsx(styles['vendor-info'], styles.info2)}>
             <DetailsTable
               data={[
-                [
-                  'Special Request',
-                  <Select options={SpecialRequestsOptions} />,
-                ],
+                ['Special Request', <Select options={SpecialRequestsOptions} />],
                 ['Deal', 'Orders above Rs 5000 get gift hamper worth rs 500'],
                 ['GST Invoice', 'Yes'],
                 ['Company name ', 'Company cake & co, Kalyan'],

@@ -146,7 +146,7 @@
 
 .addon {
   gap: 1rem;
-  padding-bottom: 120px;
+  padding-bottom: 24px;
 }
 
 .addon-action {
@@ -159,13 +159,22 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
 }
 .addon-cut {
   text-decoration: line-through;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding-inline: 4px;
+}
+.addon-discount {
+  color: #ee3485;
 }
 .addon-price {
-  font-weight: var(--font-weight-semibold);
-  color: var(--primarydark);
+  font-weight: var(--font-weight-bold);
+  color: #2f53fc;
 }
 
 .product-section {

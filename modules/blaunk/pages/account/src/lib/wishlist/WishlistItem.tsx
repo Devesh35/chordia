@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './wishlist.module.css';
 import clsx from 'clsx';
 import { CircleClose } from '@li/design/icons';
-import { Button, Link } from '@li/design/elements';
-import { QuantitySelector } from '@li/design/components';
+import {  Link } from '@li/design/elements';
+// import { QuantitySelector } from '@li/design/components';
 
 export type WishlistItemProps = {
   image: string;
@@ -66,8 +66,8 @@ const WishlistItem: React.FC<WishlistItemProps> = ({
         >
           View Item
         </Link>
-        <QuantitySelector max={10} />
-        <Button variant="secondary">Add to cart</Button>
+        {/* <QuantitySelector max={10} /> */}
+        {/* <Button variant="secondary">Add to cart</Button> */}
       </div>
       {/* <button className={styles['wishlist-item__clear']} onClick={onClear}>
         Clear

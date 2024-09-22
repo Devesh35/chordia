@@ -64,11 +64,7 @@ const dummyItem: StoreItem = {
   freeDelivery: '2km',
 };
 
-const images = getRandomImagesArray(6)(
-  Constants.b2bHomeBannerSize,
-  1920,
-  'food',
-).map((src, i) => (
+const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'food').map((src, i) => (
   <Image
     key={src}
     src={src}
@@ -101,7 +97,9 @@ export const Store = () => {
             {images}
           </Carousal>
         </div>
-        <RollingAd size={150} />
+        <div style={{marginTop:"10px"}}>
+          <RollingAd size={150} />
+        </div>
       </div>
       <DealSection />
       <SearchBar />

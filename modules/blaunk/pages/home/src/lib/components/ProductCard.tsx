@@ -23,7 +23,7 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
       className={clsx(grid['col-2'], 'clickable')}
       image={{
         src: src,
-        width: 300,
+        width: 200,
         height: 300,
         alt: 'random',
       }}
