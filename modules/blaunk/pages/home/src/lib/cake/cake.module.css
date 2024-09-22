@@ -253,3 +253,31 @@
   gap: 1rem;
   margin-left: 120px;
 }
+
+.addon-action {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+.addon-cost {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+}
+.addon-cut {
+  text-decoration: line-through;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding-inline: 4px;
+}
+.addon-discount {
+  color: #ee3485;
+}
+.addon-price {
+  font-weight: var(--font-weight-bold);
+  color: #2f53fc;
+}

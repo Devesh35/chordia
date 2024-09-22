@@ -7,3 +7,7 @@ export { default as loginBg } from './login-bg.jpg';
 export { default as logoLarge } from './logo-large.png';
 export { default as store } from './store.jpg';
 export { default as tour } from './tour.jpg';
+export { default as cakeBanner} from './cakebanner.png'
+export { default as cakeFooter} from './cake-footer.jpg'
+export { default as blaunkHome} from './blaunk-home.jpg'
+export {default as homeYtbRedirect} from './blaunk-home-ytbRedirect.jpg'

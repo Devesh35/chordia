@@ -2,7 +2,8 @@ import { SectionHeader } from '@md/blaunk/design';
 import { Placeholder } from '../base/components/Placeholder';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import styles from './boutique.module.css';
-import { Celeb } from './components/Celeb';
+import { IndianCeleb } from './components/IndianCeleb';
+import { InternationalCeleb } from './components/InternationalCeleb';
 import { JustDropped } from './components/JustDropped';
 import { PickYourStyle } from './components/PickYourStyle';
 import { StyleOnRent } from './components/StyleOnRent';
@@ -17,7 +18,8 @@ export const Boutique = () => {
       <StyleOnRent />
       <SectionHeader />
       <Placeholder height={400} />
-      <Celeb />
+      <IndianCeleb />
+      <InternationalCeleb />
       <Placeholder height={400} />
       <PickYourStyle />
       {/* <Jewellery />

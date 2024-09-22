@@ -4,7 +4,7 @@ import { withCondition } from '@li/design/enhancers';
 import { profileSections } from '@md/blaunk/config';
 import styles from './profile.module.css';
 
-const tabItems = ['Personal', 'General', 'Bank', 'Vendor'] as const;
+const tabItems = ['Personal', 'General', 'Bank', 'Vendor', 'Export', 'Policy', 'Terms'] as const;
 
 type BankDetails = {
   name: string;
@@ -55,6 +55,4 @@ const tabs = tabItems.map((item) => ({
   ),
 }));
 
-export const ProfileContent = () => (
-  <TabNav tabs={tabs} className={styles.content} />
-);
+export const ProfileContent = () => <TabNav tabs={tabs} className={styles.content} />;

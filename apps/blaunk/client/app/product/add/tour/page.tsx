@@ -1,5 +1,5 @@
-import { Tour } from '@md/blaunk/pages/product';
+import { TourForm } from '@md/blaunk/pages/product';
 
 export default async function Index() {
-  return <Tour />;
+  return <TourForm />;
 }

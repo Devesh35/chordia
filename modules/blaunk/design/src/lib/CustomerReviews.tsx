@@ -6,7 +6,7 @@ import { grid } from '@li/config/design';
 
 export const CustomerReviews = () => {
   return (
-    <div className={clsx(styles.wrapper, grid['col-6'])}>
+    <div className={clsx(styles.wrapper, grid['col-12'])}>
       <div className={styles.heading}>Customer speaks</div>
       <ScrollableSnap
         controls

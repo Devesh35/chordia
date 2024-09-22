@@ -1,14 +1,4 @@
-import {
-  QuantitySelector,
-  QuantitySelectorDropdown,
-} from '@li/design/components';
-import {
-  Button,
-  EnlargeableImage,
-  EnlargeableImageProps,
-  Select,
-} from '@li/design/elements';
-import { QuantityOptions } from '@md/blaunk/config';
+import { Button, EnlargeableImage, EnlargeableImageProps, Input } from '@li/design/elements';
 import clsx from 'clsx';
 import styles from './add-on-card.module.css';
 
@@ -21,28 +11,28 @@ type AddOnCardProps = {
   actionRow?: React.ReactNode;
 };
 
-const options = [
-  {
-    id: '1',
-    item: '1 Kg',
-  },
-  {
-    id: '2',
-    item: '2 Kg',
-  },
-  {
-    id: '3',
-    item: '3 Kg',
-  },
-  {
-    id: '4',
-    item: '4 Kg',
-  },
-  {
-    id: '5',
-    item: '5 Kg',
-  },
-];
+// const options = [
+//   {
+//     id: '1',
+//     item: '1 Kg',
+//   },
+//   {
+//     id: '2',
+//     item: '2 Kg',
+//   },
+//   {
+//     id: '3',
+//     item: '3 Kg',
+//   },
+//   {
+//     id: '4',
+//     item: '4 Kg',
+//   },
+//   {
+//     id: '5',
+//     item: '5 Kg',
+//   },
+// ];
 
 export const AddOnCard = ({
   image,
@@ -58,7 +48,7 @@ export const AddOnCard = ({
       <div className={styles.item}>
         <span>{name}</span>
       </div>
-      <div className={clsx(styles.item)}>
+      {/* <div className={clsx(styles.item)}>
         <span>Quantity</span>
         <span className={styles.quantity}>
           {quantityDropDown ? (
@@ -67,18 +57,19 @@ export const AddOnCard = ({
             <QuantitySelector max={20} />
           )}
         </span>
-      </div>
+      </div> */}
       {weightSelect && (
         <div className={styles.item}>
           <span>Weight/Units</span>
           <span className={styles.quantity}>
-            <QuantitySelectorDropdown maxHeight={140} options={options} />
+            <Input type="number" placeholder="0" className={styles.input} />
+            {/* <QuantitySelectorDropdown maxHeight={140} options={options} /> */}
           </span>
         </div>
       )}
 
-      {items.map(([label, value]) => (
-        <div key={label} className={styles.item}>
+      {items.map(([label, value], index) => (
+        <div key={label} className={clsx(styles.item)}>
           <span>{label}</span>
           <span>{value}</span>
         </div>

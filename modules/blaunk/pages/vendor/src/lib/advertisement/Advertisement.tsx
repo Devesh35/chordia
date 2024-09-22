@@ -6,7 +6,7 @@ export const Advertisement = () => {
   return (
     <div>
       <PageHeader
-        title={'Advertisement'}
+        title={'Boutique'}
         aside={
           <Link variant="button-secondary" href={Routes.vendor.advertisement.add.path}>
             Add Advertisement

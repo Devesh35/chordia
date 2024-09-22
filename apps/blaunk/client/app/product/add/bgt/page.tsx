@@ -1,5 +1,5 @@
-import { BGT } from '@md/blaunk/pages/product';
+import { BGTForm } from '@md/blaunk/pages/product';
 
 export default async function Index() {
-  return <BGT />;
+  return <BGTForm />;
 }

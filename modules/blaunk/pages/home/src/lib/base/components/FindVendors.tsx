@@ -34,7 +34,7 @@ export const FindVendors = () => {
   return (
     <div className={clsx(styles.wrapper, grid['col-6'])}>
       <div className={styles.heading}>
-        Let us help you find the best venders
+        Let us help you find the best vendors
       </div>
       <div className={styles.content}>
         <div className={styles.form}>

@@ -1,11 +1,6 @@
-import {
-  Carousal,
-  Input,
-  InputArea,
-  Labeled,
-  ScrollableSnap,
-  Select,
-} from '@li/design/elements';
+'use client';
+
+import { Button, Carousal, Input, InputArea, Labeled, ScrollableSnap, Select } from '@li/design/elements';
 import {
   CakeFlavourOptions,
   CakeShapeOptions,
@@ -13,6 +8,8 @@ import {
   Constants,
   DeliveryTimeOptions,
   QuantityOptions,
+  cakeBanner,
+  cakeFooter,
   getRandomImagesArray,
 } from '@md/blaunk/config';
 
@@ -40,18 +37,16 @@ import { Filter } from './Filter';
 import { Search } from './Search';
 import styles from './cake.module.css';
 
-const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map(
-  (src, i) => (
-    <Image
-      key={src}
-      src={src}
-      width={1920}
-      height={Constants.b2bHomeBannerSize}
-      alt="random"
-      loading={i === 0 ? 'eager' : 'lazy'}
-    />
-  ),
-);
+const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map((src, i) => (
+  <Image
+    key={src}
+    src={src}
+    width={1920}
+    height={Constants.b2bHomeBannerSize}
+    alt="random"
+    loading={i === 0 ? 'eager' : 'lazy'}
+  />
+));
 
 const addOn = getRandomImagesArray(6)(600).map((src, i) => (
   <AddOnCard
@@ -59,8 +54,8 @@ const addOn = getRandomImagesArray(6)(600).map((src, i) => (
     name="Strawberry Cake"
     image={{
       src: src,
-      width: 120,
-      height: 120,
+      width: 250,
+      height: 180,
       enlargedWidth: 600,
       enlargedHeight: 600,
       alt: 'random',
@@ -72,7 +67,17 @@ const addOn = getRandomImagesArray(6)(600).map((src, i) => (
       // ['Reviews', '1.5k Reviews'],
       // ['Weight/Units', '1kg'],
     ]}
-    weightSelect
+    // weightSelect
+    actionRow={
+      <div className={styles['addon-action']}>
+        <div className={styles['addon-cost']}>
+          <span className={styles['addon-cut']}>$20</span>
+          <span className={styles['addon-discount']}>$7 </span>
+          <span className={styles['addon-price']}>$13 </span>
+        </div>
+        <Button variant="secondary">Add to cart</Button>
+      </div>
+    }
   />
 ));
 
@@ -92,23 +97,11 @@ const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
 
 const product = getRandomImagesArray(2)(600, 600, 'cake').map((src, i) => (
   <div className={styles['product-image-wrapper']}>
-    <div className={clsx(styles['image-tag'], styles['image-tag-left'])}>
-      Best seller
-    </div>
+    <div className={clsx(styles['image-tag'], styles['image-tag-left'])}>Best seller</div>
     <div className={clsx(styles['image-tag'], styles['image-tag-right'])}>
-      <Heart
-        width={24}
-        height={24}
-        fill={i === 0 ? 'var(--primary)' : 'var(--white)'}
-      />
+      <Heart width={24} height={24} fill={i === 0 ? 'var(--primary)' : 'var(--white)'} />
     </div>
-    <Image
-      src={src}
-      width={600}
-      height={600}
-      alt="random"
-      className={styles['product-image']}
-    />
+    <Image src={src} width={600} height={600} alt="random" className={styles['product-image']} />
   </div>
 ));
 
@@ -133,22 +126,25 @@ export const Cake = () => {
           {images}
         </Carousal>
       </div>
+      <div style={{ objectFit: 'contain', display: 'flex', justifyContent: 'center' }}>
+        <Image src={getStaticImageSrc(cakeBanner)} alt="cake_banner" width={1250} height={250} />
+      </div>
       <Search />
       <Filter />
       <ProductWrapper>{products}</ProductWrapper>
+      <div style={{ objectFit: 'contain', display: 'flex', justifyContent: 'center' }}>
+        <Image src={getStaticImageSrc(cakeFooter)} alt="cake_banner" width={1250} height={220} />
+      </div>
       <main className={clsx(styles.main, grid.grid)}>
         <div className={clsx(grid['col-9'], styles.content)}>
-          <div className={clsx(styles['product-image-container'])}>
-            {product}
-          </div>
+          <div className={clsx(styles['product-image-container'])}>{product}</div>
           <div className={clsx(styles.details, styles['details-main'])}>
             <Veg />
             <div className={styles.info}>
               <div className={styles['item-half']}>
                 <div className={styles.name}>{selectedCake.name}</div>
                 <div className={clsx(styles.rating, styles['item-rating'])}>
-                  {selectedCake.rating}{' '}
-                  <Star fill="var(--secondary)" width={16} height={16} />
+                  {selectedCake.rating} <Star fill="var(--secondary)" width={16} height={16} />
                 </div>
               </div>
               {/* <div className={styles.address}>{selectedCake.address}</div> */}
@@ -156,19 +152,13 @@ export const Cake = () => {
                 <div className={styles.occasion}>{selectedCake.occasion}</div>
                 <div className={styles.type}>{selectedCake.type}</div>
               </div>
-              <div className={styles.timing}>
-                Shop timing: {selectedCake.timing}
-              </div>
+              <div className={styles.timing}>Shop timing: {selectedCake.timing}</div>
             </div>
             <div className={styles['price-info']}>
-              <div className={styles['selling-price']}>
-                {selectedCake.sellingPrice}
-              </div>
+              <div className={styles['selling-price']}>{selectedCake.sellingPrice}</div>
               <div className={styles['save']}>
                 You save:
-                <span>
-                  {selectedCake.price - selectedCake.sellingPrice}
-                </span>{' '}
+                <span>{selectedCake.price - selectedCake.sellingPrice}</span>{' '}
               </div>
               <div className={styles['base-price']}>{selectedCake.price}</div>
             </div>
@@ -197,51 +187,16 @@ export const Cake = () => {
             </div>
           </div>
           <div className={styles.amenities}>
-            <Image
-              src={getStaticImageSrc(free_gifts)}
-              alt="free_gifts"
-              height={40}
-              width={80}
-            />
-            <Image
-              src={getStaticImageSrc(full_refund)}
-              alt="full_refund"
-              height={40}
-              width={80}
-            />
-            <Image
-              src={getStaticImageSrc(on_time_delivery)}
-              alt="on_time_delivery"
-              height={40}
-              width={80}
-            />
-            <Image
-              src={getStaticImageSrc(free_gifts)}
-              alt="free_gifts"
-              height={40}
-              width={80}
-            />
-            <Image
-              src={getStaticImageSrc(full_refund)}
-              alt="full_refund"
-              height={40}
-              width={80}
-            />
-            <Image
-              src={getStaticImageSrc(on_time_delivery)}
-              alt="on_time_delivery"
-              height={40}
-              width={80}
-            />
+            <Image src={getStaticImageSrc(free_gifts)} alt="free_gifts" height={40} width={80} />
+            <Image src={getStaticImageSrc(full_refund)} alt="full_refund" height={40} width={80} />
+            <Image src={getStaticImageSrc(on_time_delivery)} alt="on_time_delivery" height={40} width={80} />
+            <Image src={getStaticImageSrc(free_gifts)} alt="free_gifts" height={40} width={80} />
+            <Image src={getStaticImageSrc(full_refund)} alt="full_refund" height={40} width={80} />
+            <Image src={getStaticImageSrc(on_time_delivery)} alt="on_time_delivery" height={40} width={80} />
           </div>
           <div className={styles.desc}>
             <div className={styles.info2}>
-              <Labeled
-                labelWidth={80}
-                label="Description"
-                className={styles.desc}
-                inline
-              >
+              <Labeled labelWidth={80} label="Description" className={styles.desc} inline>
                 <InputArea placeholder="Product description (max 250 characters...)" />
               </Labeled>
               <Labeled labelWidth={80} label="Message" inline>
@@ -262,12 +217,7 @@ export const Cake = () => {
             <div className={styles.info3}>
               <RemindMe name={selectedCake.name} />
               <div className={styles['sold-out']}>
-                <Image
-                  src={getStaticImageSrc(sold_out)}
-                  alt="sold_out"
-                  width={200}
-                  height={100}
-                />
+                <Image src={getStaticImageSrc(sold_out)} alt="sold_out" width={200} height={100} />
               </div>
             </div>
           </div>
@@ -286,10 +236,7 @@ export const Cake = () => {
                 ['Customized Order ', 'Yes'],
                 ['Response Time ', 'Immediate'],
                 ['Preparation Time ', 'Within 2 hrs'],
-                [
-                  'Delivery Condition ',
-                  'We Accept & Deliver your valued orders only on our shop Timing.',
-                ],
+                ['Delivery Condition ', 'We Accept & Deliver your valued orders only on our shop Timing.'],
                 ['Party orders', 'No'],
                 ['GST Invoice', 'Yes'],
               ]}

@@ -1,12 +1,5 @@
 import { fromCamelCase } from '@li/config/utils';
-import {
-  Button,
-  Carousal,
-  InputArea,
-  Labeled,
-  ScrollableSnap,
-  Select,
-} from '@li/design/elements';
+import { Button, Carousal, InputArea, Labeled, ScrollableSnap } from '@li/design/elements';
 import Image from 'next/image';
 import { DetailsTable } from '../../components';
 import { StoreItem } from '../Store';
@@ -38,8 +31,8 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
     key={src}
     image={{
       src: src,
-      width: 120,
-      height: 120,
+      width: 250,
+      height: 180,
       enlargedWidth: 600,
       enlargedHeight: 600,
       alt: 'random',
@@ -47,26 +40,28 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
     name="Store"
     quantityDropDown
     weightSelect
-    items={[
+    items={
       [
-        'Color',
-        <Select
-          maxHeight={160}
-          options={[
-            { id: '1', item: 'Red' },
-            { id: '2', item: 'Blue' },
-            { id: '3', item: 'Green' },
-            { id: '4', item: 'Yellow' },
-            { id: '5', item: 'Black' },
-          ]}
-        />,
-      ],
-    ]}
+        // [
+        //   'Color',
+        //   <Select
+        //     maxHeight={160}
+        //     options={[
+        //       { id: '1', item: 'Red' },
+        //       { id: '2', item: 'Blue' },
+        //       { id: '3', item: 'Green' },
+        //       { id: '4', item: 'Yellow' },
+        //       { id: '5', item: 'Black' },
+        //     ]}
+        //   />,
+        // ],
+      ]
+    }
     actionRow={
       <div className={styles['addon-action']}>
         <div className={styles['addon-cost']}>
           <span className={styles['addon-cut']}>$20</span>
-          <span>$7 </span>
+          <span className={styles['addon-discount']}>$7 </span>
           <span className={styles['addon-price']}>$13 </span>
         </div>
         <Button variant="secondary">Add to cart</Button>
@@ -76,10 +71,7 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
 ));
 
 export const SelectedItem = ({ data }: Props) => {
-  const detailsData = detailsOrder.map((key) => [
-    fromCamelCase(key),
-    data[key],
-  ]) as [string, string | boolean][];
+  const detailsData = detailsOrder.map((key) => [fromCamelCase(key), data[key]]) as [string, string | boolean][];
 
   return (
     <div className={styles.wrapper}>
@@ -102,12 +94,7 @@ export const SelectedItem = ({ data }: Props) => {
             ))}
           </Carousal>
         </div>
-        <div
-          className={clsx(
-            styles['product-section-box'],
-            styles['product-info-right'],
-          )}
-        >
+        <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
           <div className={styles['product-header']}>
             <div>{data.name}</div>
             <div>{data.timings}</div>
@@ -120,12 +107,7 @@ export const SelectedItem = ({ data }: Props) => {
               ['Pin code', data.pinCode],
             ]}
           />
-          <Image
-            src={getStaticImageSrc(assurance)}
-            alt="Bk assurance"
-            width={120}
-            height={40}
-          />
+          <Image src={getStaticImageSrc(assurance)} alt="Bk assurance" width={120} height={40} />
           <DetailsTable
             keyColWidth={160}
             data={[
@@ -142,20 +124,10 @@ export const SelectedItem = ({ data }: Props) => {
             </div>
             */}
         </div>
-        <div
-          className={clsx(
-            styles['product-section-box'],
-            styles['product-info-right'],
-          )}
-        >
+        <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
           <DetailsTable data={detailsData} keyColWidth={220} />
         </div>
-        <div
-          className={clsx(
-            styles['product-section-box'],
-            styles['product-info-right'],
-          )}
-        >
+        <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
           <Labeled label="Description">
             <InputArea value={data.description} height={380} />
           </Labeled>
