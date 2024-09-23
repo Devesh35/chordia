@@ -3,6 +3,7 @@
 
 'use client';
 
+import { getStaticImageSrc } from '@li/design/icons';
 import { TimeRangePicker } from '@wojtekmaj/react-timerange-picker';
 import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
 import { useEffect, useState } from 'react';
@@ -828,7 +829,7 @@ export function App() {
                       id="option1"
                       name="foodLabel"
                       inline
-                      label={<img height={32} width={32} src={veg} alt="veg" />}
+                      label={<img height={32} width={32} src={getStaticImageSrc(veg)} alt="veg" />}
                       disabled={['save', 'edit'].includes(editable)}
                     />
                     <Form.Check
@@ -836,7 +837,7 @@ export function App() {
                       id="option2"
                       name="foodLabel"
                       inline
-                      label={<img height={32} width={32} src={nonVeg} alt="nonVeg" />}
+                      label={<img height={32} width={32} src={getStaticImageSrc(nonVeg)} alt="nonVeg" />}
                       disabled={['save', 'edit'].includes(editable)}
                     />
                     <Form.Check
@@ -844,7 +845,7 @@ export function App() {
                       id="option3"
                       name="foodLabel"
                       inline
-                      label={<img height={32} width={32} src={vegan} alt="vegan" />}
+                      label={<img height={32} width={32} src={getStaticImageSrc(vegan)} alt="vegan" />}
                       disabled={['save', 'edit'].includes(editable)}
                     />
                   </Form.Group>

@@ -1,9 +1,5 @@
 import { grid } from '@li/config/design';
-import {
-  ProductType,
-  SubscriptionStatus,
-  subscriptionConfig,
-} from '@md/blaunk/config';
+import { ProductType, SubscriptionStatus, subscriptionConfig } from '@md/blaunk/config';
 import clsx from 'clsx';
 import { SubscriptionCard } from './SubscriptionCard';
 import styles from './subscription.module.css';
@@ -35,21 +31,13 @@ const dummy = [
     id: 'requirement',
     status: 'inactive' as const,
   },
-].reduce((a, c) => ({ ...a, [c.id]: c.status }), {}) as Record<
-  SubscriptionProduct,
-  SubscriptionStatus
->;
+].reduce((a, c) => ({ ...a, [c.id]: c.status }), {}) as Record<SubscriptionProduct, SubscriptionStatus>;
 
 export const Subscription = () => {
   return (
     <div className={clsx(grid.grid, styles.grid, styles['grid-wrapper'])}>
       {Object.values(subscriptionConfig).map((sub) => (
-        <SubscriptionCard
-          status={dummy[sub.id]}
-          {...sub}
-          className={grid['col-3']}
-          key={sub.id}
-        />
+        <SubscriptionCard status={dummy[sub.id]} {...sub} className={grid['col-3']} key={sub.id} />
       ))}
     </div>
   );

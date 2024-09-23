@@ -211,6 +211,11 @@ export const Routes = {
         title: 'Add Tour | Blaunk',
         path: '/product/add/tour',
       },
+      boutique: {
+        isProtected: true,
+        title: 'Add Boutique | Blaunk',
+        path: '/product/add/boutique',
+      },
     },
     edit: {
       isProtected: true,

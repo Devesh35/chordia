@@ -20,23 +20,12 @@ type SubscriptionCardProps = {
   ui?: any;
 } & Partial<ClassName>;
 
-export const SubscriptionCard = ({
-  id,
-  icon,
-  name,
-  status = 'inactive',
-  className,
-  ui,
-}: SubscriptionCardProps) => {
+export const SubscriptionCard = ({ id, icon, name, status = 'inactive', className, ui }: SubscriptionCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        title="Subscription"
-      >
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Subscription">
         <NewSubscription id={id} ui={ui} />
       </Modal>
 
