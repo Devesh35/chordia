@@ -2,6 +2,8 @@
 
 'use client';
 
+import { getStaticImageSrc } from '@li/design/icons';
+import { Search } from '@mui/icons-material';
 import {
   Autocomplete,
   Backdrop,
@@ -20,11 +22,10 @@ import {
   TextField,
 } from '@mui/material';
 import { useState } from 'react';
-import CustomCard from './components/layout/Card/CustomCard';
-import './MarketPlace.css';
 import GIF from './assets/GIFs/BlaunkGIF.gif';
-import { Search } from '@mui/icons-material';
+import CustomCard from './components/layout/Card/CustomCard';
 import CustomCarousel from './components/layout/CustomCarousel/CustomCarousel';
+import './MarketPlace.css';
 
 interface FormState {
   sort: string;
@@ -175,7 +176,7 @@ export function App() {
       <Card sx={{ padding: 4 }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={12} lg={12}>
-            <img src={GIF} title="giphy-embed" className="giphy-embed" alt="gif"></img>
+            <img src={getStaticImageSrc(GIF)} title="giphy-embed" className="giphy-embed" alt="gif"></img>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={4}>
             <InputLabel>Search</InputLabel>
