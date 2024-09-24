@@ -38,8 +38,7 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
       alt: 'random',
     }}
     name="Store"
-    quantityDropDown
-    weightSelect
+    weightQuantityRow
     items={
       [
         // [
