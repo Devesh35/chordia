@@ -60,14 +60,17 @@ const addOn = getRandomImagesArray(6)(600).map((src, i) => (
       enlargedHeight: 600,
       alt: 'random',
     }}
-    items={[
-      ['MRP', '$20'],
-      ['Price', '$13'],
-      // ['Rating', '4.5'],
-      // ['Reviews', '1.5k Reviews'],
-      // ['Weight/Units', '1kg'],
-    ]}
+    items={
+      [
+        // ['MRP', '$20'],
+        // ['Price', '$13'],
+        // ['Rating', '4.5'],
+        // ['Reviews', '1.5k Reviews'],
+        // ['Weight/Units', '1kg'],
+      ]
+    }
     // weightSelect
+    weightQuantityRow
     actionRow={
       <div className={styles['addon-action']}>
         <div className={styles['addon-cost']}>
@@ -75,7 +78,7 @@ const addOn = getRandomImagesArray(6)(600).map((src, i) => (
           <span className={styles['addon-discount']}>$7 </span>
           <span className={styles['addon-price']}>$13 </span>
         </div>
-        <Button variant="secondary">Add to cart</Button>
+        <Button variant="secondary">Add</Button>
       </div>
     }
   />

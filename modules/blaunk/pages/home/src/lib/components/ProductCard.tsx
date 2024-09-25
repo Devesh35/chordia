@@ -1,9 +1,9 @@
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
-import styles from './product-card.module.css';
 import { Star, Veg } from '@li/design/icons';
-import clsx from 'clsx';
 import { ReactChildren } from '@li/types/shared';
+import clsx from 'clsx';
+import styles from './product-card.module.css';
 
 type Props = {
   src: string;
@@ -23,15 +23,11 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
       className={clsx(grid['col-2'], 'clickable')}
       image={{
         src: src,
-        width: 200,
+        width: 300,
         height: 300,
         alt: 'random',
       }}
-      topLeft={
-        topLeft ? (
-          <div className={styles['card-tag']}>{topLeft}</div>
-        ) : undefined
-      }
+      topLeft={topLeft ? <div className={styles['card-tag']}>{topLeft}</div> : undefined}
       details={
         <div className={styles.details}>
           {details.isVeg !== undefined && <Veg width={24} height={24} />}
@@ -43,9 +39,7 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
             <div className={styles.rating}>
               4.5 <Star fill="var(--secondary)" width={16} height={16} />
             </div>
-            <span className={styles['review-count']}>
-              {details.reviewCount} Reviews
-            </span>
+            <span className={styles['review-count']}>{details.reviewCount} Reviews</span>
           </div>
         </div>
       }
@@ -54,7 +48,5 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
 };
 
 export const ProductWrapper = ({ children }: ReactChildren) => (
-  <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>
-    {children}
-  </div>
+  <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>{children}</div>
 );

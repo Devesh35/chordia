@@ -3,6 +3,7 @@ import { FormSectionGroup } from '@li/types/design';
 import { Address } from './Address';
 import { CountryBanksOptions } from './Banks';
 import { CountriesOption, CountryCodeOptions } from './Country';
+import { Export } from './Export';
 import { BankAccountType, YesNoOptions } from './General';
 import { IndustrySectorOptions } from './Industry';
 import { UserCategoryOption } from './User';
@@ -31,7 +32,7 @@ const profileSection = {
     qrCode: { document: ['qrCode'] },
   },
   vendor: {
-    form: ['vendor', 'vendorCompany', 'vendorAgent', 'vendorResponse', 'vendorIdentification'],
+    form: ['vendorCompany', 'vendorAgent', 'vendorResponse', 'vendorIdentification'],
     document: {
       vendor: [
         'companyLogo',
@@ -46,7 +47,7 @@ const profileSection = {
     },
   },
   export: {
-    form: ['export'],
+    form: ['vendor-enquiry', 'export'],
   },
   policy: {
     form: ['policy'],
@@ -301,31 +302,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
   vendor: {
     form: [
       {
-        id: 'vendor',
-        title: 'Vendor',
-        items: [
-          // {
-          //   id: 'vendorCode',
-          //   isReadOnly: true,
-          //   label: 'Vendor code',
-          //   placeholder: 'Vendor code',
-          // },
-          {
-            id: 'exportEnquiry',
-            type: 'select',
-            label: 'Export enquiry',
-            placeholder: '',
-            options: YesNoOptions,
-          },
-          // {
-          //   id: 'blaunkAssurance',
-          //   type: 'yes-no',
-          //   label: 'Blaunk Assurance',
-          //   placeholder: '',
-          // },
-        ],
-      },
-      {
         id: 'vendorCompany',
         title: 'Vendor Company',
         items: [
@@ -521,9 +497,15 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
   export: {
     form: [
       {
-        id: 'export',
-        title: 'Export',
+        id: 'vendor-enquiry',
+        title: 'Vendor enquiry',
         items: [
+          // {
+          //   id: 'vendorCode',
+          //   isReadOnly: true,
+          //   label: 'Vendor code',
+          //   placeholder: 'Vendor code',
+          // },
           {
             id: 'exportEnquiry',
             type: 'select',
@@ -531,15 +513,16 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: '',
             options: YesNoOptions,
           },
-          {
-            id: 'blaunkAssurance',
-            type: 'select',
-            label: 'Blaunk Assurance',
-            placeholder: '',
-            options: YesNoOptions,
-          },
+          // {
+          //   id: 'blaunkAssurance',
+          //   type: 'yes-no',
+          //   label: 'Blaunk Assurance',
+          //   placeholder: '',
+          // },
         ],
       },
+      // depends on exportEnquiry
+      { title: 'Export', id: 'export', items: Export.items },
     ],
   },
   policy: {

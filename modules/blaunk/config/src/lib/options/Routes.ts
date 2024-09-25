@@ -272,4 +272,28 @@ export const Routes = {
       path: '/vendor/subscription',
     },
   },
+  legacy: {
+    path: '/legacy',
+    title: 'Legacy | Blaunk',
+    contest: {
+      isProtected: false,
+      title: 'Contest | Blaunk',
+      path: '/legacy/contest',
+    },
+    'cus-care': {
+      isProtected: false,
+      title: 'Customer Care | Blaunk',
+      path: '/legacy/cus-care',
+    },
+    refer: {
+      isProtected: false,
+      title: 'Refer & Earn | Blaunk',
+      path: '/legacy/refer',
+    },
+    wallet: {
+      isProtected: true,
+      title: 'Wallet | Blaunk',
+      path: '/legacy/wallet',
+    },
+  },
 };
