@@ -399,3 +399,50 @@ h5 {
 td i {
   color: green;
 }
+
+.container-wallet {
+  width: 60%;
+  margin: auto;
+  min-width: 300px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.wallet-img img {
+  width: 100%;
+}
+
+.refer__container-wallet {
+  width: 60%;
+  margin: auto;
+  min-width: 300px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.refer__wallet-img img {
+  width: 100%;
+}
+
+.refer__both {
+  margin: 0px auto 0px auto;
+  width: 80%;
+}
+
+.contest-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4rem;
+  text-align: center;
+}
+
+.contest-container input[type='submit'] {
+  padding: 5px 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #fff;
+  background-color: var(--ligth-green);
+  border: 1px solid grey;
+  border-radius: 4px;
+}

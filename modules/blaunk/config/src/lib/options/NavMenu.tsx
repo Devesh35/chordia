@@ -10,14 +10,7 @@ export type NavMenuItem = SelectItem & { path?: string };
 export const NavMenuItems: NavMenuItem[] = [
   {
     id: 'profile-card',
-    item: (
-      <Profile
-        image={src}
-        name="Pravin Chordia"
-        phone="+91 9876543210"
-        wallet={100}
-      />
-    ),
+    item: <Profile image={src} name="Pravin Chordia" phone="+91 9876543210" wallet={100} />,
     path: Routes.account.profile.path,
   },
   { id: 'profile', item: 'Profile', path: Routes.account.profile.path },
@@ -30,7 +23,7 @@ export const NavMenuItems: NavMenuItem[] = [
   { id: 'orders', item: 'Orders', path: Routes.account.orders.path },
   { id: 'wishlist', item: 'Wishlist', path: Routes.account.wishlist.path },
   { id: 'ledger', item: 'Ledger', path: Routes.account.ledger.path },
-  { id: 'wallet', item: 'Wallet', isDisabled: true },
+  { id: 'wallet', item: 'Wallet', path: Routes.legacy.wallet.path },
   { id: 'divider' },
   {
     id: 'become_seller',
@@ -47,9 +40,9 @@ export const NavMenuItems: NavMenuItem[] = [
     path: Routes.vendor.requirement.path,
   },
   { id: 'divider' },
-  { id: 'refer', item: 'Refer & Earn' },
-  { id: 'contest', item: 'Contest' },
-  { id: 'customer', item: 'Customer care' },
+  { id: 'refer', item: 'Refer & Earn', path: Routes.legacy.refer.path },
+  { id: 'contest', item: 'Contest', path: Routes.legacy.contest.path },
+  { id: 'customer', item: 'Customer care', path: Routes.legacy['cus-care'].path },
   { id: 'divider' },
   { id: 'logout', item: 'Logout', path: Routes.auth.logout.path },
 ];

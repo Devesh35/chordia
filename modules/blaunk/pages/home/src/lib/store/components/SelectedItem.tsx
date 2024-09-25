@@ -63,7 +63,7 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
           <span className={styles['addon-discount']}>$7 </span>
           <span className={styles['addon-price']}>$13 </span>
         </div>
-        <Button variant="secondary">Add to cart</Button>
+        <Button variant="secondary">Add</Button>
       </div>
     }
   />
