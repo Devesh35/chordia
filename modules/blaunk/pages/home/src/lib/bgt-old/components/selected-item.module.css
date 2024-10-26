@@ -1,0 +1,147 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 24px;
+  /* width: 100%; */
+}
+
+.content {
+  gap: 1rem;
+}
+
+.content > div {
+  min-width: 500px;
+  border: 2px solid var(--primarydark);
+  border-radius: var(--border-radius-large);
+  min-height: 500px;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.product-details {
+  display: flex;
+  gap: 12px;
+}
+
+.product-image,
+.product-image > div {
+  width: 496px;
+  height: 496px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.name {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.description {
+  padding: 1rem;
+}
+
+.return-name,
+.description label {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-semibold);
+}
+
+.return-desc {
+  width: 100%;
+  text-wrap: wrap !important;
+  text-align: start;
+  color: var(--error400);
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+}
+
+.quantity {
+  margin: 1rem 0;
+}
+.quantity > label {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  font-weight: var(--font-weight-semibold);
+}
+
+.return-table * {
+  border: 1px solid var(--primarydark);
+  text-wrap: wrap;
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+}
+
+.return-table-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  border: 1px solid var(--primarydark);
+  border-bottom: 0;
+  background-color: var(--primary100);
+}
+
+.table th {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.table td {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.tariff {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--font-size-p16);
+  line-height: var(--line-height-p16);
+  border: 1px solid var(--primarydark);
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--primary050);
+}
+.tariff > div {
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.tariff-submit {
+  margin-left: auto;
+  margin-bottom: 0.5rem;
+}
+
+.ps-wrapper {
+  background-color: var(--primary050);
+  padding: 1rem 0;
+}
+
+.bottom-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.bottom-wrapper > div {
+  min-width: 320px;
+  max-width: 480px;
+}
+
+.estimate-table td {
+  padding: 0 !important;
+}
+
+.policy-wrapper {
+  min-width: calc(360px + (1 * 2rem));
+  padding-right: 2rem;
+  max-width: calc(480px + (1 * 2rem));
+}

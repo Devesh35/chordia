@@ -28,6 +28,7 @@ const detailsOrder: (keyof StoreItem)[] = [
 ];
 const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
   <AddOnCard
+    name="Store"
     key={src}
     image={{
       src: src,
@@ -37,7 +38,6 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
       enlargedHeight: 600,
       alt: 'random',
     }}
-    name="Store"
     weightQuantityRow
     items={
       [
@@ -75,11 +75,7 @@ export const SelectedItem = ({ data }: Props) => {
   return (
     <div className={styles.wrapper}>
       <ScrollableSnap className={styles['product-section']} controls>
-        <div className={styles['product-section-box']}>
-          {/* <div className={clsx(styles['product-header'])}>
-              <div>{data.name}</div>
-              <div>{data.timings}</div>
-            </div> */}
+        <div className={styles['product-section-carousel-box']}>
           <Carousal className={styles['product-images']}>
             {data.images.map((src, i) => (
               <Image
@@ -95,12 +91,13 @@ export const SelectedItem = ({ data }: Props) => {
         </div>
         <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
           <div className={styles['product-header']}>
-            <div>{data.name}</div>
-            <div>{data.timings}</div>
+            <div style={{ fontSize: 24 }}>{data.name}</div>
           </div>
+          <div style={{ fontSize: 20, color: 'blue', fontWeight: 'bold' }}> Timings: {data.timings}</div>
           <DetailsTable
             keyColWidth={160}
             data={[
+              // ['Timings', data.timings],
               ['City', data.city],
               ['Area', data.area],
               ['Pin code', data.pinCode],

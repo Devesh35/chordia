@@ -33,10 +33,12 @@ import {
   supplySourceOptions,
 } from './utils/constants';
 import { Field, Highlight, OfferData, RowData } from './utils/interfaces';
+import { PiCursorClick } from 'react-icons/pi';
 
 export function App() {
   const [subscriptionData, setSubscriptionData] = useState<{
     renewalDate: string | undefined;
+    token: string;
     type: string;
     selectedPlan: string;
     currentDate: string;
@@ -73,6 +75,7 @@ export function App() {
     fields: Field[];
   }>({
     renewalDate: undefined,
+    token: '',
     type: 'subscription',
     selectedPlan: '300',
     currentDate: new Date().toISOString().substring(0, 10),
@@ -131,6 +134,7 @@ export function App() {
 
   const {
     renewalDate,
+    token,
     selectedPlan,
     type,
     currentDate,
@@ -238,6 +242,7 @@ export function App() {
   const handleCancel = () => {
     setSubscriptionData({
       renewalDate: undefined,
+      token: '',
       type: 'subscription',
       selectedPlan: '300',
       currentDate: new Date().toISOString().substring(0, 10),
@@ -393,6 +398,20 @@ export function App() {
           <Accordion.Header>SUBSCRIPTION</Accordion.Header>
           <Accordion.Body>
             <Container>
+              <Row>
+                <Col lg={4} md={6} sm={12} xs={12}>
+                  <Form.Group controlId="token">
+                    <Form.Label>Token No.</Form.Label>
+                    <InputGroup>
+                      <Form.Control type="text" value={token} readOnly />
+                      <InputGroup.Text  style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                      className='text-white'>
+                        <PiCursorClick />
+                      </InputGroup.Text>
+                    </InputGroup>
+                  </Form.Group>
+                </Col>
+              </Row>
               <Row>
                 <Col lg={2} md={4} sm={6} xs={12}>
                   <Form.Group>

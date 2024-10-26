@@ -26,6 +26,6 @@
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/lib/bgt/components/SelectedItem.tsx"
+    "src/lib/bgt-home/components/SelectedItem.tsx"
   ]
 }

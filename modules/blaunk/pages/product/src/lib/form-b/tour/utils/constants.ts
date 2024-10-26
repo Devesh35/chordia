@@ -192,8 +192,11 @@ const roomOptions: { value: string; label: string }[] = [
   { value: 'banquetHall', label: 'Banquet Hall' },
   { value: 'conventionHall', label: 'Convention Hall' },
   { value: 'ballonRoom', label: 'Ballon Room' },
-  { value: 'openPark', label: 'Open Park' },
+  { value: 'park', label: 'Park' },
+  { value: 'parkWithPoolParty', label: 'Park with Pool party' },
+  { value: 'openTerrace', label: 'Open Terrace' },
   { value: 'acPartyHall', label: 'AC Party Hall' },
+  { value: 'nonAcHall', label: 'Non AC Hall' },
   { value: 'commonHall', label: 'Common Hall' },
   { value: 'commonHallAC', label: 'Common Hall-AC' },
   { value: 'marriageHall', label: 'Marriage Hall' },
@@ -201,7 +204,7 @@ const roomOptions: { value: string; label: string }[] = [
   { value: 'twinRoom', label: 'Twin Room' },
   { value: 'dormitoryRoom', label: 'Dormitory Room' },
   { value: 'bunkBedDermotoryRoom', label: 'Bunk Bed Dermotory Room' },
-  { value: 'others', label: 'Others' },
+  { value: 'bulkBooking', label: 'Bulk Booking' },
 ];
 
 const viewOptions: { value: string; label: string }[] = [
@@ -244,6 +247,11 @@ const guestOptions: { value: string; label: string }[] = [
   { value: 'fourAdultsKid', label: '4 Adults + Kid' },
   { value: 'fiveAdults', label: '5 Adults' },
   { value: 'coupleInfant', label: 'Couple + Infant' },
+  { value: '50member', label: '50 Member' },
+  { value: '150member', label: '100 to 150 Member' },
+  { value: '250member', label: '200 to 250 Member' },
+  { value: '500member', label: 'Above 500 Member' },
+  { value: '1000member', label: 'Above 1000 capacity' },
 ];
 
 const facilities: { value: string; label: string }[] = [

@@ -1,0 +1,51 @@
+.table-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.table {
+  margin: 0 auto 1rem;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table,
+.table td {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+.table td {
+  border: 1px solid var(--black);
+}
+
+.table td,
+.table th {
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+}
+
+.row-open {
+  cursor: pointer;
+  font-size: var(--font-size-h5);
+}
+
+.header {
+  font-weight: var(--font-weight-semibold);
+}
+
+.country-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.country-cell > svg {
+  height: 16px;
+}
+
+.price-header {
+  display: flex;
+  align-items: center;
+}

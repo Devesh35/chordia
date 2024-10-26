@@ -92,13 +92,8 @@ const adTypes: Record<string, string[]> = {
   cake: ['Deal & Offer', 'Explore'],
   store: ['Deal & Offer', 'Explore', 'Business Card'],
   boutique: [
-    "Women's collection",
-    "Men's collection",
-    'Style on rent',
     'Deal & Offer',
     'Explore',
-    'Indian Celebrity Designer',
-    'International Celebrity Designer',
   ],
 };
 

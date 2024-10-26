@@ -2,7 +2,7 @@
 
 import { TimeRangePicker } from '@wojtekmaj/react-timerange-picker';
 import { useEffect, useState } from 'react';
-import { Accordion, Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Accordion, Button, Card, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import ReactFlagsSelect from 'react-flags-select';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
 import { FaSearch } from 'react-icons/fa';
@@ -30,8 +30,10 @@ import {
   viewOptions,
 } from './utils/constants';
 import { GuestData, Item, OfferData } from './utils/interfaces';
+import { PiCursorClick } from 'react-icons/pi';
 
 type FormValues = {
+  token: string;
   type: string;
   store: string;
   subscriptionDate: string;
@@ -87,6 +89,7 @@ export function App() {
         year: 'numeric',
       })
       .replace(/\//g, '-'),
+    token: '',
     type: 'subscription',
     amount: '',
     rebate: '',
@@ -276,6 +279,26 @@ export function App() {
           <Accordion.Header>TOUR SUBSCRIPTION</Accordion.Header>
           <Accordion.Body>
             <Container>
+              <Row className="mb-4">
+                <Form.Group as={Col} lg={4} md={6} sm={12} xs={12} className="d-flex align-items-center">
+                  <Form.Label className="me-2 mb-0" style={{ whiteSpace: 'nowrap', marginRight: '10px' }}>
+                    Token No.
+                  </Form.Label>
+                  <InputGroup>
+                    <Controller
+                      name="token"
+                      control={control}
+                      render={({ field }) => <Form.Control type="text" {...field} />}
+                    />
+                    <InputGroup.Text
+                      style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                      className="text-white"
+                    >
+                      <PiCursorClick />
+                    </InputGroup.Text>
+                  </InputGroup>
+                </Form.Group>
+              </Row>
               <Row>
                 <Form.Group as={Col} lg={2} md={4} sm={6} xs={12}>
                   <Form.Label>Select Type</Form.Label>

@@ -8,12 +8,14 @@ import { FindVendors } from './components/FindVendors';
 import { HomeYtbRedirect } from './components/HomeYtbRedirect';
 import { MoreStores } from './components/MoreStores';
 import { BlaunkHome } from './components/BlaunkHome';
-import { Placeholder } from './components/Placeholder';
+// import { Placeholder } from './components/Placeholder';
 import { StoreAds } from './components/StoreAds';
 import { TopSection } from './components/TopSection';
 import { TrendyStars } from './components/TrendyStars';
 import styles from './home.module.css';
 import { HomeBanners } from './components/HomeBanners';
+import { blaunkHome } from '@md/blaunk/config';
+import { getStaticImageSrc } from '@li/design/icons';
 
 export const Home = () => {
   return (
@@ -33,7 +35,8 @@ export const Home = () => {
       <MoreStores />
       <TrendyStars />
       <StoreAds />
-      <Placeholder height={200} />
+      {/* <Placeholder height={200}/> */}
+      <img src={getStaticImageSrc(blaunkHome)} alt="blaunk_home" />
     </div>
   );
 };

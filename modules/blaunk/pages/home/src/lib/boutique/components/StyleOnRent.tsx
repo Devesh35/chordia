@@ -10,7 +10,7 @@ const products = getRandomImagesArray(12)(400, 500, 'saree').map((src, i) => (
     action="View more"
     tag="FOR RENT"
     col="col-4"
-    width={500}
+    width={300}
   />
 ));
 
