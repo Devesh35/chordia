@@ -1,0 +1,26 @@
+.custom-checkbox input[type="checkbox"] {
+    width: 20px;  
+    height: 20px; 
+    margin-right: 5px; 
+    border: 1px solid blue;
+}
+
+.room-box {
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.bg-color-1 {
+    background-color: #dcddfe; 
+}
+
+.bg-color-2 {
+    background-color: #f3dcdc; 
+}
+
+.bg-color-3 {
+    background-color: #dcdac1; 
+}
+
+

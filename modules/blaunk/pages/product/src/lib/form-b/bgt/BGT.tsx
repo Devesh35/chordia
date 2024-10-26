@@ -4,7 +4,7 @@
 
 import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
 import { useEffect, useState } from 'react';
-import { Accordion, Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Accordion, Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactFlagsSelect from 'react-flags-select';
@@ -30,8 +30,10 @@ import {
   unitOptions,
 } from './utils/constants';
 import { Item, OfferData, RowData } from './utils/interfaces';
+import { PiCursorClick } from 'react-icons/pi';
 
 type FormValues = {
+  token: string;
   product: string;
   subscriptionDate: string;
   plan: string;
@@ -51,6 +53,7 @@ type FormValues = {
   otherArticle: string;
   brand: string;
   type: string;
+  planAction: string;
   material: string;
   warranty: string;
   vatGst: string;
@@ -87,6 +90,7 @@ export function App() {
         year: 'numeric',
       })
       .replace(/\//g, '-'),
+    token: '',
     product: '',
     amount: '',
     rebate: '',
@@ -118,6 +122,7 @@ export function App() {
     otherArticle: '',
     brand: '',
     type: '',
+    planAction: '',
     material: '',
     warranty: '',
     vatGst: '',
@@ -285,7 +290,43 @@ export function App() {
           <Accordion.Header>BUSINESS SUBSCRIPTION</Accordion.Header>
           <Accordion.Body>
             <Container>
+              <Row className="mb-4">
+                <Form.Group as={Col} lg={4} md={6} sm={12} xs={12} className="d-flex align-items-center">
+                  <Form.Label className="me-2 mb-0" style={{ whiteSpace: 'nowrap', marginRight: '10px' }}>
+                    Token No.
+                  </Form.Label>
+                  <InputGroup>
+                    <Controller
+                      name="token"
+                      control={control}
+                      render={({ field }) => <Form.Control type="text" {...field} />}
+                    />
+                    <InputGroup.Text
+                      style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                      className="text-white"
+                    >
+                      <PiCursorClick />
+                    </InputGroup.Text>
+                  </InputGroup>
+                </Form.Group>
+              </Row>
+
               <Row>
+                <Form.Group as={Col} lg={3} md={4} sm={6} xs={12}>
+                  <Form.Label>Select Type</Form.Label>
+                  <Controller
+                    name="planAction"
+                    control={control}
+                    rules={{ required: 'Please select an option' }}
+                    render={({ field }) => (
+                      <Form.Select {...field}>
+                        <option value="subscription">Subscription </option>
+                        <option value="renewal">Renewal </option>
+                      </Form.Select>
+                    )}
+                  />
+                  {errors.planAction && <Form.Text className="text-danger">{errors.planAction.message}</Form.Text>}
+                </Form.Group>
                 <Form.Group as={Col} lg={3} md={4} sm={6} xs={12}>
                   <Form.Label>Product</Form.Label>
                   <Controller

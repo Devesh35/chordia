@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Carousal } from '@li/design/elements';
-import { getRandomImagesArray, blaunkStore } from '@md/blaunk/config';
+import { getRandomImagesArray, storeRoof } from '@md/blaunk/config';
 import { ImageCardOverlay } from '@li/design/components';
 import styles from './more-stores.module.css';
 
@@ -21,7 +21,7 @@ export const MoreStores = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <Image src={blaunkStore} width={480} height={150} alt="store" />
+        <Image src={storeRoof} width={650} height={200} alt="store_roof"/>
       </div>
       <Carousal className={styles.carousal}>
         {Array(6)

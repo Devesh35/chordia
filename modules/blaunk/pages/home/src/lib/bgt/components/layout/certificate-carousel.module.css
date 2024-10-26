@@ -1,0 +1,16 @@
+.wrapper {
+  margin-block: 2rem;
+}
+
+.carousal {
+  position: relative;
+}
+
+.carousal {
+  gap: 1rem;
+}
+
+.carousal > * {
+  min-width: 400px;
+  min-width: 300px ;
+}

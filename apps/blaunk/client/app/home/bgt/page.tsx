@@ -1,5 +1,5 @@
-import { BGTBuy } from '@md/blaunk/pages/home';
+import { BGTHome } from '@md/blaunk/pages/home';
 
 export default async function Index() {
-  return <BGTBuy />;
+  return <BGTHome />;
 }

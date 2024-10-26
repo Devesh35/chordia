@@ -12,6 +12,8 @@ import { FaMapMarkerAlt, FaSearch } from 'react-icons/fa';
 import ImageCropUploader from './components/common/ImageComponent';
 import OfferDataTable from './components/common/OfferDataTable';
 import OfferDetailsModal from './components/common/OfferDetailsModal';
+import { PiCursorClick } from 'react-icons/pi';
+
 import {
   cancellationTimeOptions,
   complimentaryOptions,
@@ -26,6 +28,7 @@ import {
 import { Item, OfferData } from './utils/interfaces';
 
 type FormValues = {
+  token: string;
   type: string;
   store: string;
   subscriptionDate: string;
@@ -70,6 +73,7 @@ export function App() {
       })
       .replace(/\//g, '-'),
     type: 'subscription',
+    token: '',
     amount: '',
     rebate: '',
     toPay: '',
@@ -205,6 +209,26 @@ export function App() {
           <Accordion.Header>STORE SUBSCRIPTION</Accordion.Header>
           <Accordion.Body>
             <Container>
+            <Row className="mb-4">
+                <Form.Group as={Col} lg={4} md={6} sm={12} xs={12} className="d-flex align-items-center">
+                  <Form.Label className="me-2 mb-0" style={{ whiteSpace: 'nowrap', marginRight: '10px' }}>
+                    Token No.
+                  </Form.Label>
+                  <InputGroup>
+                    <Controller
+                      name="token"
+                      control={control}
+                      render={({ field }) => <Form.Control type="text" {...field} />}
+                    />
+                    <InputGroup.Text
+                      style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                      className="text-white"
+                    >
+                      <PiCursorClick />
+                    </InputGroup.Text>
+                  </InputGroup>
+                </Form.Group>
+              </Row>
               <Row>
                 <Form.Group as={Col} lg={2} md={4} sm={6} xs={12}>
                   <Form.Label>Select Type</Form.Label>

@@ -13,7 +13,7 @@ type Props = {
 
 export const Amenities = ({ isReadOnly }: Props) => {
   return (
-    <div>
+    <div style={{backgroundColor:"#fff"}}>
       <table className={styles.table}>
         <thead>
           <tr>

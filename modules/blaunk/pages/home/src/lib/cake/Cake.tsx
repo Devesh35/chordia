@@ -130,13 +130,29 @@ export const Cake = () => {
         </Carousal>
       </div>
       <div style={{ objectFit: 'contain', display: 'flex', justifyContent: 'center' }}>
-        <Image src={getStaticImageSrc(cakeBanner)} alt="cake_banner" width={1250} height={250} />
+        <img
+          src={getStaticImageSrc(cakeBanner)}
+          alt="cake_banner"
+          style={{
+            width: '100%',
+            height: 'auto',
+            objectFit: 'contain',
+          }}
+        />
       </div>
       <Search />
       <Filter />
       <ProductWrapper>{products}</ProductWrapper>
       <div style={{ objectFit: 'contain', display: 'flex', justifyContent: 'center' }}>
-        <Image src={getStaticImageSrc(cakeFooter)} alt="cake_banner" width={1250} height={220} />
+        <img
+          src={getStaticImageSrc(cakeFooter)}
+          alt="cake_banner"
+          style={{
+            width: '100%',
+            height: 'auto',
+            objectFit: 'contain',
+          }}
+        />
       </div>
       <main className={clsx(styles.main, grid.grid)}>
         <div className={clsx(grid['col-9'], styles.content)}>

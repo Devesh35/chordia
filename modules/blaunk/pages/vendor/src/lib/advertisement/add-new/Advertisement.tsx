@@ -2,11 +2,13 @@
 'use client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
-import { Accordion, Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Accordion, Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import ReactFlagsSelect from 'react-flags-select';
-import { IoSearchOutline } from 'react-icons/io5';
 import './Advertisement.css';
 import ImageCropUploader from './components/common/ImageComponent';
+import { FaSearch } from 'react-icons/fa';
+import { PiCursorClick } from "react-icons/pi";
+
 import {
   adTypes,
   // groupOptions,
@@ -20,6 +22,7 @@ export function App() {
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [renewalDate, setRenewalDate] = useState<string | undefined>(undefined);
   const [amount, setAmount] = useState<string>('');
+  const [token, setToken] = useState<string>('');
   const [voucherCode, setVoucherCode] = useState<string>('');
   const [rebate, setRebate] = useState<string>('');
   const [toPay, setToPay] = useState<string>('');
@@ -76,6 +79,7 @@ export function App() {
       setCondition('');
       setPrice('');
       setDescription('');
+      setToken('');
     }
   };
   const handleVoucherCodeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -147,9 +151,32 @@ export function App() {
       <Accordion defaultActiveKey="0" flush>
         {/* //!Subscription  */}
         <Accordion.Item eventKey="0">
-          <Accordion.Header>Subscription</Accordion.Header>
+          <Accordion.Header>SUBSCRIPTION</Accordion.Header>
           <Accordion.Body>
             <Container>
+              <Row className="mb-4">
+                <Col lg={4} md={6} sm={12} xs={12}>
+                  <Form.Group controlId="token" className="d-flex align-items-center">
+                    <Form.Label className="mb-0 me-2" style={{ whiteSpace: 'nowrap' }}>
+                      Token No.
+                    </Form.Label>
+                    <InputGroup>
+                      <Form.Control
+                        type="text"
+                        value={token}
+                        onChange={(event) => setToken(event.target.value)}
+                        disabled={save}
+                      />
+                      <InputGroup.Text
+                        style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                        className="text-white"
+                      >
+                        <PiCursorClick />
+                      </InputGroup.Text>
+                    </InputGroup>
+                  </Form.Group>
+                </Col>
+              </Row>
               <Row>
                 <Col lg={2} md={4} sm={6} xs={12}>
                   <Form.Group controlId="subscriptionSelect">
@@ -205,15 +232,20 @@ export function App() {
                 <Col lg={2} md={4} sm={6} xs={12}>
                   <Form.Group controlId="voucherCodeInput">
                     <Form.Label>Voucher Code</Form.Label>
-                    <div className="voucher-container">
+                    <InputGroup>
                       <Form.Control
                         type="text"
                         value={voucherCode}
                         onChange={handleVoucherCodeChange}
                         disabled={save}
                       />
-                      <IoSearchOutline className="voucher-icon" onClick={applyVoucher} />
-                    </div>
+                      <InputGroup.Text
+                        style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                        className="text-white"
+                      >
+                        <FaSearch onClick={applyVoucher} />
+                      </InputGroup.Text>
+                    </InputGroup>
                   </Form.Group>
                 </Col>
                 <Col lg={2} md={4} sm={6} xs={12}>
@@ -236,7 +268,7 @@ export function App() {
         {/* //!Advertisement */}
         {subscription === 'advertisement' && (
           <Accordion.Item eventKey="1">
-            <Accordion.Header>Advertisement</Accordion.Header>
+            <Accordion.Header>ADVERTISEMENT</Accordion.Header>
             <Accordion.Body>
               <Container>
                 <Row>
@@ -640,9 +672,7 @@ export function App() {
                         <option value="womenCollection">Women's Collection</option>
                         <option value="indian">Indian Celebrity Designers</option>
                         <option value="international">International Celebrity Designers</option>
-                        <option value="dealOffer">Deal & Offer</option>
                         <option value="styleOnRent">Style On rent</option>
-                        <option value="explore">Explore</option>
                       </Form.Select>
                     </Form.Group>
                   </Col>
@@ -669,28 +699,34 @@ export function App() {
                       />
                     </Form.Group>
                   </Col>
-                  <Col lg={2} md={3} sm={6} xs={12}>
-                    <Form.Label>Terms</Form.Label>
-                    <Form.Select disabled={save} value={terms} onChange={(e) => setTerms(e.target.value)}>
-                      <option value="" disabled>
-                        Select terms
-                      </option>
-                      <option value="negotiable">Negotiable</option>
-                      <option value="nonNegotiable">Non-negotiable</option>
-                      <option value="priceOnRequest">Price on request</option>
-                    </Form.Select>
-                  </Col>
-                  <Col lg={2} md={3} sm={6} xs={12}>
-                    <Form.Label>Condition</Form.Label>
-                    <Form.Select disabled={save} value={condition} onChange={(e) => setCondition(e.target.value)}>
-                      <option value="" disabled>
-                        Select Condition
-                      </option>
-                      <option value="onRent">On Rent</option>
-                      <option value="readyToShip">Ready To Ship</option>
-                      <option value="customize">Customize</option>
-                    </Form.Select>
-                  </Col>
+                  {!(group === 'indian' || group === 'international') && (
+                    <Col lg={2} md={3} sm={6} xs={12}>
+                      <Form.Label>Terms</Form.Label>
+                      <Form.Select disabled={save} value={terms} onChange={(e) => setTerms(e.target.value)}>
+                        <option value="" disabled>
+                          Select terms
+                        </option>
+                        <option value="negotiable">Negotiable</option>
+                        <option value="nonNegotiable">Non-negotiable</option>
+                        <option value="priceOnRequest">Price on request</option>
+                      </Form.Select>
+                    </Col>
+                  )}
+                  {!(group === 'indian' || group === 'international' || group === 'styleOnRent') && (
+                    <Col lg={2} md={3} sm={6} xs={12}>
+                      <Form.Label>Condition</Form.Label>
+                      <Form.Select disabled={save} value={condition} onChange={(e) => setCondition(e.target.value)}>
+                        <option value="" disabled>
+                          Select Condition
+                        </option>
+                        {group !== 'mensCollection' && group !== 'womenCollection' && (
+                          <option value="onRent">On Rent</option>
+                        )}
+                        <option value="readyToShip">Ready To Ship</option>
+                        <option value="customize">Customize</option>
+                      </Form.Select>
+                    </Col>
+                  )}
                   <Col lg={2} md={3} sm={6} xs={12}>
                     <Form.Label>Price</Form.Label>
                     <Form.Control
@@ -751,7 +787,7 @@ export function App() {
         )}
         {/* //!Disclaimer */}
         <Accordion.Item eventKey="4">
-          <Accordion.Header>Disclaimer</Accordion.Header>
+          <Accordion.Header>DISCLAIMER</Accordion.Header>
           <Accordion.Body>
             <p className="disclaimer-text">
               We agree with Terms & Condition of B2B Blaunk Trade. Free Returns and Refund if Buyer is not satisfied

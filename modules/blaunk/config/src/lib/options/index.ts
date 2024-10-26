@@ -37,6 +37,7 @@ export {
   type MenuCategoriesIdType,
 } from './MenuCategory';
 export { NavMenuItems, type NavMenuItem } from './NavMenu';
+export {NavB2BMenuItems, type NavB2BMenuItem} from './NavB2BMenu'
 export { AddProductSpecifications, ProductTypeOptions, type ProductType } from './Product';
 export { profileSections } from './Profile';
 export { RoomTypesOptions } from './Room';

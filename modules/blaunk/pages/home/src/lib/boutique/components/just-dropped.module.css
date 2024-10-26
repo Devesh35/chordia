@@ -14,12 +14,12 @@
 
 .card {
   border: 8px solid var(--primary200);
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 
 .rent-products {
   gap: 1rem;
 }
 .rent-products > * {
-  min-width: 500px;
+  min-width: 300px;
 }

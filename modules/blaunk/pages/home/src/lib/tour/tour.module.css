@@ -293,3 +293,8 @@
 /* .description > textarea {
   height: 240px;
 } */
+
+.custom-badge {
+  font-size: 1.25rem; 
+  padding: 0.5rem 0.75rem; 
+}

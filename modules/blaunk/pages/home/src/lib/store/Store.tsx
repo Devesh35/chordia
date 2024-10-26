@@ -1,5 +1,5 @@
 import { Carousal } from '@li/design/elements';
-import { Constants, getRandomImagesArray } from '@md/blaunk/config';
+import { Constants, getRandomImagesArray, storeRoof } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import Image from 'next/image';
 import { DealsAndOffer } from '../components/DealsAndOffer';
@@ -44,7 +44,7 @@ const dummyItem: StoreItem = {
   images: getRandomImagesArray(3)(450, 800, 'food'),
   timings: '9:00 AM - 9:00 PM',
   description:
-    'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years.',
+    'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years. Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years. Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have be.',
   city: 'Bikaner',
   contactNo: '1234567890',
   area: 'Main Gate',
@@ -97,15 +97,17 @@ export const Store = () => {
             {images}
           </Carousal>
         </div>
-        <div style={{marginTop:"10px"}}>
+        <div style={{ marginTop: '10px' }}>
           <RollingAd size={150} />
         </div>
       </div>
-      <DealSection />
+      <div className="d-flex justify-content-center">
+        <Image src={storeRoof} width={650} height={200} alt="store_roof" />
+      </div>
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
+      <DealSection />
       <SelectedItem data={dummyItem} />
-
       <CustomerReviews />
       <DealsAndOffer />
     </div>

@@ -1,12 +1,13 @@
-import { Badge, Input, Link } from '@li/design/elements';
+import { Input, Link } from '@li/design/elements';
 import { withConditionCase } from '@li/design/enhancers';
-import { Cart, Search } from '@li/design/icons';
+import { Search } from '@li/design/icons';
 import { Routes, logoLarge } from '@md/blaunk/config';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { MenuBar } from './MenuBar';
 import { NavHeaderMenu } from './NavHeaderMenu';
 import styles from './navHeader.module.css';
+import { NavB2BHeader } from './NavB2BHeader';
 
 type NavHeaderProps = {
   content: 'menu-bar' | 'search';
@@ -20,13 +21,7 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
       })}
     >
       <Link href={Routes.home.path}>
-        <Image
-          src={logoLarge}
-          alt="logo"
-          height={32}
-          width={142}
-          className={styles.blaunk}
-        />
+        <Image src={logoLarge} alt="logo" height={32} width={142} className={styles.blaunk} />
       </Link>
       {withConditionCase(content)({
         'menu-bar': <MenuBar />,
@@ -45,12 +40,9 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
         <div className={clsx(styles.item)}>
           <NavHeaderMenu />
         </div>
-        <Link className={styles.item} href={Routes.account.cart.path}>
-          Cart
-          <Badge content={3}>
-            <Cart color="var(--onprimarydarkaccent)" width={24} height={24} />
-          </Badge>
-        </Link>
+        <div className={clsx(styles.item)}>
+          <NavB2BHeader />
+        </div>
         <Link href={Routes.auth.login.path} className={styles.item}>
           Login
         </Link>

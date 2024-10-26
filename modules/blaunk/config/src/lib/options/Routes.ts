@@ -1,3 +1,4 @@
+
 export const Routes = {
   account: {
     isProtected: true,
@@ -73,7 +74,7 @@ export const Routes = {
     bgt: {
       isProtected: false,
       title: 'Home-BGT | Blaunk',
-      path: '/home/bgt',
+      path: '/home/bgt'
     },
     boutique: {
       isProtected: true,
@@ -227,6 +228,12 @@ export const Routes = {
       title: 'Sell Product | Blaunk',
       path: '/product/sell',
     },
+  },
+  b2bProduct: {
+    seller: true,
+    isProtected: true,
+    title: 'Add BGT | Blaunk',
+    path: '/product/add/bgt',
   },
   vendor: {
     seller: true,

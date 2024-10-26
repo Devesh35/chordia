@@ -3,12 +3,12 @@
   font-size: var(--font-size-h5);
   line-height: var(--line-height-h5);
   max-width: 320px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   background-color: var(--white);
 }
 .header {
   background-color: var(--error200);
-  padding: 0.25rem;
+  padding: 0.5rem;
   text-align: center;
 }
 

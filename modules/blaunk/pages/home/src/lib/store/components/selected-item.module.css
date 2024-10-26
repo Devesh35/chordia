@@ -7,6 +7,11 @@
   width: 100%;
 }
 
+.product-section-carousel-box {
+  flex: 1;
+  min-width: 800px;
+  height: 450px;
+}
 .product-section-box {
   flex: 1;
   min-width: 500px;

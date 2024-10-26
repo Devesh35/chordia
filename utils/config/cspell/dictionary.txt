@@ -2,6 +2,7 @@ aadhar
 agmark
 agro
 asafoetida
+asus 
 atta
 autodocs
 ayurvedic
@@ -52,6 +53,7 @@ epilators
 eway
 exim
 faso
+favorited
 festiveoff
 fmcg
 fontguest
@@ -123,6 +125,7 @@ primary
 primarydark
 purlins
 raddish
+rakesh
 raksha 
 rava
 rawa
@@ -150,6 +153,7 @@ textprimary
 textsecondary
 textwhite
 thera
+ticktick
 timerange
 toing
 tourna
@@ -164,9 +168,9 @@ transparentw80
 ubtan
 vastu
 veryfast
+vipin
+vivobook
 wojtekmaj
 xlarge
 xxlarge
 zari
-Rakesh
-Vipin
