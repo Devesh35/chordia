@@ -28,7 +28,7 @@ const detailsOrder: (keyof StoreItem)[] = [
 ];
 const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
   <AddOnCard
-    name="Store"
+    name="Store Store Store Store"
     key={src}
     image={{
       src: src,

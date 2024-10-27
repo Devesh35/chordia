@@ -51,7 +51,7 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map((s
 const addOn = getRandomImagesArray(6)(600).map((src, i) => (
   <AddOnCard
     key={src}
-    name="Strawberry Cake"
+    name="Strawberry Cake Strawberry Cake Strawberry Cake"
     image={{
       src: src,
       width: 250,

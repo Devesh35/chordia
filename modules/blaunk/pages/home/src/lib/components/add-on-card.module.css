@@ -18,6 +18,13 @@
   width: 100%;
 }
 
+.item-name {
+  justify-content: center;
+  max-width: 100%;
+  text-align: center;
+  text-wrap: wrap;
+}
+
 .quantity {
   flex: 0 0 100px;
 }
