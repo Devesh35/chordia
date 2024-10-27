@@ -1,4 +1,3 @@
-
 export const Routes = {
   account: {
     isProtected: true,
@@ -74,7 +73,7 @@ export const Routes = {
     bgt: {
       isProtected: false,
       title: 'Home-BGT | Blaunk',
-      path: '/home/bgt'
+      path: '/home/bgt',
     },
     boutique: {
       isProtected: true,
@@ -95,6 +94,11 @@ export const Routes = {
       isProtected: true,
       title: 'Tour | Blaunk',
       path: '/home/tour',
+      item: (id: string) => ({
+        isProtected: true,
+        title: 'Tour | Blaunk',
+        path: `/home/tour/${id}`,
+      }),
     },
     // market: {
     //   isProtected: true,
