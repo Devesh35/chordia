@@ -1,4 +1,4 @@
 import { withPageTitle } from '@li/design/enhancers';
 import { Routes } from '@md/blaunk/config';
 
-export default withPageTitle(Routes.home.tour.item('').title);
+export default withPageTitle(Routes.home.bgt.item('').title);

@@ -98,9 +98,7 @@ export const SearchTable = () => {
                     <div className={tableStyles['price-header']}>
                       Price {currency} (
                       <SwitchArrows
-                        onClick={() =>
-                          setCurrency(currency === '₹' ? '$' : '₹')
-                        }
+                        onClick={() => setCurrency(currency === '₹' ? '$' : '₹')}
                         className={'clickable'}
                         width={16}
                         height={16}
@@ -120,9 +118,7 @@ export const SearchTable = () => {
               <tr key={i}>
                 <td
                   className={clsx(tableStyles['row-open'], 'clickable')}
-                  onClick={() =>
-                    selected === i ? setSelected(undefined) : setSelected(i)
-                  }
+                  onClick={() => (selected === i ? setSelected(undefined) : setSelected(i))}
                 >
                   {withCondition(selected === i)('-', '+')}
                 </td>

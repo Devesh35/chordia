@@ -3,14 +3,13 @@
 import { CustomerReviews } from '@md/blaunk/design';
 import { useState } from 'react';
 import { Col, Container, Nav, Row } from 'react-bootstrap';
-import { CertificateCarousel } from './components/layout/CertificateCarousel';
-import { CompanyCarousel } from './components/layout/CompanyCarousel';
-import HomeCarousel from './components/layout/HomeCarousel';
-import ImageCard from './components/layout/ImageCard';
-import OrderEstimate from './components/layout/OrderEstimate';
-import { Overview } from './components/layout/Overview';
+import { CertificateCarousel } from '../components/layout/CertificateCarousel';
+import { CompanyCarousel } from '../components/layout/CompanyCarousel';
+import HomeCarousel from '../components/layout/HomeCarousel';
+import OrderEstimate from '../components/layout/OrderEstimate';
+import { Overview } from '../components/layout/Overview';
 
-export function App() {
+export const BGTItem = () => {
   const [activeKey, setActiveKey] = useState<string>('link-1');
 
   const activeStyle = {
@@ -29,13 +28,8 @@ export function App() {
     setActiveKey(eventKey ?? '');
   };
 
-  const imageCards = Array.from({ length: 8 }, (_, index) => <ImageCard key={index} />);
-
   return (
     <Container>
-      <Row>
-        <Col>{imageCards}</Col>
-      </Row>
       <Row>
         <Col lg={8} md={6} sm={12} xs={12}>
           <div className="fw-bold p-4">
@@ -107,6 +101,4 @@ export function App() {
       </Row>
     </Container>
   );
-}
-
-export default App;
+};

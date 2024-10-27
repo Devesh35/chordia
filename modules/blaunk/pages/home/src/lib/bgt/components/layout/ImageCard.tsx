@@ -1,12 +1,16 @@
-import { Card, Row, Col, Badge } from 'react-bootstrap';
-import { FaHeart } from 'react-icons/fa6';
-import { FaLocationDot } from 'react-icons/fa6';
-import { getStaticImageSrc } from '@li/design/icons';
-import { exportImg } from '@md/blaunk/config';
+'use client';
 
-const ImageCard=() =>{
+import { getStaticImageSrc } from '@li/design/icons';
+import { exportImg, Routes } from '@md/blaunk/config';
+import { useRouter } from 'next/navigation';
+import { Badge, Card, Col, Row } from 'react-bootstrap';
+import { FaHeart, FaLocationDot } from 'react-icons/fa6';
+
+const ImageCard = () => {
+  const { push } = useRouter();
+
   return (
-    <div className="m-4">
+    <div className="m-4 clickable" onClick={() => push(Routes.home.bgt.item('item').path)}>
       <Card>
         <Row style={{ padding: '20px' }}>
           <Col md={3}>
@@ -94,7 +98,7 @@ const ImageCard=() =>{
                 <a href="#">(480 reviews)</a>
               </Card.Footer>
             </Card>
-            <div className='d-flex justify-content-end m-2'>
+            <div className="d-flex justify-content-end m-2">
               <Badge className="text-decoration-underline" bg="primary" style={{ cursor: 'pointer' }}>
                 view more
               </Badge>
@@ -104,6 +108,6 @@ const ImageCard=() =>{
       </Card>
     </div>
   );
-}
+};
 
 export default ImageCard;

@@ -1,1 +1,2 @@
-export { App as BGTHome } from './App';
+export { BGTBuy } from './BGTBuy';
+export * from './item';

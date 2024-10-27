@@ -1,4 +1,6 @@
-import { Carousal } from '@li/design/elements';
+'use client';
+
+import { Carousal, PaginationDots } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 
 import { grid } from '@li/config/design';
@@ -33,6 +35,9 @@ export const Tour = () => {
       <Filter />
       <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>
         <Products />
+      </div>
+      <div className={styles['pagination-wrapper']}>
+        <PaginationDots active={1} total={4} position="none" variant="light" />
       </div>
       <DealsAndOffer showRecent />
     </div>

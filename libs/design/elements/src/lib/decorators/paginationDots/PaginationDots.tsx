@@ -1,10 +1,12 @@
+'use client';
+
+import { Dot } from '@li/design/icons';
 import clsx from 'clsx';
 import styles from './pagination-dots.module.css';
-import { Dot } from '@li/design/icons';
 
 const paginationGap = 8;
 const paginationDotSize = 12;
-type PaginationPosition = 'left' | 'bottom' | 'right';
+type PaginationPosition = 'top' | 'left' | 'bottom' | 'right' | 'none';
 
 type Props = {
   total: number;
@@ -14,13 +16,9 @@ type Props = {
   onChange?: (index: number) => void;
 };
 
-export const PaginationDots = ({
-  position,
-  active,
-  total,
-  variant = 'light',
-  onChange,
-}: Props) => {
+const horizontal: PaginationPosition[] = ['bottom', 'top', 'none'];
+
+export const PaginationDots = ({ position, active, total, variant = 'light', onChange }: Props) => {
   const v = `${active * (paginationGap + paginationDotSize)}px`;
 
   return (
@@ -40,9 +38,7 @@ export const PaginationDots = ({
       <div
         className={styles.active}
         style={{
-          transform: `translate(${
-            position === 'bottom' ? `${v}, 0` : `0, ${v}`
-          })`,
+          transform: `translate(${horizontal.includes(position) ? `${v}, 0` : `0, ${v}`})`,
         }}
       >
         <Dot className={clsx(styles.dot, styles['dot-filled'])} />

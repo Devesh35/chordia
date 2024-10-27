@@ -74,6 +74,11 @@ export const Routes = {
       isProtected: false,
       title: 'Home-BGT | Blaunk',
       path: '/home/bgt',
+      item: (id: string) => ({
+        isProtected: true,
+        title: 'Home-BGT | Blaunk',
+        path: `/home/bgt/${id}`,
+      }),
     },
     boutique: {
       isProtected: true,
