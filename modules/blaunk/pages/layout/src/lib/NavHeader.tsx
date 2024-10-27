@@ -5,9 +5,9 @@ import { Routes, logoLarge } from '@md/blaunk/config';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { MenuBar } from './MenuBar';
+import { NavB2BHeader } from './NavB2BHeader';
 import { NavHeaderMenu } from './NavHeaderMenu';
 import styles from './navHeader.module.css';
-import { NavB2BHeader } from './NavB2BHeader';
 
 type NavHeaderProps = {
   content: 'menu-bar' | 'search';
@@ -37,10 +37,10 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
       })}
 
       <div className={styles.items}>
-        <div className={clsx(styles.item)}>
+        <div className={clsx(styles.item, styles['item-select'])}>
           <NavHeaderMenu />
         </div>
-        <div className={clsx(styles.item)}>
+        <div className={clsx(styles.item, styles['item-select'])}>
           <NavB2BHeader />
         </div>
         <Link href={Routes.auth.login.path} className={styles.item}>

@@ -368,7 +368,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
           {
             id: 'gst',
-            type: 'number',
+            type: 'text',
             label: 'VAT/TAX/GST No',
             placeholder: 'VAT/TAX/GST No',
           },
