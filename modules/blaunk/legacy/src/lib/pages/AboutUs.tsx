@@ -5,6 +5,7 @@ import brand from '../assets/BRAND.dd53a9a8.jpg';
 import cwd from '../assets/CWD.e9ed24c9.jpeg';
 import cwm2 from '../assets/CWM2.02170758.jpg';
 import group from '../assets/group-companies.325e8b7c.jpg';
+import kamaraj from '../assets/kamaraj.jpeg';
 import pratiksha from '../assets/pratiksha1.f5687ce3.jpeg';
 import pravin from '../assets/pravin.1fc04ca3.jpg';
 import unnamed from '../assets/unnamed.c2e8049c.png';
@@ -14,56 +15,36 @@ export const AboutUs = () => {
     <div style={{ marginInline: 'auto', width: 'fit-content' }}>
       <div className="container mt-4 About_aboutus__mainContainer__23Wqd">
         <div className="About_aboutus__Info__tJmor">
-          <img
-            src={(unnamed as any).src}
-            alt="About Us"
-            style={{ width: '100%', height: '150px' }}
-          />
+          <img src={(unnamed as any).src} alt="About Us" style={{ width: '100%', height: '150px' }} />
           <div className="mt-3">
             <p style={{ textAlign: 'justify' }}>
-              Blaunk.com is the online website for B2C &amp; B2B for selling and
-              buying of Garments for women, men &amp; Kids, Accessories viz.,
-              Belts, Wallet, Shoe, Bag, Home décor, Electronics &amp; Kitchen
-              Appliances, Arts &amp; Crafts, Computer &amp; Industrial products.
-              All products sold under Blaunk.com undergo with manually quality
-              checking process so that we can ensure you that each and every
-              product is value for money to our customer. We believe in customer
-              satisfaction &amp; constructing faith between customers and vendor
-              who sells their products &amp; services which are verified in
-              terms of quality parameter before delivery. We source majority of
-              the products directly from Manufacturer or Distributor to get
-              deliver to our valued customer for the best price they pay for
-              their products.
+              Blaunk.com is the online website for B2C &amp; B2B for selling and buying of Garments for women, men &amp;
+              Kids, Accessories viz., Belts, Wallet, Shoe, Bag, Home décor, Electronics &amp; Kitchen Appliances, Arts
+              &amp; Crafts, Computer &amp; Industrial products. All products sold under Blaunk.com undergo with manually
+              quality checking process so that we can ensure you that each and every product is value for money to our
+              customer. We believe in customer satisfaction &amp; constructing faith between customers and vendor who
+              sells their products &amp; services which are verified in terms of quality parameter before delivery. We
+              source majority of the products directly from Manufacturer or Distributor to get deliver to our valued
+              customer for the best price they pay for their products.
             </p>
           </div>
         </div>
       </div>
       <div className="group-companies  container mt-5">
-        <img
-          src={(group as any).src}
-          alt="Group Companies"
-          style={{ width: '100%', height: '150px' }}
-        />
-        <div
-          className="p-5 d-flex align-items-center about__company"
-          style={{ width: '100%' }}
-        >
+        <img src={(group as any).src} alt="Group Companies" style={{ width: '100%', height: '150px' }} />
+        <div className="p-5 d-flex align-items-center about__company" style={{ width: '100%' }}>
           <div style={{ height: '250px' }}>
             <img src={(cwm2 as any).src} height="250" alt="about the company" />
           </div>
           <div className="ml-4 aboutCompany__content">
             <h5>CHORDIA WEALTH MGT LLP</h5>
             <div className="mt-4" style={{ textAlign: 'justify' }}>
-              Chordia Wealth Management LLP -CWM was incorporated under LLP act
-              on 11 th May 2015 under leadership of Pravin Chordia who is
-              Founder &amp; CEO, having Registered office at Mahim, Mumbai. .
-              CWM,a dynamic and rapidly growing a private advisory management
-              company. We have witnessed the highest of highs and the lowest of
-              lows in our more than of presence in this industry, which we use
-              and ensure our clients are fully enriched with.CWM LLP is engaged
-              in stock broking ( NSE &amp; BSE), Insurance ( Life &amp; Non
-              Life), Home Loan, Mutual Funds, Advisory, Wealth &amp; Advisory
-              Management for Retail , HNI client.
+              Chordia Wealth Management LLP -CWM was incorporated under LLP act on 11 th May 2015 under leadership of
+              Pravin Chordia who is Founder &amp; CEO, having Registered office at Mahim, Mumbai. . CWM,a dynamic and
+              rapidly growing a private advisory management company. We have witnessed the highest of highs and the
+              lowest of lows in our more than of presence in this industry, which we use and ensure our clients are
+              fully enriched with.CWM LLP is engaged in stock broking ( NSE &amp; BSE), Insurance ( Life &amp; Non
+              Life), Home Loan, Mutual Funds, Advisory, Wealth &amp; Advisory Management for Retail , HNI client.
               <br />
               <p className="mt-2">
                 {' '}
@@ -114,29 +95,21 @@ export const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div
-          className="p-5 d-flex align-items-center about__company"
-          style={{ width: '100%' }}
-        >
+        <div className="p-5 d-flex align-items-center about__company" style={{ width: '100%' }}>
           <div style={{ height: '250px' }}>
             <img src={(cwd as any).src} height="250" alt="about the company" />
           </div>
           <div className="ml-4 aboutCompany__content">
             <h5>C&amp;D RETAIL (INDIA) LLP</h5>
             <div className="mt-4" style={{ textAlign: 'justify' }}>
-              C&amp;D RETAIL (INDIA) LLP was incorporated on 11 th Sep 2018
-              having registered office at Bangalore. Our Founder &amp; CEO Mr.
-              Pravin Chordia look after entire Retail, Whole sale &amp; Exports
-              of Garments, Belts, Wallets, Bags &amp; Accessories. Our Retail
-              shops are owned &amp; run under Franchise model as FLASH+.
+              C&amp;D RETAIL (INDIA) LLP was incorporated on 11 th Sep 2018 having registered office at Bangalore. Our
+              Founder &amp; CEO Mr. Pravin Chordia look after entire Retail, Whole sale &amp; Exports of Garments,
+              Belts, Wallets, Bags &amp; Accessories. Our Retail shops are owned &amp; run under Franchise model as
+              FLASH+.
               <br />
               <p>
                 Brands:
-                <img
-                  src={(brand as any).src}
-                  alt="Brand"
-                  style={{ width: '90%' }}
-                />
+                <img src={(brand as any).src} alt="Brand" style={{ width: '90%' }} />
               </p>
               <p className="mt-1">
                 Branch:&nbsp;R T Nagar, Bangalore
@@ -173,10 +146,7 @@ export const AboutUs = () => {
           alt="Board Directors"
           style={{ width: '100%', height: '150px' }}
         />
-        <div
-          className="d-flex align-items-center imageLeft"
-          style={{ margin: '5px auto auto', width: '80%' }}
-        >
+        <div className="d-flex align-items-center imageLeft" style={{ margin: '5px auto auto', width: '80%' }}>
           <div className="About_borderWrapper__BjyiC">
             <div
               className="About_aboutUs__Image__3a2tS"
@@ -190,42 +160,31 @@ export const AboutUs = () => {
               <h5 style={{ lineHeight: '0.6' }}>Pravin Chordia</h5>
               <h5>Chairman &amp; Managing Director</h5>
               <p style={{ textAlign: 'justify' }}>
-                Pravin Chordia (DIN 07092777) studied MBA from Mepco Schlenk
-                College and done Certificate courses on Advertising &amp; NISM,
-                He is having more than 20 years of rich and varied working
-                experience started career with Paper Industry at Delhi and
-                diversified with Printing &amp; Packaging, Financial product
-                distribution industry viz., Stock broking, NPS, Mutual Fund,
-                Insurance and Retail Chain industry. He is a Founder &amp; CEO
-                of his group companies Chordia Wealth Management LLP - An
-                Advisory &amp; Investment firm for HNI Clients and Retail
-                trading. He also founder &amp; Partner of C&amp;D Retail (India)
-                LLP, engaged in retail outlet &amp; Garments &amp; Accessories
-                Exporters. Our Retail Franchise model under brand name “ FLASH”
-                is well accepted among new business entrepreneur under mission
-                &amp; initative to create swavalamban.
+                Pravin Chordia (DIN 07092777) studied MBA from Mepco Schlenk College and done Certificate courses on
+                Advertising &amp; NISM, He is having more than 20 years of rich and varied working experience started
+                career with Paper Industry at Delhi and diversified with Printing &amp; Packaging, Financial product
+                distribution industry viz., Stock broking, NPS, Mutual Fund, Insurance and Retail Chain industry. He is
+                a Founder &amp; CEO of his group companies Chordia Wealth Management LLP - An Advisory &amp; Investment
+                firm for HNI Clients and Retail trading. He also founder &amp; Partner of C&amp;D Retail (India) LLP,
+                engaged in retail outlet &amp; Garments &amp; Accessories Exporters. Our Retail Franchise model under
+                brand name “ FLASH” is well accepted among new business entrepreneur under mission &amp; initative to
+                create swavalamban.
               </p>
             </div>
           </div>
         </div>
-        <div
-          className="d-flex align-items-center imageLeft"
-          style={{ margin: '5px auto auto', width: '80%' }}
-        >
+        <div className="d-flex align-items-center imageLeft" style={{ margin: '5px auto auto', width: '80%' }}>
           <div className="mr-4 About_cardInfo__3M9rj">
             <div>
               <h5 style={{ lineHeight: '0.6' }}>Pratiksha Desale</h5>
               <h5>Independent Director</h5>
               <p style={{ textAlign: 'justify' }}>
-                Pratiksha Desale (DIN 09408429) is the first woman entrepreneur
-                in her family and also fine sketch artist. She is a graduate in
-                Mechanical Engineer (BE) from Datta Megha College of
-                Engineering, Mumbai and has rich and varied experience of
-                Digital Marketing &amp; Direct selling. She also serves as
-                working partner in Chordia Wealth Management LLP as technical
-                analyst and provides stock recommendation to HNI client. She is
-                also a working Partner in C&amp;D Retail (India) LLP, handling
-                wholesale selling (Domestic Market)
+                Pratiksha Desale (DIN 09408429) is the first woman entrepreneur in her family and also fine sketch
+                artist. She is a graduate in Mechanical Engineer (BE) from Datta Megha College of Engineering, Mumbai
+                and has rich and varied experience of Digital Marketing &amp; Direct selling. She also serves as working
+                partner in Chordia Wealth Management LLP as technical analyst and provides stock recommendation to HNI
+                client. She is also a working Partner in C&amp;D Retail (India) LLP, handling wholesale selling
+                (Domestic Market)
               </p>
             </div>
           </div>
@@ -236,6 +195,27 @@ export const AboutUs = () => {
                 backgroundImage: `url("${(pratiksha as any).src}")`,
               }}
             ></div>
+          </div>
+        </div>
+        <div className="d-flex align-items-center imageLeft" style={{ margin: '25px auto auto', width: '80%' }}>
+          <div className="About_borderWrapper__BjyiC">
+            <div
+              className="About_aboutUs__Image__3a2tS"
+              style={{
+                backgroundImage: `url("${(kamaraj as any).src}")`,
+              }}
+            ></div>
+          </div>
+          <div className="ml-4 About_cardInfo__3M9rj">
+            <div>
+              <h5 style={{ lineHeight: '0.6' }}>Kamaraj P</h5>
+              <h5>Director</h5>
+              <p style={{ textAlign: 'justify' }}>
+                Kamaraj P (DIN 02955064) studied MBA from Mepco Business Management College, He is having more than 20
+                years of rich and varied working experience started career with Fireworks Industry at Sivakasi (T.N) and
+                diversified with Printing & Packaging, Wellness product & GYM, Cattle Farming and Retail Chain industry.
+              </p>
+            </div>
           </div>
         </div>
       </div>

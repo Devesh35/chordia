@@ -295,6 +295,15 @@
 } */
 
 .custom-badge {
-  font-size: 1.25rem; 
-  padding: 0.5rem 0.75rem; 
+  font-size: 1.25rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.pagination-wrapper {
+  position: relative;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 }

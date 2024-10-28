@@ -1,13 +1,13 @@
 'use client';
 import { CustomerReviews } from '@md/blaunk/design';
 import { Badge, Col, Container, Row } from 'react-bootstrap';
-import { BlaunkHome } from '../base/components/BlaunkHome';
-import { HomeBanners } from '../base/components/HomeBanners';
-import HomeCarousel from '../bgt/components/layout/HomeCarousel';
-import { Amenities } from './Amenities';
-import { Details } from './Details';
-import ImageCard from './ImageCard';
-import styles from './tour.module.css';
+import { BlaunkHome } from '../../base/components/BlaunkHome';
+import { HomeBanners } from '../../base/components/HomeBanners';
+import HomeCarousel from '../../bgt/components/layout/HomeCarousel';
+import { Amenities } from '../Amenities';
+import { Details } from '../Details';
+import ImageCard from '../ImageCard';
+import styles from '../tour.module.css';
 
 const badges = [
   { text: 'Non AC', variant: 'primary' },
@@ -17,7 +17,7 @@ const badges = [
   { text: 'Free Wifi', variant: 'warning' },
 ];
 
-export const Tour = () => {
+export const TourItem = () => {
   return (
     <Container className="my-3">
       <Row className="my-3">
@@ -59,7 +59,7 @@ export const Tour = () => {
             </div>
             <div className="my-5">
               <h2 className="fw-bold mb-4">Amenities</h2>
-              <Amenities />
+              <Amenities isReadOnly />
             </div>
           </div>
 
@@ -77,5 +77,3 @@ export const Tour = () => {
     </Container>
   );
 };
-
-export default Tour;

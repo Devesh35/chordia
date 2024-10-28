@@ -1,14 +1,15 @@
+'use client';
 // import { SectionHeader } from '@md/blaunk/design';
 import { Placeholder } from '../base/components/Placeholder';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import styles from './boutique.module.css';
+import { BoutiqueSearch } from './components/BoutiqueSearch';
 import { IndianCeleb } from './components/IndianCeleb';
 import { InternationalCeleb } from './components/InternationalCeleb';
 import { JustDropped } from './components/JustDropped';
 import { PickYourStyle } from './components/PickYourStyle';
 import { StyleOnRent } from './components/StyleOnRent';
 import { TopSlider } from './components/TopSlider';
-import { BoutiqueSearch } from './components/BoutiqueSearch';
 
 export const Boutique = () => {
   return (

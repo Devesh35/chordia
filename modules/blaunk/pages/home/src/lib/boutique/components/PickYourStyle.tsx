@@ -6,7 +6,7 @@ import styles from './just-dropped.module.css';
 import { ProductCard } from './ProductCard';
 
 const products = getRandomImagesArray(12)(400, 400, 'jeans').map((src, i) => (
-  <ProductCard src={src} action="JEANS" />
+  <ProductCard src={src} action="JEANS" key={src} />
 ));
 
 export const PickYourStyle = () => {

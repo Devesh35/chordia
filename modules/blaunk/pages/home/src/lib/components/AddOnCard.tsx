@@ -1,4 +1,4 @@
-import { QuantitySelector } from '@li/design/components';
+import { QuantitySelector, QuantitySelectorDropdown } from '@li/design/components';
 import { Button, EnlargeableImage, EnlargeableImageProps, Input, Select } from '@li/design/elements';
 import { withCondition } from '@li/design/enhancers';
 import { QuantityOptions } from '@md/blaunk/config';
@@ -52,7 +52,7 @@ export const AddOnCard = ({
   return (
     <div className={styles.card}>
       <EnlargeableImage {...image} />
-      <div className={styles.item}>
+      <div className={clsx(styles.item, styles['item-name'])}>
         <span>{name}</span>
       </div>
       {withCondition(quantitySelect)(
@@ -78,7 +78,8 @@ export const AddOnCard = ({
             <Select options={options} maxHeight={140} />{' '}
           </span>
           <span className={styles.quantity}>
-            <Input type="number" placeholder="0" className={styles.input} />
+            <QuantitySelectorDropdown maxHeight={140} options={options} />
+            {/* <Input type="number" placeholder="0" className={styles.input} /> */}
           </span>
         </div>,
       )}
