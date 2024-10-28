@@ -25,3 +25,8 @@
   top: 0;
   right: 0;
 }
+
+.image-center {
+  display: block;
+  margin-inline: auto;
+}

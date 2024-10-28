@@ -11,15 +11,15 @@ type Props = {
   topLeft?: React.ReactNode;
   topRight?: React.ReactNode;
   imageClassName?: string;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 export const ImageCard = ({ image, onClick, details, className, topLeft, topRight, imageClassName }: Props) => (
   <div className={clsx(styles.wrapper, className)} onClick={onClick}>
     <div className={styles['top-left']}>{topLeft}</div>
     <div className={styles['top-right']}>{topRight}</div>
-    <div className={imageClassName}>
-      <Image {...image} />
+    <div className={clsx(imageClassName)}>
+      <Image {...image} className={styles['image-center']} />
     </div>
     {details}
   </div>
