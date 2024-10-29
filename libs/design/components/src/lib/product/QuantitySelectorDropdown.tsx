@@ -9,5 +9,5 @@ type Props = {
 };
 
 export const QuantitySelectorDropdown = ({ maxHeight, options }: Props) => {
-  return <Select options={options} maxHeight={maxHeight} />;
+  return <Select options={options} maxHeight={maxHeight} placeholder="Quantity" />;
 };

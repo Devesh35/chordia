@@ -5,6 +5,7 @@ import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import clsx from 'clsx';
 import 'react-phone-input-2/lib/style.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './App.css';
 import './base.css';
 import styles from './base.module.css';

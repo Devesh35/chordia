@@ -24,7 +24,7 @@ const profileSection = {
     },
   },
   general: {
-    form: ['general'],
+    form: ['general', 'vendorIdentification'],
   },
   bank: {
     bank: { form: ['bank'] },
@@ -32,7 +32,7 @@ const profileSection = {
     qrCode: { document: ['qrCode'] },
   },
   vendor: {
-    form: ['vendorCompany', 'vendorAgent', 'vendorResponse', 'vendorIdentification'],
+    form: ['vendorCompany', 'vendorAgent', 'vendorResponse'],
     document: {
       vendor: [
         'companyLogo',
@@ -47,7 +47,7 @@ const profileSection = {
     },
   },
   export: {
-    form: ['vendor-enquiry', 'export'],
+    form: ['export'],
   },
   policy: {
     form: ['policy'],
@@ -186,6 +186,42 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           //   placeholder: 'Pay mode',
           //   options: PaymentOption,
           // },
+        ],
+      },
+      {
+        id: 'vendorIdentification',
+        title: 'Vendor Identification',
+        items: [
+          {
+            id: 'pan',
+            isReadOnly: true,
+            label: 'PAN',
+            placeholder: 'Pending',
+          },
+          {
+            id: 'aadhar',
+            isReadOnly: true,
+            label: 'Aadhar',
+            placeholder: 'Pending',
+          },
+          {
+            id: 'kyc',
+            isReadOnly: true,
+            label: 'KYC',
+            placeholder: 'Pending',
+          },
+          {
+            id: 'agreement',
+            isReadOnly: true,
+            label: 'Agreement',
+            placeholder: 'Pending',
+          },
+          {
+            id: 'confirmation',
+            isReadOnly: true,
+            label: 'Confirmation',
+            placeholder: 'Pending',
+          },
         ],
       },
     ],
@@ -427,42 +463,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
         ],
       },
-      {
-        id: 'vendorIdentification',
-        title: 'Vendor Identification',
-        items: [
-          {
-            id: 'pan',
-            isReadOnly: true,
-            label: 'PAN',
-            placeholder: 'Pending',
-          },
-          {
-            id: 'aadhar',
-            isReadOnly: true,
-            label: 'Aadhar',
-            placeholder: 'Pending',
-          },
-          {
-            id: 'kyc',
-            isReadOnly: true,
-            label: 'KYC',
-            placeholder: 'Pending',
-          },
-          {
-            id: 'agreement',
-            isReadOnly: true,
-            label: 'Agreement',
-            placeholder: 'Pending',
-          },
-          {
-            id: 'confirmation',
-            isReadOnly: true,
-            label: 'Confirmation',
-            placeholder: 'Pending',
-          },
-        ],
-      },
     ],
     document: [
       {
@@ -506,13 +506,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           //   label: 'Vendor code',
           //   placeholder: 'Vendor code',
           // },
-          {
-            id: 'exportEnquiry',
-            type: 'select',
-            label: 'Export enquiry',
-            placeholder: '',
-            options: YesNoOptions,
-          },
           // {
           //   id: 'blaunkAssurance',
           //   type: 'yes-no',

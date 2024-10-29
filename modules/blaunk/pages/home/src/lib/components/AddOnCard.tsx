@@ -75,10 +75,10 @@ export const AddOnCard = ({
       {withCondition(weightQuantityRow)(
         <div className={styles.item}>
           <span className={styles.quantity}>
-            <Select options={options} maxHeight={140} />{' '}
+            <Select options={options} maxHeight={140} placeholder="Weight" />
           </span>
           <span className={styles.quantity}>
-            <QuantitySelectorDropdown maxHeight={140} options={options} />
+            <QuantitySelectorDropdown maxHeight={140} options={QuantityOptions} />
             {/* <Input type="number" placeholder="0" className={styles.input} /> */}
           </span>
         </div>,

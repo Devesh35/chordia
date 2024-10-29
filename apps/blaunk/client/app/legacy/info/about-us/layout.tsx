@@ -1,3 +1,3 @@
 import { Layout } from '../layoutTemplate';
 
-export default Layout('aboutUs');
+export default Layout('aboutUs', true);
