@@ -6,10 +6,10 @@ import styles from './boutique.module.css';
 import { BoutiqueSearch } from './components/BoutiqueSearch';
 import { IndianCeleb } from './components/IndianCeleb';
 import { InternationalCeleb } from './components/InternationalCeleb';
-import { JustDropped } from './components/JustDropped';
-import { PickYourStyle } from './components/PickYourStyle';
+import { MenCollection } from './components/MenCollection';
 import { StyleOnRent } from './components/StyleOnRent';
 import { TopSlider } from './components/TopSlider';
+import { WomenCollection } from './components/WomenCollection';
 
 export const Boutique = () => {
   return (
@@ -19,8 +19,8 @@ export const Boutique = () => {
       <div className="mt-4">
         <BoutiqueSearch />
       </div>
-      <JustDropped />
-      <PickYourStyle />
+      <WomenCollection />
+      <MenCollection />
       <Placeholder height={400} />
       <IndianCeleb />
       <InternationalCeleb />

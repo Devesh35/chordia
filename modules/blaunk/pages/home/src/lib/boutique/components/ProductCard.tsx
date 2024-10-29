@@ -5,7 +5,7 @@ import { ImageCard } from '@li/design/components';
 import { Button } from '@li/design/elements';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { SelectedItem } from '../item/SelectedItem';
+import { SelectedItem2 } from '../item/SelectedItem2';
 import styles from './product.module.css';
 
 type Props = {
@@ -21,10 +21,10 @@ export const ProductCard = ({ src, tag, action, col = 'col-3', width, height }: 
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      {isOpen && <SelectedItem isOpen onClose={() => setIsOpen(false)} />}
+      {isOpen && <SelectedItem2 isOpen onClose={() => setIsOpen(false)} />}
       <ImageCard
-        className={clsx(styles.card, grid[col], 'clickable', grid['col-t-4'], grid['col-m-6'])}
-        onClick={() => setIsOpen(true)}
+        className={clsx(styles.card, grid[col], { clickable: !!action }, grid['col-t-4'], grid['col-m-6'])}
+        onClick={() => action && setIsOpen(true)}
         image={{
           src: src,
           width: width || 400,
