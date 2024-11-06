@@ -512,6 +512,13 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           //   label: 'Blaunk Assurance',
           //   placeholder: '',
           // },
+          {
+            id: 'exportEnquiry',
+            type: 'select',
+            label: 'Export enquiry',
+            placeholder: '',
+            options: YesNoOptions,
+          },
         ],
       },
       // depends on exportEnquiry
