@@ -29,7 +29,6 @@ export const SelectedItem2 = ({ isOpen, onClose }: Props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} hideHeader>
       <Box
-        className="carousel-container"
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
@@ -71,7 +70,7 @@ export const SelectedItem2 = ({ isOpen, onClose }: Props) => {
             display: 'flex',
             flexDirection: 'column',
             paddingX: { xs: 2, md: 0 },
-            maxWidth: '60%',
+            maxWidth: { md: '60%', xs: '100%' },
           }}
         >
           <Stack direction="row" justifyContent="space-between">
