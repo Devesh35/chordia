@@ -5,9 +5,8 @@ import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import Image from 'next/image';
 import styles from './buy.module.css';
 import { BuySection } from './BuySection';
-import { SearchBar } from './components/SearchBar';
 import BGTImages from './components/BGTImages';
-
+import { SearchBar } from './components/SearchBar';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map((src, i) => (
   <Image

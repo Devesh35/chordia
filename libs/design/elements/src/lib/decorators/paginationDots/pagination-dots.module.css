@@ -76,3 +76,18 @@
 .dark {
   background-color: var(--transparent60);
 }
+
+.active-number {
+  color: var(--primary);
+  background-color: #fff;
+}
+
+.number {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  border-radius: 50%;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+}

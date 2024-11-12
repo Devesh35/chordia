@@ -23,7 +23,7 @@ export { AvailableCurrencyCode, CountryCurrency, CurrencyCodeOptions, type Avail
 export { DialForm } from './Dial';
 export { FooterDetails } from './Footer';
 export { BankAccountType, GSTOptions } from './General';
-export { Grade, GradeOptions } from './Grade';
+export { GradeOptions } from './Grade';
 export { IndustrySectorOptions } from './Industry';
 export { IssueOptions } from './Issue';
 export { MarketForm } from './Market';
@@ -36,8 +36,8 @@ export {
   SubMenuOptions,
   type MenuCategoriesIdType,
 } from './MenuCategory';
+export { NavB2BMenuItems, type NavB2BMenuItem } from './NavB2BMenu';
 export { NavMenuItems, type NavMenuItem } from './NavMenu';
-export {NavB2BMenuItems, type NavB2BMenuItem} from './NavB2BMenu'
 export { AddProductSpecifications, ProductTypeOptions, type ProductType } from './Product';
 export { profileSections } from './Profile';
 export { RoomTypesOptions } from './Room';
@@ -46,7 +46,7 @@ export { SocialItem, type SocialItemType } from './SocialItem';
 export { Store, storeOptions } from './Store';
 export { subscriptionConfig, subscriptionMenuOptions, type SubscriptionStatus } from './Subscription';
 export { Units } from './Units';
-export { PaymentOption, UserCategoryOption } from './User';
+export { PaymentOption, StatusOptions, UserCategoryOption } from './User';
 export {
   Purpose,
   VendorCertificate,

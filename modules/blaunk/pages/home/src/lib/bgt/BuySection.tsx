@@ -1,6 +1,6 @@
 'use client';
 
-import { PaginationDots } from '@li/design/elements';
+import { PaginationNumber } from '@li/design/elements';
 import { Col, Container, Row } from 'react-bootstrap';
 import styles from './buy.module.css';
 import ImageCard from './components/layout/ImageCard';
@@ -14,7 +14,7 @@ export function BuySection() {
       </Row>
       <Row>
         <div className={styles['pagination-wrapper']}>
-          <PaginationDots active={1} total={4} position="none" variant="light" />
+          <PaginationNumber active={1} total={4} position="none" variant="light" />
         </div>
       </Row>
     </Container>

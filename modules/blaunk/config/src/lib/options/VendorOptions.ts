@@ -43,7 +43,48 @@ export const VendorFirm = optionsFromStrings(vendorFirm);
 const vendorIndustrySector = ['FMCG', 'Garments', 'Pharmaceutical', 'Chemicals'] as const;
 export const VendorIndustrySector = optionsFromStrings(vendorIndustrySector);
 
-const vendorCertificate = ['ISO', 'Food safety', 'BIS', 'MSME', 'Drugs', 'Trademark'] as const;
+// cspell:disable
+const vendorCertificate = [
+  'ISO',
+  'Food safety',
+  'BIS',
+  'MSME',
+  'Drugs',
+  'Trademark',
+  'API',
+  'BIFMA',
+  'BCI',
+  'BSCI',
+  'BRF- FOOD SAFETY',
+  'CoC - Certificate ',
+  'CMMI L3 & L5',
+  'CE- CERTIFICATE ',
+  'ECOTEL',
+  'FSSC 22000',
+  'GLOBAL G.A.P',
+  'GOTS (TEXTULE)',
+  'GACP',
+  'GMP',
+  'POLLUTION CONTROL',
+  'EXPLOSIVE',
+  'IPEMA',
+  'IFS',
+  'ISI',
+  'IATA',
+  'IATF',
+  'KOSHER',
+  'HACCP',
+  'SME ',
+  'SEDEX',
+  'SATVIK',
+  'SA 8000',
+  'TL9000- TQMS',
+  'RSPO',
+  'OCS( ORGANIC CONTENT STD)',
+  'WRAP',
+  'N.A',
+] as const;
+// cspell:enable
 export const VendorCertificate = optionsFromStrings(vendorCertificate);
 
 const vendorFirmBranchCount = ['0-1', '2-5', '6-10', '11-24', '25+'] as const;

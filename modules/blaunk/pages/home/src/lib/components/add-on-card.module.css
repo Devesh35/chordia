@@ -20,9 +20,9 @@
 
 .item-name {
   justify-content: center;
-  max-width: 100%;
+  max-width: 280px !important;
   text-align: center;
-  text-wrap: wrap;
+  text-wrap: wrap !important;
   padding-bottom: 8px;
 }
 

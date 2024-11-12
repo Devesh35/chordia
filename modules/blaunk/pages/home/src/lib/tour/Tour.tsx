@@ -1,18 +1,18 @@
 'use client';
 
-import { Carousal, PaginationDots } from '@li/design/elements';
+import { Carousal, PaginationNumber } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 
 import { grid } from '@li/config/design';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { BlaunkHome } from '../base/components/BlaunkHome';
+import { HomeBanners } from '../base/components/HomeBanners';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import { Filter } from './Filter';
 import { Products } from './Products';
 import { Search } from './Search';
 import styles from './tour.module.css';
-import { BlaunkHome } from '../base/components/BlaunkHome';
-import { HomeBanners } from '../base/components/HomeBanners';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'hotels').map((src, i) => (
   <Image
@@ -41,7 +41,7 @@ export const Tour = () => {
         <Products />
       </div>
       <div className={styles['pagination-wrapper']}>
-        <PaginationDots active={1} total={4} position="none" variant="light" />
+        <PaginationNumber active={1} total={4} position="none" variant="light" />
       </div>
       <DealsAndOffer showRecent />
     </div>

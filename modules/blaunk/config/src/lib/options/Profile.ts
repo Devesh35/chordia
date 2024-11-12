@@ -5,8 +5,9 @@ import { CountryBanksOptions } from './Banks';
 import { CountriesOption, CountryCodeOptions } from './Country';
 import { Export } from './Export';
 import { BankAccountType, YesNoOptions } from './General';
+import { GradeOptions } from './Grade';
 import { IndustrySectorOptions } from './Industry';
-import { UserCategoryOption } from './User';
+import { StatusOptions, UserCategoryOption } from './User';
 import {
   VendorCertificate,
   VendorFirm,
@@ -24,7 +25,7 @@ const profileSection = {
     },
   },
   general: {
-    form: ['general', 'vendorIdentification'],
+    form: ['general', 'vendorIdentification', 'vendorAgent', 'fines', 'deposit'],
   },
   bank: {
     bank: { form: ['bank'] },
@@ -32,7 +33,7 @@ const profileSection = {
     qrCode: { document: ['qrCode'] },
   },
   vendor: {
-    form: ['vendorCompany', 'vendorAgent', 'vendorResponse'],
+    form: ['vendorCompany', 'vendorResponse'],
     document: {
       vendor: [
         'companyLogo',
@@ -157,13 +158,17 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'grade',
             isReadOnly: true,
             label: 'Grade',
+            type: 'select',
             placeholder: 'Grade',
+            options: GradeOptions,
           },
           {
             id: 'status',
             isReadOnly: true,
             label: 'Status',
             placeholder: 'Status',
+            type: 'select',
+            options: StatusOptions,
           },
           {
             id: 'category',
@@ -221,6 +226,99 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             isReadOnly: true,
             label: 'Confirmation',
             placeholder: 'Pending',
+          },
+        ],
+      },
+      {
+        id: 'vendorAgent',
+        title: 'Vendor Agent',
+        items: [
+          {
+            id: 'agentName',
+            label: 'Agent name',
+            placeholder: 'Agent name',
+          },
+          {
+            id: 'agentShare',
+            isReadOnly: true,
+            type: 'number',
+            label: 'Agent Share (%)',
+            placeholder: 'Share',
+          },
+        ],
+      },
+      {
+        id: 'fines',
+        title: 'Fines & charges',
+        items: [
+          {
+            id: 'complaint',
+            type: 'number',
+            label: 'Complaint',
+            placeholder: 'Complaint',
+            isReadOnly: true,
+          },
+          {
+            id: 'resolved',
+            type: 'number',
+            label: 'Issue resolved',
+            placeholder: 'Issue resolved',
+            isReadOnly: true,
+          },
+          {
+            id: 'noOrder',
+            type: 'number',
+            label: 'No of order',
+            placeholder: 'No of order',
+            isReadOnly: true,
+          },
+          {
+            id: 'penalty',
+            type: 'number',
+            label: 'Penalty',
+            placeholder: 'Penalty',
+            isReadOnly: true,
+          },
+          {
+            id: 'rejected',
+            type: 'number',
+            label: 'Order rejected',
+            placeholder: 'Order rejected',
+            isReadOnly: true,
+          },
+        ],
+      },
+      {
+        id: 'deposit',
+        title: 'Deposit',
+        items: [
+          {
+            id: 'amount',
+            type: 'number',
+            label: 'Amount',
+            placeholder: 'Amount',
+            isReadOnly: true,
+          },
+          {
+            id: 'date',
+            type: 'text',
+            label: 'Date',
+            placeholder: 'Date',
+            isReadOnly: true,
+          },
+          {
+            id: 'refund',
+            type: 'text',
+            label: 'Refund',
+            placeholder: 'Refund',
+            isReadOnly: true,
+          },
+          {
+            id: 'charges',
+            type: 'text',
+            label: 'Charges',
+            placeholder: 'Charges',
+            isReadOnly: true,
           },
         ],
       },
@@ -422,24 +520,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'ciNo',
             label: "Co's identification No",
             placeholder: 'CIN',
-          },
-        ],
-      },
-      {
-        id: 'vendorAgent',
-        title: 'Vendor Agent',
-        items: [
-          {
-            id: 'agentName',
-            label: 'Agent name',
-            placeholder: 'Agent name',
-          },
-          {
-            id: 'agentShare',
-            isReadOnly: true,
-            type: 'number',
-            label: 'Agent Share (%)',
-            placeholder: 'Share',
           },
         ],
       },
