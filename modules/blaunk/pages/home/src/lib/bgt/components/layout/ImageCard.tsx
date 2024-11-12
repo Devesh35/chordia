@@ -5,13 +5,14 @@ import { exportImg, Routes } from '@md/blaunk/config';
 import { useRouter } from 'next/navigation';
 import { Badge, Card, Col, Row } from 'react-bootstrap';
 import { FaHeart, FaLocationDot } from 'react-icons/fa6';
+import './ImageCard.css';
 
 const ImageCard = () => {
   const { push } = useRouter();
 
   return (
     <div className="m-4 clickable" onClick={() => push(Routes.home.bgt.item('item').path)}>
-      <Card>
+      <Card className='shadow-card'>
         <Row style={{ padding: '20px' }}>
           <Col md={3}>
             <Card.Img
@@ -54,6 +55,8 @@ const ImageCard = () => {
                     textDecoration: 'underline',
                     color: 'blue',
                     fontSize: '1rem',
+                    paddingInline: '7px',
+                    marginBottom: '20px',
                   }}
                 >
                   C & D RETAIL (INDIA) LLP
@@ -89,7 +92,7 @@ const ImageCard = () => {
               </Card.Body>
 
               <Card.Footer
-                className="d-flex justify-content-between align-items-center border-0 p-0"
+                className="d-flex justify-content-between align-items-center border-0 px-1"
                 style={{ margin: 0, background: 'none' }}
               >
                 <span role="img" aria-label="star">

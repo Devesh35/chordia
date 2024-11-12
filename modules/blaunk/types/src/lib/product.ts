@@ -4,3 +4,8 @@ export type ProductStatus =
   | 'return'
   | 'rejected'
   | 'confirmed';
+
+  export type ProductPayment = 
+  | 'received'
+  | 'pending'
+  | 'cancelled';

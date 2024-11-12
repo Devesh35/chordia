@@ -15,5 +15,12 @@ export { default as referImage } from './refer.jpeg';
 export { default as store } from './store.jpg';
 export { default as tour } from './tour.jpg';
 export { default as walletImage } from './wallet.jpeg';
-export {default as storeRoof} from './store-roof.png'
-export { default as exportImg} from './export.png'
+export { default as storeRoof } from './store-roof.png';
+export { default as exportImg } from './export.png';
+export { default as gstInvoice } from './GST-INVOICES.jpg';
+export { default as gstInvoice2 } from './GST-INVOICES-2.jpg';
+export { default as gstInvoice3 } from './GST-INVOICES-3.jpg';
+export { default as letsCelebrate } from './LetsCelebrate.jpg';
+export { default as verifiedVendor } from './erified.png';
+export { default as b2bAd } from './b2b ads.jpg';
+export {default as FlagIndia} from './Flag_of_India.svg.png';

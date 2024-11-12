@@ -1,0 +1,37 @@
+.custom-checkbox input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid blue;
+}
+
+.room-box {
+  border: 2px solid #fff;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.bg-color-1 {
+  background-color: #dcddfe;
+}
+
+.bg-color-2 {
+  background-color: #f3dcdc;
+}
+
+.knewave-regular {
+  font-family: 'Knewave', system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kalam-regular {
+  font-family: 'Kalam', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.custom-badge {
+  font-size: 1.25rem;
+  padding: 0.5rem 0.75rem;
+}

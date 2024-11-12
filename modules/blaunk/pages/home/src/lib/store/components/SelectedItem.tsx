@@ -1,3 +1,5 @@
+'uce client';
+
 import { fromCamelCase } from '@li/config/utils';
 import { Button, Carousal, InputArea, Labeled, ScrollableSnap } from '@li/design/elements';
 import Image from 'next/image';
@@ -8,6 +10,7 @@ import styles from './selected-item.module.css';
 import { assurance, getStaticImageSrc } from '@li/design/icons';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import clsx from 'clsx';
+import { Col, Row } from 'react-bootstrap';
 import { AddOnCard } from '../../components/AddOnCard';
 
 type Props = {
@@ -15,16 +18,17 @@ type Props = {
 };
 
 const detailsOrder: (keyof StoreItem)[] = [
-  'delivery',
+  'minCartValue',
+  'freeDeliveryUpto',
+  'deliveryCharges',
   'deliveredBy',
   'dispatchTime',
   'gstInvoice',
   'giftWrap',
-  'minCartValue',
   'currency',
   'party',
   'customized',
-  'freeDelivery',
+  'uniqueCode',
 ];
 const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
   <AddOnCard
@@ -93,32 +97,27 @@ export const SelectedItem = ({ data }: Props) => {
           <div className={styles['product-header']}>
             <div style={{ fontSize: 24 }}>{data.name}</div>
           </div>
-          <div style={{ fontSize: 20, color: 'blue', fontWeight: 'bold' }}> Timings: {data.timings}</div>
+          <Row>
+            <Col>
+              <div style={{ fontSize: 20, color: 'blue', fontWeight: 'bold' }}> Timings: {data.timings}</div>
+            </Col>
+            <Col style={{ textAlign: 'right' }}>
+              <Image src={getStaticImageSrc(assurance)} alt="Bk assurance" width={120} height={35} />
+            </Col>
+          </Row>
+
           <DetailsTable
             keyColWidth={160}
             data={[
-              // ['Timings', data.timings],
               ['City', data.city],
               ['Area', data.area],
               ['Pin code', data.pinCode],
-            ]}
-          />
-          <Image src={getStaticImageSrc(assurance)} alt="Bk assurance" width={120} height={40} />
-          <DetailsTable
-            keyColWidth={160}
-            data={[
               ['Rating', data.rating],
               ['Complaints Raised', data.complaintsRaised],
               ['Complaints Resolved', data.complaintsResolved],
               ['Contact no', data.contactNo],
             ]}
           />
-
-          {/* <div className={styles['product-header']}>
-              <div className={styles['deal']}>Deal</div>
-              <div className={styles['deal']}>Deal</div>
-            </div>
-            */}
         </div>
         <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
           <DetailsTable data={detailsData} keyColWidth={220} />

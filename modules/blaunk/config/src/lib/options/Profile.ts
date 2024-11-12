@@ -5,8 +5,9 @@ import { CountryBanksOptions } from './Banks';
 import { CountriesOption, CountryCodeOptions } from './Country';
 import { Export } from './Export';
 import { BankAccountType, YesNoOptions } from './General';
+import { GradeOptions } from './Grade';
 import { IndustrySectorOptions } from './Industry';
-import { UserCategoryOption } from './User';
+import { StatusOptions, UserCategoryOption } from './User';
 import {
   VendorCertificate,
   VendorFirm,
@@ -24,7 +25,7 @@ const profileSection = {
     },
   },
   general: {
-    form: ['general', 'vendorIdentification'],
+    form: ['general', 'vendorIdentification', 'vendorAgent', 'fines', 'deposit'],
   },
   bank: {
     bank: { form: ['bank'] },
@@ -32,7 +33,7 @@ const profileSection = {
     qrCode: { document: ['qrCode'] },
   },
   vendor: {
-    form: ['vendorCompany', 'vendorAgent', 'vendorResponse'],
+    form: ['vendorCompany', 'vendorResponse'],
     document: {
       vendor: [
         'companyLogo',
@@ -47,7 +48,8 @@ const profileSection = {
     },
   },
   export: {
-    form: ['export'],
+    yes: { form: ['exportEnquiry'] },
+    no: { form: [] },
   },
   policy: {
     form: ['policy'],
@@ -157,13 +159,17 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'grade',
             isReadOnly: true,
             label: 'Grade',
+            type: 'select',
             placeholder: 'Grade',
+            options: GradeOptions,
           },
           {
             id: 'status',
             isReadOnly: true,
             label: 'Status',
             placeholder: 'Status',
+            type: 'select',
+            options: StatusOptions,
           },
           {
             id: 'category',
@@ -221,6 +227,99 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             isReadOnly: true,
             label: 'Confirmation',
             placeholder: 'Pending',
+          },
+        ],
+      },
+      {
+        id: 'vendorAgent',
+        title: 'Vendor Agent',
+        items: [
+          {
+            id: 'agentName',
+            label: 'Agent name',
+            placeholder: 'Agent name',
+          },
+          {
+            id: 'agentShare',
+            isReadOnly: true,
+            type: 'number',
+            label: 'Agent Share (%)',
+            placeholder: 'Share',
+          },
+        ],
+      },
+      {
+        id: 'fines',
+        title: 'Fines & charges',
+        items: [
+          {
+            id: 'complaint',
+            type: 'number',
+            label: 'Complaint',
+            placeholder: 'Complaint',
+            isReadOnly: true,
+          },
+          {
+            id: 'resolved',
+            type: 'number',
+            label: 'Issue resolved',
+            placeholder: 'Issue resolved',
+            isReadOnly: true,
+          },
+          {
+            id: 'noOrder',
+            type: 'number',
+            label: 'No of order',
+            placeholder: 'No of order',
+            isReadOnly: true,
+          },
+          {
+            id: 'penalty',
+            type: 'number',
+            label: 'Penalty',
+            placeholder: 'Penalty',
+            isReadOnly: true,
+          },
+          {
+            id: 'rejected',
+            type: 'number',
+            label: 'Order rejected',
+            placeholder: 'Order rejected',
+            isReadOnly: true,
+          },
+        ],
+      },
+      {
+        id: 'deposit',
+        title: 'Deposit',
+        items: [
+          {
+            id: 'amount',
+            type: 'number',
+            label: 'Amount',
+            placeholder: 'Amount',
+            isReadOnly: true,
+          },
+          {
+            id: 'date',
+            type: 'text',
+            label: 'Date',
+            placeholder: 'Date',
+            isReadOnly: true,
+          },
+          {
+            id: 'refund',
+            type: 'text',
+            label: 'Refund',
+            placeholder: 'Refund',
+            isReadOnly: true,
+          },
+          {
+            id: 'charges',
+            type: 'text',
+            label: 'Charges',
+            placeholder: 'Charges',
+            isReadOnly: true,
           },
         ],
       },
@@ -348,10 +447,10 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Company name',
           },
           {
-            id: 'firm',
+            id: 'entity',
             type: 'select',
-            label: 'Firm',
-            placeholder: 'Firm',
+            label: 'Entity',
+            placeholder: 'Entity',
             options: VendorFirm,
           },
           {
@@ -425,24 +524,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
         ],
       },
-      {
-        id: 'vendorAgent',
-        title: 'Vendor Agent',
-        items: [
-          {
-            id: 'agentName',
-            label: 'Agent name',
-            placeholder: 'Agent name',
-          },
-          {
-            id: 'agentShare',
-            isReadOnly: true,
-            type: 'number',
-            label: 'Agent Share (%)',
-            placeholder: 'Share',
-          },
-        ],
-      },
 
       {
         id: 'vendorResponse',
@@ -495,35 +576,23 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
     ],
   },
   export: {
-    form: [
+    title: 'Export enquiry',
+    options: [
       {
-        id: 'vendor-enquiry',
-        title: 'Vendor enquiry',
-        items: [
-          // {
-          //   id: 'vendorCode',
-          //   isReadOnly: true,
-          //   label: 'Vendor code',
-          //   placeholder: 'Vendor code',
-          // },
-          // {
-          //   id: 'blaunkAssurance',
-          //   type: 'yes-no',
-          //   label: 'Blaunk Assurance',
-          //   placeholder: '',
-          // },
-          {
-            id: 'exportEnquiry',
-            type: 'select',
-            label: 'Export enquiry',
-            placeholder: '',
-            options: YesNoOptions,
-          },
-        ],
+        id: 'yes',
+        item: 'Yes',
       },
-      // depends on exportEnquiry
-      { title: 'Export', id: 'export', items: Export.items },
+      {
+        id: 'no',
+        item: 'No',
+      },
     ],
+    items: {
+      yes: {
+        form: [{ title: 'Export', id: 'export', items: Export.items }],
+      },
+      no: { form: [] },
+    },
   },
   policy: {
     form: [
@@ -532,10 +601,130 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         title: 'Policy',
         items: [
           {
-            id: 'policy',
+            id: 'productDifference',
             type: 'text',
-            label: 'Policy',
-            placeholder: 'Policy',
+            label: 'Product Differ from Image',
+            placeholder: 'Product Differ from Image',
+          },
+          {
+            id: 'quantityShortage',
+            type: 'text',
+            label: 'Quantity Shortage',
+            placeholder: 'Quantity Shortage',
+          },
+          {
+            id: 'articleColourBleed',
+            type: 'text',
+            label: 'Article Colour Bleed',
+            placeholder: 'Article Colour Bleed',
+          },
+          {
+            id: 'paymentModeRefund',
+            type: 'text',
+            label: 'Payment Mode - Refund',
+            placeholder: 'Payment Mode - Refund',
+          },
+          {
+            id: 'warrantyPeriod',
+            type: 'text',
+            label: 'Warranty Period',
+            placeholder: 'Warranty Period',
+          },
+          {
+            id: 'exportQualityStandard',
+            type: 'text',
+            label: 'Export Quality Standard',
+            placeholder: 'Export Quality Standard',
+          },
+          {
+            id: 'refundAmount',
+            type: 'text',
+            label: 'Refund Amount',
+            placeholder: 'Refund Amount',
+          },
+          {
+            id: 'damagedArticle',
+            type: 'text',
+            label: 'Damaged Article',
+            placeholder: 'Damaged Article',
+          },
+          {
+            id: 'qcCharges',
+            type: 'text',
+            label: 'QC Charges',
+            placeholder: 'QC Charges',
+          },
+          {
+            id: 'productDeadOnArrival',
+            type: 'text',
+            label: 'Product Dead On Arrival',
+            placeholder: 'Product Dead On Arrival',
+          },
+          {
+            id: 'damagedArticle',
+            type: 'text',
+            label: 'Damaged Article',
+            placeholder: 'Damaged Article',
+          },
+          {
+            id: 'sizeRatioWrongPacking',
+            type: 'text',
+            label: 'Size Ratio / Wrong Packing',
+            placeholder: 'Size Ratio / Wrong Packing',
+          },
+          {
+            id: 'returnLogisticCharges',
+            type: 'text',
+            label: 'Return Logistic Charges',
+            placeholder: 'Return Logistic Charges',
+          },
+          {
+            id: 'internationalTradeRejection',
+            type: 'text',
+            label: 'International Trade Rejection',
+            placeholder: 'International Trade Rejection',
+          },
+          {
+            id: 'customizeOrder',
+            type: 'text',
+            label: 'Customize Order',
+            placeholder: 'Customize Order',
+          },
+          {
+            id: 'delayInSupplyPenalty',
+            type: 'text',
+            label: 'Delay in Supply - Penalty',
+            placeholder: 'Delay in Supply - Penalty',
+          },
+          {
+            id: 'blaunkChargesOnCancellation',
+            type: 'text',
+            label: 'Blaunk Charges on Cancellation',
+            placeholder: 'Blaunk Charges on Cancellation',
+          },
+          {
+            id: 'reportAnIssuePenalty',
+            type: 'text',
+            label: 'Report an Issue - Penalty',
+            placeholder: 'Report an Issue - Penalty',
+          },
+          {
+            id: 'sampleOnRequest',
+            type: 'text',
+            label: 'Sample on Request',
+            placeholder: 'Sample on Request',
+          },
+          {
+            id: 'vendorPayment',
+            type: 'text',
+            label: 'Vendor Payment',
+            placeholder: 'Vendor Payment',
+          },
+          {
+            id: 'cancellationPolicy',
+            type: 'text',
+            label: 'Cancellation Policy',
+            placeholder: 'Cancellation Policy',
           },
         ],
       },

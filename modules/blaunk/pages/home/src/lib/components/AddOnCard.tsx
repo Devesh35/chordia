@@ -52,9 +52,7 @@ export const AddOnCard = ({
   return (
     <div className={styles.card}>
       <EnlargeableImage {...image} />
-      <div className={clsx(styles.item, styles['item-name'])}>
-        <span>{name}</span>
-      </div>
+      <div className={clsx(styles.item, styles['item-name'])}>{name}</div>
       {withCondition(quantitySelect)(
         <div className={clsx(styles.item)}>
           <span>Quantity</span>

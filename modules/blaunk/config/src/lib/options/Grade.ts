@@ -1,5 +1,5 @@
 import { optionsFromStrings } from '@li/config/utils';
 
-export const Grade = ['Platinum', 'Gold', 'Silver', 'Bronze'] as const;
+const grade = ['Bronze', 'Premium', 'Gold', 'Best seller', 'Blaunk assurance'];
 
-export const GradeOptions = optionsFromStrings(Grade);
+export const GradeOptions = optionsFromStrings(grade);

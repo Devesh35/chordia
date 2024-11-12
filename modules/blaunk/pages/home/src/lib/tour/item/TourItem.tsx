@@ -1,13 +1,12 @@
 'use client';
 import { CustomerReviews } from '@md/blaunk/design';
 import { Badge, Col, Container, Row } from 'react-bootstrap';
-import { BlaunkHome } from '../../base/components/BlaunkHome';
-import { HomeBanners } from '../../base/components/HomeBanners';
 import HomeCarousel from '../../bgt/components/layout/HomeCarousel';
 import { Amenities } from '../Amenities';
 import { Details } from '../Details';
 import ImageCard from '../ImageCard';
 import styles from '../tour.module.css';
+import { HotelBanner } from '../HotelBanner';
 
 const badges = [
   { text: 'Non AC', variant: 'primary' },
@@ -19,13 +18,8 @@ const badges = [
 
 export const TourItem = () => {
   return (
-    <Container className="my-3">
-      <Row className="my-3">
-        <BlaunkHome />
-      </Row>
-      <Row className="mb-3">
-        <HomeBanners />
-      </Row>
+    <Container fluid className="my-3">
+      <HotelBanner hotelName="Sunset Resort" location="Miami Beach, FL" discount={30} />
       <Row>
         <Col>
           <HomeCarousel />

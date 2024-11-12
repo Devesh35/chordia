@@ -84,6 +84,31 @@ export const Routes = {
       isProtected: true,
       title: 'Boutique | Blaunk',
       path: '/home/boutique',
+      women: {
+        isProtected: true,
+        title: 'Women | Blaunk',
+        path: '/home/boutique/women',
+      },
+      men: {
+        isProtected: true,
+        title: 'Men | Blaunk',
+        path: '/home/boutique/men',
+      },
+      indian: {
+        isProtected: true,
+        title: 'Indian | Blaunk',
+        path: '/home/boutique/indian',
+      },
+      international: {
+        isProtected: true,
+        title: 'International | Blaunk',
+        path: '/home/boutique/international',
+      },
+      rent: {
+        isProtected: true,
+        title: 'On rent | Blaunk',
+        path: '/home/boutique/rent',
+      },
     },
     cake: {
       isProtected: true,
@@ -243,6 +268,12 @@ export const Routes = {
     isProtected: true,
     title: 'Add BGT | Blaunk',
     path: '/product/add/bgt',
+  },
+  logistics: {
+    seller: true,
+    isProtected: true,
+    title: 'Add Logistics | Blaunk',
+    path: '/product/add/logistics',
   },
   vendor: {
     seller: true,

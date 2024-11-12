@@ -101,7 +101,7 @@ function PriceDetailsModal({
           <Row>
             <Col lg={6} xs={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Price</Form.Label>
+                <Form.Label>Price (INR ₹)</Form.Label>
                 <Form.Control
                   value={value.price}
                   onChange={(e) => handleChange("price", e)}

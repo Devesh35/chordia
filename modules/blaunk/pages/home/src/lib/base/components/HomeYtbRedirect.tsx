@@ -4,14 +4,14 @@ import { grid } from '@li/config/design';
 import clsx from 'clsx';
 import styles from './find-vendors.module.css';
 import { getStaticImageSrc } from '@li/design/icons';
-// import Image from 'next/image';
-import { homeYtbRedirect } from '@md/blaunk/config';
+import { homeYtbRedirect, Routes } from '@md/blaunk/config';
 
 export const HomeYtbRedirect = () => {
   return (
-    <div
+    <a
+      href={Routes.home.bgt.path} 
       className={clsx(styles.wrapper, grid['col-6'])}
-      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}
     >
       <img
         src={getStaticImageSrc(homeYtbRedirect)}
@@ -22,6 +22,6 @@ export const HomeYtbRedirect = () => {
           objectFit: 'contain',
         }}
       />
-    </div>
+    </a>
   );
 };

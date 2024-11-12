@@ -7,14 +7,14 @@ import ReactFlagsSelect from 'react-flags-select';
 import './Advertisement.css';
 import ImageCropUploader from './components/common/ImageComponent';
 import { FaSearch } from 'react-icons/fa';
-import { PiCursorClick } from "react-icons/pi";
+import { PiCursorClick } from 'react-icons/pi';
 
 import {
   adTypes,
   // groupOptions,
   plans,
   products,
-  services,
+  // services,
 } from './utils/constants';
 
 export function App() {
@@ -28,7 +28,7 @@ export function App() {
   const [toPay, setToPay] = useState<string>('');
   const [adType, setAdType] = useState<string>('');
   const [selectedFlag, setSelectedFlag] = useState<string>('');
-  const [category, setCategory] = useState<string>('');
+  // const [category, setCategory] = useState<string>('');
   const [save, setSave] = useState<boolean>(false);
   const [cancel, setCancel] = useState<boolean>(false);
   const [group, setGroup] = useState<string>('');
@@ -38,7 +38,7 @@ export function App() {
   const [area, setArea] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [price, setPrice] = useState<string>('');
-  const [servicesMenu, setServicesMenu] = useState<string>('');
+  // const [servicesMenu, setServicesMenu] = useState<string>('');
   const [productsMenu, setProductsMenu] = useState<string>('');
   const [acceptTerms, setAcceptTerms] = useState<boolean>(false);
   const [description, setDescription] = useState<string>('');
@@ -64,8 +64,8 @@ export function App() {
       setVoucherCode('');
       setRebate('');
       setSelectedFlag('');
-      setCategory('');
-      setServicesMenu('');
+      // setCategory('');
+      // setServicesMenu('');
       setProductsMenu('');
       setAcceptTerms(false);
       setAdType('');
@@ -187,8 +187,8 @@ export function App() {
                       disabled={save}
                     >
                       <option value="advertisement">Advertisement</option>
-                      <option value="blaunkDial">Blaunk Dial</option>
-                      <option value="marketFeed">Market Feed</option>
+                      {/* <option value="blaunkDial">Blaunk Dial</option> */}
+                      <option value="marketFeed">Market Dial</option>
                       <option value="boutique">Boutique</option>
                     </Form.Select>
                   </Form.Group>
@@ -404,55 +404,6 @@ export function App() {
                       />
                     </Form.Group>
                   </Col>
-                  <Col lg={2} md={4} sm={6} xs={12}>
-                    <Form.Group controlId="categorySelect">
-                      <Form.Label>Category</Form.Label>
-                      <Form.Select
-                        value={category || ''}
-                        onChange={(event) => setCategory(event.target.value)}
-                        disabled={save}
-                      >
-                        <option value="">Select a category</option>
-                        <option value="healthcare">Healthcare</option>
-                        <option value="artists">Artists</option>
-                        <option value="prediction">Prediction Forecast</option>
-                        <option value="transport">Transport</option>
-                        <option value="mechanic">Mechanic</option>
-                        <option value="financial">Financial</option>
-                        <option value="repair">Repair</option>
-                        <option value="automobile">Automobile</option>
-                        <option value="itDevelopers">IT Developers</option>
-                        <option value="property">Property</option>
-                        <option value="tour">Tour Operator</option>
-                        <option value="helper">Helper</option>
-                        <option value="event">Event</option>
-                        <option value="eventMgt">Event Management</option>
-                        <option value="misc">Miscellaneous</option>
-                      </Form.Select>
-                    </Form.Group>
-                  </Col>
-                  <Col lg={2} md={4} sm={6} xs={12}>
-                    <Form.Group controlId="servicesSelect">
-                      <Form.Label>Services</Form.Label>
-                      <Form.Select
-                        value={servicesMenu}
-                        onChange={(e) => setServicesMenu(e.target.value)}
-                        disabled={save}
-                      >
-                        {services[category]?.map((type) => (
-                          <option key={type} value={type}>
-                            {type}
-                          </option>
-                        )) || <option value="">No options available</option>}
-                      </Form.Select>
-                    </Form.Group>
-                  </Col>
-                  {servicesMenu === 'Others' && (
-                    <Col lg={2} md={4} sm={6} xs={12}>
-                      <Form.Label>Others</Form.Label>
-                      <Form.Control type="text" placeholder="Max 15 characters" disabled={save} maxLength={15} />
-                    </Col>
-                  )}
                 </Row>
               </Container>
             </Accordion.Body>
@@ -461,7 +412,7 @@ export function App() {
         {/* //!Market Feed */}
         {subscription === 'marketFeed' && (
           <Accordion.Item eventKey="3">
-            <Accordion.Header>Market Feed</Accordion.Header>
+            <Accordion.Header>MARKET DIAL</Accordion.Header>
             <Accordion.Body>
               <Container>
                 <Row>
@@ -505,13 +456,27 @@ export function App() {
                         <option value="appliances">Appliances</option>
                         <option value="usedVehicle">Used Vehicle</option>
                         <option value="d2h">D2H</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="artists">Artists</option>
+                        <option value="prediction">Prediction Forecast</option>
+                        <option value="transport">Transport</option>
+                        <option value="mechanic">Mechanic</option>
+                        <option value="financial">Financial</option>
+                        <option value="repair">Repair</option>
+                        <option value="automobile">Automobile</option>
+                        <option value="itDevelopers">IT Developers</option>
+                        <option value="property">Property</option>
+                        <option value="tour">Tour Operator</option>
+                        <option value="helper">Helper</option>
+                        <option value="event">Event</option>
+                        <option value="eventMgt">Event Management</option>
                         <option value="misc">Miscellaneous</option>
                       </Form.Select>
                     </Form.Group>
                   </Col>
                   <Col lg={2} md={3} sm={6} xs={12}>
                     <Form.Group controlId="selectAds">
-                      <Form.Label>Products</Form.Label>
+                      <Form.Label>Product Services</Form.Label>
                       <Form.Select
                         value={productsMenu}
                         onChange={(e) => setProductsMenu(e.target.value)}
@@ -605,6 +570,55 @@ export function App() {
                       <Form.Control type="text" disabled={save} value={area} onChange={handleAreaChange} />
                     </Form.Group>
                   </Col>
+                  {/* <Col lg={2} md={3} sm={6} xs={12}>
+                    <Form.Group controlId="categorySelect">
+                      <Form.Label>Category</Form.Label>
+                      <Form.Select
+                        value={category || ''}
+                        onChange={(event) => setCategory(event.target.value)}
+                        disabled={save}
+                      >
+                        <option value="">Select a category</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="artists">Artists</option>
+                        <option value="prediction">Prediction Forecast</option>
+                        <option value="transport">Transport</option>
+                        <option value="mechanic">Mechanic</option>
+                        <option value="financial">Financial</option>
+                        <option value="repair">Repair</option>
+                        <option value="automobile">Automobile</option>
+                        <option value="itDevelopers">IT Developers</option>
+                        <option value="property">Property</option>
+                        <option value="tour">Tour Operator</option>
+                        <option value="helper">Helper</option>
+                        <option value="event">Event</option>
+                        <option value="eventMgt">Event Management</option>
+                        <option value="misc">Miscellaneous</option>
+                      </Form.Select>
+                    </Form.Group>
+                  </Col>
+                  <Col lg={2} md={3} sm={6} xs={12}>
+                    <Form.Group controlId="servicesSelect">
+                      <Form.Label>Services</Form.Label>
+                      <Form.Select
+                        value={servicesMenu}
+                        onChange={(e) => setServicesMenu(e.target.value)}
+                        disabled={save}
+                      >
+                        {services[category]?.map((type) => (
+                          <option key={type} value={type}>
+                            {type}
+                          </option>
+                        )) || <option value="">No options available</option>}
+                      </Form.Select>
+                    </Form.Group>
+                  </Col>
+                  {servicesMenu === 'Others' && (
+                    <Col lg={2} md={4} sm={6} xs={12}>
+                      <Form.Label>Others</Form.Label>
+                      <Form.Control type="text" placeholder="Max 15 characters" disabled={save} maxLength={15} />
+                    </Col>
+                  )} */}
                   <Col lg={4} md={3} sm={6} xs={12}>
                     <Form.Label>Description</Form.Label>
                     <Form.Control
@@ -616,11 +630,13 @@ export function App() {
                       onChange={handleDescriptionChange}
                     />
                   </Col>
-                  {[1, 2, 3].map((index) => (
-                    <Col lg={4} md={4} sm={12} xs={12} key={index} className="mb-3">
-                      <ImageCropUploader save={save} cancel={cancel} setCancel={setCancel} />
-                    </Col>
-                  ))}
+                  <Row>
+                    {[1, 2, 3].map((index) => (
+                      <Col lg={4} md={4} sm={12} xs={12} key={index} className="mb-3">
+                        <ImageCropUploader save={save} cancel={cancel} setCancel={setCancel} />
+                      </Col>
+                    ))}
+                  </Row>
                 </Row>
               </Container>
             </Accordion.Body>
@@ -629,7 +645,7 @@ export function App() {
         {/* //!Boutique */}
         {subscription === 'boutique' && (
           <Accordion.Item eventKey="3">
-            <Accordion.Header>Boutique</Accordion.Header>
+            <Accordion.Header>BOUTIQUE</Accordion.Header>
             <Accordion.Body>
               <Container>
                 <Row>

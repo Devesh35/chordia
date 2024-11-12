@@ -9,13 +9,13 @@ export const Address: FormSection = {
   items: [
     {
       id: 'address',
-      label: 'Address',
-      placeholder: 'Address',
+      label: 'Door No/Street/Cross',
+      placeholder: 'Door No/Street/Cross',
     },
     {
       id: 'address2',
-      label: 'Address 2',
-      placeholder: 'Address 2',
+      label: 'Building/Flat no',
+      placeholder: 'Building/Flat no',
     },
     {
       id: 'landmark',

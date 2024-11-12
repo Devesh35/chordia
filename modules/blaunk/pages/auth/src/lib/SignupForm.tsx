@@ -1,17 +1,11 @@
 'use client';
 
-import {
-  Button,
-  EmailInput,
-  Labeled,
-  Link,
-  PasswordInput,
-  PhoneInput,
-} from '@li/design/elements';
+import { Button, EmailInput, Labeled, Link, PasswordInput, PhoneInput } from '@li/design/elements';
 import { PhoneValue } from '@li/types/design';
 import { CountryCodeOptions, Routes } from '@md/blaunk/config';
 import { useState } from 'react';
 import styles from './common.module.css';
+import { Form } from 'react-bootstrap';
 
 const sendOTP = () => {
   return new Promise<void>((resolve, reject) => {
@@ -35,9 +29,36 @@ export const SignupForm = () => {
     number: '',
   });
 
+  const [selectedOption, setSelectedOption] = useState<string>('individual');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>Sign up</div>
+      <Form>
+        <Form.Group className="d-flex align-items-center justify-content-center mt-3">
+          <Form.Check
+            type="radio"
+            label="Individual"
+            name="radioOptions"
+            value="individual"
+            checked={selectedOption === 'individual'}
+            onChange={handleChange}
+            className="me-3" 
+          />
+          <Form.Check
+            type="radio"
+            label="Business"
+            name="radioOptions"
+            value="business"
+            checked={selectedOption === 'business'}
+            onChange={handleChange}
+          />
+        </Form.Group>
+      </Form>
       <Labeled label="Phone">
         <PhoneInput
           placeholder="Enter your phone"

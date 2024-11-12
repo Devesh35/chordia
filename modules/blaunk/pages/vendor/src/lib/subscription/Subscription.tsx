@@ -6,32 +6,14 @@ import styles from './subscription.module.css';
 
 export type SubscriptionProduct = ProductType | 'requirement';
 
-const dummy = [
-  {
-    id: 'bgt',
-    status: 'inactive' as const,
-  },
-  {
-    id: 'store',
-    status: 'inactive' as const,
-  },
-  {
-    id: 'boutique',
-    status: 'inactive' as const,
-  },
-  {
-    id: 'tour',
-    status: 'inactive' as const,
-  },
-  {
-    id: 'cake',
-    status: 'inactive' as const,
-  },
-  {
-    id: 'requirement',
-    status: 'inactive' as const,
-  },
-].reduce((a, c) => ({ ...a, [c.id]: c.status }), {}) as Record<SubscriptionProduct, SubscriptionStatus>;
+const dummy: Record<SubscriptionProduct, SubscriptionStatus> = {
+  bgt: 'inactive',
+  store: 'inactive',
+  boutique: 'inactive',
+  tour: 'inactive',
+  cake: 'inactive',
+  requirement: 'inactive',
+};
 
 export const Subscription = () => {
   return (

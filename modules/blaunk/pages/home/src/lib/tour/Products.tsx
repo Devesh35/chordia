@@ -1,11 +1,12 @@
 'use client';
 
-import { getRandomImagesArray } from '@md/blaunk/config';
+import { Routes, getRandomImagesArray } from '@md/blaunk/config';
 
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
 import { Star } from '@li/design/icons';
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
 import styles from './tour.module.css';
 
 const products = (router: () => void) =>
@@ -39,7 +40,9 @@ const products = (router: () => void) =>
     />
   ));
 export const Products = () => {
-  const allProducts = products(() => window.open(window.location.href + 'item', '_blaunk'));
+  const { push } = useRouter();
+
+  const allProducts = products(() => push(Routes.home.tour.item('item').path));
 
   return allProducts;
 };

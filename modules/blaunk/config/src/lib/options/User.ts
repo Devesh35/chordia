@@ -19,3 +19,7 @@ export const UserCategoryOption = optionsFromStrings(userCategory);
 const paymentOption = ['COD', 'Online', 'Wallet', 'Card'] as const;
 
 export const PaymentOption = optionsFromStrings(paymentOption);
+
+const status = ['Active', 'Inactive', 'Blocked', 'Suspended'];
+
+export const StatusOptions = optionsFromStrings(status);
