@@ -2,20 +2,20 @@ import { grid } from '@li/config/design';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import clsx from 'clsx';
 import { BannerSection } from './components/BannerSection';
+import { BlaunkHome } from './components/BlaunkHome';
 import { CategorySearch } from './components/CategorySearch';
 import { ExploreWorld } from './components/ExploreWorld';
 import { FindVendors } from './components/FindVendors';
 import { HomeYtbRedirect } from './components/HomeYtbRedirect';
 import { MoreStores } from './components/MoreStores';
-import { BlaunkHome } from './components/BlaunkHome';
 // import { Placeholder } from './components/Placeholder';
+import { getStaticImageSrc } from '@li/design/icons';
+import { blaunkHome } from '@md/blaunk/config';
+import { HomeBanners } from './components/HomeBanners';
 import { StoreAds } from './components/StoreAds';
 import { TopSection } from './components/TopSection';
 import { TrendyStars } from './components/TrendyStars';
 import styles from './home.module.css';
-import { HomeBanners } from './components/HomeBanners';
-import { blaunkHome } from '@md/blaunk/config';
-import { getStaticImageSrc } from '@li/design/icons';
 
 export const Home = () => {
   return (

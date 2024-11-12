@@ -1,0 +1,154 @@
+.accordion-button {
+  background-color: #808836 !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+.checkbox {
+  padding: 0 8px;
+}
+
+.checkbox .form-check-input {
+  border: 1.5px solid #808836;
+}
+.form-check-input:focus {
+  border-color: #808836 !important;
+  box-shadow: 0 0 0 0.2rem rgba(128, 136, 54, 0.5) !important;
+}
+
+.voucher-container {
+  position: relative;
+}
+
+.voucher-container .voucher-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.voucher-container .form-control {
+  padding-right: 40px;
+}
+
+.form-group {
+  margin-bottom: 0.5rem !important;
+  background-color: #ffffe0 !important;
+}
+
+.form-control {
+  margin-bottom: 0rem;
+  background-color: #ffffe0 !important;
+}
+
+.form-label {
+  margin-bottom: 0.1rem !important;
+}
+
+.form-select {
+  margin-bottom: 0.5rem !important;
+  background-color: #ffffe0 !important;
+}
+
+.custom-checkbox .form-check-input {
+  width: 18px;
+  height: 18px;
+}
+
+.form-check-inline {
+  margin-right: 1.9rem !important;
+}
+
+.custom-checkbox .form-check-label {
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.image-crop-uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.box {
+  border: 1.5px solid red;
+  width: 140px;
+  height: 190px;
+}
+.image-text {
+  background-color: palegoldenrod;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  font-size: 14px;
+}
+.update-img-text {
+  font-size: 10px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.editor-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editor-container input[type="range"] {
+  width: 70%;
+  margin-top: 10px;
+}
+
+.editor-container button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  font-size: 12px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.editor-container button:hover {
+  background-color: #0056b3;
+}
+.delete-btn {
+  cursor: pointer;
+  border-color: #0056b3;
+  color: #0056b3;
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 5px 5px;
+  margin-top: 10px;
+}
+.delete-btn:hover {
+  cursor: pointer;
+  background-color: #0056b3;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+.delete-btn-pos {
+  display: flex;
+  justify-content: center;
+}
+
+.add-on-box {
+  display: flex;
+  padding: 10px;
+  border: 1px solid palegoldenrod;
+  max-width: 140px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ReactFlagsSelect-module_selectBtn__19wW7 {
+  padding: 2px 10px !important;
+}

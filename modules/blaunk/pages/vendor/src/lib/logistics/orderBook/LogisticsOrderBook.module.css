@@ -1,0 +1,31 @@
+.info-box {
+  border: 1px solid #9ca653;
+}
+
+.info-box-header {
+  background-color: #6c8023;
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.info-box-body {
+  padding: 5px;
+  text-align: center;
+}
+
+.info-box-body .form-select {
+  width: 100%;
+}
+
+.info-box-body textarea {
+  width: 100%;
+  resize: none;
+}
+
+.accordion {
+  --bs-accordion-btn-bg: #6c8023;
+  --bs-accordion-active-bg: #6c8023;
+  --bs-accordion-active-color: black;
+  --bs-accordion-btn-focus-box-shadow: none;
+}
