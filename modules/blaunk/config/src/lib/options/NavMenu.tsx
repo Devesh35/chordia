@@ -1,8 +1,9 @@
 import { Profile } from '@li/design/components';
+import { getStaticImageSrc } from '@li/design/icons';
 import { SelectItem } from '@li/types/design';
+import { FlagIndia } from '../images';
 import { getRandomImagesArray } from '../utils';
 import { Routes } from './Routes';
-import { FlagIndia } from '../images';
 
 const src = getRandomImagesArray(1)(64, 64)[0];
 
@@ -11,14 +12,7 @@ export type NavMenuItem = SelectItem & { path?: string };
 export const NavMenuItems: NavMenuItem[] = [
   {
     id: 'profile-card',
-    item: (
-      <Profile
-        image={src}
-        name="Pravin Chordia"
-        phone="+91 9876543210"
-        img={FlagIndia}
-      />
-    ),
+    item: <Profile image={src} name="Pravin Chordia" phone="+91 9876543210" img={getStaticImageSrc(FlagIndia)} />,
     path: Routes.account.profile.path,
   },
   { id: 'profile', item: 'Profile', path: Routes.account.profile.path },

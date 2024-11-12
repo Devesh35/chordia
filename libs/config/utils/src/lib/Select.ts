@@ -1,13 +1,7 @@
+import { SelectItem, SelectItemDivider, SelectItemElement } from '@li/types/design';
 import { get } from './Object';
-import {
-  SelectItem,
-  SelectItemDivider,
-  SelectItemElement,
-} from '@li/types/design';
 
-export const optionsFromStrings = <T extends string>(
-  items: T[] | readonly T[],
-): SelectItemElement<Lowercase<T>>[] =>
+export const optionsFromStrings = <T extends string>(items: T[] | readonly T[]): SelectItemElement<Lowercase<T>>[] =>
   items.map((i) => ({ id: i.toLowerCase() as Lowercase<typeof i>, item: i }));
 
 export const optionsFromObject = <T extends string>(
