@@ -93,7 +93,7 @@ export const BrandSearch = () => (
   <Labeled label="Brand">
     <Input
       iconLeft={<Brand />}
-      placeholder="Enter Brand"
+      placeholder="Search Articles"
       className={styles['search-bar-items']}
     />
   </Labeled>

@@ -1,0 +1,8 @@
+.card-body::-webkit-scrollbar {
+  display: none;
+}
+
+.card-body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

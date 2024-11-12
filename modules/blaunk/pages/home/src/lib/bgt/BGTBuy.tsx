@@ -6,6 +6,8 @@ import Image from 'next/image';
 import styles from './buy.module.css';
 import { BuySection } from './BuySection';
 import { SearchBar } from './components/SearchBar';
+import BGTImages from './components/BGTImages';
+
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map((src, i) => (
   <Image
@@ -29,8 +31,8 @@ export const BGTBuy = () => {
       <RollingAd size={150} />
       <SearchBar />
       <BuySection />
-      {/* <SearchTable /> */}
       <CustomerReviews />
+      <BGTImages />
     </div>
   );
 };

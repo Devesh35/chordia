@@ -8,6 +8,7 @@ import { CompanyCarousel } from '../components/layout/CompanyCarousel';
 import HomeCarousel from '../components/layout/HomeCarousel';
 import OrderEstimate from '../components/layout/OrderEstimate';
 import { Overview } from '../components/layout/Overview';
+import { BGTBanner } from '../components/BGTBanner';
 
 export const BGTItem = () => {
   const [activeKey, setActiveKey] = useState<string>('link-1');
@@ -29,7 +30,9 @@ export const BGTItem = () => {
   };
 
   return (
-    <Container>
+    <Container fluid>
+      <BGTBanner articleName="BGT" location="Chandigarh, IN" discount={10} />
+
       <Row>
         <Col lg={8} md={6} sm={12} xs={12}>
           <div className="fw-bold p-4">

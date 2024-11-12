@@ -62,7 +62,7 @@ type FormValues = {
   cancellation: string;
   condition: string;
   productOrigin: string;
-  grossWeight: string;
+  productWeight: string;
   shipmentWeight: string;
   dimensions: string;
   colourPrints: string;
@@ -81,7 +81,8 @@ type FormValues = {
   items: Item[];
 };
 
-export function App() {
+export function 
+App() {
   const defaultValues: FormValues = {
     subscriptionDate: new Date()
       .toLocaleDateString('en-GB', {
@@ -131,7 +132,7 @@ export function App() {
     cancellation: '',
     condition: '',
     productOrigin: '',
-    grossWeight: '',
+    productWeight: '',
     shipmentWeight: '',
     dimensions: '',
     colourPrints: '',
@@ -725,16 +726,16 @@ export function App() {
                   )}
                 </Form.Group>
                 <Form.Group as={Col} lg={3} md={4} sm={6} xs={12}>
-                  <Form.Label>Gross Weight</Form.Label>
+                  <Form.Label>Product Weight</Form.Label>
                   <Controller
-                    name="grossWeight"
+                    name="productWeight"
                     control={control}
                     rules={{ required: 'Please enter weight' }}
                     render={({ field }) => (
                       <Form.Control type="text" {...field} disabled={['save', 'edit'].includes(editable)} />
                     )}
                   />
-                  {errors.grossWeight && <Form.Text className="text-danger">{errors.grossWeight.message}</Form.Text>}
+                  {errors.productWeight && <Form.Text className="text-danger">{errors.productWeight.message}</Form.Text>}
                 </Form.Group>
                 <Form.Group as={Col} lg={3} md={4} sm={6} xs={12}>
                   <Form.Label>Shipment Weight (Nett wt.)</Form.Label>
@@ -1222,8 +1223,8 @@ export function App() {
               if vendor failed to supply promised articles.
             </p>
             <p className="disclaimer-text">
-              The Vendor can select their choice of country currency to Trade along with US $ Currency if need an
-              International Trade Deal. If only Within country trade then US $ price mark as 0 (Zero).
+              The Vendor can select their choice of country currency to Trade along with INR ₹ Currency if need an
+              International Trade Deal.
             </p>
             <p className="disclaimer-text">
               Blaunk will not be held liable for any legal or claiming, as this is only an Online platform for secure

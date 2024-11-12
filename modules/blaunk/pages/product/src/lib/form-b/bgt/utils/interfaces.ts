@@ -1,7 +1,7 @@
 export interface OfferData {
   id: number;
   offerCode: string;
-  maxValue: string;
+  quantity: string;
   offerDiscount: string;
 }
 

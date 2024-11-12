@@ -1,12 +1,15 @@
+'use client';
+
 import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray, storeRoof } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
+import { Basket } from 'modules/blaunk/design/src/lib/Basket';
 import Image from 'next/image';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
-import { DealSection } from './components/DealSection';
 import { SearchBar } from './components/SearchBar';
 import { SelectedItem } from './components/SelectedItem';
+import StoreBanner from './components/StoreBanner';
 import styles from './store.module.css';
 
 export type StoreItem = {
@@ -18,7 +21,7 @@ export type StoreItem = {
   deliveredBy: string;
   description: string;
   dispatchTime: string;
-  delivery: string;
+  deliveryCharges: string;
   giftWrap: string;
   gstInvoice: string;
   images: string[];
@@ -33,15 +36,16 @@ export type StoreItem = {
   complaintsResolved: number;
   party: string;
   customized: string;
-  freeDelivery: string;
+  freeDeliveryUpto: string;
+  uniqueCode: string;
 };
 
 const dummyItem: StoreItem = {
   id: 'string',
   name: 'Bikaner sweets',
   rating: '4.5',
-  reviewCount: '1.5k',
   images: getRandomImagesArray(3)(450, 800, 'food'),
+  reviewCount: '1.5k',
   timings: '9:00 AM - 9:00 PM',
   description:
     'Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years. Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have been serving our customers for the past 20 years. Bikaner sweets is a famous sweet shop in the city. We are known for our quality and taste. We have be.',
@@ -49,7 +53,7 @@ const dummyItem: StoreItem = {
   contactNo: '1234567890',
   area: 'Main Gate',
   pinCode: '334001',
-  delivery: '$25',
+  deliveryCharges: '$25',
   deliveredBy: 'Bikaner sweets',
   dispatchTime: '30 min',
   gstInvoice: 'Available',
@@ -61,7 +65,8 @@ const dummyItem: StoreItem = {
   complaintsResolved: 5,
   party: 'Accepted',
   customized: 'Yes',
-  freeDelivery: '2km',
+  freeDeliveryUpto: '2km',
+  uniqueCode: 'PRA1976/24-01',
 };
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'food').map((src, i) => (
@@ -106,8 +111,12 @@ export const Store = () => {
       </div>
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
-      <DealSection />
+      {/* <DealSection /> */}
+      <StoreBanner storeName="Bikaner sweets" location="Bikaner, Rajasthan" discount={50} />
       <SelectedItem data={dummyItem} />
+      <div style={{ backgroundColor: '#FFBF61', paddingBottom: '25px', borderRadius: '12px' }}>
+        <Basket />
+      </div>
       <CustomerReviews />
       <DealsAndOffer />
     </div>

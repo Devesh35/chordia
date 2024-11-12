@@ -18,7 +18,6 @@ export const MenuCategoriesId = [
   'apparel-kids',
   'apparel-men',
   'apparel-women',
-  'astrologer',
   'bathroom_accessories',
   'chemicals',
   'cleaners',
@@ -28,11 +27,9 @@ export const MenuCategoriesId = [
   'cosmetic-women',
   'cosmetics-kids',
   'culture',
-  'digital_signature',
   'electric_vehicle',
   'electrical',
   'electronics',
-  'financial_services',
   'food_and_beverages',
   'footwear',
   'gardening',
@@ -47,15 +44,12 @@ export const MenuCategoriesId = [
   'machinery',
   'packaging',
   'plastic_ware',
-  'resort_club',
-  'service',
   'sports',
   'stationery',
   'textile_fabrics',
   'threads_and_laces',
   'toys',
   'vehicle_operator',
-  'software_developer',
 ] as const;
 
 export type MenuCategoriesIdType = (typeof MenuCategoriesId)[number];
@@ -166,10 +160,6 @@ export const MenuCategories: CatCat[] = [
     ],
   },
   {
-    id: 'astrologer',
-    name: 'Astrologer',
-  },
-  {
     id: 'bathroom_accessories',
     name: 'Bathroom Accessories',
   },
@@ -208,19 +198,11 @@ export const MenuCategories: CatCat[] = [
     id: 'culture',
     name: 'Culture',
   },
-  {
-    id: 'digital_signature',
-    name: 'Digital Signature',
-  },
   { id: 'electric_vehicle', name: 'Electric Vehicle' },
   { id: 'electrical', name: 'Electrical' },
   {
     id: 'electronics',
     name: 'Electronics',
-  },
-  {
-    id: 'financial_services',
-    name: 'Financial Solutions',
   },
   {
     id: 'food_and_beverages',
@@ -272,15 +254,7 @@ export const MenuCategories: CatCat[] = [
     name: 'Packaging',
   },
   { id: 'plastic_ware', name: 'Plastic Ware' },
-  { id: 'resort_club', name: 'Resort & Club' },
-  {
-    id: 'service',
-    name: 'Service',
-  },
-  {
-    id: 'software_developer',
-    name: 'Software Developer',
-  },
+
   { id: 'sports', name: 'Sports' },
   {
     id: 'stationery',
@@ -301,15 +275,14 @@ export const MenuCategories: CatCat[] = [
   },
 ];
 
-export const MenuOptions: SelectItemElement<MenuCategoriesIdType>[] =
-  MenuCategories.map((item: CatCat) =>
-    'subItems' in item
-      ? item.subItems.map((subItem) => ({
-          id: subItem.id,
-          item: `${item.name}-${subItem.name}`,
-        }))
-      : { id: item.id, item: item.name },
-  ).flat();
+export const MenuOptions: SelectItemElement<MenuCategoriesIdType>[] = MenuCategories.map((item: CatCat) =>
+  'subItems' in item
+    ? item.subItems.map((subItem) => ({
+        id: subItem.id,
+        item: `${item.name}-${subItem.name}`,
+      }))
+    : { id: item.id, item: item.name },
+).flat();
 
 export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   accessories_general: [
@@ -454,11 +427,14 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'urea', label: 'Urea' },
   ],
   'agro-fruits': [
+    { id: 'apple', label: 'Apple' },
+    { id: 'blueberry', label: 'Blueberry' },
     { id: 'banana', label: 'Banana' },
     { id: 'cherry', label: 'Cherry' },
     { id: 'coconut', label: 'Coconut' },
     { id: 'custard_apple', label: 'Custard Apple' },
     { id: 'dates', label: 'Dates' },
+    { id: 'dragonfruit', label: 'Dragonfruit' },
     { id: 'grapes', label: 'Grapes' },
     { id: 'guava', label: 'Guava' },
     { id: 'jackfruit', label: 'Jackfruit' },
@@ -473,6 +449,7 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'sapota_chikoo', label: 'Sapota (Chikoo)' },
     { id: 'strawberry', label: 'Strawberry' },
     { id: 'sugarcane', label: 'Sugarcane' },
+    { id: 'sweet_lime', label: 'Sweet Lime' },
     { id: 'sweet_melon_mosambi', label: 'Sweet Melon (Mosambi)' },
     { id: 'watermelon', label: 'Watermelon' },
   ],
@@ -1254,14 +1231,7 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'tampons', label: 'Tampons' },
     { id: 'tools', label: 'Tools' },
   ],
-  digital_signature: [
-    { id: 'class_2_individual', label: 'Class-2 Individual' },
-    { id: 'class_3_both_sign_enc', label: 'Class-3 Both (Sign/Enc.)' },
-    { id: 'class_3_encryption', label: 'Class-3 Encryption' },
-    { id: 'class_3_individual', label: 'Class-3 Individual' },
-    { id: 'class_3_organisation', label: 'Class-3 Organisation' },
-    { id: 'dgft_certificate', label: 'Dgft Certificate' },
-  ],
+
   electronics: [
     { id: 'air_conditioner', label: 'Air Conditioner' },
     { id: 'air_coolers', label: 'Air Coolers' },
@@ -1286,20 +1256,6 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'washing_machine', label: 'Washing Machine' },
     { id: 'water_geysers', label: 'Water Geysers' },
     { id: 'water_purifiers', label: 'Water Purifiers' },
-  ],
-  financial_services: [
-    { id: 'accountant', label: 'Accountant' },
-    { id: 'auditor', label: 'Auditor' },
-    { id: 'charter_accountant', label: 'Charter Accountant' },
-    { id: 'company_secretary', label: 'Company Secretary' },
-    { id: 'life_insurance', label: 'Life Insurance' },
-    { id: 'mutual_fund_agent', label: 'Mutual Fund Agent' },
-    { id: 'nbfc_agent', label: 'Nbfc Agent' },
-    { id: 'nclt_auditor', label: 'NCLT Auditor' },
-    { id: 'non_life_insurance', label: 'Non-Life Insurance' },
-    { id: 'scholarships', label: 'Scholarships' },
-    { id: 'stock_broker', label: 'Stock Broker' },
-    { id: 'wealth_management', label: 'Wealth Management' },
   ],
   food_and_beverages: [
     { id: 'aerated_drinks', label: 'Aerated Drinks' },
@@ -2276,6 +2232,7 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'silk_lace', label: 'Silk Lace' },
     { id: 'velvet_tape', label: 'Velvet Tape' },
     { id: 'zari', label: 'Zari' },
+    { id: 'yarn', label: 'Yarn' },
   ],
   toys: [
     { id: 'activity', label: 'Activity' },
@@ -2582,24 +2539,7 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
   cleaners: [],
   handmade_emporium: [],
   plastic_ware: [],
-  resort_club: [
-    { id: 'club membership', label: 'Club membership' },
-    { id: 'used club resort', label: 'Used Club resort' },
-    { id: 're sale  membership', label: 'Re sale  Membership' },
-    { id: 'day package', label: 'Day Package' },
-  ],
-  service: [
-    { id: 'puncture', label: 'Puncture' },
-    { id: 'hair_salon', label: 'Hair salon' },
-    { id: 'spa', label: 'Spa' },
-    { id: 'mechanic 2 wheeler', label: 'Mechanic 2 wheeler' },
-    { id: 'mechanic 4 wheeler', label: 'Mechanic 4 wheeler' },
-    { id: 'nurse', label: 'Nurse' },
-    { id: 'mechanic_night', label: 'Mechanic ( Night)' },
-    { id: 'house_maid', label: 'House Maid' },
-    { id: 'house_cook', label: 'House Cook' },
-    { id: 'driver', label: 'Driver' },
-  ],
+
   culture: [
     { id: 'pandit', label: 'Pandit' },
     { id: 'priest', label: 'Priest' },
@@ -2629,27 +2569,7 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'cargo lorry', label: 'Cargo Lorry' },
     { id: 'door to door delivery', label: 'Door to Door Delivery' },
   ],
-  software_developer: [
-    { id: 'word_press', label: 'WordPress' },
-    { id: 'php developer', label: 'PHP Developer' },
-    { id: 'mern developer', label: 'MERN Developer' },
-    { id: 'front end developer', label: 'Front end Developer' },
-    { id: 'ui / ux design', label: 'UI / UX Design' },
-    { id: 'back end developer', label: 'Back end Developer' },
-    { id: 'mobile app ( android)', label: 'Mobile App ( Android)' },
-    { id: 'mobile app ( i_os)', label: 'Mobile APP ( iOS)' },
-  ],
-  astrologer: [
-    { id: 'pandit', label: 'Pandit' },
-    { id: 'priest', label: 'Priest' },
-    { id: 'astrologer', label: 'Astrologer' },
-    { id: 'horoscope', label: 'Horoscope' },
-    { id: 'vastu shastra', label: 'Vastu Shastra' },
-    { id: 'palmistry', label: 'Palmistry' },
-    { id: 'tarot reading', label: 'Tarot Reading' },
-    { id: 'numerology', label: 'Numerology' },
-    { id: 'gemologist', label: 'Gemologist' },
-  ],
+
 };
 
 export const SubMenuOptions: {

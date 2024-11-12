@@ -26,6 +26,8 @@ import GIF from './assets/GIFs/BlaunkGIF.gif';
 import CustomCard from './components/layout/Card/CustomCard';
 import CustomCarousel from './components/layout/CustomCarousel/CustomCarousel';
 import './MarketPlace.css';
+import { CustomerReviews } from '@md/blaunk/design';
+import MarketCarousel from './components/layout/MarketCarousel/MarketCarousel';
 
 interface FormState {
   sort: string;
@@ -55,6 +57,21 @@ const countries: readonly CountryType[] = [
   { code: 'AE', label: 'United Arab Emirates', phone: '971' },
   { code: 'QA', label: 'Qatar', phone: '974' },
   { code: 'VN', label: 'Vietnam', phone: '84' },
+];
+
+const carouselItems = [
+  { imageSrc: 'https://i.ibb.co/TMqqtXR/bike-mechanic.jpg', title: 'Mechanic' },
+  { imageSrc: 'https://i.ibb.co/2dN0bK2/club-membership.jpg', title: 'Club' },
+  { imageSrc: 'https://i.ibb.co/x1nwTnM/EVENTS.jpg', title: 'Event' },
+  { imageSrc: 'https://i.ibb.co/txqjDf4/JOB-VACANCY.jpg', title: 'Vacancy' },
+  { imageSrc: 'https://i.ibb.co/T1XmGWp/land-sale.jpg', title: 'Property' },
+  { imageSrc: 'https://i.ibb.co/ctPZM3M/rent-house.jpg', title: 'Healthcare' },
+  { imageSrc: 'https://i.ibb.co/hMqcfNd/USED-ELECTRONICS.jpg', title: 'Transport' },
+  { imageSrc: 'https://placehold.co/600x400.png', title: 'Appliances' },
+  { imageSrc: 'https://i.ibb.co/QDy3sqx/stock-broker.jpg', title: 'Used Vehicle' },
+  { imageSrc: 'https://placehold.co/600x400.png', title: 'Artist' },
+  { imageSrc: 'https://i.ibb.co/QDy3sqx/stock-broker.jpg', title: 'Prediction Forecast' },
+  { imageSrc: 'https://placehold.co/600x400.png', title: 'Financial' },
 ];
 
 export function App() {
@@ -92,38 +109,29 @@ export function App() {
   const groupOptions = [
     { value: 'clubAndResort', label: 'Club & Resort' },
     { value: 'property', label: 'Property' },
+    { value: 'appliances', label: 'Appliances' },
     { value: 'usedVehicle', label: 'Used Vehicle' },
     { value: 'd2h', label: 'D2H' },
+    { value: 'healthcare', label: 'Healthcare' },
+    { value: 'artists', label: 'Artists' },
+    { value: 'prediction', label: 'Prediction Forecast' },
+    { value: 'transport', label: 'Transport' },
+    { value: 'mechanic', label: 'Mechanic' },
+    { value: 'financial', label: 'Financial' },
+    { value: 'repair', label: 'Repair' },
+    { value: 'automobile', label: 'Automobile' },
+    { value: 'itDevelopers', label: 'IT Developers' },
+    { value: 'tour', label: 'Tour Operator' },
+    { value: 'helper', label: 'Helper' },
+    { value: 'event', label: 'Event' },
+    { value: 'eventMgt', label: 'Event Management' },
     { value: 'electronics', label: 'Electronics' },
     { value: 'events', label: 'Events' },
     { value: 'hrVacancy', label: 'HR-Vacancy' },
+    { value: 'misc', label: 'Miscellaneous' },
   ];
 
   const articleOptions = {
-    clubAndResort: [
-      { value: 'usedMembership', label: 'Used Membership' },
-      { value: 'newAgent', label: 'New (Agent)' },
-    ],
-    property: [
-      { value: 'sale', label: 'Sale' },
-      { value: 'onLeaseOffice', label: 'On Lease Office' },
-      { value: 'onLeaseHouse', label: 'On Lease House' },
-      { value: 'landCommercial', label: 'Land Commercial' },
-      { value: 'landAgriculture', label: 'Land Agriculture' },
-      { value: 'onRent', label: 'On Rent' },
-    ],
-    usedVehicle: [
-      { value: 'twoWheeler', label: '2 Wheeler' },
-      { value: 'auto', label: 'Auto' },
-      { value: 'car', label: 'Car' },
-      { value: 'miniTruck', label: 'Mini Truck' },
-      { value: 'ev', label: 'EV' },
-    ],
-    d2h: [
-      { value: 'connection', label: 'Connection' },
-      { value: 'service', label: 'Service' },
-      { value: 'spares', label: 'Spares' },
-    ],
     electronics: [
       { value: 'tvsVideoAudio', label: 'TVs, Video - Audio' },
       { value: 'kitchenAppliances', label: 'Kitchen & Other Appliances' },
@@ -144,7 +152,6 @@ export function App() {
       { value: 'holiCelebration', label: 'Holi Celebration' },
       { value: 'newYearBlast', label: 'New Year Blast' },
       { value: 'xMas', label: 'X-Mas' },
-      { value: 'others', label: 'Others' },
     ],
     hrVacancy: [
       { value: 'hrSales', label: 'HR - Sales' },
@@ -164,6 +171,207 @@ export function App() {
       { value: 'mfDSA', label: 'MF - DSA' },
       { value: 'teacher', label: 'Teacher' },
     ],
+    clubAndResort: [
+      { value: 'usedMembership', label: 'Used Membership' },
+      { value: 'newAgent', label: 'New (Agent)' },
+    ],
+    property: [
+      { value: 'realEstateAgent', label: 'Real Estate Agent' },
+      { value: 'propertyDealers', label: 'Property Dealers' },
+      { value: 'propertyDevelopers', label: 'Property Developers' },
+      { value: 'propertyConsultants', label: 'Property Consultants' },
+      { value: 'propertyValuers', label: 'Property Valuers' },
+      { value: 'propertyRegistrationConsultants', label: 'Property Registration Consultants' },
+      { value: 'propertyLawyers', label: 'Property Lawyers' },
+      { value: 'forSale', label: 'For Sale' },
+      { value: 'onLeaseOffice', label: 'On Lease Office' },
+      { value: 'onLeaseHouse', label: 'On Lease House' },
+      { value: 'landCommercial', label: 'Land Commercial' },
+      { value: 'landAgriculture', label: 'Land Agriculture' },
+      { value: 'forRent', label: 'For Rent' },
+      { value: 'fullyFurnishedHouse', label: 'Fully Furnished House' },
+      { value: 'semiFurnishedHouse', label: 'Semi-Furnished House' },
+      { value: 'pentHouse', label: 'Pent House' },
+      { value: 'sharingOffice', label: 'Sharing Office' },
+      { value: 'fullyFurnishedOffice', label: 'Fully Furnished Office' },
+      { value: 'farmHouse', label: 'Farm House' },
+      { value: 'apartment', label: 'Apartment' },
+      { value: 'mallShopOnRent', label: 'Mall Shop On Rent' },
+      { value: 'villa', label: 'Villa' },
+      { value: 'independentHouse', label: 'Independent House' },
+      { value: 'residentialPlot', label: 'Residential Plot' },
+      { value: 'bungalow', label: 'Bungalow' },
+      { value: 'payingGuest', label: 'Paying Guest' },
+    ],
+    appliances: [
+      { value: 'kitchenAppliances', label: 'Kitchen Appliances' },
+      { value: 'hotelAppliances', label: 'Hotel Appliances' },
+      { value: 'officeAppliances', label: 'Office Appliances' },
+      { value: 'electronicAppliances', label: 'Electronic Appliances' },
+    ],
+    usedVehicle: [
+      { value: 'twoWheeler', label: '2 Wheeler' },
+      { value: 'auto', label: 'Auto' },
+      { value: 'car', label: 'Car' },
+      { value: 'miniTruck', label: 'Mini Truck' },
+      { value: 'ev', label: 'EV' },
+      { value: 'spareParts', label: 'Spare Parts' },
+    ],
+    d2h: [
+      { value: 'connection', label: 'Connection' },
+      { value: 'service', label: 'Service' },
+      { value: 'spares', label: 'Spares' },
+    ],
+    misc: [
+      { value: 'books', label: 'Books' },
+      { value: 'sports', label: 'Sports' },
+      { value: 'music', label: 'Music' },
+      { value: 'gym', label: 'Gym' },
+      { value: 'musicalInstruments', label: 'Musical Instruments' },
+    ],
+    healthcare: [
+      { value: 'hairSalon', label: 'Hair Salon' },
+      { value: 'spa', label: 'Spa' },
+      { value: 'ayurvedicSpa', label: 'Ayurvedic Spa' },
+      { value: 'chemist', label: 'Chemist' },
+      { value: 'physiotherapist', label: 'Physiotherapist' },
+    ],
+    artists: [
+      { value: 'hennaArtist', label: 'Henna Artist' },
+      { value: 'tattooArtist', label: 'Tattoo Artist' },
+      { value: 'makeupArtist', label: 'Makeup Artist' },
+      { value: 'nailArtist', label: 'Nail Artist' },
+      { value: 'sareeDraper', label: 'Saree Draper' },
+      { value: 'costumeDesigner', label: 'Costume Designer' },
+      { value: 'sketchArtist', label: 'Sketch Artist' },
+      { value: 'portrait', label: 'Portrait' },
+      { value: 'sculptor', label: 'Sculptor' },
+      { value: 'clayArtist', label: 'Clay Artist' },
+    ],
+    prediction: [
+      { value: 'pandit', label: 'Pandit' },
+      { value: 'priest', label: 'Priest' },
+      { value: 'astrologer', label: 'Astrologer' },
+      { value: 'palmistry', label: 'Palmistry' },
+      { value: 'vastu', label: 'Vastu' },
+      { value: 'tarotReader', label: 'Tarot Reader' },
+      { value: 'numerologist', label: 'Numerologist' },
+      { value: 'gemologist', label: 'Gemologist' },
+    ],
+    transport: [
+      { value: 'packersMovers', label: 'Packers & Movers' },
+      { value: 'driver', label: 'Driver' },
+      { value: 'fleetAgent', label: 'Fleet Agent' },
+      { value: 'transporters', label: 'Transporters' },
+      { value: 'vehicleOnRent', label: 'Vehicle on Rent' },
+      { value: 'customAgent', label: 'Custom Agent' },
+      { value: 'courierServices', label: 'Courier Services' },
+      { value: 'logistics', label: 'Logistics' },
+      { value: 'cargoServices', label: 'Cargo Services' },
+    ],
+    mechanic: [
+      { value: 'mechanicByNight', label: 'Mechanic by Night' },
+      { value: 'allEngineService', label: 'All Engine Service' },
+      { value: 'truckEcmRepair', label: 'Truck ECM Repair' },
+      { value: 'breakdownServices', label: 'Breakdown Services' },
+      { value: 'bikeRepairs', label: 'Bike Repairs' },
+      { value: 'carRepairs', label: 'Car Repairs' },
+      { value: 'carElectricalService', label: 'Car Electrical Service' },
+      { value: 'carBatteryRepair', label: 'Car Battery Repair' },
+      { value: 'accidentTowing', label: 'Accident Towing' },
+    ],
+    financial: [
+      { value: 'advisor', label: 'Advisor' },
+      { value: 'riskManagement', label: 'Risk Management' },
+      { value: 'portfolioManagement', label: 'Portfolio Management' },
+      { value: 'financialPlanning', label: 'Financial Planning' },
+      { value: 'financialConsultation', label: 'Financial Consultation' },
+      { value: 'insuranceAgent', label: 'Insurance Agent' },
+    ],
+    repair: [
+      { value: 'commercial', label: 'Commercial' },
+      { value: 'installation', label: 'Installation' },
+      { value: 'repairAndMaintenance', label: 'Repair and Maintenance' },
+      { value: 'cleaning', label: 'Cleaning' },
+      { value: 'emergencyService', label: 'Emergency Service' },
+      { value: 'applianceRepairService', label: 'Appliance Repair Service' },
+    ],
+    automobile: [
+      { value: 'repairAndMaintenance', label: 'Repair and Maintenance' },
+      { value: 'washingAndCleaning', label: 'Washing and Cleaning' },
+      { value: 'vehicleReplacement', label: 'Vehicle Replacement' },
+      { value: 'vehicleModification', label: 'Vehicle Modification' },
+      { value: 'vehicleInspection', label: 'Vehicle Inspection' },
+      { value: 'vehicleScrap', label: 'Vehicle Scrap' },
+    ],
+    itDevelopers: [
+      { value: 'webDeveloper', label: 'Web Developer' },
+      { value: 'wordpressDeveloper', label: 'WordPress Developer' },
+      { value: 'softwareEngineer', label: 'Software Engineer' },
+      { value: 'frontEndDeveloper', label: 'Front-End Developer' },
+      { value: 'mobileApplicationDeveloper', label: 'Mobile Application Developer' },
+      { value: 'gameDeveloper', label: 'Game Developer' },
+      { value: 'backEndDeveloper', label: 'Back-End Developer' },
+      { value: 'bigDataDeveloper', label: 'Big Data Developer' },
+      { value: 'devOpsEngineer', label: 'Development Operations Engineer' },
+      { value: 'dataScientist', label: 'Data Scientist' },
+      { value: 'securityDeveloper', label: 'Security Developer' },
+      { value: 'graphicsDeveloper', label: 'Graphics Developer' },
+      { value: 'languageDeveloper', label: 'Language Developer' },
+      { value: 'desktopDeveloper', label: 'Desktop Developer' },
+      { value: 'softwareDeveloper', label: 'Software Developer' },
+      { value: 'osDeveloper', label: 'Operating Systems Developer' },
+      { value: 'embeddedSystemsDeveloper', label: 'Embedded Systems Developer' },
+      { value: 'crmDeveloper', label: 'CRM Developer' },
+      { value: 'fullStackDeveloper', label: 'Full Stack Developer' },
+      { value: 'softwareTester', label: 'Software Tester' },
+      { value: 'mernDeveloper', label: 'MERN Developer' },
+      { value: 'uiUxDesigner', label: 'UI/UX Designer' },
+    ],
+    tour: [
+      { value: 'flightBooking', label: 'Flight Booking' },
+      { value: 'busBooking', label: 'Bus Booking' },
+      { value: 'railwayBooking', label: 'Railway Booking' },
+      { value: 'hotelBooking', label: 'Hotel Booking' },
+      { value: 'domesticPackage', label: 'Domestic Package' },
+      { value: 'internationalPackage', label: 'International Package' },
+    ],
+    helper: [
+      { value: 'houseCook', label: 'House Cook' },
+      { value: 'houseMaid', label: 'House Maid' },
+      { value: 'gardener', label: 'Gardener' },
+      { value: 'electrician', label: 'Electrician' },
+      { value: 'plumber', label: 'Plumber' },
+      { value: 'carpenter', label: 'Carpenter' },
+    ],
+    event: [
+      { value: 'workshops', label: 'Workshops' },
+      { value: 'comedyShows', label: 'Comedy Shows' },
+      { value: 'screenings', label: 'Screenings' },
+      { value: 'spirituality', label: 'Spirituality' },
+      { value: 'exhibition', label: 'Exhibition' },
+      { value: 'meetups', label: 'Meetups' },
+      { value: 'kids', label: 'Kids' },
+      { value: 'performances', label: 'Performances' },
+      { value: 'talks', label: 'Talks' },
+      { value: 'festivals', label: 'Festivals' },
+      { value: 'conferences', label: 'Conferences' },
+      { value: 'sports', label: 'Sports' },
+      { value: 'competitions', label: 'Competitions' },
+    ],
+    eventMgt: [
+      { value: 'inHouseDecorator', label: 'In-house Decorator' },
+      { value: 'outdoorDecorator', label: 'Outdoor Decorator' },
+      { value: 'weddingPlanner', label: 'Wedding Planner' },
+      { value: 'orchestra', label: 'Orchestra' },
+      { value: 'balloonArch', label: 'Balloon Arch' },
+      { value: 'balloonBackdrop', label: 'Balloon Backdrop' },
+      { value: 'soundSystems', label: 'Sound Systems' },
+      { value: 'flowerDecorators', label: 'Flower Decorators' },
+      { value: 'eventOrganizers', label: 'Event Organizers' },
+      { value: 'birthdayPartyOrganizers', label: 'Birthday Party Organizers' },
+      { value: 'tentHouse', label: 'Tent House' },
+    ],
   };
 
   const handleInput = (event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -178,9 +386,11 @@ export function App() {
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <img src={getStaticImageSrc(GIF)} title="giphy-embed" className="giphy-embed" alt="gif"></img>
           </Grid>
+          <MarketCarousel items={carouselItems} />
           <Grid item xs={12} sm={12} md={12} lg={4}>
             <InputLabel>Search</InputLabel>
             <TextField
+              style={{ backgroundColor: '#fffbe6' }}
               id="search-input"
               fullWidth
               placeholder="Search article here"
@@ -201,6 +411,7 @@ export function App() {
             <Grid item xs={6} sm={4} md={4} lg={2}>
               <InputLabel>Country</InputLabel>
               <Autocomplete
+                style={{ backgroundColor: '#fffbe6' }}
                 id="country-select-demo"
                 fullWidth
                 options={countries}
@@ -256,6 +467,7 @@ export function App() {
             <Grid item xs={6} sm={4} md={4} lg={2}>
               <InputLabel id="demo-simple-select-label">Group</InputLabel>
               <Select
+                style={{ backgroundColor: '#fffbe6' }}
                 id="demo-simple-select"
                 name="group"
                 value={value.group}
@@ -273,6 +485,7 @@ export function App() {
             <Grid item xs={6} sm={4} md={4} lg={2}>
               <InputLabel>Article</InputLabel>
               <Select
+                style={{ backgroundColor: '#fffbe6' }}
                 id="demo-simple-select"
                 name="article"
                 value={value.article}
@@ -290,6 +503,7 @@ export function App() {
             <Grid item xs={6} sm={4} md={4} lg={2}>
               <InputLabel>Zip code/Pincode</InputLabel>
               <TextField
+                style={{ backgroundColor: '#fffbe6' }}
                 id="outlined-basic"
                 variant="outlined"
                 size="small"
@@ -302,12 +516,19 @@ export function App() {
               />
             </Grid>
             <Grid item xs={6} sm={4} md={4} lg={2}>
-              <InputLabel>Area</InputLabel>
-              <TextField id="outlined-basic" variant="outlined" size="small" fullWidth />
+              <InputLabel>City</InputLabel>
+              <TextField
+                style={{ backgroundColor: '#fffbe6' }}
+                id="outlined-basic"
+                variant="outlined"
+                size="small"
+                fullWidth
+              />
             </Grid>
             <Grid item xs={6} sm={4} md={4} lg={2}>
               <InputLabel>Sort by</InputLabel>
               <Select
+                style={{ backgroundColor: '#fffbe6' }}
                 id="demo-simple-select"
                 value={value.sort}
                 name="sort"
@@ -357,6 +578,7 @@ export function App() {
           </Grid>
         </Fade>
       </Modal>
+      <CustomerReviews />
     </>
   );
 }

@@ -66,6 +66,9 @@ const typeOptions: { value: string; label: string }[] = [
   { value: 'retailer', label: 'Retailer' },
   { value: 'reseller', label: 'Reseller' },
   { value: 'farmer', label: 'Farmer' },
+  { value: 'packedAndMarketedBy', label: 'Packed & Marketed by' },
+  { value: 'packedBy', label: 'Packed by' },
+  { value: 'markedetedBy', label: 'Marketed by' },
 ];
 
 const groupOptions: {
@@ -2290,6 +2293,7 @@ const groupOptions: {
       { label: 'Velvet Tape', value: 'Velvet Tape' },
       { label: 'Viscose Laces', value: 'Viscose Laces' },
       { label: 'Zari Laces', value: 'Zari Laces' },
+      { label: 'Yarn', value: 'Yarn' },
       { label: 'Others', value: 'Others' },
     ],
   },

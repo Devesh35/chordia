@@ -100,7 +100,7 @@ export const Details: React.FC = () => {
   };
 
   return (
-    <div className="container my-5">
+    <div className="container-fluid my-5">
       <h2 className="fw-bold mb-4">ITC Gardenia</h2>
       <div
         className="row p-3 d-flex justify-content-center"

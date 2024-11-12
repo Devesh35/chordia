@@ -11,6 +11,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ onClick }) => {
     <Card
       onClick={onClick}
       sx={{
+        backgroundColor: '#fffbe6',
         maxWidth: 340,
         margin: 'auto',
         boxShadow: 3,

@@ -85,8 +85,8 @@ const OfferDataTable: React.FC<OfferDataTableProps> = ({
       center: true,
     },
     {
-      name: "Max Purchase Value",
-      selector: (row) => row.maxValue,
+      name: "Quantity",
+      selector: (row) => row.quantity,
       sortable: true,
       center: true,
     },

@@ -19,7 +19,7 @@ function OfferDetailsModal({
   const [value, setValue] = useState<OfferData>({
     id: 0,
     offerCode: "",
-    maxValue: "",
+    quantity: "",
     offerDiscount: "",
   });
 
@@ -57,7 +57,7 @@ function OfferDetailsModal({
   };
 
   const handleSaveChanges = () => {
-    if (value.maxValue && value.offerDiscount) {
+    if (value.quantity && value.offerDiscount) {
       handleSave(value);
       handleClose();
     } else {
@@ -83,10 +83,10 @@ function OfferDetailsModal({
           <Row>
             <Col lg={6} xs={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Max Purchase Value</Form.Label>
+                <Form.Label>Quantity</Form.Label>
                 <Form.Control
-                  value={value.maxValue}
-                  onChange={(e) => handleChange("maxValue", e)}
+                  value={value.quantity}
+                  onChange={(e) => handleChange("quantity", e)}
                 />
               </Form.Group>
             </Col>

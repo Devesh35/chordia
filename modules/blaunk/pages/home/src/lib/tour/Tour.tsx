@@ -11,6 +11,8 @@ import { Filter } from './Filter';
 import { Products } from './Products';
 import { Search } from './Search';
 import styles from './tour.module.css';
+import { BlaunkHome } from '../base/components/BlaunkHome';
+import { HomeBanners } from '../base/components/HomeBanners';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'hotels').map((src, i) => (
   <Image
@@ -31,6 +33,8 @@ export const Tour = () => {
           {images}
         </Carousal>
       </div>
+      <BlaunkHome />
+      <HomeBanners />
       <Search />
       <Filter />
       <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>

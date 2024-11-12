@@ -269,6 +269,12 @@ export const Routes = {
     title: 'Add BGT | Blaunk',
     path: '/product/add/bgt',
   },
+  logistics: {
+    seller: true,
+    isProtected: true,
+    title: 'Add Logistics | Blaunk',
+    path: '/product/add/logistics',
+  },
   vendor: {
     seller: true,
     isProtected: true,

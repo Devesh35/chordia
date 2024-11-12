@@ -1,32 +1,47 @@
 import { Labeled, PageHeader, Select } from '@li/design/elements';
-import { ProductTypeOptions, getRandomImagesArray } from '@md/blaunk/config';
-import { ProductStatus } from '@md/blaunk/types';
-import { OrderItem } from './components/OrderItem';
+import { ProductTypeOptions, 
+  // getRandomImagesArray
+ } from '@md/blaunk/config';
+import { ProductPayment, ProductStatus } from '@md/blaunk/types';
+// import { OrderItem } from './components/OrderItem';
 import styles from './order.module.css';
+import OrderBook from './components/OrderBook';
 
 export type OrderItemType = {
   id: string;
   image: string;
   name: string;
   date: string;
+  orderStatus: string;
+  qrCode: string;
+  otp: string;
   rating: number;
   review: string;
+  payment: ProductPayment;
   status: ProductStatus;
+  dateTime: Date;
+  verifyOtp: string;
 };
 
-const mockItems: OrderItemType[] = getRandomImagesArray(4)(
-  300,
-  300,
-  'clothes',
-).map((src, i) => ({
-  id: `${i}`,
-  image: src,
-  date: '24-2-24',
-  name: 'Vendor name',
-  rating: 4,
-  review: 'Good',
-  status: 'delivered',
-}));
+// const mockItems: OrderItemType[] = getRandomImagesArray(4)(
+//   300,
+//   300,
+//   'clothes',
+// ).map((src, i) => ({
+//   id: `${i}`,
+//   image: src,
+//   date: '24-2-24',
+//   orderStatus: 'Pending',
+//   qrCode: '',
+//   otp:'1234',
+//   name: 'Vendor name',
+//   rating: 4,
+//   review: 'Good',
+//   payment: 'received',
+//   status: 'delivered',
+//   dateTime: new Date(),
+//   verifyOtp: '1234',
+// }));
 
 export const Order = () => {
   return (
@@ -39,9 +54,10 @@ export const Order = () => {
       >
         <Select options={ProductTypeOptions} />
       </Labeled>
-      {mockItems.map((item) => (
+      {/* {mockItems.map((item) => (
         <OrderItem item={item} />
-      ))}
+      ))} */}
+      <OrderBook />
     </div>
   );
 };

@@ -108,7 +108,7 @@ const PriceDataTable: React.FC<PriceDataTableProps> = ({
       center: true,
     },
     {
-      name: "Price( )",
+      name: "Price(INR ₹)",
       selector: (row) => row.price,
       sortable: true,
       center: true,
