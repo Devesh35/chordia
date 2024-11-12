@@ -48,7 +48,8 @@ const profileSection = {
     },
   },
   export: {
-    form: ['export'],
+    yes: { form: ['exportEnquiry'] },
+    no: { form: [] },
   },
   policy: {
     form: ['policy'],
@@ -575,35 +576,23 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
     ],
   },
   export: {
-    form: [
+    title: 'Export enquiry',
+    options: [
       {
-        id: 'vendor-enquiry',
-        title: 'Vendor enquiry',
-        items: [
-          // {
-          //   id: 'vendorCode',
-          //   isReadOnly: true,
-          //   label: 'Vendor code',
-          //   placeholder: 'Vendor code',
-          // },
-          // {
-          //   id: 'blaunkAssurance',
-          //   type: 'yes-no',
-          //   label: 'Blaunk Assurance',
-          //   placeholder: '',
-          // },
-          {
-            id: 'exportEnquiry',
-            type: 'select',
-            label: 'Export enquiry',
-            placeholder: '',
-            options: YesNoOptions,
-          },
-        ],
+        id: 'yes',
+        item: 'Yes',
       },
-      // depends on exportEnquiry
-      { title: 'Export', id: 'export', items: Export.items },
+      {
+        id: 'no',
+        item: 'No',
+      },
     ],
+    items: {
+      yes: {
+        form: [{ title: 'Export', id: 'export', items: Export.items }],
+      },
+      no: { form: [] },
+    },
   },
   policy: {
     form: [

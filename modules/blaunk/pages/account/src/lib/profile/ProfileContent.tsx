@@ -1,6 +1,6 @@
 import { toLowerCase } from '@li/config/utils';
 import { FormSection, TabNav, Table, TableColumn } from '@li/design/elements';
-import { withCondition } from '@li/design/enhancers';
+import { withConditionCase } from '@li/design/enhancers';
 import { profileSections } from '@md/blaunk/config';
 import styles from './profile.module.css';
 
@@ -46,11 +46,13 @@ const tabs = tabItems.map((item) => ({
   content: (
     <>
       <FormSection section={profileSections} selected={toLowerCase(item)} />
-      {withCondition(item === 'Bank')(
-        <div className={styles['table-wrapper']}>
-          <Table columns={columns} data={data} />
-        </div>,
-      )}
+      {withConditionCase(item)({
+        Bank: (
+          <div className={styles['table-wrapper']}>
+            <Table columns={columns} data={data} />
+          </div>
+        ),
+      })}
     </>
   ),
 }));
