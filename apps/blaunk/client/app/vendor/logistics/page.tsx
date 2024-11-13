@@ -1,5 +1,7 @@
+import { Logistics } from '@md/blaunk/pages/vendor';
+
 const page = () => {
-  return <div>page</div>;
+  return <Logistics />;
 };
 
 export default page;

@@ -1,5 +1,7 @@
+import { LogisticsOrderBook } from '@md/blaunk/pages/vendor';
+
 const page = () => {
-  return <div>page</div>;
+  return <LogisticsOrderBook />;
 };
 
 export default page;
