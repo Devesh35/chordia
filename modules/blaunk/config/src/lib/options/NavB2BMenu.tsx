@@ -9,5 +9,5 @@ export const NavB2BMenuItems: NavB2BMenuItem[] = [
   { id: 'product', item: 'Product', path: Routes.b2bProduct.path },
   { id: 'shipments', item: 'Shipments', path: Routes.vendor.shipments.path },
   { id: 'logistics', item: 'Logistics', path: Routes.vendor.logistics.path },
-  { id: 'logistic-order-book', item: 'Order Book', path: Routes.vendor.logistics.orderBook.path },
+  { id: 'logistic-order-book', item: 'Order Book', path: Routes.vendor.orderBook.path },
 ];

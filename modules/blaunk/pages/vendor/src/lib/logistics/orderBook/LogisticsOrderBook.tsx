@@ -31,7 +31,7 @@ const reportOptions = [
   { value: 'mobile-off', label: 'Driver mobile off / No reply' },
 ];
 
-export const OrderBook: React.FC = () => {
+export const OrderBook = () => {
   const [otp] = useState(generateOTP());
   const [status, setStatus] = useState('pending');
   const [response, setResponse] = useState('Pending');
