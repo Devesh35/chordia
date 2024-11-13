@@ -27,7 +27,7 @@ export const Profile = ({ image, name, phone, img }: ProfileProps) => {
             height={20}
           />
         </div>
-        <p className={styles['profile-phone']}>{phone}</p>
+        <div className={styles['profile-phone']}>{phone}</div>
       </div>
     </div>
   );

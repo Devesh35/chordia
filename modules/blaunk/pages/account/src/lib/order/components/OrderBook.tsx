@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-'use client'
-import React, { useState } from 'react';
-import { Accordion, Form, Row, Col, Badge, InputGroup, Button } from 'react-bootstrap';
-import { FaFilePdf } from 'react-icons/fa';
+'use client';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from 'next/image';
+import React, { useState } from 'react';
+import { Accordion, Badge, Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
+import { FaFilePdf } from 'react-icons/fa';
 import './OrderBook.css';
 
 // Function to generate a random OTP
@@ -54,7 +55,7 @@ const OrderBook: React.FC = () => {
                 <div className="info-box">
                   <div className="info-box-header">Vendor</div>
                   <div className="info-box-body">
-                    <img
+                    <Image
                       src="https://cdn.worldvectorlogo.com/logos/vendor.svg"
                       alt="Vendor Logo"
                       width={100}
@@ -90,7 +91,7 @@ const OrderBook: React.FC = () => {
                 <div className="info-box">
                   <div className="info-box-header">QR Code</div>
                   <div className="info-box-body">
-                    <img
+                    <Image
                       src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
                       alt="QR Code"
                       width={100}
@@ -151,8 +152,8 @@ const OrderBook: React.FC = () => {
                         placeholder="Enter your review (max 95 characters)"
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
-                        style={{ resize: 'none'}}
-                        className='bg-light'
+                        style={{ resize: 'none' }}
+                        className="bg-light"
                       />
                       <Button
                         style={{ backgroundColor: '#6c8023', borderColor: '#6c8023' }}

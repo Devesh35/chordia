@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 'use client';
 
 import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
@@ -10,6 +9,7 @@ import { FaMapMarkerAlt, FaSearch } from 'react-icons/fa';
 import { PiCursorClick } from 'react-icons/pi';
 import './App.css';
 
+import Image from 'next/image';
 import ProductImageCropper from './components/ProductImageCropper/ProductImageCropper';
 import Lead from './components/common/Lead';
 import { groupOptions, plans, stores, vehicleTypeOptions } from './utils/constants';
@@ -797,25 +797,25 @@ export function App() {
         <Accordion.Item eventKey="3">
           <Accordion.Header>DISCLAIMER</Accordion.Header>
           <Accordion.Body>
-            <p className="text-center">
+            <div className="text-center">
               Blaunk will not be held liable for any legal or claiming, as this is only an Online platform for secure
               trade between vendors & customer.
-            </p>
-            <p className="text-center ">Listing fees is Non-Refundable and Inclusive of all Govt Levied & Taxes.</p>
-            <p className="text-center">
+            </div>
+            <div className="text-center ">Listing fees is Non-Refundable and Inclusive of all Govt Levied & Taxes.</div>
+            <div className="text-center">
               If Service provider fails to provide required services, penalty of penalty of Rs. 100 will be levied.
-            </p>
-            <p className="text-center">
+            </div>
+            <div className="text-center">
               Any complain on Service provider's misbehaviour will lead to immediate action or profile will get blocked
               without any prior intimation.
-            </p>
-            <p className="text-center">
+            </div>
+            <div className="text-center">
               If ride is cancelled more than 3 times, Blaunk have all rights to block or suspend the service provider.
-            </p>
-            <p className="d-flex justify-content-center flex-wrap">
+            </div>
+            <div className="d-flex justify-content-center flex-wrap">
               <Form.Check className="checkbox" onChange={(e) => setTermsAccepted(e.target.checked)} />I have read and
               agree to all the terms and conditions.
-            </p>
+            </div>
           </Accordion.Body>
         </Accordion.Item>
         {/* //!Buttons */}
@@ -824,7 +824,7 @@ export function App() {
             variant="danger"
             className="mx-2"
             onClick={() => {
-              const warn = confirm('You will lose all saved details. Are you sure you want to cancel?');
+              const warn = window.confirm('You will lose all saved details. Are you sure you want to cancel?');
               if (warn) {
                 setEditable('cancel');
                 reset(defaultValues);
@@ -840,7 +840,7 @@ export function App() {
             onClick={handleSubmit(
               () => {
                 if (isValid && termsAccepted) {
-                  const confirmSave = confirm(
+                  const confirmSave = window.confirm(
                     'Once Product details are saved, cannot be edited except Type, Delivery By, Product offer, MRP, Selling Price and Product availability status. Are you sure you want to save?',
                   );
                   if (confirmSave) {
@@ -870,7 +870,7 @@ export function App() {
             <span className="me-2">LEAD</span>
             <Row className="w-100 align-items-center">
               <Col md={4} className="d-flex">
-                <img src="https://i.ibb.co/L88jqR1/lead-logo.png" width={32} height={35} />
+                <Image src="https://i.ibb.co/L88jqR1/lead-logo.png" width={32} height={35} />
               </Col>
               <Col md={8} className="d-flex justify-content-end ">
                 {/* Form Group for VEHICLE input */}

@@ -3,6 +3,7 @@
 import { withCondition } from '@li/design/enhancers';
 import { FormDocument as FD } from '@li/types/design';
 import clsx from 'clsx';
+import Image from 'next/image';
 import { ChangeEvent, useState } from 'react';
 import { Input } from '../Input';
 import { useFormConfig } from './FormConfigProvider';
@@ -38,12 +39,7 @@ export const FormDocument = <D,>({ placeholder, ...props }: FD<D>) => {
       })}
     >
       {withCondition(isEdit)(
-        <Input
-          type="file"
-          accept="image/*"
-          className={styles['document-input']}
-          onChange={handleImageChange}
-        />,
+        <Input type="file" accept="image/*" className={styles['document-input']} onChange={handleImageChange} />,
       )}
       <div className={styles['document-label']}>{props.label}</div>
       <div
@@ -51,15 +47,9 @@ export const FormDocument = <D,>({ placeholder, ...props }: FD<D>) => {
           [styles['document-content-bg']]: hasBG,
         })}
       >
-        {withCondition(isEdit)(
-          <label className={styles['document-update']}>Click to update</label>,
-        )}
+        {withCondition(isEdit)(<label className={styles['document-update']}>Click to update</label>)}
         {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt="document"
-            className={styles['document-image']}
-          />
+          <Image src={imageSrc} alt="document" className={styles['document-image']} />
         ) : typeof placeholder === 'string' ? (
           <span>{placeholder}</span>
         ) : (

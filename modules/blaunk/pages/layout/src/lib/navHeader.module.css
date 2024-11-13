@@ -61,6 +61,10 @@
   padding: 0px;
 }
 
+.welcome {
+  min-width: 120px;
+}
+
 .welcome > header {
   gap: 12px;
 }

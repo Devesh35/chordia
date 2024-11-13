@@ -298,6 +298,18 @@ export const Routes = {
       title: 'Dashboard | Blaunk',
       path: '/vendor/dashboard',
     },
+    logistics: {
+      seller: true,
+      isProtected: true,
+      title: 'Logistics | Blaunk',
+      path: '/vendor/logistics',
+      orderBook: {
+        isProtected: true,
+        title: 'Order Book | Blaunk',
+        seller: true,
+        path: '/vendor/logistics/order-book',
+      },
+    },
     advertisement: {
       isProtected: true,
       title: 'My Advertisement | Blaunk',

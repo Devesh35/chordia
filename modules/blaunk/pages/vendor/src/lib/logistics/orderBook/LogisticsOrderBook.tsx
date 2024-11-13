@@ -1,3 +1,4 @@
+'use client';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -5,7 +6,7 @@ import { Accordion, Badge, Col, Form, Row } from 'react-bootstrap';
 import styles from './LogisticsOrderBook.module.css';
 
 const generateOTP = () => {
-  return Math.floor(10000 + Math.random() * 90000).toString();
+  return 12121;
 };
 
 const reportOptions = [
@@ -30,7 +31,7 @@ const reportOptions = [
   { value: 'mobile-off', label: 'Driver mobile off / No reply' },
 ];
 
-const OrderBook: React.FC = () => {
+export const OrderBook: React.FC = () => {
   const [otp] = useState(generateOTP());
   const [status, setStatus] = useState('pending');
   const [response, setResponse] = useState('Pending');
