@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Nav, Table, Container, Col } from 'react-bootstrap';
+import { Col, Container, Nav, Table } from 'react-bootstrap';
 import { SizeTable } from './SizeTable';
 
 interface TableRow {
@@ -117,7 +117,7 @@ const initialPolicyDetails: TableRow[] = [
 ];
 
 export const Overview: React.FC = () => {
-  const [activeKey, setActiveKey] = useState<string>('export-details');
+  const [activeKey, setActiveKey] = useState<string>('company-profile');
 
   const handleSelect = (selectedKey: string | null) => {
     if (selectedKey) {
@@ -147,11 +147,6 @@ export const Overview: React.FC = () => {
       `}</style>
       <Nav variant="tabs" activeKey={activeKey} onSelect={handleSelect} className="mb-3">
         <Nav.Item>
-          <Nav.Link eventKey="export-details" style={activeKey === 'export-details' ? activeStyle : defaultStyle}>
-            Export Details
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
           <Nav.Link eventKey="company-profile" style={activeKey === 'company-profile' ? activeStyle : defaultStyle}>
             Company Profile
           </Nav.Link>
@@ -167,6 +162,11 @@ export const Overview: React.FC = () => {
         <Nav.Item>
           <Nav.Link eventKey="color-size" style={activeKey === 'color-size' ? activeStyle : defaultStyle}>
             Color & Size Chart
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="export-details" style={activeKey === 'export-details' ? activeStyle : defaultStyle}>
+            Export Details
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>

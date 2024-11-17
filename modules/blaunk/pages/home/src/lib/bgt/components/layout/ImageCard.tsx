@@ -12,7 +12,7 @@ const ImageCard = () => {
 
   return (
     <div className="m-4 clickable" onClick={() => push(Routes.home.bgt.item('item').path)}>
-      <Card className='shadow-card'>
+      <Card className="shadow-card">
         <Row style={{ padding: '20px' }}>
           <Col md={3}>
             <Card.Img
@@ -45,6 +45,9 @@ const ImageCard = () => {
               <div className="my-2">
                 <Badge bg="dark">Membership</Badge>
               </div>
+              <span role="img" aria-label="star">
+                ⭐⭐⭐⭐⭐
+              </span>
             </Card.Body>
           </Col>
           <Col md={5}>
@@ -96,8 +99,9 @@ const ImageCard = () => {
                 style={{ margin: 0, background: 'none' }}
               >
                 <span role="img" aria-label="star">
-                  ⭐⭐⭐⭐⭐
+                  <strong>Sample</strong>: Chargeable
                 </span>
+
                 <a href="#">(480 reviews)</a>
               </Card.Footer>
             </Card>

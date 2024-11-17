@@ -3,7 +3,6 @@
 import { Placeholder } from '../base/components/Placeholder';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import styles from './boutique.module.css';
-import { BoutiqueSearch } from './components/BoutiqueSearch';
 import { IndianCeleb } from './components/IndianCeleb';
 import { InternationalCeleb } from './components/InternationalCeleb';
 import { MenCollection } from './components/MenCollection';
@@ -16,9 +15,9 @@ export const Boutique = () => {
     <div className={styles.wrapper}>
       <div className={styles['top-offer']}>BUY 2 GET 1 LIMITED OFFER</div>
       <TopSlider />
-      <div className="mt-4">
+      {/* <div className="mt-4">
         <BoutiqueSearch />
-      </div>
+      </div> */}
       <WomenCollection />
       <MenCollection />
       <Placeholder height={400} />

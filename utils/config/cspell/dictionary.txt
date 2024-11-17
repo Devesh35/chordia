@@ -46,6 +46,7 @@ crosia
 crosieuter
 cssmodule
 dandiya
+datepicker
 decoiler
 demoapp
 dgft

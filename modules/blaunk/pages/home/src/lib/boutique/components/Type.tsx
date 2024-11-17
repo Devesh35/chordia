@@ -8,11 +8,12 @@ import { useParams } from 'next/navigation';
 import { isAd, sectionNames } from './config';
 import styles from './just-dropped.module.css';
 import { ProductCard } from './ProductCard';
+import { ProductCardLarge } from './ProductCardLarge';
 
-const products = getRandomImagesArray(24)(400, 400, 'saree').map((src, i) => (
-  <ProductCard src={src} action="SHOP NOW" tag="READY TO SHIP" key={src} />
+const products = getRandomImagesArray(24)(600, 600, 'saree').map((src, i) => (
+  <ProductCardLarge src={src} action="SHOP NOW" tag="READY TO SHIP" key={src} />
 ));
-const productsAd = getRandomImagesArray(12)(400, 400, 'saree').map((src, i) => <ProductCard src={src} key={src} />);
+const productsAd = getRandomImagesArray(12)(600, 600, 'saree').map((src, i) => <ProductCard src={src} key={src} />);
 
 export const BType = () => {
   const { type } = useParams() as { type: keyof typeof sectionNames };

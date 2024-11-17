@@ -34,6 +34,7 @@ export const Profile = () => {
           </Button>
         </div>,
       )}
+      <div style={{ height: '208px' }}></div>
     </div>
   );
 };

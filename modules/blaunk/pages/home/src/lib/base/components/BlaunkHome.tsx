@@ -1,12 +1,10 @@
-import { blaunkHome } from '@md/blaunk/config';
-// import Image from 'next/image';
 import { getStaticImageSrc } from '@li/design/icons';
-import Image from 'next/image';
+import { blaunkHome } from '@md/blaunk/config';
 
 export const BlaunkHome = () => {
   return (
     <div style={{ objectFit: 'contain', display: 'flex', justifyContent: 'center' }}>
-      <Image
+      <img
         src={getStaticImageSrc(blaunkHome)}
         alt="blaunk-home"
         style={{

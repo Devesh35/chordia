@@ -1,37 +1,32 @@
 import { randomImageUrl } from '../utils';
 import { ProductTypeOptions } from './Product';
 
-export type SubscriptionStatus =
-  | 'active'
-  | 'pending'
-  | 'expired'
-  | 'inactive'
-  | 'disabled';
+export type SubscriptionStatus = 'active' | 'pending' | 'expired' | 'inactive' | 'disabled';
 
 export const subscriptionMenuOptions = ProductTypeOptions;
 export const subscriptionConfig = {
-  bgt: {
-    id: 'bgt',
-    name: 'BGT',
-    icon: randomImageUrl(96),
-    items: [
-      {
-        category: 'All',
-        options: [{ page: 1, fee: 0 }],
-      },
-    ],
-  },
-  boutique: {
-    id: 'boutique',
-    name: 'Boutique',
-    icon: randomImageUrl(96),
-    items: [
-      {
-        category: 'All',
-        options: [{ page: 1, fee: 0 }],
-      },
-    ],
-  },
+  // bgt: {
+  //   id: 'bgt',
+  //   name: 'BGT',
+  //   icon: randomImageUrl(96),
+  //   items: [
+  //     {
+  //       category: 'All',
+  //       options: [{ page: 1, fee: 0 }],
+  //     },
+  //   ],
+  // },
+  // boutique: {
+  //   id: 'boutique',
+  //   name: 'Boutique',
+  //   icon: randomImageUrl(96),
+  //   items: [
+  //     {
+  //       category: 'All',
+  //       options: [{ page: 1, fee: 0 }],
+  //     },
+  //   ],
+  // },
   cake: {
     id: 'cake',
     name: 'Cake',

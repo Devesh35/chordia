@@ -2,7 +2,6 @@
 
 import { grid } from '@li/config/design';
 import clsx from 'clsx';
-import Image from 'next/image';
 import { useState } from 'react';
 import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -34,8 +33,11 @@ const articleRequirementOptions = {
     'Self Drive Car - (A)',
     'Self Drive Car - (EV)',
     'Self Drive Car',
+    'Self Drive Scooter',
     'Scooter',
     'Bike',
+    'Pick up bike',
+    'Self Drive Bullet',
   ],
   Logistics: [
     'Box Truck',
@@ -127,7 +129,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
               <Form.Label className={styles.formLabelWhite}>Country</Form.Label>
               <InputGroup className={styles.inputGroup}>
                 <InputGroup.Text>
-                  <Image
+                  <img
                     src="https://imgs.search.brave.com/RKtNQD4y9Kj05k99gvwpzwYnk2SzXCRgf7vevmq-2SA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAx/MzIxNzUwNi9waG90/by9mbGFnLW9mLWlu/ZGlhLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz0yX3VsVWN0/eENxVXk5OGY4Qk1S/NHVjTlkxOTJyM2xi/MnUyOW9PSUZKc1hF/PQ"
                     alt="India Flag"
                     width={25}
