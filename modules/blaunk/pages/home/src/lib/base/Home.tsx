@@ -3,7 +3,6 @@ import { getStaticImageSrc } from '@li/design/icons';
 import { blaunkHome } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import clsx from 'clsx';
-import Image from 'next/image';
 import { BannerSection } from './components/BannerSection';
 import { BlaunkHome } from './components/BlaunkHome';
 import { CategorySearch } from './components/CategorySearch';
@@ -36,7 +35,7 @@ export const Home = () => {
       <MoreStores />
       <TrendyStars />
       <StoreAds />
-      <Image src={getStaticImageSrc(blaunkHome)} alt="blaunk_home" />
+      <img src={getStaticImageSrc(blaunkHome)} alt="blaunk_home" />
       <MetricCard b2bClients={400} customers={26} countries={29} productsServices={825} />{' '}
     </div>
   );

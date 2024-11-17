@@ -10,7 +10,7 @@ import { sectionNames } from './config';
 import styles from './just-dropped.module.css';
 import { ProductCard } from './ProductCard';
 
-const products = getRandomImagesArray(12)(400, 400, 'saree').map((src, i) => (
+const products = getRandomImagesArray(12)(600, 600, 'saree').map((src, i) => (
   <ProductCard src={src} action="SHOP NOW" tag="READY TO SHIP" key={src} />
 ));
 

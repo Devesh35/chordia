@@ -61,19 +61,19 @@ export const BoutiqueSearch = () => {
     { code: 'VN', label: 'Vietnam', phone: '84' },
   ];
 
-  const groupOptions = [
-    { value: 'men', label: "Men's Collection" },
-    { value: 'women', label: "Women's Collection" },
-    { value: 'indian', label: 'Indian Designer' },
-    { value: 'international', label: 'International Designer' },
-    { value: 'onRent', label: 'Style on Rent' },
-  ];
+  // const groupOptions = [
+  //   { value: 'men', label: "Men's Collection" },
+  //   { value: 'women', label: "Women's Collection" },
+  //   { value: 'indian', label: 'Indian Designer' },
+  //   { value: 'international', label: 'International Designer' },
+  //   { value: 'onRent', label: 'Style on Rent' },
+  // ];
 
   return (
     <Grid
       container
       spacing={1}
-      justifyContent={'flex-start'}
+      justifyContent={'center'}
       style={{
         backgroundColor: '#fdf4ca',
         padding: '0 5px 10px 5px',
@@ -136,7 +136,7 @@ export const BoutiqueSearch = () => {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={4} lg={2}>
+      {/* <Grid item xs={6} sm={4} md={4} lg={2}>
         <InputLabel id="demo-simple-select-label">Collection</InputLabel>
         <Select id="demo-simple-select" name="group" value={value.group} onChange={handleChange} size="small" fullWidth  style={{ backgroundColor: 'white' }}>
           {groupOptions.map((option) => (
@@ -145,10 +145,10 @@ export const BoutiqueSearch = () => {
             </MenuItem>
           ))}
         </Select>
-      </Grid>
+      </Grid> */}
       <Grid item xs={6} sm={4} md={4} lg={2}>
         <InputLabel>Article</InputLabel>
-        <TextField id="outlined-basic" variant="outlined" size="small"  style={{ backgroundColor: 'white' }} fullWidth />
+        <TextField id="outlined-basic" variant="outlined" size="small" style={{ backgroundColor: 'white' }} fullWidth />
       </Grid>
       <Grid item xs={6} sm={4} md={4} lg={1.5}>
         <InputLabel>Zip code/Pincode</InputLabel>
@@ -167,11 +167,19 @@ export const BoutiqueSearch = () => {
       </Grid>
       <Grid item xs={6} sm={4} md={4} lg={1.5}>
         <InputLabel>Area</InputLabel>
-        <TextField id="outlined-basic" variant="outlined" size="small"  style={{ backgroundColor: 'white' }} fullWidth />
+        <TextField id="outlined-basic" variant="outlined" size="small" style={{ backgroundColor: 'white' }} fullWidth />
       </Grid>
       <Grid item xs={6} sm={4} md={4} lg={1.5}>
         <InputLabel>Sort by</InputLabel>
-        <Select id="demo-simple-select" value={value.sort} name="sort" onChange={handleChange} size="small"  style={{ backgroundColor: 'white' }} fullWidth>
+        <Select
+          id="demo-simple-select"
+          value={value.sort}
+          name="sort"
+          onChange={handleChange}
+          size="small"
+          style={{ backgroundColor: 'white' }}
+          fullWidth
+        >
           <MenuItem value="new">New Listing</MenuItem>
           <MenuItem value="hp">Highest Price</MenuItem>
           <MenuItem value="lp">Lowest Price</MenuItem>

@@ -3,12 +3,12 @@
 import { CustomerReviews } from '@md/blaunk/design';
 import { useState } from 'react';
 import { Col, Container, Nav, Row } from 'react-bootstrap';
+import { BGTBanner } from '../components/BGTBanner';
 import { CertificateCarousel } from '../components/layout/CertificateCarousel';
 import { CompanyCarousel } from '../components/layout/CompanyCarousel';
 import HomeCarousel from '../components/layout/HomeCarousel';
 import OrderEstimate from '../components/layout/OrderEstimate';
 import { Overview } from '../components/layout/Overview';
-import { BGTBanner } from '../components/BGTBanner';
 
 export const BGTItem = () => {
   const [activeKey, setActiveKey] = useState<string>('link-1');
@@ -93,7 +93,7 @@ export const BGTItem = () => {
           </Col>
           <Overview />
         </Col>
-        <Col lg={4} md={6} sm={12} xs={12} className="sticky-top" style={{ top: '5px', height: '100%' }}>
+        <Col lg={4} md={6} sm={12} xs={12} className="sticky-top" style={{ top: '5px', height: '100%', zIndex: 10 }}>
           <OrderEstimate />
         </Col>
       </Row>

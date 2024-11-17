@@ -22,11 +22,12 @@ export const NavMenuItems: NavMenuItem[] = [
   //   path: Routes.vendor.subscription.path,
   // },
   { id: 'divider' },
-  { id: 'orders', item: 'Orders', path: Routes.account.orders.path },
+  // { id: 'orders', item: 'Orders', path: Routes.account.orders.path },
+  { id: 'logistic-order-book', item: 'Order Book', path: Routes.vendor.orderBook.path },
   { id: 'wishlist', item: 'Wishlist', path: Routes.account.wishlist.path },
+  { id: 'divider' },
   // { id: 'ledger', item: 'Ledger', path: Routes.account.ledger.path },
   // { id: 'wallet', item: 'Wallet', path: Routes.legacy.wallet.path },
-  { id: 'divider' },
   // {
   //   id: 'become_seller',
   //   item: 'Become a seller',
@@ -35,6 +36,7 @@ export const NavMenuItems: NavMenuItem[] = [
   // { id: 'dashboard', item: 'Dashboard', path: Routes.vendor.dashboard.path },
   { id: 'product', item: 'Products', path: Routes.product.path },
   { id: 'advertisement', item: 'Advertisement', path: Routes.vendor.advertisement.path },
+  { id: 'logistics', item: 'Logistics', path: Routes.vendor.logistics.path },
   // { id: 'shipments', item: 'Shipments', path: Routes.vendor.shipments.path },
   {
     id: 'requirement',

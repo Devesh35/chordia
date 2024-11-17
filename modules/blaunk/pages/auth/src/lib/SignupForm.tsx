@@ -4,8 +4,8 @@ import { Button, EmailInput, Labeled, Link, PasswordInput, PhoneInput } from '@l
 import { PhoneValue } from '@li/types/design';
 import { CountryCodeOptions, Routes } from '@md/blaunk/config';
 import { useState } from 'react';
-import styles from './common.module.css';
 import { Form } from 'react-bootstrap';
+import styles from './common.module.css';
 
 const sendOTP = () => {
   return new Promise<void>((resolve, reject) => {
@@ -47,14 +47,23 @@ export const SignupForm = () => {
             value="individual"
             checked={selectedOption === 'individual'}
             onChange={handleChange}
-            className="me-3" 
+            className="me-3"
           />
           <Form.Check
             type="radio"
-            label="Business"
+            label="Vendor"
             name="radioOptions"
-            value="business"
-            checked={selectedOption === 'business'}
+            value="vendor"
+            checked={selectedOption === 'vendor'}
+            onChange={handleChange}
+            className="me-3"
+          />
+          <Form.Check
+            type="radio"
+            label="B2B"
+            name="radioOptions"
+            value="b2b"
+            checked={selectedOption === 'b2b'}
             onChange={handleChange}
           />
         </Form.Group>

@@ -3,16 +3,16 @@ import { ScrollableSnap } from '@li/design/elements';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import { SectionHeader } from '@md/blaunk/design';
 import clsx from 'clsx';
-import prodStyles from './product.module.css';
 import styles from './celeb.module.css';
+import prodStyles from './product.module.css';
 
-const products = getRandomImagesArray(12)(400, 400, 'saree').map((src, i) => (
+const products = getRandomImagesArray(12)(600, 600, 'saree').map((src, i) => (
   <ImageCard
     className={clsx(prodStyles.card)}
     image={{
       src: src,
-      width: 400,
-      height: 400,
+      width: 600,
+      height: 600,
       alt: 'random',
     }}
     imageClassName={prodStyles.image}

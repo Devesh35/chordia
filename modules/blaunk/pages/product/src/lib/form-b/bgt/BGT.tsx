@@ -10,6 +10,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ReactFlagsSelect from 'react-flags-select';
 import { Controller, useForm } from 'react-hook-form';
 import { FaSearch } from 'react-icons/fa';
+import { PiCursorClick } from 'react-icons/pi';
 import { SizeTable } from '../../form/SizeTable';
 import ImageCropUploader from './components/common/ImageComponent';
 import OfferDataTable from './components/common/OfferDataTable';
@@ -28,9 +29,9 @@ import {
   sampleOptions,
   typeOptions,
   unitOptions,
+  unitOptionsWeight,
 } from './utils/constants';
 import { Item, OfferData, RowData } from './utils/interfaces';
-import { PiCursorClick } from 'react-icons/pi';
 
 type FormValues = {
   token: string;
@@ -81,8 +82,7 @@ type FormValues = {
   items: Item[];
 };
 
-export function 
-App() {
+export function App() {
   const defaultValues: FormValues = {
     subscriptionDate: new Date()
       .toLocaleDateString('en-GB', {
@@ -727,15 +727,53 @@ App() {
                 </Form.Group>
                 <Form.Group as={Col} lg={3} md={4} sm={6} xs={12}>
                   <Form.Label>Product Weight</Form.Label>
-                  <Controller
-                    name="productWeight"
-                    control={control}
-                    rules={{ required: 'Please enter weight' }}
-                    render={({ field }) => (
-                      <Form.Control type="text" {...field} disabled={['save', 'edit'].includes(editable)} />
-                    )}
-                  />
-                  {errors.productWeight && <Form.Text className="text-danger">{errors.productWeight.message}</Form.Text>}
+                  <Row className="g-0">
+                    <Col xs={6}>
+                      <Controller
+                        name="productWeight"
+                        control={control}
+                        rules={{
+                          required: 'Please enter weight',
+                        }}
+                        render={({ field }) => (
+                          <Form.Control
+                            type="text"
+                            {...field}
+                            placeholder="Enter weight"
+                            disabled={['save', 'edit'].includes(editable)}
+                            inputMode="numeric"
+                            onChange={(e) => {
+                              const numericValue = e.target.value.replace(/[^0-9]/g, '');
+                              field.onChange(numericValue);
+                            }}
+                          />
+                        )}
+                      />
+                    </Col>
+                    <Col xs={6}>
+                      <Controller
+                        name="unit"
+                        control={control}
+                        rules={{
+                          required: 'Unit is required',
+                        }}
+                        render={({ field }) => (
+                          <Form.Select {...field}>
+                            <option value="">Unit</option>
+                            {unitOptionsWeight.map((option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            ))}
+                          </Form.Select>
+                        )}
+                      />
+                    </Col>
+                  </Row>
+
+                  {errors.productWeight && (
+                    <Form.Text className="text-danger">{errors.productWeight.message}</Form.Text>
+                  )}
                 </Form.Group>
                 <Form.Group as={Col} lg={3} md={4} sm={6} xs={12}>
                   <Form.Label>Shipment Weight (Nett wt.)</Form.Label>

@@ -2520,6 +2520,18 @@ const unitOptions: { value: string; label: string }[] = [
   { value: 'others', label: 'Others' },
 ];
 
+const unitOptionsWeight: { value: string; label: string }[] = [
+  { value: 'Gallon(UK)', label: 'Gallon(UK)' },
+  { value: 'Gallon(US)', label: 'Gallon(US)' },
+  { value: 'Grams', label: 'Grams' },
+  { value: 'Kilograms', label: 'Kilograms' },
+  { value: 'Litres', label: 'Litres' },
+  { value: 'Tons(UK)', label: 'Tons(UK)' },
+  { value: 'Ounces', label: 'Ounces' },
+  { value: 'Tons(US)', label: 'Tons(US)' },
+  { value: 'Pounds', label: 'Pounds' },
+];
+
 const productionOptions: { value: string; label: string }[] = [
   { value: 'immediate', label: 'Immediate' },
   { value: 'withinWeek', label: 'Within Week' },
@@ -2576,4 +2588,5 @@ export {
   sampleOptions,
   typeOptions,
   unitOptions,
+  unitOptionsWeight,
 };

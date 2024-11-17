@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Form, Card, Button, Row, Col } from 'react-bootstrap';
+import { Button, Card, Col, Form, Row, Table } from 'react-bootstrap';
 
 const OrderEstimate: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -15,14 +15,14 @@ const OrderEstimate: React.FC = () => {
   };
 
   const handleVoucherCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setVoucherCode(e.target.value.toUpperCase());
+    setVoucherCode(e.target.value.toUpperCase().substring(0, 15));
   };
 
   const data = [
-    { moqQuantity: '1 (Sample)', priceInRupees: 100, priceInDollars: 1, status: 'Available' },
-    { moqQuantity: 10, priceInRupees: 90, priceInDollars: 0.9, status: 'Block' },
-    { moqQuantity: 100, priceInRupees: 80, priceInDollars: 0.8, status: 'Sold' },
-    { moqQuantity: 1000, priceInRupees: 75, priceInDollars: 0.75, status: 'Available' },
+    { moqQuantity: 'MQO', priceInRupees: 100, priceInDollars: 1, status: 'Available' },
+    { moqQuantity: 'Max Qty', priceInRupees: 90, priceInDollars: 0.9, status: 'Block' },
+    { moqQuantity: '100', priceInRupees: 80, priceInDollars: 0.8, status: 'Sold' },
+    { moqQuantity: 'Sample', priceInRupees: 75, priceInDollars: 0.75, status: 'Available' },
   ];
 
   const leftColumnValues = [
@@ -45,7 +45,7 @@ const OrderEstimate: React.FC = () => {
   const rightTotal = rightColumnValues.reduce((total, item) => total + item.amount, 0);
 
   return (
-    <Card className="my-4" >
+    <Card className="my-4">
       <Card.Header as="h4" className="text-center p-2" style={{ backgroundColor: 'transparent' }}>
         Order Estimate
       </Card.Header>
@@ -54,7 +54,7 @@ const OrderEstimate: React.FC = () => {
           <thead>
             <tr>
               <th></th>
-              <th>MOQ Quantity</th>
+              <th>Quantity</th>
               <th>
                 <div className="d-flex align-items-center">
                   <Form.Check

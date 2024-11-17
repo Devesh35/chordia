@@ -8,8 +8,8 @@ import { sectionNames } from './config';
 import styles from './just-dropped.module.css';
 import { ProductCard } from './ProductCard';
 
-const products = getRandomImagesArray(12)(400, 400, 'jeans').map((src, i) => (
-  <ProductCard src={src} action="JEANS" key={src} />
+const products = getRandomImagesArray(12)(600, 600, 'jeans').map((src, i) => (
+  <ProductCard src={src} action="JEANS" tag="READY TO SHIP" key={src} />
 ));
 
 export const MenCollection = () => {

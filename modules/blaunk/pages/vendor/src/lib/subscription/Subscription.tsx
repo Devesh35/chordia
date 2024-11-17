@@ -7,9 +7,9 @@ import styles from './subscription.module.css';
 export type SubscriptionProduct = ProductType | 'requirement';
 
 const dummy: Record<SubscriptionProduct, SubscriptionStatus> = {
-  bgt: 'inactive',
+  // bgt: 'inactive',
   store: 'inactive',
-  boutique: 'inactive',
+  // boutique: 'inactive',
   tour: 'inactive',
   cake: 'inactive',
   requirement: 'inactive',
