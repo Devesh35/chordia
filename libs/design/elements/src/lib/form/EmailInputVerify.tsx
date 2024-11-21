@@ -2,7 +2,7 @@
 
 import { gs } from '@li/config/design';
 import { withCondition, withConditionCase } from '@li/design/enhancers';
-import { PhoneValue, SelectItemElement } from '@li/types/design';
+import { SelectItemElement } from '@li/types/design';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { Labeled } from '../decorators';
@@ -10,23 +10,20 @@ import { Modal } from '../overlays';
 import { Loader } from '../status';
 import { Button } from './Button';
 import { Input, InputProps } from './Input';
-import { Select } from './Select';
 import inputStyles from './input-select.module.css';
 import styles from './phone-input.module.css';
 
 type Props = {
-  countryCodes: SelectItemElement[];
   onSendOTP?: () => Promise<void>;
   onVerifyOTP?: () => Promise<void>;
-  value: PhoneValue;
-  onChange: (value: PhoneValue) => void;
+  value: string;
+  onChange: (value: string) => void;
   hasOTP?: boolean;
 };
 
 type Status = 'verified' | 'sent' | 'not-sent' | 'loading';
 
-export const PhoneInput = ({
-  countryCodes,
+export const EmailInputVerify = ({
   onSendOTP,
   onVerifyOTP,
   value,
@@ -39,15 +36,8 @@ export const PhoneInput = ({
 
   const onUpdate = (update: string | SelectItemElement | undefined) => {
     if (!update) return;
-    if (typeof update === 'string')
-      return onChange({
-        ...value,
-        number: update,
-      });
-    return onChange({
-      ...value,
-      country: update,
-    });
+    if (typeof update === 'string') return onChange(update);
+    return onChange(update.id);
   };
 
   const onOTPSend = () => {
@@ -106,18 +96,18 @@ export const PhoneInput = ({
           <Input className={styles['otp-input']} type="number" placeholder="OTP" />
         </Labeled>
       </Modal>
-      <Select
-        className={clsx(inputStyles.select, styles['phone-select'])}
-        defaultItem={value.country || countryCodes[0]}
-        options={countryCodes}
-        onChange={onUpdate}
+      <div
+        style={{
+          width: '24px',
+        }}
       />
       <Input
         {...props}
+        placeholder="Enter your email"
+        value={value || ''}
+        onChange={(e) => onUpdate(e.target.value)}
         className={clsx(inputStyles.input, styles['phone-input'])}
-        type="number"
-        value={value.number || ''}
-        onChange={(e) => onUpdate(e.target.value.slice(0, 10))}
+        type="email"
       />
       {withCondition(hasOTP)(
         <Button

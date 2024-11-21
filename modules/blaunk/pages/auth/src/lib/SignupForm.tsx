@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, EmailInput, Labeled, Link, PasswordInput, PhoneInput } from '@li/design/elements';
+import { Button, EmailInputVerify, Labeled, Link, PasswordInput, PhoneInput } from '@li/design/elements';
 import { PhoneValue } from '@li/types/design';
 import { CountryCodeOptions, Routes } from '@md/blaunk/config';
 import { useState } from 'react';
@@ -28,6 +28,7 @@ export const SignupForm = () => {
     country: CountryCodeOptions[0],
     number: '',
   });
+  const [email, setEmail] = useState<string>('');
 
   const [selectedOption, setSelectedOption] = useState<string>('individual');
 
@@ -76,10 +77,18 @@ export const SignupForm = () => {
           onVerifyOTP={verifyOTP}
           value={phone}
           onChange={setPhone}
+          hasOTP
         />
       </Labeled>
       <Labeled label="Email">
-        <EmailInput />
+        <EmailInputVerify
+          placeholder="Enter your email"
+          onSendOTP={sendOTP}
+          onVerifyOTP={verifyOTP}
+          value={email}
+          onChange={setEmail}
+          hasOTP
+        />
       </Labeled>
       <Labeled label="Password">
         <PasswordInput placeholder="Enter your password" />

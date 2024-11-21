@@ -1,7 +1,6 @@
 import { Carousal } from '@li/design/elements';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import Image from 'next/image';
-import { Placeholder } from './Placeholder';
 import styles from './store-ads.module.css';
 
 const img = getRandomImagesArray(3)(600, 1921).map((src) => (
@@ -11,7 +10,7 @@ const img = getRandomImagesArray(3)(600, 1921).map((src) => (
 export const StoreAds = () => {
   return (
     <div>
-      <Placeholder height={50} />
+      {/* <Placeholder height={50} /> */}
       <Carousal className={styles.carousal} autoInterval={5000}>
         {img}
       </Carousal>
