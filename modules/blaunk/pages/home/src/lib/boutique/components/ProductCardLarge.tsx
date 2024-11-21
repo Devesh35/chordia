@@ -28,10 +28,10 @@ export const ProductCardLarge = ({ src, tag, action, col = 'col-4', width, heigh
         image={{
           src: src,
           width: width || 600,
-          height: height || 600,
+          height: height || 700,
           alt: 'random',
         }}
-        imageClassName={styles.image}
+        imageClassName={clsx(styles.image, styles['image-large'])}
         topRight={tag ? <div className={styles['card-tag']}>{tag}</div> : null}
         details={
           action ? (

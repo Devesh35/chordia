@@ -178,7 +178,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
           {
             id: 'grade',
-            isReadOnly: true,
             label: 'Grade',
             type: 'select',
             placeholder: 'Grade',
@@ -186,7 +185,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
           {
             id: 'status',
-            isReadOnly: true,
             label: 'Status',
             placeholder: 'Status',
             type: 'select',

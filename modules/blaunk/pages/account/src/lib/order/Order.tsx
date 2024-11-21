@@ -1,11 +1,13 @@
+'use client';
+
 import { Labeled, PageHeader, Select } from '@li/design/elements';
-import { ProductTypeOptions, 
-  // getRandomImagesArray
- } from '@md/blaunk/config';
+import { ProductTypeOptions } from '@md/blaunk/config';
 import { ProductPayment, ProductStatus } from '@md/blaunk/types';
 // import { OrderItem } from './components/OrderItem';
-import styles from './order.module.css';
+import { LogisticsOrderBook } from '@md/blaunk/pages/vendor';
+import { useState } from 'react';
 import OrderBook from './components/OrderBook';
+import styles from './order.module.css';
 
 export type OrderItemType = {
   id: string;
@@ -44,20 +46,18 @@ export type OrderItemType = {
 // }));
 
 export const Order = () => {
+  const [selected, setSelected] = useState<string>();
+
   return (
     <div className={styles.wrapper}>
       <PageHeader title={'My orders'} />
-      <Labeled
-        label="Select product type to view:"
-        inline
-        className={styles['select-type']}
-      >
-        <Select options={ProductTypeOptions} />
+      <Labeled label="Select product type to view:" inline className={styles['select-type']}>
+        <Select options={ProductTypeOptions} onChange={(value) => setSelected(value?.id)} />
       </Labeled>
       {/* {mockItems.map((item) => (
         <OrderItem item={item} />
       ))} */}
-      <OrderBook />
+      {selected === 'logistics' ? <LogisticsOrderBook /> : <OrderBook />}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 // import { SectionHeader } from '@md/blaunk/design';
-import { Placeholder } from '../base/components/Placeholder';
+import { PlaceholderImage } from '../base/components/PlaceholderImage';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import styles from './boutique.module.css';
 import { IndianCeleb } from './components/IndianCeleb';
@@ -20,10 +20,10 @@ export const Boutique = () => {
       </div> */}
       <WomenCollection />
       <MenCollection />
-      <Placeholder height={400} />
+      <PlaceholderImage height={400} />
       <IndianCeleb />
       <InternationalCeleb />
-      <Placeholder height={400} />
+      <PlaceholderImage height={400} />
       <StyleOnRent />
       {/* <SectionHeader /> */}
       {/* <Jewellery />
