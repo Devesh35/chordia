@@ -52,7 +52,16 @@ export const Order = () => {
     <div className={styles.wrapper}>
       <PageHeader title={'My orders'} />
       <Labeled label="Select product type to view:" inline className={styles['select-type']}>
-        <Select options={ProductTypeOptions} onChange={(value) => setSelected(value?.id)} />
+        <Select
+          options={[
+            ...ProductTypeOptions,
+            {
+              id: 'logistics',
+              item: 'Logistics',
+            },
+          ]}
+          onChange={(value) => setSelected(value?.id)}
+        />
       </Labeled>
       {/* {mockItems.map((item) => (
         <OrderItem item={item} />
