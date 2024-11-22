@@ -4,7 +4,7 @@ import { CompanyProfile } from './CompanyProfile';
 import { Export } from './Export';
 import { ProductSpecification } from './ProductSpecification';
 
-export const productType = ['Tour', 'Cake', 'Store', 'Logistics'] as const;
+export const productType = ['Tour', 'Cake', 'Store'] as const;
 export type ProductType = Lowercase<(typeof productType)[number]>;
 export const ProductTypeOptions = optionsFromStrings(productType);
 

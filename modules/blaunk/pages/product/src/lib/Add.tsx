@@ -10,16 +10,10 @@ export const Add = () => {
   const router = useRouter();
   return (
     <div className={styles.wrapper}>
-      <Labeled
-        label="Select product type to add:"
-        inline
-        className={styles['select-type']}
-      >
+      <Labeled label="Select product type to add:" inline className={styles['select-type']}>
         <Select
           options={ProductTypeOptions}
-          onChange={(value) =>
-            value && router.push(Routes.product.add[value.id].path)
-          }
+          onChange={(value) => value && router.push(Routes.product.add[value.id].path)}
         />
       </Labeled>
       <Disclaimer />
