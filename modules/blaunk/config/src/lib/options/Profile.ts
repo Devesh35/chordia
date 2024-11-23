@@ -3,6 +3,7 @@ import { FormSectionGroup } from '@li/types/design';
 import { Address } from './Address';
 import { CountryBanksOptions } from './Banks';
 import { CountriesOption, CountryCodeOptions } from './Country';
+import { CurrencyCodeOptions } from './Currency';
 import { Export } from './Export';
 import { BankAccountType, YesNoOptions } from './General';
 import { GradeOptions } from './Grade';
@@ -107,6 +108,12 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             isReadOnly: true,
             placeholder: 'Phone number',
             countryCodes: CountryCodeOptions,
+          },
+          {
+            id: 'dob',
+            type: 'date',
+            label: 'Date of Birth',
+            placeholder: 'Date of Birth',
           },
         ],
       },
@@ -275,35 +282,35 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'complaint',
             type: 'number',
             label: 'Complaint',
-            placeholder: 'Complaint',
+            placeholder: '1',
             isReadOnly: true,
           },
           {
             id: 'resolved',
             type: 'number',
             label: 'Issue resolved',
-            placeholder: 'Issue resolved',
+            placeholder: '1',
             isReadOnly: true,
           },
           {
             id: 'noOrder',
             type: 'number',
             label: 'No of order',
-            placeholder: 'No of order',
+            placeholder: '1',
             isReadOnly: true,
           },
           {
             id: 'penalty',
             type: 'number',
             label: 'Penalty',
-            placeholder: 'Penalty',
+            placeholder: '1',
             isReadOnly: true,
           },
           {
-            id: 'rejected',
+            id: 'amount',
             type: 'number',
-            label: 'Order rejected',
-            placeholder: 'Order rejected',
+            label: 'Amount',
+            placeholder: '50',
             isReadOnly: true,
           },
         ],
@@ -321,9 +328,16 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           },
           {
             id: 'date',
-            type: 'text',
+            type: 'date',
             label: 'Date',
-            placeholder: 'Date',
+            placeholder: '01-01-2024',
+            isReadOnly: true,
+          },
+          {
+            id: 'refNo',
+            type: 'number',
+            label: 'Reference number',
+            placeholder: '000000',
             isReadOnly: true,
           },
           {
@@ -333,13 +347,13 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Refund',
             isReadOnly: true,
           },
-          {
-            id: 'charges',
-            type: 'text',
-            label: 'Charges',
-            placeholder: 'Charges',
-            isReadOnly: true,
-          },
+          // {
+          //   id: 'charges',
+          //   type: 'text',
+          //   label: 'Charges',
+          //   placeholder: 'Charges',
+          //   isReadOnly: true,
+          // },
         ],
       },
     ],
@@ -540,6 +554,13 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'ciNo',
             label: "Co's identification No",
             placeholder: 'CIN',
+          },
+          {
+            id: 'currency',
+            type: 'select',
+            label: 'Currency',
+            placeholder: 'Currency',
+            options: CurrencyCodeOptions,
           },
         ],
       },

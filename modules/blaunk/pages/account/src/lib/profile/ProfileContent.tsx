@@ -40,6 +40,49 @@ const data: BankDetails[] = [
   },
 ];
 
+const columnsVendor = [
+  {
+    id: 'product',
+    name: 'Product',
+  },
+  {
+    id: 'orderPlaced',
+    name: 'Order placed',
+  },
+  {
+    id: 'cancelled',
+    name: 'Cancelled',
+  },
+];
+
+const dataVendor = [
+  {
+    cancelled: '4',
+    orderPlaced: '4',
+    product: 'Cake',
+  },
+  {
+    cancelled: '0',
+    orderPlaced: '0',
+    product: 'Store',
+  },
+  {
+    cancelled: '0',
+    orderPlaced: '0',
+    product: 'Logistic',
+  },
+  {
+    cancelled: '0',
+    orderPlaced: '0',
+    product: 'Tour',
+  },
+  {
+    cancelled: '0',
+    orderPlaced: '0',
+    product: 'BGT',
+  },
+];
+
 const tabs = tabItems.map((item) => ({
   id: toLowerCase(item),
   label: item,
@@ -50,6 +93,11 @@ const tabs = tabItems.map((item) => ({
         Bank: (
           <div className={styles['table-wrapper']}>
             <Table columns={columns} data={data} />
+          </div>
+        ),
+        Vendor: (
+          <div className={styles['table-wrapper']}>
+            <Table columns={columnsVendor} data={dataVendor} />
           </div>
         ),
       })}
