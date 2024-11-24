@@ -16,7 +16,7 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['picsum.photos', 'i.ibb.co'],
+    domains: ['picsum.photos'],
   },
 
   reactStrictMode: true,

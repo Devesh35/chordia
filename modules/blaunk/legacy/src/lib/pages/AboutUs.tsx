@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // cspell:disable
+import Image from 'next/image';
 import board from '../assets/BOARD.a180806f.jpg';
 import brand from '../assets/BRAND.dd53a9a8.jpg';
 import cwd from '../assets/CWD.e9ed24c9.jpeg';
@@ -15,7 +16,7 @@ export const AboutUs = () => {
     <div style={{ marginInline: 'auto', width: 'fit-content' }}>
       <div className="container mt-4 About_aboutus__mainContainer__23Wqd">
         <div className="About_aboutus__Info__tJmor">
-          <img src={(unnamed as any).src} alt="About Us" style={{ width: '100%', height: '150px' }} />
+          <Image src={(unnamed as any).src} alt="About Us" style={{ width: '100%', height: '150px' }} />
           <div className="mt-3">
             <p style={{ textAlign: 'justify' }}>
               Blaunk.com is the online website for B2C &amp; B2B for selling and buying of Garments for women, men &amp;
@@ -31,10 +32,10 @@ export const AboutUs = () => {
         </div>
       </div>
       <div className="group-companies  container mt-5">
-        <img src={(group as any).src} alt="Group Companies" style={{ width: '100%', height: '150px' }} />
+        <Image src={(group as any).src} alt="Group Companies" style={{ width: '100%', height: '150px' }} />
         <div className="p-5 d-flex align-items-center about__company" style={{ width: '100%' }}>
           <div style={{ height: '250px' }}>
-            <img src={(cwm2 as any).src} height="250" alt="about the company" />
+            <Image src={(cwm2 as any).src} height="250" alt="about the company" />
           </div>
           <div className="ml-4 aboutCompany__content">
             <h5>CHORDIA WEALTH MGT LLP</h5>
@@ -97,7 +98,7 @@ export const AboutUs = () => {
         </div>
         <div className="p-5 d-flex align-items-center about__company" style={{ width: '100%' }}>
           <div style={{ height: '250px' }}>
-            <img src={(cwd as any).src} height="250" alt="about the company" />
+            <Image src={(cwd as any).src} height="250" alt="about the company" />
           </div>
           <div className="ml-4 aboutCompany__content">
             <h5>C&amp;D RETAIL (INDIA) LLP</h5>
@@ -109,7 +110,7 @@ export const AboutUs = () => {
               <br />
               <p>
                 Brands:
-                <img src={(brand as any).src} alt="Brand" style={{ width: '90%' }} />
+                <Image src={(brand as any).src} alt="Brand" style={{ width: '90%' }} />
               </p>
               <p className="mt-1">
                 Branch:&nbsp;R T Nagar, Bangalore
@@ -140,7 +141,7 @@ export const AboutUs = () => {
         </div>
       </div>
       <div className="container mt-2 About_board__directors__2XaEd">
-        <img
+        <Image
           className="my-3"
           src={(board as any).src}
           alt="Board Directors"

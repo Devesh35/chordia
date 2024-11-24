@@ -26,6 +26,26 @@
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/lib/bgt-home/components/SelectedItem.tsx"
+    "src/lib/bgt-home/components/SelectedItem.tsx",
+    "../../../pages/home2/tour/src/Amenities.tsx",
+    "../../../pages/home2/tour/src/Details.tsx",
+    "../../../pages/home2/tour/src/Filter.tsx",
+    "../../../pages/home2/tour/src/HotelBanner.tsx",
+    "../../../pages/home2/tour/src/ImageCard.tsx",
+    "../../../pages/home2/tour/src/index.ts",
+    "../../../pages/home2/tour/src/OldTour.tsx",
+    "../../../pages/home2/tour/src/Products.tsx",
+    "../../../pages/home2/tour/src/Search.tsx",
+    "../../../pages/home2/tour/src/Tour.tsx",
+    "../../../pages/home2/tour/src/TourItem.tsx",
+    "../../../pages/home2/boutique/src/Boutique.tsx",
+    "../../../pages/home2/boutique/src/BoutiqueType.tsx",
+    "../../../pages/home2/boutique/src/index.ts",
+    "../../../pages/home2/cake/src/SearchBar.tsx",
+    "../../../pages/home2/tour/src/Tariff.tsx",
+    "../../../pages/home2/store/src/components/DealsAndOffer.tsx",
+    "../../../pages/home2/store/src/components/ProductCard.tsx",
+    "../../../pages/home2/marketplace/src/index.ts",
+    "../../../pages/home2/marketplace/src/MarketPlace.tsx"
   ]
 }

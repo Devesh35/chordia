@@ -13,14 +13,19 @@ export const LoginForm = () => {
         <PasswordInput placeholder="Enter your password" />
       </Labeled>
       <div className={styles.action}>
-        <Link href={Routes.auth.forgot.path} className={styles.forgot}>
+        <Link prefetch href={Routes.auth.forgot.path} className={styles.forgot}>
           Reset password?
         </Link>
         <Button className={styles.login}>
-          <Link href={Routes.home.bgt.path}>Login</Link>
+          <Link prefetch href={Routes.home.bgt.path}>
+            Login
+          </Link>
         </Button>
         <span>
-          Don't have an account? <Link href={Routes.auth.signup.path}>Sign up</Link>
+          Don't have an account?{' '}
+          <Link prefetch href={Routes.auth.signup.path}>
+            Sign up
+          </Link>
         </span>
       </div>
     </div>

@@ -1,0 +1,71 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+'use client';
+
+import { grid } from '@li/config/design';
+import { ImageCard } from '@li/design/components';
+import { Star, Veg } from '@li/design/icons';
+import { ReactChildren } from '@li/types/shared';
+import clsx from 'clsx';
+import { useEffect } from 'react';
+import styles from './product-card.module.css';
+
+type Props = {
+  src: string;
+  topLeft?: string;
+  details: {
+    isVeg?: boolean;
+    name: string;
+    price?: string;
+    rating: string;
+    reviewCount: string;
+  };
+};
+
+export const ProductCard = ({ src, topLeft, details }: Props) => {
+  let isMobile = window.innerWidth < 768;
+  let isTab = window.innerWidth < 1024;
+
+  useEffect(() => {
+    const handleResize = () => {
+      isMobile = window.innerWidth < 768;
+    };
+    const handleResizeTab = () => {
+      isTab = window.innerWidth < 1024;
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResizeTab);
+  });
+
+  return (
+    <ImageCard
+      key={Math.random()}
+      className={clsx(grid['col-2'], { [grid['col-t-3']]: isTab }, { [grid['col-m-6']]: isMobile }, 'clickable')}
+      image={{
+        src: src,
+        width: 300,
+        height: 300,
+        alt: 'random',
+      }}
+      topLeft={topLeft ? <div className={styles['card-tag']}>{topLeft}</div> : undefined}
+      details={
+        <div className={styles.details}>
+          {details.isVeg !== undefined && <Veg width={24} height={24} />}
+          <div className={styles['name-wrapper']}>
+            <div className={styles['card-name']}>{details.name}</div>
+            <div className={styles.price}>{details.price}</div>
+          </div>
+          <div className={styles['rating-wrapper']}>
+            <div className={styles.rating}>
+              4.5 <Star fill="var(--secondary)" width={16} height={16} />
+            </div>
+            <span className={styles['review-count']}>{details.reviewCount} Reviews</span>
+          </div>
+        </div>
+      }
+    />
+  );
+};
+
+export const ProductWrapper = ({ children }: ReactChildren) => (
+  <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>{children}</div>
+);

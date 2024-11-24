@@ -1,5 +1,4 @@
-import { LogisticsOrderBook } from '@md/blaunk/pages/vendor';
-
+import { LogisticsOrderBook } from '@md/pages/vendor/logi';
 const page = () => {
   return <LogisticsOrderBook />;
 };

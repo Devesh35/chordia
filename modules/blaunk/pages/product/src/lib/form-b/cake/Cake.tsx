@@ -6,9 +6,11 @@
 import { getStaticImageSrc } from '@li/design/icons';
 import { TimeRangePicker } from '@wojtekmaj/react-timerange-picker';
 import '@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Accordion, Button, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import { IoLocationSharp, IoSearchOutline } from 'react-icons/io5';
+import { PiCursorClick } from 'react-icons/pi';
 import nonVeg from './assets/images/nonVeg.png';
 import veg from './assets/images/veg.png';
 import vegan from './assets/images/vegan.png';
@@ -33,7 +35,6 @@ import {
   supplySourceOptions,
 } from './utils/constants';
 import { Field, Highlight, OfferData, RowData } from './utils/interfaces';
-import { PiCursorClick } from 'react-icons/pi';
 
 export function App() {
   const [subscriptionData, setSubscriptionData] = useState<{
@@ -404,8 +405,10 @@ export function App() {
                     <Form.Label>Token No.</Form.Label>
                     <InputGroup>
                       <Form.Control type="text" value={token} readOnly />
-                      <InputGroup.Text  style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
-                      className='text-white'>
+                      <InputGroup.Text
+                        style={{ backgroundColor: '#808836', border: 'none', cursor: 'pointer' }}
+                        className="text-white"
+                      >
                         <PiCursorClick />
                       </InputGroup.Text>
                     </InputGroup>
@@ -848,7 +851,7 @@ export function App() {
                       id="option1"
                       name="foodLabel"
                       inline
-                      label={<img height={32} width={32} src={getStaticImageSrc(veg)} alt="veg" />}
+                      label={<Image height={32} width={32} src={getStaticImageSrc(veg)} alt="veg" />}
                       disabled={['save', 'edit'].includes(editable)}
                     />
                     <Form.Check
@@ -856,7 +859,7 @@ export function App() {
                       id="option2"
                       name="foodLabel"
                       inline
-                      label={<img height={32} width={32} src={getStaticImageSrc(nonVeg)} alt="nonVeg" />}
+                      label={<Image height={32} width={32} src={getStaticImageSrc(nonVeg)} alt="nonVeg" />}
                       disabled={['save', 'edit'].includes(editable)}
                     />
                     <Form.Check
@@ -864,7 +867,7 @@ export function App() {
                       id="option3"
                       name="foodLabel"
                       inline
-                      label={<img height={32} width={32} src={getStaticImageSrc(vegan)} alt="vegan" />}
+                      label={<Image height={32} width={32} src={getStaticImageSrc(vegan)} alt="vegan" />}
                       disabled={['save', 'edit'].includes(editable)}
                     />
                   </Form.Group>

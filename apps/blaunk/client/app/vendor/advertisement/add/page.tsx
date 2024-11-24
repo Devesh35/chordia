@@ -1,4 +1,4 @@
-import { AddAdvertisement } from '@md/blaunk/pages/vendor';
+import { AddAdvertisement } from '@md/pages/vendor/ad';
 
 export default async function Index() {
   return <AddAdvertisement />;

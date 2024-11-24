@@ -44,7 +44,7 @@ const WishlistItem: React.FC<WishlistItemProps> = ({ image, name, mrp, discount,
         <p className={styles['wishlist-item__base']}>
           Total: <span>${total}</span>
         </p>
-        <Link href={link} className={styles['wishlist-item__link']} target="_blank" rel="noopener noreferrer">
+        <Link prefetch href={link} className={styles['wishlist-item__link']} target="_blank" rel="noopener noreferrer">
           View Item
         </Link>
         {/* <QuantitySelector max={10} /> */}

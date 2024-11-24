@@ -1,6 +1,6 @@
 import { Button, Input, Labeled, Link } from '@li/design/elements';
-import styles from './common.module.css';
 import { Routes } from '@md/blaunk/config';
+import styles from './common.module.css';
 
 export const ForgotPassForm = () => {
   return (
@@ -12,7 +12,10 @@ export const ForgotPassForm = () => {
       <div className={styles.action}>
         <Button>Send reset email</Button>
         <span>
-          Remember password? <Link href={Routes.auth.login.path}>Login</Link>
+          Remember password?{' '}
+          <Link prefetch href={Routes.auth.login.path}>
+            Login
+          </Link>
         </span>
       </div>
     </div>

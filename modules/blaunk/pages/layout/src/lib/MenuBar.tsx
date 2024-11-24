@@ -14,10 +14,8 @@ export const MenuBar = ({ variant = 'navbar' }: MenuBarProps) => {
     <div className={clsx(styles.wrapper, styles[`wrapper-${variant}`])}>
       {MenuBarItems.map((item) => (
         <Link
-          className={clsx(
-            styles.store,
-            variant ? styles[`store-${variant}`] : '',
-          )}
+          prefetch
+          className={clsx(styles.store, variant ? styles[`store-${variant}`] : '')}
           key={item.id}
           href={item.path}
         >

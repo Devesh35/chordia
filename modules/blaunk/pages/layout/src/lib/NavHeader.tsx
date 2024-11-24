@@ -20,7 +20,7 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
         [styles['wrapper-even']]: content === 'menu-bar',
       })}
     >
-      <Link href={Routes.home.path}>
+      <Link prefetch href={Routes.home.path}>
         <Image src={logoLarge} alt="logo" height={32} width={142} className={styles.blaunk} />
       </Link>
       {withConditionCase(content)({
@@ -43,7 +43,7 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
         <div className={clsx(styles.item, styles['item-select'])}>
           <NavB2BHeader />
         </div>
-        <Link href={Routes.auth.login.path} className={styles.item}>
+        <Link prefetch href={Routes.auth.login.path} className={styles.item}>
           Login
         </Link>
       </div>

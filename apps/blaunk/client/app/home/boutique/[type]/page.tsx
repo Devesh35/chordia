@@ -1,4 +1,4 @@
-import { BoutiqueType } from '@md/blaunk/pages/home';
+import { BoutiqueType } from '@md/blaunk/pages/home2/boutique2';
 
 export default async function Index() {
   return <BoutiqueType />;

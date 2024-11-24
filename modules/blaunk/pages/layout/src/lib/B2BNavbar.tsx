@@ -1,6 +1,6 @@
 // import { Routes } from '@md/blaunk/config';
-import styles from './b2b-nav-bar.module.css';
 import { Link } from '@li/design/elements';
+import styles from './b2b-nav-bar.module.css';
 
 const navBarItems: { element: React.ReactNode; path: string }[] = [
   // { element: 'BGT', path: 'Routes.b2b.buy.path' },
@@ -13,7 +13,7 @@ export const B2BNavbar = () => {
   return (
     <div className={styles.wrapper}>
       {navBarItems.map((item) => (
-        <Link href={item.path} key={item.path}>
+        <Link prefetch href={item.path} key={item.path}>
           {item.element}
         </Link>
       ))}

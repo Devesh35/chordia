@@ -4,7 +4,7 @@ import { Labeled, PageHeader, Select } from '@li/design/elements';
 import { ProductTypeOptions } from '@md/blaunk/config';
 import { ProductPayment, ProductStatus } from '@md/blaunk/types';
 // import { OrderItem } from './components/OrderItem';
-import { LogisticsOrderBook } from '@md/blaunk/pages/vendor';
+import { LogisticsOrderBook } from '@md/pages/vendor/logi';
 import { useState } from 'react';
 import OrderBook from './components/OrderBook';
 import styles from './order.module.css';

@@ -1,4 +1,4 @@
-import { Logistics } from '@md/blaunk/pages/vendor';
+import { Logistics } from '@md/pages/vendor/logi';
 
 const page = () => {
   return <Logistics />;

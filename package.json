@@ -13,7 +13,7 @@
     "spell": "cspell {libs,apps,modules}/**/*.{ts,tsx,css} --no-progress",
     "admin": "nx run blaunk-admin:serve",
     "design": "nx run design-storybook:storybook",
-    "client": "nx run blaunk-client:serve",
+    "dev": "nx run blaunk-client:serve",
     "server": "nx run blaunk-server:serve",
     "prepare": "npx husky install"
   },
@@ -67,6 +67,8 @@
     "@types/cors": "2.8.17",
     "@types/express": "4.17.21",
     "@types/jest": "^29.5.13",
+    "@types/lodash": "4.17.13",
+    "@types/moment": "2.13.0",
     "@types/node": "18.16.9",
     "@types/react": "18.2.33",
     "@types/react-avatar-editor": "13.0.3",

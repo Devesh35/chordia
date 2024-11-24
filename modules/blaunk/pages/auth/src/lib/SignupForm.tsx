@@ -96,7 +96,10 @@ export const SignupForm = () => {
       <div className={styles.action}>
         <Button>Signup</Button>
         <span>
-          Already an user? <Link href={Routes.auth.login.path}>Login</Link>
+          Already an user?{' '}
+          <Link prefetch href={Routes.auth.login.path}>
+            Login
+          </Link>
         </span>
       </div>
     </div>
