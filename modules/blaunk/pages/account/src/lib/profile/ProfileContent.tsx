@@ -12,6 +12,12 @@ type BankDetails = {
   date: string;
 };
 
+type order = {
+  product: string;
+  orderPlaced: string;
+  cancelled: string;
+};
+
 const columns: TableColumn<BankDetails>[] = [
   {
     id: 'name',
@@ -40,7 +46,7 @@ const data: BankDetails[] = [
   },
 ];
 
-const columnsVendor = [
+const columnsVendor: TableColumn<order>[] = [
   {
     id: 'product',
     name: 'Product',
@@ -55,7 +61,7 @@ const columnsVendor = [
   },
 ];
 
-const dataVendor = [
+const dataVendor: order[] = [
   {
     cancelled: '4',
     orderPlaced: '4',
