@@ -78,6 +78,20 @@ const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
   />
 ));
 
+const productMobile = getRandomImagesArray(10)(300, 300, 'cake').map((src, i) => (
+  <ProductCard
+    key={i}
+    src={src}
+    details={{
+      isVeg: true,
+      name: 'Strawberry Cake',
+      price: '$13',
+      rating: '4.5',
+      reviewCount: '1.5k',
+    }}
+  />
+));
+
 export const Cake = () => {
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
   const [isTab, setIsTab] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
@@ -113,8 +127,9 @@ export const Cake = () => {
       </div>
       <Search isMobile={isMobile} isTab={isTab} />
       <Filter isMobile={isMobile} isTab={isTab} />
-      <ProductWrapper>{products}</ProductWrapper>
-      <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} /> <Details />
+      <ProductWrapper>{isMobile ? productMobile : products}</ProductWrapper>
+      <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} />
+      <Details />
       <SectionHeader sectionName="Add On" />
       <ScrollableSnap className={styles['add-on']} controls delta={240}>
         {addOn}

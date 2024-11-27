@@ -74,3 +74,22 @@
 .welcome main > div > div {
   border: none;
 }
+
+@media screen and (max-width: 768px) {
+  .blaunk {
+    width: 100px;
+  }
+  .wrapper {
+    padding: 0.5rem 1rem;
+  }
+  .items {
+    gap: 12px;
+  }
+  .item {
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+  }
+  .welcome {
+    min-width: 100px;
+  }
+}

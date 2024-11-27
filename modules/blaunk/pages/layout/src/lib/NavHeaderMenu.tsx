@@ -1,13 +1,15 @@
 'use client';
 
 import { Select } from '@li/design/elements';
+import { useMedia } from '@li/design/hooks';
 import { NavMenuItems } from '@md/blaunk/config';
 import { useRouter } from 'next/navigation';
-import styles from './navHeader.module.css';
 import { useEffect } from 'react';
+import styles from './navHeader.module.css';
 
 export const NavHeaderMenu = () => {
   const router = useRouter();
+  const { isMobile } = useMedia();
 
   useEffect(() => {
     // prefetch
@@ -21,7 +23,7 @@ export const NavHeaderMenu = () => {
   return (
     <Select
       maxHeight
-      Header="Welcome, Chordia"
+      Header={isMobile ? 'Chordia' : 'Welcome, Chordia'}
       className={styles.welcome}
       options={NavMenuItems}
       defaultItem={NavMenuItems[0]}

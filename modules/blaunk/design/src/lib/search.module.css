@@ -40,5 +40,12 @@
   .search-bar-wrapper {
     flex-direction: column;
     gap: 0.5rem;
+    align-items: center;
+  }
+  .search-bar-items-last {
+    border-radius: unset !important;
+  }
+  .search-bar-items-start {
+    border-radius: unset !important;
   }
 }

@@ -1,3 +1,5 @@
+import { useMedia } from '@li/design/hooks';
+import clsx from 'clsx';
 import { useState } from 'react';
 import { Badge, Card, Col, OverlayTrigger, Popover, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -20,6 +22,8 @@ interface FormData {
 }
 
 export const Details: React.FC = () => {
+  const { isMobile } = useMedia();
+
   const {
     // register,
     control,
@@ -79,9 +83,17 @@ export const Details: React.FC = () => {
         className="row p-3 d-flex justify-content-center"
         style={{ backgroundColor: '#fffbe6', borderRadius: '12px' }}
       >
-        <div className="d-flex justify-content-around mb-2">
+        <div
+          className={clsx('d-flex justify-content-around mb-2', {
+            'flex-column': isMobile,
+          })}
+        >
           {images.map((imageSrc, index) => (
-            <div key={index} className="position-relative" style={{ width: '600px' }}>
+            <div
+              key={index}
+              className="position-relative"
+              style={{ width: '600px', maxWidth: isMobile ? '80vw' : '600px' }}
+            >
               <img
                 src={imageSrc}
                 alt={`Sample ${index + 1}`}
@@ -190,7 +202,11 @@ export const Details: React.FC = () => {
           </Col>
         </Row>
 
-        <div className="row my-2 gap-5">
+        <div
+          className={clsx('row my-2 gap-5', {
+            'flex-column': isMobile,
+          })}
+        >
           {/* First Column */}
           <Col className="room-box bg-color-1">
             <p>Delivery by : Vendor</p>

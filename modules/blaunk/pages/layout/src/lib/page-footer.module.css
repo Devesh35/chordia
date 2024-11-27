@@ -69,3 +69,12 @@
   font-size: var(--font-size-p14);
   line-height: var(--line-height-p14);
 }
+
+@media screen and (max-width: 768px) {
+  .details {
+    width: 40%;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 12px;
+  }
+}

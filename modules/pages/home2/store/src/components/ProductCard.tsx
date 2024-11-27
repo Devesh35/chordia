@@ -26,6 +26,7 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
   let isTab = window.innerWidth < 1024;
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handleResize = () => {
       isMobile = window.innerWidth < 768;
     };
