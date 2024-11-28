@@ -71,3 +71,9 @@
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
+
+@media screen and (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+  }
+}

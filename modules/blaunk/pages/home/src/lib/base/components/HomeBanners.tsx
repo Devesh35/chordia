@@ -2,6 +2,7 @@
 import { useMedia } from '@li/design/hooks';
 import { blaunkMarketPlace } from '@md/blaunk/config';
 import Image from 'next/image';
+import styles from './find-vendors.module.css';
 
 export const HomeBanners = () => {
   const { isMobile } = useMedia();
@@ -21,7 +22,7 @@ export const HomeBanners = () => {
   };
 
   return (
-    <div style={{ ...wrapperStyle, flexDirection: isMobile ? 'column' : 'row' }}>
+    <div style={{ ...wrapperStyle, }} classname={styles.banner}>
       <div style={bannerStyle}>
         <Image
           width={650}

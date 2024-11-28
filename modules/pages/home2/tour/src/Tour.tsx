@@ -32,6 +32,8 @@ export const Tour = () => {
   const [isTab, setIsTab] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
