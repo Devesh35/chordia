@@ -35,3 +35,17 @@
 .search-bar-items-last {
   border-radius: 0 100vh 100vh 0;
 }
+
+@media only screen and (max-width: 600px) {
+  .search-bar-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .search-bar-items-last {
+    border-radius: unset !important;
+  }
+  .search-bar-items-start {
+    border-radius: unset !important;
+  }
+}

@@ -7,7 +7,7 @@ import { Routes } from './Routes';
 
 const src = getRandomImagesArray(1)(64, 64)[0];
 
-export type NavMenuItem = SelectItem & { path?: string };
+export type NavMenuItem = SelectItem & { path?: string; item?: React.ReactNode };
 
 export const NavMenuItems: NavMenuItem[] = [
   {

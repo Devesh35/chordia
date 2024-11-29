@@ -3,7 +3,7 @@
 import { sbs } from '@li/config/design';
 import { isSelectItemDivider } from '@li/config/utils';
 import { withCondition } from '@li/design/enhancers';
-import { useHoverScroll } from '@li/design/hooks';
+import { useHoverScroll, useMedia } from '@li/design/hooks';
 import { DownFilled, TopFilled } from '@li/design/icons';
 import { SelectItem } from '@li/types/design';
 import clsx from 'clsx';
@@ -33,30 +33,22 @@ export const Select = <K extends string, S extends SelectItem<K>>({
   iconLeft,
   maxHeight = 400,
 }: SelectProps<K, S>) => {
+  const isMobile = useMedia();
+
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<S | undefined>(defaultItem);
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const { handleHover, handleMouseLeave, isEndOne, isEndTwo } =
-    useHoverScroll(contentRef);
+  const { handleHover, handleMouseLeave, isEndOne, isEndTwo } = useHoverScroll(contentRef);
   const showTop = !(isEndOne || typeof maxHeight === 'boolean');
-  const showBottom = !(
-    isEndTwo ||
-    typeof maxHeight === 'boolean' ||
-    contentHeight < maxHeight
-  );
+  const showBottom = !(isEndTwo || typeof maxHeight === 'boolean' || contentHeight < maxHeight);
 
   // Sets the height of the content div
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (contentRef.current)
-      setContentHeight(
-        Math.min(
-          maxHeight === true ? Infinity : maxHeight,
-          contentRef.current.scrollHeight,
-        ),
-      );
+      setContentHeight(Math.min(maxHeight === true ? Infinity : maxHeight, contentRef.current.scrollHeight));
   });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,10 +65,7 @@ export const Select = <K extends string, S extends SelectItem<K>>({
   };
 
   return (
-    <div
-      className={clsx(formStyles['item-wrapper'], styles.wrapper, className)}
-      onMouseLeave={() => setIsOpen(false)}
-    >
+    <div className={clsx(formStyles['item-wrapper'], styles.wrapper, className)} onMouseLeave={() => setIsOpen(false)}>
       <header className={styles.header} onClick={toggleAccordion}>
         {iconLeft && <span className={styles['left-icon']}>{iconLeft}</span>}
         {Header || (
@@ -85,9 +74,7 @@ export const Select = <K extends string, S extends SelectItem<K>>({
               [styles['title-selected']]: !!selected?.id,
             })}
           >
-            {selected && !isSelectItemDivider(selected)
-              ? selected.item
-              : placeholder || 'Select'}
+            {selected && !isSelectItemDivider(selected) ? selected.item : placeholder || 'Select'}
           </span>
         )}
         <div className={clsx(styles.icon, { [styles['icon-active']]: isOpen })}>
@@ -127,8 +114,8 @@ export const Select = <K extends string, S extends SelectItem<K>>({
           {withCondition(showBottom)(
             <div
               className={clsx(styles['option-control'], styles['option-down'])}
-              onMouseEnter={handleHover(1)}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={isMobile ? undefined : handleHover(1)}
+              onMouseLeave={isMobile ? undefined : handleMouseLeave}
             >
               <DownFilled />
             </div>,

@@ -32,3 +32,9 @@
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-h4);
 }
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}

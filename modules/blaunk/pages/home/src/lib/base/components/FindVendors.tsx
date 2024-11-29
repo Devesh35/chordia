@@ -111,7 +111,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
 
   return (
     <div
-      className={clsx(styles.wrapper, grid['col-6'])}
+      className={clsx(styles.wrapper, grid['col-6'], grid['col-m-6'])}
       style={{
         backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4)), ${backgroundImage}`,
         backgroundSize: 'cover',
