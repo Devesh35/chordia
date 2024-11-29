@@ -20,7 +20,7 @@ export const WomenCollection = () => {
   return (
     <div className={styles.wrapper}>
       <SectionHeader sectionName={sectionNames.women} />
-      <div className={clsx(grid.grid, styles.grid)}>{products}</div>
+      <div className={clsx(grid.grid, styles.grid, grid['grid-t-8'])}>{products}</div>
       <div className={styles['view-all']}>
         <Button onClick={() => router.push(Routes.home.boutique.women.path)}>View all</Button>
       </div>

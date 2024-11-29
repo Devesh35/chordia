@@ -1,12 +1,13 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { Badge, Card, Col, OverlayTrigger, Popover, Row } from 'react-bootstrap';
-import { Controller, useForm } from 'react-hook-form';
-import './Details.css';
-import { FaStar } from 'react-icons/fa';
-import { RemindMe } from '../components/RemindMe';
+import { useMedia } from '@li/design/hooks';
+import clsx from 'clsx';
 import { useState } from 'react';
-import { FaHeart } from 'react-icons/fa';
+import { Badge, Card, Col, OverlayTrigger, Popover, Row } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { Controller, useForm } from 'react-hook-form';
+import { FaHeart, FaStar } from 'react-icons/fa';
+import { RemindMe } from '../components/RemindMe';
+import './Details.css';
 
 interface FormData {
   writeOn: string;
@@ -21,6 +22,8 @@ interface FormData {
 }
 
 export const Details: React.FC = () => {
+  const isMobile = useMedia();
+
   const {
     // register,
     control,
@@ -74,15 +77,29 @@ export const Details: React.FC = () => {
     return slots;
   };
 
+  const noPad = isMobile ? { padding: 0 } : {};
+
   return (
-    <div className="mx-5 my-5">
+    <div
+      className={clsx('mx-5 my-5', {
+        'mx-2': isMobile,
+      })}
+      style={noPad}
+    >
       <div
-        className="row p-3 d-flex justify-content-center"
-        style={{ backgroundColor: '#fffbe6', borderRadius: '12px' }}
+        className={clsx('row p-3 d-flex justify-content-center')}
+        style={{ ...{ backgroundColor: '#fffbe6', borderRadius: '12px' }, ...noPad }}
       >
-        <div className="d-flex justify-content-around mb-2">
+        <div
+          className={clsx('d-flex justify-content-around mb-2')}
+          style={isMobile ? { flexDirection: 'column' } : { flexDirection: 'row' }}
+        >
           {images.map((imageSrc, index) => (
-            <div key={index} className="position-relative" style={{ width: '600px' }}>
+            <div
+              key={index}
+              className="position-relative"
+              style={{ width: '600px', maxWidth: isMobile ? '80vw' : '600px' }}
+            >
               <img
                 src={imageSrc}
                 alt={`Sample ${index + 1}`}
@@ -91,7 +108,7 @@ export const Details: React.FC = () => {
                   width: '100%',
                   height: '500px',
                   objectFit: 'cover',
-                  border: '20px solid white',
+                  border: isMobile ? '4px solid white' : '20px solid white',
                   borderRadius: '20px',
                 }}
               />
@@ -130,11 +147,11 @@ export const Details: React.FC = () => {
                 />
               </span>
 
-              <h3 className="fw-bold d-flex" style={{ color: '#6d751d', fontSize: '3rem' }}>
+              <h3 className="fw-bold d-flex" style={{ color: '#6d751d', fontSize: isMobile ? '2rem' : '3rem' }}>
                 Strawberry Cake
               </h3>
             </div>
-            <h3 style={{ color: '#e75f78' }}>Anniversary Cake</h3>
+            <h3 style={{ color: '#e75f78', fontSize: isMobile ? '1rem' : '2rem' }}>Anniversary Cake</h3>
             <h4 className="text-primary">Shop Timings: 9:00 AM - 10:00 PM</h4>
           </Col>
           <Col className="d-flex flex-column align-items-center justify-content-center">
@@ -156,11 +173,11 @@ export const Details: React.FC = () => {
         </div>
         <Row>
           <Col md={9}>
-            <div style={{ backgroundColor: '#FFFBE6', padding: '20px', marginTop: '20px' }}>
+            <div style={{ backgroundColor: '#FFFBE6', padding: '20px', marginTop: '20px', ...noPad }}>
               <div className="my-5">
                 <h2 className="fw-bold mb-3 ">Description</h2>
                 <div>
-                  <p className="bg-light p-2 fs-5">
+                  <p className="bg-light p-2 fs-5" style={noPad}>
                     Hotel Serenity combines modern comfort with superb service. Enjoy plush rooms, fine dining, and a
                     rooftop bar with stunning city views. Perfect for both leisure and business travelers seeking a
                     memorable stay in the heart of the city. Hotel Serenity combines modern comfort with superb service.
@@ -191,7 +208,11 @@ export const Details: React.FC = () => {
           </Col>
         </Row>
 
-        <div className="row my-2 gap-5">
+        <div
+          className={clsx('row my-2 gap-5', {
+            'flex-column': isMobile,
+          })}
+        >
           {/* First Column */}
           <Col className="room-box bg-color-1">
             <p>Delivery by : Vendor</p>
@@ -436,16 +457,14 @@ export const Details: React.FC = () => {
                     Issues Reported
                   </Card.Header>
                   <Card.Body className="p-3">
-                    <Card.Text>
-                      <div className="row">
-                        <div className="col-8">Number of complaints:</div>
-                        <div className="col-4">10</div>
-                      </div>
-                      <div className="row">
-                        <div className="col-8">Complaints resolved:</div>
-                        <div className="col-4">5</div>
-                      </div>
-                    </Card.Text>
+                    <div className="row">
+                      <div className="col-8">Number of complaints:</div>
+                      <div className="col-4">10</div>
+                    </div>
+                    <div className="row">
+                      <div className="col-8">Complaints resolved:</div>
+                      <div className="col-4">5</div>
+                    </div>
                   </Card.Body>
                 </Card>
                 {/* Checkbox */}

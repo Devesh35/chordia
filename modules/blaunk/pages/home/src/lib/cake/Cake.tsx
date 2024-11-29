@@ -3,18 +3,19 @@
 import { Button, Carousal, ScrollableSnap } from '@li/design/elements';
 import { Constants, cakeBanner, getRandomImagesArray } from '@md/blaunk/config';
 
+import { useMedia } from '@li/design/hooks';
 import { getStaticImageSrc } from '@li/design/icons';
 import { CustomerReviews, SectionHeader } from '@md/blaunk/design';
+import { Basket } from 'modules/blaunk/design/src/lib/Basket';
 import Image from 'next/image';
 import { AddOnCard } from '../components/AddOnCard';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
+import CakeBanner from './CakeBanner';
+import Details from './Details';
 import { Filter } from './Filter';
 import { Search } from './Search';
 import styles from './cake.module.css';
-import { Basket } from 'modules/blaunk/design/src/lib/Basket';
-import Details from './Details';
-import CakeBanner from './CakeBanner';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map((src, i) => (
   <Image
@@ -77,7 +78,23 @@ const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
   />
 ));
 
+const productMobile = getRandomImagesArray(10)(300, 300, 'cake').map((src, i) => (
+  <ProductCard
+    key={i}
+    src={src}
+    details={{
+      isVeg: true,
+      name: 'Strawberry Cake',
+      price: '$13',
+      rating: '4.5',
+      reviewCount: '1.5k',
+    }}
+  />
+));
+
 export const Cake = () => {
+  const isMobile = useMedia();
+
   return (
     <div className={styles.wrapper}>
       <div className={styles['carousal-wrapper']}>
@@ -98,13 +115,14 @@ export const Cake = () => {
       </div>
       <Search />
       <Filter />
-      <ProductWrapper>{products}</ProductWrapper>
-      <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} /> <Details />
+      <ProductWrapper>{isMobile ? productMobile : products}</ProductWrapper>
+      <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} />
+      <Details />
       <SectionHeader sectionName="Add On" />
       <ScrollableSnap className={styles['add-on']} controls delta={240}>
         {addOn}
       </ScrollableSnap>
-      <div style={{backgroundColor: "#FFBF61", paddingBottom: "25px", borderRadius: "12px"}}>
+      <div style={{ backgroundColor: '#FFBF61', paddingBottom: '25px', borderRadius: '12px' }}>
         <Basket />
       </div>
       <CustomerReviews />

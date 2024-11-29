@@ -29,7 +29,7 @@ import {
   VendorPaymentAfterDeliveryOptions,
   WarrantyPeriodOptions,
 } from './Policy';
-import { StatusOptions, UserCategoryOption } from './User';
+import { StatusOptions } from './User';
 import {
   VendorCertificate,
   VendorFirm,
@@ -196,13 +196,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Status',
             type: 'select',
             options: StatusOptions,
-          },
-          {
-            id: 'category',
-            type: 'select',
-            label: 'Category',
-            placeholder: 'Category',
-            options: UserCategoryOption,
           },
           {
             id: 'voucher-code',

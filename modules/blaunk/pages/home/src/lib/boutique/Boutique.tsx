@@ -27,10 +27,10 @@ export const Boutique = () => {
       <StyleOnRent />
       {/* <SectionHeader /> */}
       {/* <Jewellery />
-      <Placeholder height={400} />
-      <Jewellery2 />
-      <Placeholder height={400} />
-      <TwoImages /> */}
+        <Placeholder height={400} />
+        <Jewellery2 />
+        <Placeholder height={400} />
+        <TwoImages /> */}
       {/* <BannerSection size={302} /> */}
       <DealsAndOffer />
     </div>

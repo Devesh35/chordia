@@ -1,5 +1,5 @@
 'use client';
-import { Row, Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const BGTImages: React.FC = () => {
   const images = [

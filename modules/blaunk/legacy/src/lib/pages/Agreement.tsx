@@ -140,6 +140,12 @@ export const Agreement = () => {
             <option className="text-center" value="hindi">
               Hindi
             </option>
+            <option className="text-center" value="hindi">
+              Tamil
+            </option>
+            <option className="text-center" value="hindi">
+              Arabic
+            </option>
           </select>
         </label>
         <div className="container mt-2 mx-auto">

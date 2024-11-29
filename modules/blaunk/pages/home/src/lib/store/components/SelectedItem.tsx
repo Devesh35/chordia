@@ -1,17 +1,17 @@
 'uce client';
 
 import { fromCamelCase } from '@li/config/utils';
-import { Button, Carousal, InputArea, Labeled, ScrollableSnap } from '@li/design/elements';
-import Image from 'next/image';
-import { DetailsTable } from '../../components';
-import { StoreItem } from '../Store';
-import styles from './selected-item.module.css';
-
+import { Button, Carousal as CarousalDesign, InputArea, Labeled, ScrollableSnap } from '@li/design/elements';
+import { useMedia } from '@li/design/hooks';
 import { assurance, getStaticImageSrc } from '@li/design/icons';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import clsx from 'clsx';
+import Image from 'next/image';
 import { Col, Row } from 'react-bootstrap';
+import { DetailsTable } from '../../components';
 import { AddOnCard } from '../../components/AddOnCard';
+import { StoreItem } from '../Store';
+import styles from './selected-item.module.css';
 
 type Props = {
   data: StoreItem;
@@ -74,13 +74,14 @@ const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
 ));
 
 export const SelectedItem = ({ data }: Props) => {
+  const isMobile = useMedia();
   const detailsData = detailsOrder.map((key) => [fromCamelCase(key), data[key]]) as [string, string | boolean][];
 
-  return (
-    <div className={styles.wrapper}>
-      <ScrollableSnap className={styles['product-section']} controls>
-        <div className={styles['product-section-carousel-box']}>
-          <Carousal className={styles['product-images']}>
+  const items = (
+    <>
+      <div className={styles['product-section-carousel-box']}>
+        {!isMobile && (
+          <CarousalDesign className={styles['product-images']}>
             {data.images.map((src, i) => (
               <Image
                 key={src}
@@ -91,43 +92,56 @@ export const SelectedItem = ({ data }: Props) => {
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
             ))}
-          </Carousal>
+          </CarousalDesign>
+        )}
+        {isMobile && <Image src={data.images[0]} width={240} height={450} alt={data.name} loading="eager" />}
+      </div>
+      <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
+        <div className={styles['product-header']}>
+          <div style={{ fontSize: 24 }}>{data.name}</div>
         </div>
-        <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
-          <div className={styles['product-header']}>
-            <div style={{ fontSize: 24 }}>{data.name}</div>
-          </div>
-          <Row>
-            <Col>
-              <div style={{ fontSize: 20, color: 'blue', fontWeight: 'bold' }}> Timings: {data.timings}</div>
-            </Col>
-            <Col style={{ textAlign: 'right' }}>
-              <Image src={getStaticImageSrc(assurance)} alt="Bk assurance" width={120} height={35} />
-            </Col>
-          </Row>
+        <Row>
+          <Col>
+            <div style={{ fontSize: 20, color: 'blue', fontWeight: 'bold' }}> Timings: {data.timings}</div>
+          </Col>
+          <Col style={{ textAlign: 'right' }}>
+            <Image src={getStaticImageSrc(assurance)} alt="Bk assurance" width={120} height={35} />
+          </Col>
+        </Row>
 
-          <DetailsTable
-            keyColWidth={160}
-            data={[
-              ['City', data.city],
-              ['Area', data.area],
-              ['Pin code', data.pinCode],
-              ['Rating', data.rating],
-              ['Complaints Raised', data.complaintsRaised],
-              ['Complaints Resolved', data.complaintsResolved],
-              ['Contact no', data.contactNo],
-            ]}
-          />
-        </div>
-        <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
-          <DetailsTable data={detailsData} keyColWidth={220} />
-        </div>
-        <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
-          <Labeled label="Description">
-            <InputArea value={data.description} height={380} />
-          </Labeled>
-        </div>
-      </ScrollableSnap>
+        <DetailsTable
+          keyColWidth={160}
+          data={[
+            ['City', data.city],
+            ['Area', data.area],
+            ['Pin code', data.pinCode],
+            ['Rating', data.rating],
+            ['Complaints Raised', data.complaintsRaised],
+            ['Complaints Resolved', data.complaintsResolved],
+            ['Contact no', data.contactNo],
+          ]}
+        />
+      </div>
+      <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
+        <DetailsTable data={detailsData} keyColWidth={220} />
+      </div>
+      <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
+        <Labeled label="Description">
+          <InputArea value={data.description} height={380} />
+        </Labeled>
+      </div>
+    </>
+  );
+
+  return (
+    <div className={styles.wrapper}>
+      {isMobile ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>{items}</div>
+      ) : (
+        <ScrollableSnap className={styles['product-section']} controls>
+          {items}
+        </ScrollableSnap>
+      )}
       {/* <div className={styles['product-info']}>
             <div className={clsx(styles['product-header'])}>
               <div>Vendor details:</div>

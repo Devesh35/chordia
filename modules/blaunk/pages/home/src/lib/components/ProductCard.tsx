@@ -20,7 +20,7 @@ type Props = {
 export const ProductCard = ({ src, topLeft, details }: Props) => {
   return (
     <ImageCard
-      className={clsx(grid['col-2'], 'clickable')}
+      className={clsx(grid['col-2'], grid['col-t-3'], grid['col-m-6'], 'clickable')}
       image={{
         src: src,
         width: 300,

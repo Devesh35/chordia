@@ -185,3 +185,15 @@
 .product-section {
   gap: 2rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .product-section-box {
+    max-width: 80vw;
+    min-width: 240px;
+  }
+  .product-section-carousel-box {
+    min-width: 240px;
+    height: 450px;
+    min-height: 450px;
+  }
+}
