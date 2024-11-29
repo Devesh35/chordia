@@ -1,11 +1,12 @@
 'use client';
 
-import { Carousal } from '@li/design/elements';
+import { Carousal, PaginationNumber } from '@li/design/elements';
 import { useMedia } from '@li/design/hooks';
 import { Constants, getRandomImagesArray, storeRoof } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import { Basket } from 'modules/blaunk/design/src/lib/Basket';
 import Image from 'next/image';
+import { useState } from 'react';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
 import { SearchBar } from './components/SearchBar';
@@ -96,6 +97,8 @@ const products = getRandomImagesArray(18)(300, 300, 'items').map((src, i) => (
 
 export const Store = () => {
   const isMobile = useMedia();
+  const [page, setPage] = useState<number>(0);
+
   return (
     <div className={styles.wrapper}>
       <div>
@@ -113,6 +116,10 @@ export const Store = () => {
       </div>
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
+      <div className={styles['pagination-wrapper']}>
+        <PaginationNumber active={page} onChange={setPage} total={4} position="none" variant="light" />
+      </div>
+
       {/* <DealSection /> */}
       <StoreBanner storeName="Bikaner sweets" location="Bikaner, Rajasthan" discount={50} />
       <SelectedItem data={dummyItem} />

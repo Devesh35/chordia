@@ -6,6 +6,7 @@ import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 import { grid } from '@li/config/design';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useState } from 'react';
 import { BlaunkHome } from '../base/components/BlaunkHome';
 import { HomeBanners } from '../base/components/HomeBanners';
 import { DealsAndOffer } from '../components/DealsAndOffer';
@@ -26,6 +27,7 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'hotel
 ));
 
 export const Tour = () => {
+  const [page, setPage] = useState<number>(0);
   return (
     <div className={styles.wrapper}>
       <div className={styles['carousal-wrapper']}>
@@ -41,7 +43,7 @@ export const Tour = () => {
         <Products />
       </div>
       <div className={styles['pagination-wrapper']}>
-        <PaginationNumber active={1} total={4} position="none" variant="light" />
+        <PaginationNumber active={page} onChange={setPage} total={4} position="none" variant="light" />
       </div>
       <DealsAndOffer showRecent />
     </div>

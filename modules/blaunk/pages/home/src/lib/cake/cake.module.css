@@ -281,3 +281,12 @@
   font-weight: var(--font-weight-bold);
   color: #2f53fc;
 }
+
+.pagination-wrapper {
+  position: relative;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}

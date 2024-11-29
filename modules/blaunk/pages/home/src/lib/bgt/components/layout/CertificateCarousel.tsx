@@ -5,14 +5,14 @@ import clsx from 'clsx';
 import styles from './certificate-carousel.module.css';
 import certificateStyles from './certificate.module.css';
 
-const products = getRandomImagesArray(12)(400, 250, 'saree').map((src, i) => (
+const products = getRandomImagesArray(12)(450, 250, 'saree').map((src, i) => (
   <ImageCard
     key={i}
     className={clsx(certificateStyles.card)}
     image={{
       src: src,
       width: 400,
-      height: 400,
+      height: 450,
       alt: 'random',
     }}
     imageClassName={certificateStyles.image}

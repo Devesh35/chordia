@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Carousal, ScrollableSnap } from '@li/design/elements';
+import { Button, Carousal, PaginationNumber, ScrollableSnap } from '@li/design/elements';
 import { Constants, cakeBanner, getRandomImagesArray } from '@md/blaunk/config';
 
 import { useMedia } from '@li/design/hooks';
@@ -116,6 +116,9 @@ export const Cake = () => {
       <Search />
       <Filter />
       <ProductWrapper>{isMobile ? productMobile : products}</ProductWrapper>
+      <div className={styles['pagination-wrapper']}>
+        <PaginationNumber active={1} total={4} position="none" variant="light" />
+      </div>
       <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} />
       <Details />
       <SectionHeader sectionName="Add On" />

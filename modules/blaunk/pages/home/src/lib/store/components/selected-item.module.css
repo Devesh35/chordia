@@ -188,8 +188,10 @@
 
 @media only screen and (max-width: 768px) {
   .product-section-box {
-    max-width: 80vw;
+    max-width: 90vw;
     min-width: 240px;
+    width: 100%;
+    margin-inline: auto;
   }
   .product-section-carousel-box {
     min-width: 240px;

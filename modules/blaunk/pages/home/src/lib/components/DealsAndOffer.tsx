@@ -3,9 +3,10 @@ import { getRandomImagesArray } from '@md/blaunk/config';
 
 // import { ImageCard } from '@li/design/components';
 // import clsx from 'clsx';
+import { useMedia } from '@li/design/hooks';
+import { SectionHeader } from '@md/blaunk/design';
 import Image from 'next/image';
 import styles from './deals-and-offer.module.css';
-import { SectionHeader } from '@md/blaunk/design';
 
 // const recentViews = getRandomImagesArray(8)(600, 600, 'hotels').map((src) => (
 //   <ImageCard
@@ -33,15 +34,19 @@ import { SectionHeader } from '@md/blaunk/design';
 //   />
 // ));
 
-const ads = getRandomImagesArray(10)(300, 300, 'hotels').map((src, i) => (
-  <Image key={i} src={src} width={300} height={300} alt={'random'} />
-));
+const ads = (isMobile: boolean = false) =>
+  getRandomImagesArray(10)(300, 300, 'hotels').map((src, i) => (
+    <Image key={i} src={src} width={isMobile ? 150 : 300} height={isMobile ? 150 : 300} alt={'random'} />
+  ));
 
-const adsLarge = getRandomImagesArray(10)(400, 800, 'hotels').map((src, i) => (
-  <Image key={i} src={src} width={800} height={400} alt={'random'} />
-));
+const adsLarge = (isMobile: boolean = false) =>
+  getRandomImagesArray(10)(400, 800, 'hotels').map((src, i) => (
+    <Image key={i} src={src} width={isMobile ? 400 : 800} height={400} alt={'random'} />
+  ));
 
 export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
+  const isMobile = useMedia();
+
   return (
     <>
       {/* {showRecent && (
@@ -53,18 +58,18 @@ export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
         </>
       )} */}
       <SectionHeader sectionName="Deals & Offer" />
-      <ScrollableSnap className={styles['add-on']} controls>
-        {ads}
+      <ScrollableSnap className={styles['add-on']} controls delta={300}>
+        {ads(isMobile)}
       </ScrollableSnap>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {ads}
+      <ScrollableSnap className={styles['add-on']} controls delta={300}>
+        {ads(isMobile)}
       </ScrollableSnap>
       <SectionHeader sectionName="Explore New" />
-      <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge}
+      <ScrollableSnap className={styles['add-on']} controls delta={350}>
+        {adsLarge(isMobile)}
       </ScrollableSnap>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge}
+      <ScrollableSnap className={styles['add-on']} controls delta={350}>
+        {adsLarge(isMobile)}
       </ScrollableSnap>
     </>
   );

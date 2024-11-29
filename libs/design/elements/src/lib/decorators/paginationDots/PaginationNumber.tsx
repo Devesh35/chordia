@@ -28,6 +28,7 @@ export const PaginationNumber = ({ position, active, total, variant = 'light', o
                 },
                 styles.number,
               )}
+              onClick={() => onChange?.(i)}
             >
               {i + 1}
             </span>

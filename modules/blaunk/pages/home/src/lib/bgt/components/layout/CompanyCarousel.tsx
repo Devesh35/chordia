@@ -10,7 +10,7 @@ const images = getRandomImagesArray(2)(500, 900).map((src) => (
     image={{
       src,
       width: 900,
-      height: 350,
+      height: 400,
       alt: 'random',
     }}
     // bottom={<div className={styles.label}>Trendy star name</div>}

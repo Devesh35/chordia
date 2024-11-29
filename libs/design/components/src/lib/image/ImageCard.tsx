@@ -1,6 +1,7 @@
 import { NextImage } from '@li/types/shared';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { FaHeart } from 'react-icons/fa';
 import styles from './image-card.module.css';
 
 type Props = {
@@ -12,15 +13,17 @@ type Props = {
   topRight?: React.ReactNode;
   imageClassName?: string;
   onClick?: () => void;
+  fav?: boolean;
 };
 
-export const ImageCard = ({ image, onClick, details, className, topLeft, topRight, imageClassName }: Props) => (
+export const ImageCard = ({ image, onClick, details, className, topLeft, topRight, imageClassName, fav }: Props) => (
   <div className={clsx(styles.wrapper, className)} onClick={onClick}>
     <div className={styles['top-left']}>{topLeft}</div>
     <div className={styles['top-right']}>{topRight}</div>
     <div className={clsx(imageClassName)}>
       <Image {...image} className={styles['image-center']} />
     </div>
+    {fav && <FaHeart className={styles['heart']} color={'red'} size={28} />}
     {details}
   </div>
 );

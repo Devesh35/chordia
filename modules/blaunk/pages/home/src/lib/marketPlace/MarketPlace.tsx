@@ -3,6 +3,7 @@
 'use client';
 
 import { getStaticImageSrc } from '@li/design/icons';
+import { CustomerReviews } from '@md/blaunk/design';
 import { Search } from '@mui/icons-material';
 import {
   Autocomplete,
@@ -25,9 +26,8 @@ import { useState } from 'react';
 import GIF from './assets/GIFs/BlaunkGIF.gif';
 import CustomCard from './components/layout/Card/CustomCard';
 import CustomCarousel from './components/layout/CustomCarousel/CustomCarousel';
-import './MarketPlace.css';
-import { CustomerReviews } from '@md/blaunk/design';
 import MarketCarousel from './components/layout/MarketCarousel/MarketCarousel';
+import './MarketPlace.css';
 
 interface FormState {
   sort: string;

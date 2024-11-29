@@ -94,7 +94,7 @@ export const SelectedItem = ({ data }: Props) => {
             ))}
           </CarousalDesign>
         )}
-        {isMobile && <Image src={data.images[0]} width={240} height={450} alt={data.name} loading="eager" />}
+        {isMobile && <Image src={data.images[0]} width={340} height={450} alt={data.name} loading="eager" />}
       </div>
       <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
         <div className={styles['product-header']}>

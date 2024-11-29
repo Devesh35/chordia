@@ -40,6 +40,7 @@ export const ProductCard = ({ src, tag, action, col = 'col-3', width, height }: 
             </Button>
           ) : null
         }
+        fav
       />
     </>
   );

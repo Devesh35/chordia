@@ -30,3 +30,9 @@
   display: block;
   margin-inline: auto;
 }
+
+.heart {
+  position: absolute;
+  bottom: 60px;
+  right: 10px;
+}

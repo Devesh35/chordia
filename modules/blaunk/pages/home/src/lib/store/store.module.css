@@ -8,3 +8,12 @@
 .carousal-wrapper {
   height: var(--b2b-home-banner-size);
 }
+
+.pagination-wrapper {
+  position: relative;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
