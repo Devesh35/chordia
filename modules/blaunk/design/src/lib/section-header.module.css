@@ -9,8 +9,19 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  max-width: 80vw;
+  text-align: center;
 }
 
 .no-gap {
   gap: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    text-wrap: wrap;
+    font-size: var(--font-size-h4);
+    line-height: var(--line-height-h4);
+    font-weight: var(--font-weight-bold);
+  }
 }

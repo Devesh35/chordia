@@ -1,7 +1,8 @@
 import { toLowerCase } from '@li/config/utils';
-import { FormSection, TabNav, Table, TableColumn } from '@li/design/elements';
+import { FormSection, FormSectionHeader, TabNav, Table, TableColumn } from '@li/design/elements';
 import { withConditionCase } from '@li/design/enhancers';
 import { profileSections } from '@md/blaunk/config';
+import clsx from 'clsx';
 import styles from './profile.module.css';
 
 const tabItems = ['Personal', 'General', 'Bank', 'Vendor', 'Export', 'Policy', 'Terms'] as const;
@@ -101,9 +102,12 @@ const tabs = tabItems.map((item) => ({
             <Table columns={columns} data={data} />
           </div>
         ),
-        Vendor: (
-          <div className={styles['table-wrapper']}>
-            <Table columns={columnsVendor} data={dataVendor} />
+        General: (
+          <div>
+            <FormSectionHeader title="Order detail" />
+            <div className={clsx(styles['table-wrapper'], styles['general-table'])}>
+              <Table columns={columnsVendor} data={dataVendor} />
+            </div>
           </div>
         ),
       })}

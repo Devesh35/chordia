@@ -13,14 +13,7 @@ export const MenuBar = ({ variant = 'navbar' }: MenuBarProps) => {
   return (
     <div className={clsx(styles.wrapper, styles[`wrapper-${variant}`])}>
       {MenuBarItems.map((item) => (
-        <Link
-          className={clsx(
-            styles.store,
-            variant ? styles[`store-${variant}`] : '',
-          )}
-          key={item.id}
-          href={item.path}
-        >
+        <Link className={clsx(styles.store, variant ? styles[`store-${variant}`] : '')} key={item.id} href={item.path}>
           <Image
             className={clsx(styles.image)}
             src={getStaticImageSrc(item.icon)}

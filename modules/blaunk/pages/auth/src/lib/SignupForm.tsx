@@ -73,11 +73,8 @@ export const SignupForm = () => {
         <PhoneInput
           placeholder="Enter your phone"
           countryCodes={CountryCodeOptions}
-          onSendOTP={sendOTP}
-          onVerifyOTP={verifyOTP}
           value={phone}
           onChange={setPhone}
-          hasOTP
         />
       </Labeled>
       <Labeled label="Email">

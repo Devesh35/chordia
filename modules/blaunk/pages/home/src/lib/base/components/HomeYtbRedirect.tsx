@@ -1,16 +1,16 @@
 'use client';
 
 import { grid } from '@li/config/design';
-import clsx from 'clsx';
-import styles from './find-vendors.module.css';
 import { getStaticImageSrc } from '@li/design/icons';
 import { homeYtbRedirect, Routes } from '@md/blaunk/config';
+import clsx from 'clsx';
+import styles from './find-vendors.module.css';
 
 export const HomeYtbRedirect = () => {
   return (
     <a
-      href={Routes.home.bgt.path} 
-      className={clsx(styles.wrapper, grid['col-6'])}
+      href={Routes.home.bgt.path}
+      className={clsx(styles.wrapper, grid['col-6'], grid['col-m-6'])}
       style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}
     >
       <img

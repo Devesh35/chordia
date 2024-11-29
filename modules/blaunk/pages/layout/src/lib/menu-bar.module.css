@@ -56,3 +56,15 @@
   max-height: 48px;
   border-radius: 20%;
 }
+
+@media only screen and (max-width: 768px) {
+  .image {
+    max-height: 32px;
+  }
+
+  .name {
+    color: var(--onprimaryaccent);
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+  }
+}

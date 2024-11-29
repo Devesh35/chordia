@@ -1,8 +1,9 @@
-import { grid } from '@li/config/design';
+'use client';
+
+import { useMedia } from '@li/design/hooks';
 import { getStaticImageSrc } from '@li/design/icons';
 import { blaunkHome } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
-import clsx from 'clsx';
 import { BannerSection } from './components/BannerSection';
 import { BlaunkHome } from './components/BlaunkHome';
 import { CategorySearch } from './components/CategorySearch';
@@ -18,16 +19,18 @@ import { TrendyStars } from './components/TrendyStars';
 import styles from './home.module.css';
 
 export const Home = () => {
+  const isMobile = useMedia('mobile');
+
   return (
     <div className={styles.wrapper}>
       <TopSection />
       <RollingAd size={150} />
       <BlaunkHome />
-      <div className={clsx(styles.section, grid.grid)}>
+      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '24px' }}>
         <FindVendors backgroundImage="url('https://img.freepik.com/premium-photo/logistic-network-distribution-background-logistic-transport-concept_250469-9178.jpg')" />
         <HomeYtbRedirect />
-        <CustomerReviews />
       </div>
+      <CustomerReviews />
       <BannerSection size={301} />
       <HomeBanners />
       <CategorySearch />

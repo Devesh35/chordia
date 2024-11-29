@@ -14,7 +14,7 @@ export const MenuBarItems = [
   },
   {
     id: 'market',
-    name: 'Market',
+    name: 'Dial',
     path: Routes.home.marketPlace.path,
     icon: boutique,
   },
