@@ -36,3 +36,9 @@
   bottom: 60px;
   right: 10px;
 }
+
+.heart-corner {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}

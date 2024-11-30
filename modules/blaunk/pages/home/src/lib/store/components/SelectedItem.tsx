@@ -80,21 +80,11 @@ export const SelectedItem = ({ data }: Props) => {
   const items = (
     <>
       <div className={styles['product-section-carousel-box']}>
-        {!isMobile && (
-          <CarousalDesign className={styles['product-images']}>
-            {data.images.map((src, i) => (
-              <Image
-                key={src}
-                src={src}
-                width={800}
-                height={450}
-                alt={data.name}
-                loading={i === 0 ? 'eager' : 'lazy'}
-              />
-            ))}
-          </CarousalDesign>
-        )}
-        {isMobile && <Image src={data.images[0]} width={340} height={450} alt={data.name} loading="eager" />}
+        <CarousalDesign className={styles['product-images']}>
+          {data.images.map((src, i) => (
+            <Image key={src} src={src} width={800} height={450} alt={data.name} loading={i === 0 ? 'eager' : 'lazy'} />
+          ))}
+        </CarousalDesign>
       </div>
       <div className={clsx(styles['product-section-box'], styles['product-info-right'])}>
         <div className={styles['product-header']}>

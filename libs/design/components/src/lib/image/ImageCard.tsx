@@ -14,9 +14,20 @@ type Props = {
   imageClassName?: string;
   onClick?: () => void;
   fav?: boolean;
+  favCorner?: boolean;
 };
 
-export const ImageCard = ({ image, onClick, details, className, topLeft, topRight, imageClassName, fav }: Props) => (
+export const ImageCard = ({
+  image,
+  onClick,
+  favCorner,
+  details,
+  className,
+  topLeft,
+  topRight,
+  imageClassName,
+  fav,
+}: Props) => (
   <div className={clsx(styles.wrapper, className)} onClick={onClick}>
     <div className={styles['top-left']}>{topLeft}</div>
     <div className={styles['top-right']}>{topRight}</div>
@@ -24,6 +35,7 @@ export const ImageCard = ({ image, onClick, details, className, topLeft, topRigh
       <Image {...image} className={styles['image-center']} />
     </div>
     {fav && <FaHeart className={styles['heart']} color={'red'} size={28} />}
+    {favCorner && <FaHeart className={styles['heart-corner']} color={'red'} size={28} />}
     {details}
   </div>
 );
