@@ -63,3 +63,24 @@
 .dark > svg:hover {
   stroke: var(--transparentw80);
 }
+
+@media only screen and (max-width: 768px) {
+  .item {
+    min-width: 24px;
+    min-height: 24px;
+  }
+  .item > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .large {
+    padding: 12px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  .large > svg {
+    width: 24px;
+    height: 24px;
+  }
+}

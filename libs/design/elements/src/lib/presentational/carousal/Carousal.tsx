@@ -5,10 +5,7 @@ import { ReactChildren } from '@li/types/shared';
 import clsx from 'clsx';
 import React, { forwardRef, useEffect } from 'react';
 import { MoveControl, PaginationDots } from '../../decorators';
-import {
-  PolymorphicComponentProp,
-  PolymorphicComponentPropWithRef,
-} from '../../poly';
+import { PolymorphicComponentProp, PolymorphicComponentPropWithRef } from '../../poly';
 import styles from './carousal.module.css';
 
 type Variant = 'light' | 'dark';
@@ -26,30 +23,13 @@ export type CarousalProps = {
   variant?: Variant;
 } & ReactChildren;
 
-export const Carousal = forwardRef<
-  HTMLDivElement,
-  PolymorphicComponentProp<'div', CarousalProps>
->(
+export const Carousal = forwardRef<HTMLDivElement, PolymorphicComponentProp<'div', CarousalProps>>(
   (
-    {
-      children,
-      autoInterval,
-      hideControls,
-      hidePagination,
-      pagination = 'bottom',
-      variant,
-      className,
-      controlSize,
-    },
+    { children, autoInterval, hideControls, hidePagination, pagination = 'bottom', variant, className, controlSize },
     ref,
   ) => {
     const childArray = React.Children.toArray(children) as React.ReactElement[];
-    const {
-      active,
-      prev,
-      updateBy: update,
-      isNearActive,
-    } = useCyclicRange(childArray.length);
+    const { active, prev, updateBy: update, isNearActive } = useCyclicRange(childArray.length);
 
     useEffect(() => {
       if (!autoInterval) return;
@@ -76,19 +56,10 @@ export const Carousal = forwardRef<
           {hideControls
             ? null
             : pagination === 'bottom' && (
-                <MoveControl
-                  size={controlSize}
-                  variant={variant}
-                  onChange={(dx) => update(dx)}
-                />
+                <MoveControl size={controlSize} variant={variant} onChange={(dx) => update(dx)} />
               )}
           {hidePagination ? null : (
-            <PaginationDots
-              active={active}
-              variant={variant}
-              position={pagination}
-              total={childArray.length}
-            />
+            <PaginationDots active={active} variant={variant} position={pagination} total={childArray.length} />
           )}
         </div>
       </div>

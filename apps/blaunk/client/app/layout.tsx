@@ -25,6 +25,7 @@ export default function RootLayout({ children }: ReactChildren) {
           <div className={styles.background}>
             <div className={styles.layout}>
               <NavHeader content="search" />
+
               <MenuBar variant="separate" />
               <div className={`${styles.content} ${sbs.dark}`}>
                 <div className={styles.page}>{children}</div>

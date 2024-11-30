@@ -52,3 +52,22 @@
   font-size: var(--font-size-l12);
   line-height: var(--line-height-l12);
 }
+
+.flag {
+  min-width: 60px;
+  min-height: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .country-name {
+    font-size: 0.6rem;
+    line-height: 0.75rem;
+  }
+
+  .button {
+    border-radius: 100vh;
+    padding: 8px 12px;
+    font-size: 0.6rem;
+    line-height: 0.75rem;
+  }
+}

@@ -91,3 +91,22 @@
   height: 2rem;
   text-align: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  .active {
+    top: 8px;
+    left: 8px;
+  }
+  .wrapper {
+    padding: 8px;
+  }
+
+  .number {
+    width: 1rem;
+    height: 1rem;
+  }
+}
