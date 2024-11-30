@@ -97,4 +97,18 @@
   .items {
     gap: 8px;
   }
+
+  .welcome {
+    font-size: 14px !important;
+  }
+  .welcome svg {
+    width: 12px;
+    height: 12px;
+  }
+  .welcome {
+    min-width: 80px;
+  }
+  .wrapper {
+    padding: 0.5rem 1rem;
+  }
 }

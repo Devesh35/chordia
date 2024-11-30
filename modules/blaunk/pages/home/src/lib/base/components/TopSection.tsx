@@ -12,8 +12,8 @@ const images = (isMobile: boolean) =>
     <Image
       key={src}
       src={src}
-      width={isMobile ? 360 : 1920}
-      height={isMobile ? 140 : Constants.homeBannerImageSizeMax}
+      width={isMobile ? 440 : 1920}
+      height={isMobile ? 240 : Constants.homeBannerImageSizeMax}
       alt="random"
       loading={i === 0 ? 'eager' : 'lazy'}
     />

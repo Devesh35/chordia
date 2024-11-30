@@ -59,7 +59,7 @@
 
 @media only screen and (max-width: 768px) {
   .image {
-    max-height: 18px;
+    max-height: 12px;
   }
 
   .name {
@@ -70,5 +70,13 @@
 
   .wrapper {
     gap: 8px;
+  }
+  .store {
+    width: 36px;
+  }
+  .store-separate .image {
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: 50%;
   }
 }

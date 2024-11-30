@@ -42,7 +42,7 @@ export const NavHeader = ({ content }: NavHeaderProps) => {
           default: '',
         })}
 
-      <div className={styles.items}>
+      <div className={styles.items} style={isMobile ? { gap: '8px' } : {}}>
         <div className={clsx(styles.item, styles['item-select'])}>
           <NavHeaderMenu />
         </div>

@@ -52,9 +52,10 @@
     --max-screen-width: 100vw;
     --nav-header-height: 48px;
     --menu-bar-height: 48px;
+    --menu-bar-height-separate: 60px;
     --b2b-nav-bar-height: 48px;
-    --home-banner-image-size-max: 140px;
-    --home-banner-image-size-min: 120px;
+    --home-banner-image-size-max: 240px;
+    --home-banner-image-size-min: 240px;
     --b2b-home-banner-size: 130px;
 
     --modal-min-width: 300px;
