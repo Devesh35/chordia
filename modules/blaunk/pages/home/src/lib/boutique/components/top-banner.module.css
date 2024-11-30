@@ -37,4 +37,20 @@
   .wrapper {
     flex-direction: column;
   }
+  .image {
+    height: 200px;
+  }
+  .image * {
+    height: 200px;
+  }
+  .text-title {
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+  }
+
+  .more {
+    padding: 0.5rem 2rem;
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+  }
 }
