@@ -1,10 +1,10 @@
 'use client';
 
+import { useMedia } from '@li/design/hooks';
 import { Dot } from '@li/design/icons';
 import clsx from 'clsx';
 import styles from './pagination-dots.module.css';
 
-const paginationGap = 8;
 const paginationDotSize = 12;
 type PaginationPosition = 'top' | 'left' | 'bottom' | 'right' | 'none';
 
@@ -19,6 +19,9 @@ type Props = {
 const horizontal: PaginationPosition[] = ['bottom', 'top', 'none'];
 
 export const PaginationDots = ({ position, active, total, variant = 'light', onChange }: Props) => {
+  const isMobile = useMedia();
+
+  const paginationGap = isMobile ? 5 : 8;
   const v = `${active * (paginationGap + paginationDotSize)}px`;
 
   return (
