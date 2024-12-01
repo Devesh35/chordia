@@ -1,6 +1,8 @@
 'use client';
+import { Button, Checkbox, FormDocument } from '@li/design/elements';
 // cspell:disable
 import { useState } from 'react';
+import { FaFilePdf } from 'react-icons/fa';
 
 const CheckIcon = () => {
   return (
@@ -24,6 +26,8 @@ const agreementData = [
   {
     english: 'BLAUNK.in will act as an intermediate for both BUY & SELL transaction purpose.',
     hindi: 'BLAUNK.in BUY और SELL दोनों लेन-देन के उद्देश्य के लिए एक मध्यवर्ती के रूप में कार्य करेगा।',
+    tamil: 'BLAUNK.in பரிவர்த்தனை நோக்கத்திற்காக வாங்குதல் மற்றும் விற்பது ஆகிய இரண்டிற்கும் இடைநிலையாக செயல்படும்.',
+    arabic: 'سيكون BLAUNK.in بمثابة الوسيط لغرض معاملات البيع والشراء.',
   },
   {
     english:
@@ -93,7 +97,7 @@ const agreementData = [
 ];
 
 export const Agreement = () => {
-  const [lang, setLang] = useState<'english' | 'hindi'>('english');
+  const [lang, setLang] = useState<'english' | 'hindi' | 'tamil' | 'arabic'>('english');
 
   return (
     <div
@@ -101,6 +105,7 @@ export const Agreement = () => {
       style={{
         color: 'rgb(255, 255, 255)',
         backgroundColor: 'rgb(109, 117, 29)',
+        paddingBottom: '12px',
       }}
     >
       <div className="mx-auto mt-2 p-3 text-center">
@@ -117,6 +122,12 @@ export const Agreement = () => {
             </option>
             <option className="text-center" value="hindi">
               Hindi
+            </option>
+            <option className="text-center" value="tamil">
+              Tamil
+            </option>
+            <option className="text-center" value="arabic">
+              Arabic
             </option>
           </select>
         </label>
@@ -142,11 +153,42 @@ export const Agreement = () => {
                   <td>
                     <CheckIcon />
                   </td>
-                  <td>{data[lang]}</td>
+                  <td>{data[lang] || data.english}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+      <div
+        className="container mx-auto d-flex items-center"
+        style={{
+          flexDirection: 'column',
+          gap: '8px',
+        }}
+      >
+        <div
+          className="container mx-auto d-flex items-center"
+          style={{
+            gap: '8px',
+            backgroundColor: 'rgb(218, 255, 179)',
+            padding: '8px 0 4px 12px',
+          }}
+        >
+          <Checkbox label="I have read and accept this terms and conditions" />
+        </div>
+        <div
+          className="container mx-auto d-flex items-center"
+          style={{
+            gap: '8px',
+          }}
+        >
+          <FormDocument id={'sign'} label="Signature" placeholder={'Upload sign'} required />
+          <div className="info-box-body d-flex align-items-center">
+            <Button>
+              <FaFilePdf className="me-2 text-danger" /> Terms.pdf
+            </Button>
+          </div>
         </div>
       </div>
     </div>

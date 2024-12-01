@@ -39,6 +39,7 @@
   }
   .image {
     height: 200px;
+    min-height: 200px;
   }
   .image * {
     height: 200px;
