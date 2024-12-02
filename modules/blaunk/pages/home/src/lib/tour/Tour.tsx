@@ -1,9 +1,10 @@
 'use client';
 
-import { Carousal, PaginationNumber } from '@li/design/elements';
+import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 
 import { grid } from '@li/config/design';
+import { PaginationBlaunk } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { BlaunkHome } from '../base/components/BlaunkHome';
@@ -40,9 +41,7 @@ export const Tour = () => {
       <div className={clsx(grid.grid, grid['grid-12'], styles.grid)}>
         <Products />
       </div>
-      <div className={styles['pagination-wrapper']}>
-        <PaginationNumber active={1} total={4} position="none" variant="light" />
-      </div>
+      <PaginationBlaunk />
       <DealsAndOffer showRecent />
     </div>
   );

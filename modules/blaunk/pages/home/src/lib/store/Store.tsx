@@ -3,7 +3,7 @@
 import { Carousal } from '@li/design/elements';
 import { useMedia } from '@li/design/hooks';
 import { Constants, getRandomImagesArray, storeRoof } from '@md/blaunk/config';
-import { CustomerReviews, RollingAd } from '@md/blaunk/design';
+import { CustomerReviews, PaginationBlaunk, RollingAd } from '@md/blaunk/design';
 import { Basket } from 'modules/blaunk/design/src/lib/Basket';
 import Image from 'next/image';
 import { DealsAndOffer } from '../components/DealsAndOffer';
@@ -120,6 +120,7 @@ export const Store = () => {
       </div>
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
+      <PaginationBlaunk />
       {/* <DealSection /> */}
       <StoreBanner storeName="Bikaner sweets" location="Bikaner, Rajasthan" discount={50} />
       <SelectedItem data={dummyItem} />

@@ -185,8 +185,13 @@ export const Agreement = () => {
         >
           <FormDocument id={'sign'} label="Signature" placeholder={'Upload sign'} required />
           <div className="info-box-body d-flex align-items-center">
-            <Button>
-              <FaFilePdf className="me-2 text-danger" /> Terms.pdf
+            <Button
+              style={{
+                backgroundColor: 'rgb(218, 255, 179)',
+                color: 'black',
+              }}
+            >
+              <FaFilePdf className="me-2 text-danger" /> Download Terms.pdf
             </Button>
           </div>
         </div>
