@@ -1,6 +1,6 @@
 import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
-import { CustomerReviews, RollingAd } from '@md/blaunk/design';
+import { CustomerReviews, PaginationBlaunk, RollingAd } from '@md/blaunk/design';
 
 import Image from 'next/image';
 import styles from './buy.module.css';
@@ -30,6 +30,7 @@ export const BGTBuy = () => {
       <RollingAd size={150} />
       <SearchBar />
       <BuySection />
+      <PaginationBlaunk />
       <CustomerReviews />
       <BGTImages />
     </div>

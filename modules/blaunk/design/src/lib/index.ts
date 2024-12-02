@@ -1,5 +1,6 @@
 export { RollingAd } from './AdSection';
 export { CustomerReviews } from './CustomerReviews';
+export { PaginationBlaunk } from './PaginationBlaunk';
 export { PolicyRow, Share } from './PolicyRow';
 export {
   AddressSearch,

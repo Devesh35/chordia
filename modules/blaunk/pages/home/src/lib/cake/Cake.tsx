@@ -4,17 +4,17 @@ import { Button, Carousal, ScrollableSnap } from '@li/design/elements';
 import { Constants, cakeBanner, getRandomImagesArray } from '@md/blaunk/config';
 
 import { getStaticImageSrc } from '@li/design/icons';
-import { CustomerReviews, SectionHeader } from '@md/blaunk/design';
+import { CustomerReviews, PaginationBlaunk, SectionHeader } from '@md/blaunk/design';
+import { Basket } from 'modules/blaunk/design/src/lib/Basket';
 import Image from 'next/image';
 import { AddOnCard } from '../components/AddOnCard';
 import { DealsAndOffer } from '../components/DealsAndOffer';
 import { ProductCard, ProductWrapper } from '../components/ProductCard';
+import CakeBanner from './CakeBanner';
+import Details from './Details';
 import { Filter } from './Filter';
 import { Search } from './Search';
 import styles from './cake.module.css';
-import { Basket } from 'modules/blaunk/design/src/lib/Basket';
-import Details from './Details';
-import CakeBanner from './CakeBanner';
 
 const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1921).map((src, i) => (
   <Image
@@ -99,12 +99,13 @@ export const Cake = () => {
       <Search />
       <Filter />
       <ProductWrapper>{products}</ProductWrapper>
+      <PaginationBlaunk />
       <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} /> <Details />
       <SectionHeader sectionName="Add On" />
       <ScrollableSnap className={styles['add-on']} controls delta={240}>
         {addOn}
       </ScrollableSnap>
-      <div style={{backgroundColor: "#FFBF61", paddingBottom: "25px", borderRadius: "12px"}}>
+      <div style={{ backgroundColor: '#FFBF61', paddingBottom: '25px', borderRadius: '12px' }}>
         <Basket />
       </div>
       <CustomerReviews />
