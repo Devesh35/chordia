@@ -60,8 +60,18 @@ export const NavHeaderMenu = () => {
               alignItems: 'center',
             }}
           >
-            <div>Chordia</div>
-            <DownFilled fill="var(--gray300)" />
+            <div
+              style={
+                isMobile
+                  ? {
+                      fontSize: '14px',
+                    }
+                  : {}
+              }
+            >
+              Chordia
+            </div>
+            <DownFilled fill="var(--gray300)" width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
           </div>
         </Button>
       </>

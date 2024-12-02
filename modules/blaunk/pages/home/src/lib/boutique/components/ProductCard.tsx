@@ -24,11 +24,11 @@ export const ProductCard = ({ src, tag, action, col = 'col-3', width, height }: 
       {isOpen && <SelectedItem2 isOpen onClose={() => setIsOpen(false)} />}
       <ImageCard
         className={clsx(styles.card, grid[col], { clickable: !!action }, grid['col-t-4'], grid['col-m-6'])}
-        onClick={() => action && setIsOpen(true)}
+        onClick={() => setIsOpen(true)}
         image={{
           src: src,
           width: width || 400,
-          height: height || 400,
+          height: height || 600,
           alt: 'random',
         }}
         imageClassName={styles.image}
@@ -40,6 +40,8 @@ export const ProductCard = ({ src, tag, action, col = 'col-3', width, height }: 
             </Button>
           ) : null
         }
+        fav={!!action}
+        favCorner={!action}
       />
     </>
   );

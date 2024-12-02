@@ -15,7 +15,7 @@ type Props = {
 };
 
 const images = getRandomImagesArray(6)(500).map((src, i) => (
-  <Image key={src} src={src} width={500} height={500} alt="random" loading={i === 0 ? 'eager' : 'lazy'} />
+  <Image key={src} src={src} width={400} height={600} alt="random" loading={i === 0 ? 'eager' : 'lazy'} />
 ));
 
 export const SelectedItem2 = ({ isOpen, onClose }: Props) => {

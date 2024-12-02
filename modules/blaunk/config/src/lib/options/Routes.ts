@@ -158,7 +158,7 @@ export const Routes = {
     agreement: {
       seller: true,
       isProtected: true,
-      title: 'Agreement | Blaunk',
+      title: 'Terms And Conditions | Blaunk',
       path: '/legacy/info/agreement',
     },
     careers: {

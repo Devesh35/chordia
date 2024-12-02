@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Container, Row, Col, Card, Button, Form, InputGroup } from 'react-bootstrap';
+import { useMedia } from '@li/design/hooks';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { Button, Card, Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 import './Basket.css';
 
 interface Product {
@@ -58,6 +59,8 @@ const initialProducts: Product[] = [
 ];
 
 export const Basket = () => {
+  const isMobile = useMedia();
+
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [voucherCode, setVoucherCode] = useState('');
 
@@ -91,10 +94,10 @@ export const Basket = () => {
             }}
           >
             <Row className="mb-3 sticky-top bg-white">
-              <Col md={8}>
+              <Col xs={8}>
                 <Card.Title className="text-start text-danger">MY BASKET</Card.Title>
               </Col>
-              <Col md={4}>
+              <Col xs={4}>
                 <Card.Text className="text-end ">
                   min order value: <span className="text-danger">500</span> <span className="fw-bold">(In Rs.)</span>
                 </Card.Text>
@@ -104,7 +107,7 @@ export const Basket = () => {
               {products.map((product) => (
                 <Card key={product.id} className="mb-3">
                   <Row className="g-0">
-                    <Col md={2}>
+                    <Col xs={3} md={2}>
                       <Card.Img
                         src={product.image}
                         className="img-fluid rounded-start"
@@ -116,85 +119,159 @@ export const Basket = () => {
                         alt={product.description}
                       />
                     </Col>
-                    <Col md={3}>
-                      <Card.Body>
-                        <Card.Text>{product.description}</Card.Text>
-                      </Card.Body>
+                    <Col md={3} xs={4}>
+                      <Card.Body>{product.description}</Card.Body>
                     </Col>
-                    <Col md={2}>
-                      <Card.Body>
-                        <Card.Text className="fw-bold">{product.quantity}</Card.Text>
-                      </Card.Body>
-                    </Col>
-                    <Col md={3}>
-                      <Card.Body>
-                        <InputGroup
-                          className="d-flex align-items-center"
-                          style={{
-                            width: 'fit-content',
-                            padding: '0',
-                            margin: '0',
-                            border: '1px solid #ced4da',
-                            borderRadius: '5px',
-                            overflow: 'hidden',
-                          }}
-                          size="sm"
-                        >
-                          <Button
-                            style={{
-                              backgroundColor: '#6d741c',
-                              color: 'white',
-                              padding: '0.25rem 0.5rem',
-                              border: 'none',
-                            }}
-                            variant="secondary"
-                            onClick={() =>
-                              setProducts((prevProducts) =>
-                                prevProducts
-                                  .map((p) => (p.id === product.id ? { ...p, amount: p.amount - 1 } : p))
-                                  .filter((p) => p.amount > 0),
-                              )
-                            }
-                            size="sm"
-                          >
-                            -
-                          </Button>
-                          <Form.Control
-                            value={product.amount}
-                            readOnly
-                            className="text-center"
-                            style={{
-                              width: '40px',
-                              padding: '0.20rem',
-                              border: '1px solid #ced4da',
-                              textAlign: 'center',
-                            }}
-                          />
-                          <Button
-                            style={{
-                              backgroundColor: '#6d741c',
-                              color: 'white',
-                              padding: '0.25rem 0.5rem',
-                              border: 'none',
-                            }}
-                            variant="secondary"
-                            onClick={() =>
-                              setProducts(
-                                products.map((p) => (p.id === product.id ? { ...p, amount: p.amount + 1 } : p)),
-                              )
-                            }
-                            size="sm"
-                          >
-                            +
-                          </Button>
-                        </InputGroup>
-                      </Card.Body>
-                    </Col>
-                    <Col md={2}>
-                      <Card.Body>
-                        <Card.Text className="fw-bold">{(product.price * product.amount).toFixed(2)}</Card.Text>
-                      </Card.Body>
-                    </Col>
+                    {!isMobile && (
+                      <>
+                        <Col xs={2}>
+                          <Card.Body className="fw-bold">{product.quantity}</Card.Body>
+                        </Col>
+                        <Col xs={3}>
+                          <Card.Body>
+                            <InputGroup
+                              className="d-flex align-items-center"
+                              style={{
+                                width: 'fit-content',
+                                padding: '0',
+                                margin: '0',
+                                border: '1px solid #ced4da',
+                                borderRadius: '5px',
+                                overflow: 'hidden',
+                              }}
+                              size="sm"
+                            >
+                              <Button
+                                style={{
+                                  backgroundColor: '#6d741c',
+                                  color: 'white',
+                                  padding: '0.25rem 0.5rem',
+                                  border: 'none',
+                                }}
+                                variant="secondary"
+                                onClick={() =>
+                                  setProducts((prevProducts) =>
+                                    prevProducts
+                                      .map((p) => (p.id === product.id ? { ...p, amount: p.amount - 1 } : p))
+                                      .filter((p) => p.amount > 0),
+                                  )
+                                }
+                                size="sm"
+                              >
+                                -
+                              </Button>
+                              <Form.Control
+                                value={product.amount}
+                                readOnly
+                                className="text-center"
+                                style={{
+                                  width: '40px',
+                                  padding: '0.20rem',
+                                  border: '1px solid #ced4da',
+                                  textAlign: 'center',
+                                }}
+                              />
+                              <Button
+                                style={{
+                                  backgroundColor: '#6d741c',
+                                  color: 'white',
+                                  padding: '0.25rem 0.5rem',
+                                  border: 'none',
+                                }}
+                                variant="secondary"
+                                onClick={() =>
+                                  setProducts(
+                                    products.map((p) => (p.id === product.id ? { ...p, amount: p.amount + 1 } : p)),
+                                  )
+                                }
+                                size="sm"
+                              >
+                                +
+                              </Button>
+                            </InputGroup>
+                          </Card.Body>
+                        </Col>
+                        <Col xs={2}>
+                          <Card.Body>
+                            <Card.Text className="fw-bold">{(product.price * product.amount).toFixed(2)}</Card.Text>
+                          </Card.Body>
+                        </Col>
+                      </>
+                    )}
+                    {isMobile && (
+                      <Col xs={5}>
+                        <Row>
+                          <div className="fw-bold">{product.quantity}</div>
+                        </Row>
+                        <Row>
+                          <Card.Body>
+                            <InputGroup
+                              className="d-flex align-items-center"
+                              style={{
+                                width: 'fit-content',
+                                padding: '0',
+                                margin: '0',
+                                border: '1px solid #ced4da',
+                                borderRadius: '5px',
+                                overflow: 'hidden',
+                              }}
+                              size="sm"
+                            >
+                              <Button
+                                style={{
+                                  backgroundColor: '#6d741c',
+                                  color: 'white',
+                                  padding: '0.25rem 0.5rem',
+                                  border: 'none',
+                                }}
+                                variant="secondary"
+                                onClick={() =>
+                                  setProducts((prevProducts) =>
+                                    prevProducts
+                                      .map((p) => (p.id === product.id ? { ...p, amount: p.amount - 1 } : p))
+                                      .filter((p) => p.amount > 0),
+                                  )
+                                }
+                                size="sm"
+                              >
+                                -
+                              </Button>
+                              <Form.Control
+                                value={product.amount}
+                                readOnly
+                                className="text-center"
+                                style={{
+                                  width: '40px',
+                                  padding: '0.20rem',
+                                  border: '1px solid #ced4da',
+                                  textAlign: 'center',
+                                }}
+                              />
+                              <Button
+                                style={{
+                                  backgroundColor: '#6d741c',
+                                  color: 'white',
+                                  padding: '0.25rem 0.5rem',
+                                  border: 'none',
+                                }}
+                                variant="secondary"
+                                onClick={() =>
+                                  setProducts(
+                                    products.map((p) => (p.id === product.id ? { ...p, amount: p.amount + 1 } : p)),
+                                  )
+                                }
+                                size="sm"
+                              >
+                                +
+                              </Button>
+                            </InputGroup>
+                          </Card.Body>
+                        </Row>
+                        <Row>
+                          <div className="fw-bold">{(product.price * product.amount).toFixed(2)}</div>
+                        </Row>
+                      </Col>
+                    )}
                   </Row>
                 </Card>
               ))}
@@ -216,12 +293,12 @@ export const Basket = () => {
                   <span style={{ color: '#6d741c' }}>DETAILS</span>
                 </Card.Title>
               </Col>
-              <Col md={4} className='text-end'>
+              <Col md={4} className="text-end">
                 <span className="fw-bold">(In Rs.)</span>
               </Col>
             </Row>
 
-            <Card.Body className='pt-0'>
+            <Card.Body className="pt-0">
               <hr />
               <Row>
                 <Col>MRP Value</Col>

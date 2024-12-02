@@ -13,7 +13,7 @@ const products = (router: () => void) =>
   getRandomImagesArray(18)(300, 300, 'hotel').map((src, i) => (
     <ImageCard
       key={i}
-      className={clsx(grid['col-2'], 'clickable')}
+      className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-6'], 'clickable')}
       image={{
         src: src,
         width: 300,

@@ -1,4 +1,4 @@
-import { bgt, boutique, cake, store, tour } from '../images';
+import { bgt, boutique, cake, Dial, store, tour } from '../images';
 import { Routes } from './Routes';
 
 export const MenuBarItems = [
@@ -16,6 +16,6 @@ export const MenuBarItems = [
     id: 'market',
     name: 'Dial',
     path: Routes.home.marketPlace.path,
-    icon: boutique,
+    icon: Dial,
   },
 ];

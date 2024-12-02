@@ -1,13 +1,11 @@
 import { useMediaQuery } from 'react-responsive';
 
 enum Breakpoint {
-  Large = 1159,
-  Desktop = 1200,
+  Desktop = 787,
   Custom = 1261,
-  TabletTill = 1199,
-  TabletFrom = 898,
-  MobileTill = 897,
-  MobileSmallTill = 356,
+  TabletTill = 786,
+  TabletFrom = 481,
+  MobileTill = 480,
 }
 
 const buildCondition = (minWidth?: Breakpoint, maxWidth?: Breakpoint, extraCondition?: string) => {

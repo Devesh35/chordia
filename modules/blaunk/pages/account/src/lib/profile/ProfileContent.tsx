@@ -2,6 +2,7 @@ import { toLowerCase } from '@li/config/utils';
 import { FormSection, FormSectionHeader, TabNav, Table, TableColumn } from '@li/design/elements';
 import { withConditionCase } from '@li/design/enhancers';
 import { profileSections } from '@md/blaunk/config';
+import { Agreement } from '@md/blaunk/legacy';
 import clsx from 'clsx';
 import styles from './profile.module.css';
 
@@ -110,6 +111,7 @@ const tabs = tabItems.map((item) => ({
             </div>
           </div>
         ),
+        Terms: <Agreement />,
       })}
     </>
   ),

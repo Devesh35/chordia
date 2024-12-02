@@ -46,3 +46,19 @@
   --staractive: var(--primary600);
   --starinactive: var(--gray200);
 }
+
+@media only screen and (max-width: 768px) {
+  .base {
+    --max-screen-width: 100vw;
+    --nav-header-height: 48px;
+    --menu-bar-height: 48px;
+    --menu-bar-height-separate: 60px;
+    --b2b-nav-bar-height: 48px;
+    --home-banner-image-size-max: 240px;
+    --home-banner-image-size-min: 240px;
+    --b2b-home-banner-size: 130px;
+
+    --modal-min-width: 300px;
+    --modal-max-width: 360px;
+  }
+}

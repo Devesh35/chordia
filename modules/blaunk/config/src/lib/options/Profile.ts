@@ -788,14 +788,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
       {
         id: 'terms',
         title: 'Terms',
-        items: [
-          {
-            id: 'terms',
-            type: 'text',
-            label: 'Terms',
-            placeholder: 'Terms',
-          },
-        ],
+        items: [],
       },
     ],
   },

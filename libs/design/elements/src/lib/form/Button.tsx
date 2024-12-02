@@ -1,9 +1,9 @@
 'use client';
 
-import { ReactNode } from 'react';
-import clsx from 'clsx';
-import styles from './button.module.css';
 import { ReactChildren } from '@li/types/shared';
+import clsx from 'clsx';
+import { ReactNode } from 'react';
+import styles from './button.module.css';
 
 type Variant = 'primary' | 'secondary' | 'outline' | 'text' | 'error';
 
@@ -24,11 +24,7 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   return (
-    <button
-      {...rest}
-      className={clsx(styles.button, styles[variant], rest.className || '')}
-      disabled={isDisabled}
-    >
+    <button {...rest} className={clsx(styles.button, styles[variant], rest.className || '')} disabled={isDisabled}>
       {iconLeft || null}
       {children}
       {iconRight || null}

@@ -13,7 +13,7 @@ import { WomenCollection } from './components/WomenCollection';
 export const Boutique = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles['top-offer']}>BUY 2 GET 1 LIMITED OFFER</div>
+      {/* <div className={styles['top-offer']}>BUY 2 GET 1 LIMITED OFFER</div> */}
       <TopSlider />
       {/* <div className="mt-4">
         <BoutiqueSearch />

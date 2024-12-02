@@ -1,6 +1,8 @@
 'use client';
+import { Button, Checkbox, FormDocument } from '@li/design/elements';
 // cspell:disable
 import { useState } from 'react';
+import { FaFilePdf } from 'react-icons/fa';
 
 const CheckIcon = () => {
   return (
@@ -22,10 +24,10 @@ const CheckIcon = () => {
 
 const agreementData = [
   {
-    english:
-      'BLAUNK.in will act as an intermediate for both BUY & SELL transaction purpose.',
-    hindi:
-      'BLAUNK.in BUY और SELL दोनों लेन-देन के उद्देश्य के लिए एक मध्यवर्ती के रूप में कार्य करेगा।',
+    english: 'BLAUNK.in will act as an intermediate for both BUY & SELL transaction purpose.',
+    hindi: 'BLAUNK.in BUY और SELL दोनों लेन-देन के उद्देश्य के लिए एक मध्यवर्ती के रूप में कार्य करेगा।',
+    tamil: 'BLAUNK.in பரிவர்த்தனை நோக்கத்திற்காக வாங்குதல் மற்றும் விற்பது ஆகிய இரண்டிற்கும் இடைநிலையாக செயல்படும்.',
+    arabic: 'سيكون BLAUNK.in بمثابة الوسيط لغرض معاملات البيع والشراء.',
   },
   {
     english:
@@ -34,71 +36,53 @@ const agreementData = [
       'BLAUNK.in 2 रुपये प्रति पीसी (मात्रा) या 0.45% या न्यूनतम 500/- की दर से कमीशन काटेगा, जो भी अधिक हो, सफल लेनदेन पर दोनों पक्षों से सहमति के अनुसार शुल्क लिया जाएगा और लेनदेन को रद्द करने के लिए शुल्क लिया जाएगा। केवल खरीदार से 200 रुपये।',
   },
   {
-    english:
-      'Both parties agreed to carry out the transaction as per their P.O shared individually',
-    hindi:
-      'दोनों पक्ष व्यक्तिगत रूप से साझा किए गए अपने पीओ के अनुसार लेनदेन करने के लिए सहमत हुए।',
+    english: 'Both parties agreed to carry out the transaction as per their P.O shared individually',
+    hindi: 'दोनों पक्ष व्यक्तिगत रूप से साझा किए गए अपने पीओ के अनुसार लेनदेन करने के लिए सहमत हुए।',
   },
   {
     english: 'NO defective / damaged / articles will be delivered',
     hindi: '	कोई दोषपूर्ण / क्षतिग्रस्त / लेख वितरित नहीं किया जाएगा',
   },
   {
-    english:
-      'Articles should reach as per mentioned transport agreed by both parties mutually on mail / whtasapp',
-    hindi:
-      'दोनों पक्षों द्वारा मेल/व्हाट्सएप पर आपसी सहमति से बताए गए परिवहन के अनुसार सामग्री पहुंचनी चाहिए',
+    english: 'Articles should reach as per mentioned transport agreed by both parties mutually on mail / whtasapp',
+    hindi: 'दोनों पक्षों द्वारा मेल/व्हाट्सएप पर आपसी सहमति से बताए गए परिवहन के अनुसार सामग्री पहुंचनी चाहिए',
   },
   {
     english: 'Buyer had render the payment to BLAUNK as per LOCS agreement',
     hindi: 'क्रेता (BUYER) ने BLAUNK.in को अग्रिम भुगतान प्रस्तुत किया था',
   },
   {
-    english:
-      'BLAUNK will release the payment to seller (parties) as listed within agreed time',
-    hindi:
-      'BLAUNK सहमत समय के साथ सूचीबद्ध विक्रेता (पार्टियों) को भुगतान जारी करेगा',
+    english: 'BLAUNK will release the payment to seller (parties) as listed within agreed time',
+    hindi: 'BLAUNK सहमत समय के साथ सूचीबद्ध विक्रेता (पार्टियों) को भुगतान जारी करेगा',
   },
   {
-    english:
-      'Any damage / defective item supplied payment will be hold or will be return back to supplier',
+    english: 'Any damage / defective item supplied payment will be hold or will be return back to supplier',
     hindi:
       'आपूर्ति की गई किसी भी क्षति / दोषपूर्ण वस्तु का भुगतान रोक दिया जाएगा या आपूर्तिकर्ता को वापस कर दिया जाएगा',
   },
   {
-    english:
-      'Rejection of consignment Return delivery charges / expenses will be borne by supplier only',
+    english: 'Rejection of consignment Return delivery charges / expenses will be borne by supplier only',
     hindi: 'वापसी वितरण शुल्क केवल आपूर्तिकर्ता द्वारा वहन किया जाएगा',
   },
   {
-    english:
-      'On inspection of arrived goods intimation will be done to BLAUNK to release payment to supplier',
-    hindi:
-      'पहुंचे माल के निरीक्षण पर BLAUNK को आपूर्तिकर्ता को भुगतान जारी करने की सूचना दी जाएगी',
+    english: 'On inspection of arrived goods intimation will be done to BLAUNK to release payment to supplier',
+    hindi: 'पहुंचे माल के निरीक्षण पर BLAUNK को आपूर्तिकर्ता को भुगतान जारी करने की सूचना दी जाएगी',
   },
   {
-    english:
-      'BLAUNK will share this contract PDF via mail to both the parties and will be confirmed as final',
-    hindi:
-      'BLAUNK इस अनुबंध PDF को दोनों पक्षों को मेल के माध्यम से साझा करेगा और अंतिम रूप से पुष्टि की जाएगी',
+    english: 'BLAUNK will share this contract PDF via mail to both the parties and will be confirmed as final',
+    hindi: 'BLAUNK इस अनुबंध PDF को दोनों पक्षों को मेल के माध्यम से साझा करेगा और अंतिम रूप से पुष्टि की जाएगी',
   },
   {
-    english:
-      'Any shortage of Quantity delivered found after goods received at buyer end need to be compensate.',
-    hindi:
-      'खरीदार के अंत में प्राप्त माल के बाद मिलने वाली मात्रा में कमी की भरपाई करने की आवश्यकता है।',
+    english: 'Any shortage of Quantity delivered found after goods received at buyer end need to be compensate.',
+    hindi: 'खरीदार के अंत में प्राप्त माल के बाद मिलने वाली मात्रा में कमी की भरपाई करने की आवश्यकता है।',
   },
   {
-    english:
-      'Colour / Size / Ratio if any as per agreed terms will be supplied.',
-    hindi:
-      'रंग/आकार/अनुपात यदि कोई हो, सहमत शर्तों के अनुसार तदनुसार आपूर्ति की जाएगी',
+    english: 'Colour / Size / Ratio if any as per agreed terms will be supplied.',
+    hindi: 'रंग/आकार/अनुपात यदि कोई हो, सहमत शर्तों के अनुसार तदनुसार आपूर्ति की जाएगी',
   },
   {
-    english:
-      'Buyer authorized BLAUNK to pay seller due after 5 hrs of reached consignment without any notice',
-    hindi:
-      'खरीदार बिना किसी सूचना के खेप पहुंचने के 4 घंटों के बाद विक्रेता को देय भुगतान करने के लिए सहमत हो गया',
+    english: 'Buyer authorized BLAUNK to pay seller due after 5 hrs of reached consignment without any notice',
+    hindi: 'खरीदार बिना किसी सूचना के खेप पहुंचने के 4 घंटों के बाद विक्रेता को देय भुगतान करने के लिए सहमत हो गया',
   },
   {
     english:
@@ -107,15 +91,13 @@ const agreementData = [
       'खरीदार को यदि कोई विवाद / घटिया उत्पाद आपूर्ति किया जाता है तो वह BLAUNK को 1 दिन के लिए भुगतान रोकने का निर्देश दे सकता है।',
   },
   {
-    english:
-      'BLAUNK will auto release the Payment to respective Seller Bank a/c within 5 – 6 hours of office time',
-    hindi:
-      'पार्टी (खरीदार) को प्राप्त खेप के 6 घंटे बाद BLAUNK भुगतान (Seller) को स्वतः जारी कर देगा',
+    english: 'BLAUNK will auto release the Payment to respective Seller Bank a/c within 5 – 6 hours of office time',
+    hindi: 'पार्टी (खरीदार) को प्राप्त खेप के 6 घंटे बाद BLAUNK भुगतान (Seller) को स्वतः जारी कर देगा',
   },
 ];
 
 export const Agreement = () => {
-  const [lang, setLang] = useState<'english' | 'hindi'>('english');
+  const [lang, setLang] = useState<'english' | 'hindi' | 'tamil' | 'arabic'>('english');
 
   return (
     <div
@@ -123,11 +105,12 @@ export const Agreement = () => {
       style={{
         color: 'rgb(255, 255, 255)',
         backgroundColor: 'rgb(109, 117, 29)',
+        paddingBottom: '12px',
       }}
     >
       <div className="mx-auto mt-2 p-3 text-center">
         <label className="" style={{ fontWeight: 600 }}>
-          AGREEMENT LOCS
+          {/* Terms And Conditions */}
           <select
             className="mt-2 form-select text-center"
             style={{ width: '180px', right: '5px', fontWeight: 600 }}
@@ -140,6 +123,12 @@ export const Agreement = () => {
             <option className="text-center" value="hindi">
               Hindi
             </option>
+            <option className="text-center" value="tamil">
+              Tamil
+            </option>
+            <option className="text-center" value="arabic">
+              Arabic
+            </option>
           </select>
         </label>
         <div className="container mt-2 mx-auto">
@@ -151,10 +140,7 @@ export const Agreement = () => {
               }
             `}
           </style>
-          <table
-            className="table border-collapse table-bordered"
-            style={{ backgroundColor: 'rgb(218, 255, 179)' }}
-          >
+          <table className="table border-collapse table-bordered" style={{ backgroundColor: 'rgb(218, 255, 179)' }}>
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -167,11 +153,42 @@ export const Agreement = () => {
                   <td>
                     <CheckIcon />
                   </td>
-                  <td>{data[lang]}</td>
+                  <td>{data[lang] || data.english}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+      <div
+        className="container mx-auto d-flex items-center"
+        style={{
+          flexDirection: 'column',
+          gap: '8px',
+        }}
+      >
+        <div
+          className="container mx-auto d-flex items-center"
+          style={{
+            gap: '8px',
+            backgroundColor: 'rgb(218, 255, 179)',
+            padding: '8px 0 4px 12px',
+          }}
+        >
+          <Checkbox label="I have read and accept this terms and conditions" />
+        </div>
+        <div
+          className="container mx-auto d-flex items-center"
+          style={{
+            gap: '8px',
+          }}
+        >
+          <FormDocument id={'sign'} label="Signature" placeholder={'Upload sign'} required />
+          <div className="info-box-body d-flex align-items-center">
+            <Button>
+              <FaFilePdf className="me-2 text-danger" /> Terms.pdf
+            </Button>
+          </div>
         </div>
       </div>
     </div>

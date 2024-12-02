@@ -59,12 +59,24 @@
 
 @media only screen and (max-width: 768px) {
   .image {
-    max-height: 32px;
+    max-height: 12px;
   }
 
   .name {
     color: var(--onprimaryaccent);
-    font-size: var(--font-size-h6);
-    line-height: var(--line-height-h6);
+    font-size: var(--font-size-p12);
+    line-height: var(--line-height-p12);
+  }
+
+  .wrapper {
+    gap: 8px;
+  }
+  .store {
+    width: 36px;
+  }
+  .store-separate .image {
+    max-width: 36px;
+    max-height: 36px;
+    border-radius: 50%;
   }
 }

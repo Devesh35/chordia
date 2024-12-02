@@ -5,10 +5,14 @@
   padding-bottom: 24px;
 }
 
-
-
 .section {
   padding-inline: 12px;
   gap: 12px;
   grid-gap: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    gap: 24px;
+  }
 }

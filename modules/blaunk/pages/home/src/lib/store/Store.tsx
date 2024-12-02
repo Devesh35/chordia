@@ -1,6 +1,7 @@
 'use client';
 
 import { Carousal } from '@li/design/elements';
+import { useMedia } from '@li/design/hooks';
 import { Constants, getRandomImagesArray, storeRoof } from '@md/blaunk/config';
 import { CustomerReviews, RollingAd } from '@md/blaunk/design';
 import { Basket } from 'modules/blaunk/design/src/lib/Basket';
@@ -94,13 +95,21 @@ const products = getRandomImagesArray(18)(300, 300, 'items').map((src, i) => (
 ));
 
 export const Store = () => {
+  const isMobile = useMedia();
+
   return (
     <div className={styles.wrapper}>
       <div>
         <div className={styles['carousal-wrapper']}>
-          <Carousal pagination="bottom" autoInterval={10000} enablePagination>
-            {images}
-          </Carousal>
+          {isMobile ? (
+            <Carousal autoInterval={10000} hidePagination hideControls>
+              {images}
+            </Carousal>
+          ) : (
+            <Carousal pagination="bottom" autoInterval={10000} enablePagination>
+              {images}
+            </Carousal>
+          )}
         </div>
         <div style={{ marginTop: '10px' }}>
           <RollingAd size={150} />

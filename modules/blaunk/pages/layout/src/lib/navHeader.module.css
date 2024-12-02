@@ -74,3 +74,41 @@
 .welcome main > div > div {
   border: none;
 }
+
+@media only screen and (max-width: 768px) {
+  .blaunk {
+    width: 80px;
+    height: 24px;
+  }
+
+  .name {
+    color: var(--onprimaryaccent);
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
+  }
+
+  .input {
+    width: 100%;
+    max-width: unset !important;
+  }
+  .wrapper > div {
+    width: 100%;
+  }
+  .items {
+    gap: 8px;
+  }
+
+  .welcome {
+    font-size: 14px !important;
+  }
+  .welcome svg {
+    width: 12px;
+    height: 12px;
+  }
+  .welcome {
+    min-width: 80px;
+  }
+  .wrapper {
+    padding: 0.5rem 1rem;
+  }
+}
