@@ -27,7 +27,7 @@ export const FooterDetails: {
       },
       // { label: 'Company Policy', path: Routes.info.companyPolicy.path },
       { label: 'Privacy Policy', path: Routes.info.privacyPolicy.path },
-      { label: 'Terms and conditions', path: Routes.info.agreement.path },
+      // { label: 'Terms and conditions', path: Routes.info.agreement.path },
     ],
   },
   {
