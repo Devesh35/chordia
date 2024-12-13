@@ -32,3 +32,10 @@
 .sub-item:last-of-type .item:last-of-type {
   border-bottom: none;
 }
+
+@media only screen and (max-width: 768px) {
+  .item {
+    font-size: var(--font-size-p12) !important;
+    line-height: var(--line-height-p12) !important;
+  }
+}

@@ -38,3 +38,10 @@
   width: 100%;
   /* transition: height var(--duration-tr-veryfast) ease-in-out; */
 }
+
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: var(--font-size-p12);
+    line-height: var(--line-height-p12);
+  }
+}

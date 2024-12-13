@@ -63,3 +63,7 @@
   cursor: pointer;
   margin-inline: auto;
 }
+
+.content {
+  padding-left: 6px;
+}

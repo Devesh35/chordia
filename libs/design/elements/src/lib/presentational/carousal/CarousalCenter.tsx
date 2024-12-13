@@ -1,6 +1,6 @@
 'use client';
 
-import { useCyclicRange, useMedia } from '@li/design/hooks';
+import { useCyclicRange } from '@li/design/hooks';
 import { ReactChildren } from '@li/types/shared';
 import clsx from 'clsx';
 import React, { forwardRef, useEffect } from 'react';
@@ -28,8 +28,6 @@ export const CarousalCenter = forwardRef<HTMLDivElement, PolymorphicComponentPro
     { children, autoInterval, hideControls, hidePagination, pagination = 'bottom', variant, className, controlSize },
     ref,
   ) => {
-    const isMobile = useMedia();
-
     const childArray = React.Children.toArray(children) as React.ReactElement[];
     const { active, updateBy, isNearActive, left, right } = useCyclicRange(childArray.length);
 
@@ -46,12 +44,10 @@ export const CarousalCenter = forwardRef<HTMLDivElement, PolymorphicComponentPro
             <div
               className={clsx(
                 styles.item,
-                isMobile
-                  ? {}
-                  : {
-                      [styles.right]: right === i,
-                      [styles.left]: left === i,
-                    },
+                {
+                  [styles.right]: right === i,
+                  [styles.left]: left === i,
+                },
                 { [styles.active]: active === i },
               )}
               key={child.key}

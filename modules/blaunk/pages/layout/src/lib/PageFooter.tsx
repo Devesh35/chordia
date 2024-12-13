@@ -1,8 +1,8 @@
-import { Facebook, Gmail, Instagram, LinkedIn } from '@li/design/icons';
-import styles from './page-footer.module.css';
-import { FooterDetails } from '@md/blaunk/config';
 import { gs } from '@li/config/design';
 import { Link } from '@li/design/elements';
+import { Facebook, Gmail, Instagram, LinkedIn } from '@li/design/icons';
+import { FooterDetails } from '@md/blaunk/config';
+import styles from './page-footer.module.css';
 
 export const PageFooter = () => {
   return (

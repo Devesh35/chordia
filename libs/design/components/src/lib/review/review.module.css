@@ -40,7 +40,63 @@
 }
 
 .review {
-  max-width: 90%;
   font-size: var(--font-size-p14);
   line-height: var(--line-height-p14);
+  text-align: justify;
+}
+.review2 {
+  font-size: var(--font-size-p14);
+  line-height: var(--line-height-p14);
+  gap: 4px;
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
+  text-align: justify;
+  padding: 4px;
+  border-radius: 8px;
+}
+.review3 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+  gap: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    height: 260px;
+    padding: 8px;
+    max-width: 160px;
+    min-width: 160px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .details {
+    padding-right: 4px;
+  }
+  .premium {
+    font-size: 12px;
+    line-height: 14px;
+    padding-right: 8px;
+  }
+
+  .username {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .review {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .review2 {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .review3 {
+    margin-top: 8px;
+  }
 }
