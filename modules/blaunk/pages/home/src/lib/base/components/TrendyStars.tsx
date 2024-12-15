@@ -5,18 +5,19 @@ import { getRandomImagesArray } from '@md/blaunk/config';
 import { SectionHeader } from '@md/blaunk/design';
 import styles from './trendy-stores.module.css';
 
-const images = (size: number) =>
-  getRandomImagesArray(size)(500, 900).map((src) => (
+const images = (isMobile: boolean) =>
+  getRandomImagesArray(2)(isMobile ? 200 : 500, isMobile ? 200 : 900).map((src) => (
     <ImageCardOverlay
       isClickable
       key={src}
       image={{
         src,
-        width: 900,
-        height: 500,
+        width: isMobile ? 200 : 900,
+        height: isMobile ? 200 : 500,
         alt: 'random',
       }}
       bottom={<div className={styles.label}>Trendy star name</div>}
+      noFillet
     />
   ));
 
@@ -25,13 +26,13 @@ export const TrendyStars = () => {
 
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="Trendy-stars" />
+      <SectionHeader sectionName="Trendy-stars" className={styles.header} />
       <Carousal className={styles.carousal} variant="dark">
         {Array(5)
           .fill(0)
           .map((_, i) => (
             <div key={i}>
-              <div className={styles.content}>{images(isMobile ? 1 : 2)}</div>
+              <div className={styles.content}>{images(isMobile)}</div>
             </div>
           ))}
       </Carousal>

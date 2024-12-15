@@ -19,7 +19,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ b2bClients, customers, countrie
         color: 'yellow',
         backgroundColor: '#6EC207',
         border: 'none',
-        height: isMobile ? '140px' : '200px',
+        height: isMobile ? '120px' : '200px',
         fontFamily: 'Montserrat',
       }}
     >
@@ -50,7 +50,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ b2bClients, customers, countrie
               style={{ borderRight: '2px solid yellow' }}
             >
               {isMobile ? <h3>{b2bClients}+</h3> : <h1>{b2bClients}+</h1>}
-              <p style={isMobile ? { fontSize: '12px' } : { fontSize: '20px' }}>B2B Clients Served</p>
+              <p style={isMobile ? { fontSize: '10px' } : { fontSize: '20px' }}>B2B Clients Served</p>
             </Col>
             <Col
               className={clsx('text-center d-flex flex-column no-pad', {
@@ -59,7 +59,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ b2bClients, customers, countrie
               style={{ borderRight: '2px solid yellow' }}
             >
               {isMobile ? <h3>{customers}+</h3> : <h1>{customers}+</h1>}
-              <p style={isMobile ? { fontSize: '12px' } : { fontSize: '20px' }}>Customers Served</p>
+              <p style={isMobile ? { fontSize: '10px' } : { fontSize: '20px' }}>Customers Served</p>
             </Col>
             <Col
               className={clsx('text-center d-flex flex-column no-pad', {
@@ -68,7 +68,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ b2bClients, customers, countrie
               style={{ borderRight: '2px solid yellow' }}
             >
               {isMobile ? <h3>{countries}+</h3> : <h1>{countries}+</h1>}
-              <p style={isMobile ? { fontSize: '12px' } : { fontSize: '20px' }}>Countries</p>
+              <p style={isMobile ? { fontSize: '10px' } : { fontSize: '20px' }}>Countries</p>
             </Col>
             <Col
               className={clsx('text-center d-flex flex-column no-pad', {
@@ -76,7 +76,7 @@ const MetricCard: React.FC<MetricCardProps> = ({ b2bClients, customers, countrie
               })}
             >
               {isMobile ? <h3>{productsServices}+</h3> : <h1>{productsServices}+</h1>}
-              <p style={isMobile ? { fontSize: '12px' } : { fontSize: '20px' }}>Products & Services</p>
+              <p style={isMobile ? { fontSize: '10px' } : { fontSize: '20px' }}>Products & Services</p>
             </Col>
           </Row>
         </Container>

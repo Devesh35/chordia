@@ -5,15 +5,15 @@ import { getRandomImagesArray, storeRoof } from '@md/blaunk/config';
 import Image from 'next/image';
 import styles from './more-stores.module.css';
 
-const images = (size: number) =>
-  getRandomImagesArray(size)(400, 600).map((src) => (
+const images = (isMobile: boolean) =>
+  getRandomImagesArray(isMobile ? 2 : 3)(isMobile ? 240 : 400, isMobile ? 200 : 600).map((src) => (
     <ImageCardOverlay
       isClickable
       key={src}
       image={{
         src,
-        width: 600,
-        height: 400,
+        width: isMobile ? 200 : 600,
+        height: isMobile ? 240 : 400,
         alt: 'random',
       }}
     />
@@ -31,7 +31,7 @@ export const MoreStores = () => {
           .fill(0)
           .map((_, i) => (
             <div className={styles.content} key={i}>
-              {images(isMobile ? 1 : 3)}
+              {images(isMobile)}
             </div>
           ))}
       </Carousal>

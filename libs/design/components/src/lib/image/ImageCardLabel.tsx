@@ -10,15 +10,10 @@ type Props = {
   top?: React.ReactNode;
   bottom?: React.ReactNode;
   onClick?: () => void;
+  noFillet?: boolean;
 };
 
-export const ImageCardOverlay = ({
-  image,
-  top,
-  bottom,
-  onClick,
-  isClickable = false,
-}: Props) => {
+export const ImageCardOverlay = ({ image, top, bottom, noFillet, onClick, isClickable = false }: Props) => {
   return (
     <div
       className={clsx(styles.wrapper, {
@@ -27,6 +22,7 @@ export const ImageCardOverlay = ({
       style={{
         width: image.width,
         height: image.height,
+        borderRadius: noFillet ? 0 : 'var(--border-radius-large)',
       }}
       onClick={onClick}
     >

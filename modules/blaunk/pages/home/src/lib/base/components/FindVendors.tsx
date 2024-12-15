@@ -123,8 +123,8 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
       <div className={styles.heading}>Let us help you find the best Logistics</div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* Row 1 */}
-        <Row className="mb-3">
-          <Col md={3}>
+        <Row className={styles.detailRow}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="country">
               <Form.Label className={styles.formLabelWhite}>Country</Form.Label>
               <InputGroup className={styles.inputGroup}>
@@ -141,7 +141,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="pinCode">
               <Form.Label className={styles.formLabelWhite}>Pin Code</Form.Label>
               <Form.Control
@@ -165,7 +165,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="city">
               <Form.Label className={styles.formLabelWhite}>City</Form.Label>
               <Form.Control
@@ -178,7 +178,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="area">
               <Form.Label className={styles.formLabelWhite}>Area</Form.Label>
               <Form.Control
@@ -190,11 +190,11 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
               {errors.area && <small className="text-danger">{errors.area.message}</small>}
             </Form.Group>
           </Col>
-        </Row>
+          {/* </Row> */}
 
-        {/* Row 2 */}
-        <Row className="mb-3">
-          <Col md={3}>
+          {/* Row 2 */}
+          {/* <Row className="mb-3"> */}
+          <Col md={3} xs={4}>
             <Form.Group controlId="services">
               <Form.Label className={styles.formLabelWhite}>Services</Form.Label>
               <Form.Select
@@ -215,7 +215,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="requirement">
               <Form.Label className={styles.formLabelWhite}>Requirement</Form.Label>
               <Form.Select
@@ -235,7 +235,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="purpose">
               <Form.Label className={styles.formLabelWhite}> Purpose</Form.Label>
               <Form.Select
@@ -253,7 +253,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="bookingSlot">
               <Form.Label className={styles.formLabelWhite}>Pick-up slot</Form.Label>
               <Form.Select
@@ -270,11 +270,11 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
               {errors.bookingSlot && <small className="text-danger">{errors.bookingSlot.message}</small>}
             </Form.Group>
           </Col>
-        </Row>
+          {/* </Row> */}
 
-        {/* Row 3 */}
-        <Row className="mb-5">
-          <Col md={3}>
+          {/* Row 3 */}
+          {/* <Row className="mb-5"> */}
+          <Col md={3} xs={4}>
             <Form.Group controlId="origin">
               <Form.Label className={styles.formLabelWhite}>From</Form.Label>
               <Form.Control
@@ -287,7 +287,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="destination">
               <Form.Label className={styles.formLabelWhite}>To Destination</Form.Label>
               <Form.Control
@@ -300,7 +300,7 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
             </Form.Group>
           </Col>
 
-          <Col md={3}>
+          <Col md={3} xs={4}>
             <Form.Group controlId="pickupDate">
               <Form.Label className={styles.formLabelWhite}>Pick-up Date</Form.Label>
               <Form.Control
@@ -311,7 +311,8 @@ export const FindVendors = ({ backgroundImage }: FindVendorsProps) => {
               {errors.pickupDate && <small className="text-danger">{errors.pickupDate.message}</small>}
             </Form.Group>
           </Col>
-          <Col md={3}>
+
+          <Col md={3} xs={4}>
             <Form.Group controlId="dropDate">
               <Form.Label className={styles.formLabelWhite}>Drop Date</Form.Label>
               <Form.Control

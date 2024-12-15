@@ -47,7 +47,7 @@ const profileSection = {
     },
   },
   general: {
-    form: ['general', 'vendorIdentification', 'vendorAgent', 'fines', 'deposit'],
+    form: ['general', 'code', 'vendorIdentification', 'vendorAgent', 'fines', 'deposit'],
   },
   bank: {
     bank: { form: ['bank'] },
@@ -204,13 +204,13 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             placeholder: 'Category',
             options: UserCategoryOption,
           },
-          {
-            id: 'voucher-code',
-            type: 'select',
-            label: 'Enable code',
-            placeholder: 'Enable',
-            options: YesNoOptions,
-          },
+          // {
+          //   id: 'voucher-code',
+          //   type: 'select',
+          //   label: 'Enable code',
+          //   placeholder: 'Enable',
+          //   options: YesNoOptions,
+          // },
           // {
           //   id: 'payMode',
           //   type: 'select',
@@ -218,6 +218,54 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
           //   placeholder: 'Pay mode',
           //   options: PaymentOption,
           // },
+        ],
+      },
+      {
+        id: 'code',
+        title: 'Code',
+        items: [
+          {
+            id: 'bgt',
+            label: 'BGT',
+            placeholder: 'BGT',
+            type: 'select',
+            options: YesNoOptions,
+          },
+          {
+            id: 'tour',
+            label: 'Tour',
+            placeholder: 'Tour',
+            type: 'select',
+            options: YesNoOptions,
+          },
+          {
+            id: 'cake',
+            label: 'Cake',
+            placeholder: 'Cake',
+            type: 'select',
+            options: YesNoOptions,
+          },
+          {
+            id: 'logistics',
+            label: 'Logistics',
+            placeholder: 'Logistics',
+            type: 'select',
+            options: YesNoOptions,
+          },
+          {
+            id: 'advertisement',
+            label: 'Advertisement',
+            placeholder: 'Advertisement',
+            type: 'select',
+            options: YesNoOptions,
+          },
+          {
+            id: 'store',
+            label: 'Store',
+            placeholder: 'Store',
+            type: 'select',
+            options: YesNoOptions,
+          },
         ],
       },
       {

@@ -13,6 +13,12 @@
 
 @media only screen and (max-width: 768px) {
   .wrapper {
-    gap: 24px;
+    gap: 12px;
   }
+}
+
+.carousal-wrapper {
+  height: 240px;
+  min-height: 240px;
+  max-height: 240px;
 }

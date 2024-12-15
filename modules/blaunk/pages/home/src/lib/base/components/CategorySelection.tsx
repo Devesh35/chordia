@@ -9,10 +9,7 @@ type Props = {
   setSelectedCategory: (id: MenuCategoriesIdType) => void;
 };
 
-export const CategorySelection = ({
-  selectedCategory,
-  setSelectedCategory,
-}: Props) => {
+export const CategorySelection = ({ selectedCategory, setSelectedCategory }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={clsx(styles.scroll, sbs.dark)}>

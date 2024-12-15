@@ -1,11 +1,11 @@
 .marquee {
-  background-color: var(--primary);
-  padding: 12px 0;
+  background-color: lightgray;
+  padding: 4px 0;
 }
 
 .marquee > img {
   border-radius: var(--border-radius-large);
   overflow: hidden;
   cursor: pointer;
-  box-shadow: var(--box-shadow-s);
+  box-shadow: var(--box-shadow-a);
 }

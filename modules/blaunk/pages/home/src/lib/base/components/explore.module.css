@@ -35,3 +35,7 @@
 .carousal {
   height: 660px;
 }
+
+.carousal-wrapper {
+  height: 160px;
+}

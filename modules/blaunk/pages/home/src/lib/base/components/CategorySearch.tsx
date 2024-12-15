@@ -34,7 +34,7 @@ export const CategorySearch = () => {
                 // isClickable
                 key={src}
                 image={{
-                  width: isMobile ? 140 : 225,
+                  width: isMobile ? 180 : 290,
                   height: isMobile ? 140 : 225,
                   alt: 'img',
                   src: src,

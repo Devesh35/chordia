@@ -12,7 +12,7 @@
 }
 
 .section-wrapper {
-  width: 320px;
+  width: 240px;
 }
 .viewer {
   display: flex;
@@ -70,4 +70,10 @@ const CategoryItemsWrapper = styled.div`
   color: var(--onprimaryaccent);
   padding: 4px 8px;
   border-radius: 100vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .section-wrapper {
+    max-width: 140px;
+  }
 }
