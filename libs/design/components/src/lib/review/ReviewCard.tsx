@@ -1,3 +1,5 @@
+'use client';
+
 import { Divider, Rating } from '@li/design/elements';
 import { useMedia } from '@li/design/hooks';
 import { arrow_left, getStaticImageSrc, India } from '@li/design/icons';

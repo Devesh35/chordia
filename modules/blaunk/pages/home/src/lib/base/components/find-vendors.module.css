@@ -93,4 +93,7 @@
   .formSelectWhite {
     font-size: 14px;
   }
+  .wrapper {
+    padding: 12px;
+  }
 }

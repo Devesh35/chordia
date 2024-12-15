@@ -20,6 +20,7 @@ export const HomeYtbRedirect = () => {
           width: '100%',
           height: 'auto',
           objectFit: 'contain',
+          
         }}
       />
     </a>

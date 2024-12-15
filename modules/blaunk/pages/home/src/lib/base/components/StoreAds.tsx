@@ -8,7 +8,7 @@ import styles from './store-ads.module.css';
 
 const img = (isMobile: boolean) =>
   getRandomImagesArray(3)(600, 1921).map((src) => (
-    <Image key={src} src={src} width={isMobile ? 400 : 1914} height={isMobile ? 140 : 600} alt="tour" />
+    <Image key={src} src={src} width={isMobile ? 400 : 1914} height={isMobile ? 240 : 600} alt="tour" />
   ));
 
 export const StoreAds = () => {
@@ -17,13 +17,7 @@ export const StoreAds = () => {
   return (
     <div>
       {/* <Placeholder height={50} /> */}
-      <Carousal
-        className={styles.carousal}
-        style={{
-          height: `${isMobile ? 140 : 600}px`,
-        }}
-        autoInterval={5000}
-      >
+      <Carousal className={styles.carousal} style={{ height: `${isMobile ? 240 : 600}px` }} autoInterval={5000}>
         {img(isMobile)}
       </Carousal>
     </div>

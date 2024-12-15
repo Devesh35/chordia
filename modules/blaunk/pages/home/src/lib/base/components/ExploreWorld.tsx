@@ -17,14 +17,14 @@ export const ExploreWorld = () => {
         <Link href={Routes.home.marketPlace.path}>
           {isMobile ? (
             <div className={styles['carousal-wrapper']}>
-              <Carousal hidePagination>
+              <Carousal hidePagination autoInterval={5000}>
                 {new Array(4).fill(0).map((_, i) => (
                   <Image
                     width={650}
                     height={160}
                     alt="homeBanner"
                     src={blaunkMarketPlace}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{ width: '100%', height: '100%', borderRadius: '8px' }}
                   />
                 ))}
               </Carousal>
@@ -44,14 +44,14 @@ export const ExploreWorld = () => {
         <Link href={Routes.home.cake.path}>
           {isMobile ? (
             <div className={styles['carousal-wrapper']}>
-              <Carousal hidePagination>
+              <Carousal hidePagination autoInterval={5000}>
                 {new Array(2).fill(0).map((_, i) => (
                   <Image
                     width={650}
                     height={160}
                     alt="homeBanner"
                     src={blaunkMarketPlace}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{ width: '100%', height: '100%', borderRadius: '8px' }}
                   />
                 ))}
               </Carousal>
