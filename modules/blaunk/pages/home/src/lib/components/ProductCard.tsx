@@ -1,5 +1,6 @@
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
+import { useMedia } from '@li/design/hooks';
 import { Star, Veg } from '@li/design/icons';
 import { ReactChildren } from '@li/types/shared';
 import clsx from 'clsx';
@@ -18,13 +19,14 @@ type Props = {
 };
 
 export const ProductCard = ({ src, topLeft, details }: Props) => {
+  const isMobile = useMedia();
   return (
     <ImageCard
-      className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-6'], 'clickable')}
+      className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
         width: 300,
-        height: 300,
+        height: isMobile ? 150 : 300,
         alt: 'random',
       }}
       topLeft={topLeft ? <div className={styles['card-tag']}>{topLeft}</div> : undefined}
@@ -37,7 +39,7 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
           </div>
           <div className={styles['rating-wrapper']}>
             <div className={styles.rating}>
-              4.5 <Star fill="var(--secondary)" width={16} height={16} />
+              4.5 <Star fill="var(--secondary)" width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
             </div>
             <span className={styles['review-count']}>{details.reviewCount} Reviews</span>
           </div>

@@ -49,3 +49,14 @@
     border-radius: unset !important;
   }
 }
+
+.search-bar-sub-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.search-bar-sub-wrapper > * {
+  flex: 1;
+}

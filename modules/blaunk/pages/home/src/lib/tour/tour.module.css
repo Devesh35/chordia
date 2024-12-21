@@ -307,3 +307,25 @@
   width: 100%;
   align-items: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .card-name {
+    font-size: 12px;
+  }
+  .price {
+    font-size: 14px;
+  }
+  .rating {
+    font-size: 12px;
+  }
+  .review-count {
+    font-size: 10px;
+  }
+  .grid {
+    gap: 12px;
+    margin: 0 0 1rem;
+  }
+  .details {
+    padding: 0 0.5rem 0.5rem;
+  }
+}

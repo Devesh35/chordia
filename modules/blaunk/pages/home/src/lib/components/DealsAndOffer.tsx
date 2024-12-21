@@ -3,9 +3,11 @@ import { getRandomImagesArray } from '@md/blaunk/config';
 
 // import { ImageCard } from '@li/design/components';
 // import clsx from 'clsx';
+import { useMedia } from '@li/design/hooks';
+import { SectionHeader } from '@md/blaunk/design';
+import clsx from 'clsx';
 import Image from 'next/image';
 import styles from './deals-and-offer.module.css';
-import { SectionHeader } from '@md/blaunk/design';
 
 // const recentViews = getRandomImagesArray(8)(600, 600, 'hotels').map((src) => (
 //   <ImageCard
@@ -33,15 +35,18 @@ import { SectionHeader } from '@md/blaunk/design';
 //   />
 // ));
 
-const ads = getRandomImagesArray(10)(300, 300, 'hotels').map((src, i) => (
-  <Image key={i} src={src} width={300} height={300} alt={'random'} />
-));
+const ads = (isMobile: boolean) =>
+  getRandomImagesArray(10)(isMobile ? 170 : 300, isMobile ? 170 : 300, 'hotels').map((src, i) => (
+    <Image key={i} src={src} width={isMobile ? 170 : 300} height={isMobile ? 170 : 300} alt={'random'} />
+  ));
 
-const adsLarge = getRandomImagesArray(10)(400, 800, 'hotels').map((src, i) => (
-  <Image key={i} src={src} width={800} height={400} alt={'random'} />
-));
+const adsLarge = (isMobile: boolean) =>
+  getRandomImagesArray(10)(isMobile ? 180 : 400, isMobile ? 350 : 800, 'hotels').map((src, i) => (
+    <Image key={i} src={src} width={isMobile ? 350 : 800} height={isMobile ? 180 : 400} alt={'random'} />
+  ));
 
 export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
+  const isMobile = useMedia();
   return (
     <>
       {/* {showRecent && (
@@ -54,17 +59,17 @@ export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
       )} */}
       <SectionHeader sectionName="Deals & Offer" />
       <ScrollableSnap className={styles['add-on']} controls>
-        {ads}
+        {ads(isMobile)}
       </ScrollableSnap>
       <ScrollableSnap className={styles['add-on']} controls>
-        {ads}
+        {ads(isMobile)}
       </ScrollableSnap>
       <SectionHeader sectionName="Explore New" />
       <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge}
+        {adsLarge(isMobile)}
       </ScrollableSnap>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge}
+      <ScrollableSnap className={clsx(styles['add-on'], styles.bottom)} controls>
+        {adsLarge(isMobile)}
       </ScrollableSnap>
     </>
   );

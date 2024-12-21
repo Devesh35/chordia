@@ -21,3 +21,15 @@
   width: 80%;
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 768px) {
+  .filter-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+  }
+  .filter-wrapper > * {
+    flex: none;
+  }
+}

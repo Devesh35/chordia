@@ -20,19 +20,22 @@ type SearchBaseProps<S> = {
 type CountrySearchProps = SearchBaseProps<ArrayElement<typeof CountriesOption>>;
 
 type GroupSearchProps = SearchBaseProps<ArrayElement<typeof MenuOptions>>;
-type PropertyTypeProps = SearchBaseProps<
-  ArrayElement<typeof PropertyTypeOptions>
->;
+type PropertyTypeProps = SearchBaseProps<ArrayElement<typeof PropertyTypeOptions>>;
 
-type ArticleSearchProps<S extends MenuCategoriesIdType = MenuCategoriesIdType> =
-  SearchBaseProps<ArrayElement<(typeof SubMenuOptions)[S]>> & {
-    selectedMenu?: S;
-  };
+type ArticleSearchProps<S extends MenuCategoriesIdType = MenuCategoriesIdType> = SearchBaseProps<
+  ArrayElement<(typeof SubMenuOptions)[S]>
+> & {
+  selectedMenu?: S;
+};
 
 type StoreSearchProps = SearchBaseProps<ArrayElement<typeof storeOptions>>;
 
 export const SearchBarWrapper = ({ children }: ReactChildren) => (
   <div className={styles['search-bar-wrapper']}>{children}</div>
+);
+
+export const SearchBarSubWrapper = ({ children }: ReactChildren) => (
+  <div className={styles['search-bar-sub-wrapper']}>{children}</div>
 );
 
 export const CountrySearch = ({ isStart, onChange }: CountrySearchProps) => (
@@ -68,9 +71,7 @@ export const ArticleSearch = ({ selectedMenu }: ArticleSearchProps) => (
       placeholder="Select article"
       className={styles['search-bar-items']}
       options={
-        selectedMenu
-          ? SubMenuOptions[selectedMenu]
-          : [{ id: '0', item: 'Select group first', isDisabled: true }]
+        selectedMenu ? SubMenuOptions[selectedMenu] : [{ id: '0', item: 'Select group first', isDisabled: true }]
       }
     />
   </Labeled>
@@ -79,7 +80,7 @@ export const StoreSearch = ({ isStart, onChange }: StoreSearchProps) => (
   <Labeled label="Store">
     <Select
       iconLeft={<Store />}
-      placeholder="Select Store type"
+      placeholder="Store type"
       className={clsx(styles['search-bar-items'], {
         [styles['search-bar-items-start']]: isStart,
       })}
@@ -91,20 +92,13 @@ export const StoreSearch = ({ isStart, onChange }: StoreSearchProps) => (
 
 export const BrandSearch = () => (
   <Labeled label="Brand">
-    <Input
-      iconLeft={<Brand />}
-      placeholder="Search Articles"
-      className={styles['search-bar-items']}
-    />
+    <Input iconLeft={<Brand />} placeholder="Search Articles" className={styles['search-bar-items']} />
   </Labeled>
 );
 
 export const PinCodeSearch = () => (
   <Labeled label="Pin code">
-    <Input
-      placeholder="Enter Pin code"
-      className={styles['search-bar-items']}
-    />
+    <Input placeholder="Enter Pin code" className={styles['search-bar-items']} />
   </Labeled>
 );
 
@@ -128,14 +122,7 @@ export const AddressSearch = () => (
 );
 
 export const SearchButton = () => (
-  <Button
-    className={clsx(
-      styles['search-bar-items'],
-      styles['search-bar-items-last'],
-    )}
-  >
-    Search
-  </Button>
+  <Button className={clsx(styles['search-bar-items'], styles['search-bar-items-last'])}>Search</Button>
 );
 
 export const PropertyTypeSearch = ({ onChange }: PropertyTypeProps) => (

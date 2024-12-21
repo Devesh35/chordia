@@ -116,7 +116,7 @@ export const Store = () => {
         </div>
       </div>
       <div className="d-flex justify-content-center">
-        <Image src={storeRoof} width={650} height={200} alt="store_roof" />
+        <Image src={storeRoof} width={isMobile ? 320 : 650} height={isMobile ? 100 : 200} alt="store_roof" />
       </div>
       <SearchBar />
       <ProductWrapper>{products}</ProductWrapper>
