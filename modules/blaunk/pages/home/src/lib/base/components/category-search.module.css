@@ -76,4 +76,7 @@ const CategoryItemsWrapper = styled.div`
   .section-wrapper {
     max-width: 140px;
   }
+  .wrapper {
+    margin: 0 8px;
+  }
 }

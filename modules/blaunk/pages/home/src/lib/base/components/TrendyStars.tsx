@@ -6,14 +6,14 @@ import { SectionHeader } from '@md/blaunk/design';
 import styles from './trendy-stores.module.css';
 
 const images = (isMobile: boolean) =>
-  getRandomImagesArray(isMobile ? 1 : 2)(isMobile ? 500 : 500, isMobile ? 400 : 900).map((src) => (
+  getRandomImagesArray(isMobile ? 1 : 2)(isMobile ? 240 : 500, isMobile ? 400 : 900).map((src) => (
     <ImageCardOverlay
       isClickable
       key={src}
       image={{
         src,
         width: isMobile ? 400 : 900,
-        height: isMobile ? 500 : 500,
+        height: isMobile ? 240 : 500,
         alt: 'random',
       }}
       bottom={<div className={styles.label}>Trendy star name</div>}

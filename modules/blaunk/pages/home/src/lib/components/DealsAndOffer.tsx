@@ -39,6 +39,19 @@ const ads = (isMobile: boolean) =>
   getRandomImagesArray(10)(isMobile ? 170 : 300, isMobile ? 170 : 300, 'hotels').map((src, i) => (
     <Image key={i} src={src} width={isMobile ? 170 : 300} height={isMobile ? 170 : 300} alt={'random'} />
   ));
+const adsMobile = (isMobile: boolean) =>
+  getRandomImagesArray(10)(isMobile ? 170 : 300, isMobile ? 170 : 300, 'hotels').map((src, i) => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+      }}
+    >
+      <Image key={i} src={src} width={isMobile ? 170 : 300} height={isMobile ? 170 : 300} alt={'random'} />
+      <Image key={i} src={src} width={isMobile ? 170 : 300} height={isMobile ? 170 : 300} alt={'random'} />
+    </div>
+  ));
 
 const adsLarge = (isMobile: boolean) =>
   getRandomImagesArray(10)(isMobile ? 180 : 400, isMobile ? 350 : 800, 'hotels').map((src, i) => (
@@ -58,12 +71,20 @@ export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
         </>
       )} */}
       <SectionHeader sectionName="Deals & Offer" />
-      <ScrollableSnap className={styles['add-on']} controls>
-        {ads(isMobile)}
-      </ScrollableSnap>
-      <ScrollableSnap className={styles['add-on']} controls>
-        {ads(isMobile)}
-      </ScrollableSnap>
+      {isMobile ? (
+        <ScrollableSnap className={styles['add-on']} controls delta={300}>
+          {adsMobile(isMobile)}
+        </ScrollableSnap>
+      ) : (
+        <>
+          <ScrollableSnap className={styles['add-on']} controls>
+            {ads(isMobile)}
+          </ScrollableSnap>
+          <ScrollableSnap className={styles['add-on']} controls>
+            {ads(isMobile)}
+          </ScrollableSnap>
+        </>
+      )}
       <SectionHeader sectionName="Explore New" />
       <ScrollableSnap className={styles['add-on']} controls>
         {adsLarge(isMobile)}
