@@ -21,3 +21,18 @@
 .image-large {
   height: 704px;
 }
+
+@media only screen and (max-width: 768px) {
+  .image {
+    height: 184px;
+    border: 1px solid var(--primary);
+  }
+  .image-style {
+    height: 184px;
+  }
+  .card-tag {
+    font-size: 10px;
+    line-height: 10px;
+    padding: 0.25rem 0.25rem;
+  }
+}

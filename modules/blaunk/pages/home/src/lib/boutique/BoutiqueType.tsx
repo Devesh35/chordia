@@ -1,6 +1,6 @@
 import { PaginationBlaunk } from '@md/blaunk/design';
 import styles from './boutique.module.css';
-import { BoutiqueSearch } from './components/BoutiqueSearch';
+import { BoutiqueSearch2 } from './components/BoutiqueSearch2';
 import { BType } from './components/Type';
 
 export const BoutiqueType = () => {
@@ -8,7 +8,7 @@ export const BoutiqueType = () => {
     <div className={styles.wrapper}>
       {/* <TopSlider /> */}
       <div className="mt-4">
-        <BoutiqueSearch />
+        <BoutiqueSearch2 />
       </div>
       <BType />
       <div

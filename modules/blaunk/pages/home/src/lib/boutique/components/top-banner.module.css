@@ -12,6 +12,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  gap: 4px;
 }
 
 .text-title {
@@ -35,7 +36,7 @@
 
 @media only screen and (max-width: 768px) {
   .wrapper {
-    flex-direction: column;
+    gap: 4px;
   }
   .image {
     height: 200px;
@@ -44,14 +45,21 @@
   .image * {
     height: 200px;
   }
+  .text {
+    min-width: 80px;
+  }
   .text-title {
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-h5);
+    text-align: center;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .text-title > div {
+    text-align: center;
   }
 
   .more {
-    padding: 0.5rem 2rem;
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-h5);
+    padding: 0.25rem 0.25rem;
+    font-size: 16px;
+    line-height: 16px;
   }
 }

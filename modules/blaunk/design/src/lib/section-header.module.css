@@ -23,5 +23,6 @@
     line-height: var(--line-height-h5);
     font-weight: var(--font-weight-bold);
     margin: 16px auto;
+    max-width: 96vw;
   }
 }
