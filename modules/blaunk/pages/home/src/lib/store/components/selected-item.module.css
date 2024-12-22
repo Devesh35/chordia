@@ -156,7 +156,7 @@
 
 .addon-action {
   display: flex;
-  width: 80%;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -171,17 +171,19 @@
 }
 .addon-cut {
   text-decoration: line-through;
-  background-color: black;
-  color: white;
+  font-weight: 500;
+  /* background-color: black; */
+  color: rgb(30, 30, 255);
   border-radius: 4px;
   padding-inline: 4px;
 }
 .addon-discount {
-  color: #ee3485;
+  font-weight: var(--font-weight-bold);
+  color: blue;
 }
 .addon-price {
-  font-weight: var(--font-weight-bold);
-  color: #2f53fc;
+  font-weight: var(--font-weight-semi-bold);
+  color: orangered;
 }
 
 .product-section {
@@ -208,5 +210,9 @@
   }
   .addon-action {
     justify-content: center;
+  }
+  .addon-cost {
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-h6);
   }
 }

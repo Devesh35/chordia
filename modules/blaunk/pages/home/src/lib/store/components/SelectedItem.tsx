@@ -67,10 +67,10 @@ const addOn = (isMobile: boolean) =>
         <div className={styles['addon-action']}>
           <div className={styles['addon-cost']}>
             <span className={styles['addon-cut']}>$20</span>
-            <span className={styles['addon-discount']}>$7 </span>
-            <span className={styles['addon-price']}>$13 </span>
+            <span className={styles['addon-discount']}>$13 </span>
+            <span className={styles['addon-price']}>$7 OFF</span>
           </div>
-          <Button variant="secondary">{isMobile ? 'Add to basket' : 'Add'}</Button>
+          <Button variant="primary">{isMobile ? 'Add to basket' : 'Add'}</Button>
         </div>
       }
     />
@@ -128,13 +128,13 @@ export const SelectedItem = ({ data }: Props) => {
 
   return (
     <div className={styles.wrapper}>
-      {isMobile ? (
+      {/* {isMobile ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>{items}</div>
-      ) : (
-        <ScrollableSnap className={styles['product-section']} controls>
-          {items}
-        </ScrollableSnap>
-      )}
+      ) : ( */}
+      <ScrollableSnap className={styles['product-section']} controls>
+        {items}
+      </ScrollableSnap>
+      {/* )} */}
       {/* <div className={styles['product-info']}>
             <div className={clsx(styles['product-header'])}>
               <div>Vendor details:</div>
