@@ -48,6 +48,11 @@
   .search-bar-items-start {
     border-radius: unset !important;
   }
+  .search-button {
+    border-radius: 8px !important;
+    max-width: 160px;
+    justify-self: center;
+  }
 }
 
 .search-bar-sub-wrapper {
@@ -55,6 +60,7 @@
   gap: 12px;
   align-items: flex-end;
   width: 100%;
+  justify-content: center;
 }
 
 .search-bar-sub-wrapper > * {

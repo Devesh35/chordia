@@ -1,10 +1,12 @@
 'uce client';
 
+import { grid } from '@li/config/design';
 import { fromCamelCase } from '@li/config/utils';
 import { Button, Carousal as CarousalDesign, InputArea, Labeled, ScrollableSnap } from '@li/design/elements';
 import { useMedia } from '@li/design/hooks';
 import { assurance, getStaticImageSrc } from '@li/design/icons';
 import { getRandomImagesArray } from '@md/blaunk/config';
+import { PaginationBlaunk } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { Col, Row } from 'react-bootstrap';
@@ -30,48 +32,49 @@ const detailsOrder: (keyof StoreItem)[] = [
   'customized',
   'uniqueCode',
 ];
-const addOn = getRandomImagesArray(6)(600, 600, 'food').map((src, i) => (
-  <AddOnCard
-    name="Store Store Store Store"
-    key={src}
-    image={{
-      src: src,
-      width: 250,
-      height: 180,
-      enlargedWidth: 600,
-      enlargedHeight: 600,
-      alt: 'random',
-    }}
-    weightQuantityRow
-    items={
-      [
-        // [
-        //   'Color',
-        //   <Select
-        //     maxHeight={160}
-        //     options={[
-        //       { id: '1', item: 'Red' },
-        //       { id: '2', item: 'Blue' },
-        //       { id: '3', item: 'Green' },
-        //       { id: '4', item: 'Yellow' },
-        //       { id: '5', item: 'Black' },
-        //     ]}
-        //   />,
-        // ],
-      ]
-    }
-    actionRow={
-      <div className={styles['addon-action']}>
-        <div className={styles['addon-cost']}>
-          <span className={styles['addon-cut']}>$20</span>
-          <span className={styles['addon-discount']}>$7 </span>
-          <span className={styles['addon-price']}>$13 </span>
+const addOn = (isMobile: boolean) =>
+  getRandomImagesArray(18)(600, 600, 'food').map((src, i) => (
+    <AddOnCard
+      name="Store Store Store Store"
+      key={src}
+      image={{
+        src: src,
+        width: 250,
+        height: 180,
+        enlargedWidth: 600,
+        enlargedHeight: 600,
+        alt: 'random',
+      }}
+      weightQuantityRow
+      items={
+        [
+          // [
+          //   'Color',
+          //   <Select
+          //     maxHeight={160}
+          //     options={[
+          //       { id: '1', item: 'Red' },
+          //       { id: '2', item: 'Blue' },
+          //       { id: '3', item: 'Green' },
+          //       { id: '4', item: 'Yellow' },
+          //       { id: '5', item: 'Black' },
+          //     ]}
+          //   />,
+          // ],
+        ]
+      }
+      actionRow={
+        <div className={styles['addon-action']}>
+          <div className={styles['addon-cost']}>
+            <span className={styles['addon-cut']}>$20</span>
+            <span className={styles['addon-discount']}>$7 </span>
+            <span className={styles['addon-price']}>$13 </span>
+          </div>
+          <Button variant="secondary">{isMobile ? 'Add to basket' : 'Add'}</Button>
         </div>
-        <Button variant="secondary">Add</Button>
-      </div>
-    }
-  />
-));
+      }
+    />
+  ));
 
 export const SelectedItem = ({ data }: Props) => {
   const isMobile = useMedia();
@@ -141,9 +144,15 @@ export const SelectedItem = ({ data }: Props) => {
             </div>
           </div> */}
       {/* <PolicyRow /> */}
-      <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
-      <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
-      <ScrollableSnap className={styles.addon}>{addOn}</ScrollableSnap>
+      <div
+        className={clsx(grid.grid)}
+        style={{
+          gap: '8px',
+        }}
+      >
+        {addOn(isMobile)}
+      </div>
+      <PaginationBlaunk />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
+import { withConditionCase } from '@li/design/enhancers';
 import { useMedia } from '@li/design/hooks';
 import { Star, Veg } from '@li/design/icons';
 import { ReactChildren } from '@li/types/shared';
@@ -7,6 +8,7 @@ import clsx from 'clsx';
 import styles from './product-card.module.css';
 
 type Props = {
+  type?: 'cake' | 'store' | 'other';
   src: string;
   topLeft?: string;
   details: {
@@ -18,8 +20,17 @@ type Props = {
   };
 };
 
-export const ProductCard = ({ src, topLeft, details }: Props) => {
+const Rating = ({ isMobile }: { isMobile: boolean }) => (
+  <div className={styles['rating-wrapper']}>
+    <div className={styles.rating}>
+      4.5 <Star fill="var(--secondary)" width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
+    </div>
+  </div>
+);
+
+export const ProductCard = ({ type = 'other', src, topLeft, details }: Props) => {
   const isMobile = useMedia();
+
   return (
     <ImageCard
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
@@ -31,18 +42,37 @@ export const ProductCard = ({ src, topLeft, details }: Props) => {
       }}
       topLeft={topLeft ? <div className={styles['card-tag']}>{topLeft}</div> : undefined}
       details={
-        <div className={styles.details}>
+        <div className={clsx(styles.details, styles['details-' + type])}>
           {details.isVeg !== undefined && <Veg width={24} height={24} />}
           <div className={styles['name-wrapper']}>
             <div className={styles['card-name']}>{details.name}</div>
-            <div className={styles.price}>{details.price}</div>
+            {!isMobile && <div className={clsx(styles.price, styles['price-' + type])}>{details.price}</div>}
+            {isMobile &&
+              withConditionCase(type)({
+                cake: (
+                  <div className={clsx(styles.price, styles['price-' + type])}>
+                    {details.price}
+                    <Rating isMobile={isMobile} />
+                  </div>
+                ),
+                store: (
+                  <div className={clsx(styles.price, styles['price-cake'])}>
+                    <span className={styles.time}>9:00 am - 12:00 pm</span>
+                    <Rating isMobile={isMobile} />
+                  </div>
+                ),
+
+                other: null,
+              })}
           </div>
-          <div className={styles['rating-wrapper']}>
-            <div className={styles.rating}>
-              4.5 <Star fill="var(--secondary)" width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
+          {isMobile ? null : (
+            <div className={styles['rating-wrapper']}>
+              <div className={styles.rating}>
+                4.5 <Star fill="var(--secondary)" width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
+              </div>
+              <span className={styles['review-count']}>{details.reviewCount} Reviews</span>
             </div>
-            <span className={styles['review-count']}>{details.reviewCount} Reviews</span>
-          </div>
+          )}
         </div>
       }
     />

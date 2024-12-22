@@ -122,7 +122,9 @@ export const AddressSearch = () => (
 );
 
 export const SearchButton = () => (
-  <Button className={clsx(styles['search-bar-items'], styles['search-bar-items-last'])}>Search</Button>
+  <Button className={clsx(styles['search-bar-items'], styles['search-bar-items-last'], styles['search-button'])}>
+    Search
+  </Button>
 );
 
 export const PropertyTypeSearch = ({ onChange }: PropertyTypeProps) => (

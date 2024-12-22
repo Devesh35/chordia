@@ -8,6 +8,7 @@ import { SectionHeader } from '@md/blaunk/design';
 import clsx from 'clsx';
 import Image from 'next/image';
 import styles from './deals-and-offer.module.css';
+import { CategorySearch } from '../base/components/CategorySearch';
 
 // const recentViews = getRandomImagesArray(8)(600, 600, 'hotels').map((src) => (
 //   <ImageCard
@@ -58,7 +59,7 @@ const adsLarge = (isMobile: boolean) =>
     <Image key={i} src={src} width={isMobile ? 350 : 800} height={isMobile ? 180 : 400} alt={'random'} />
   ));
 
-export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
+export const DealsAndOffer = ({ showRecent, tour }: { showRecent?: boolean; tour?: boolean }) => {
   const isMobile = useMedia();
   return (
     <>
@@ -85,6 +86,7 @@ export const DealsAndOffer = ({ showRecent }: { showRecent?: boolean }) => {
           </ScrollableSnap>
         </>
       )}
+      {tour && <CategorySearch tour />}
       <SectionHeader sectionName="Explore New" />
       <ScrollableSnap className={styles['add-on']} controls>
         {adsLarge(isMobile)}

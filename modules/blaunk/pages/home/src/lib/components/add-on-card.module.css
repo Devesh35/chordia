@@ -1,5 +1,4 @@
 .card {
-  min-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +8,10 @@
   border: 1px solid var(--primary);
   height: 400px;
   padding-bottom: 24px;
+  max-width: 100%;
+}
+.card * {
+  max-width: 100%;
 }
 
 .item {
@@ -16,6 +19,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .item-name {
@@ -28,4 +32,22 @@
 
 .quantity {
   flex: 0 0 100px;
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    gap: 8px;
+    padding: 4px;
+    height: 340px;
+    padding-bottom: 12px;
+  }
+  .item-name {
+    max-width: 160px !important;
+    padding-bottom: 4px;
+  }
+  .quantity {
+    flex: 0 0 60px;
+  }
+  .item {
+    flex-wrap: wrap;
+  }
 }

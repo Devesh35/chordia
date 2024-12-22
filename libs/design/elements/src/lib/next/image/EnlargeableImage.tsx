@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useMedia } from '@li/design/hooks';
 import { ClassName } from '@li/types/shared';
+import Image from 'next/image';
+import { useState } from 'react';
 import { Modal } from '../../overlays';
 
 export type EnlargeableImageProps = {
@@ -14,13 +15,9 @@ export type EnlargeableImageProps = {
   enlargedHeight: number;
 } & Partial<ClassName>;
 
-export const EnlargeableImage = ({
-  className,
-  enlargedWidth,
-  enlargedHeight,
-  ...props
-}: EnlargeableImageProps) => {
+export const EnlargeableImage = ({ className, enlargedWidth, enlargedHeight, ...props }: EnlargeableImageProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useMedia();
 
   return (
     <>
@@ -29,7 +26,7 @@ export const EnlargeableImage = ({
       </Modal>
       <Image
         {...props}
-        style={{ cursor: 'pointer' }}
+        style={{ cursor: 'pointer', maxWidth: isMobile ? '100%' : '90%' }}
         onClick={() => setIsModalOpen(true)}
       />
     </>

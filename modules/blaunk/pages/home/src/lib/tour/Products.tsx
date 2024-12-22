@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import styles from './tour.module.css';
 
 const products = (isMobile: boolean, router: () => void) =>
-  getRandomImagesArray(18)(300, 300, 'hotel').map((src, i) => (
+  getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'hotel').map((src, i) => (
     <ImageCard
       key={i}
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
@@ -28,13 +28,14 @@ const products = (isMobile: boolean, router: () => void) =>
         <div className={styles.details}>
           <div className={styles['name-wrapper']}>
             <div className={styles['card-name']}>Hotel name</div>
-            <div className={styles.price}>Rs 1300/day</div>
+            <div className={styles.price}>Rs 1300</div>
+            {isMobile && <span className={styles['review-count']}>9:00 am - 12:00 pm</span>}
           </div>
           <div className={styles['rating-wrapper']}>
             <div className={styles.rating}>
               4.5 <Star fill="var(--secondary)" width={16} height={16} />
             </div>
-            <span className={styles['review-count']}>1.5k Reviews</span>
+            {!isMobile && <span className={styles['review-count']}>1.5k Reviews</span>}
           </div>
         </div>
       }

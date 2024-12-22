@@ -159,6 +159,8 @@
   width: 80%;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 12px;
 }
 .addon-cost {
   display: flex;
@@ -200,5 +202,11 @@
   }
   .product-images {
     height: 500px;
+  }
+  .wrapper {
+    padding: 12px 0;
+  }
+  .addon-action {
+    justify-content: center;
   }
 }

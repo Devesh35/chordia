@@ -42,7 +42,7 @@ export const Tour = () => {
         <Products />
       </div>
       <PaginationBlaunk />
-      <DealsAndOffer showRecent />
+      <DealsAndOffer showRecent tour />
     </div>
   );
 };

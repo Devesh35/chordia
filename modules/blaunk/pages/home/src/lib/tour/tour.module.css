@@ -23,6 +23,7 @@
 
 .name-wrapper {
   flex: 1;
+  gap: 2px;
 }
 
 .card-name {
@@ -317,6 +318,7 @@
   }
   .rating {
     font-size: 12px;
+    padding-inline: 8px;
   }
   .review-count {
     font-size: 10px;
@@ -327,5 +329,10 @@
   }
   .details {
     padding: 0 0.5rem 0.5rem;
+    align-items: center;
+  }
+
+  .rating-wrapper {
+    align-self: center;
   }
 }

@@ -66,6 +66,7 @@
   }
   .rating {
     font-size: 12px;
+    padding-inline: 8px;
   }
   .review-count {
     font-size: 10px;
@@ -76,5 +77,22 @@
   }
   .details {
     padding: 0 0.5rem 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .details-cake {
+    align-items: flex-start;
+  }
+  .price-cake {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .time {
+    font-size: 12px;
+    font-weight: 300;
+    color: green;
   }
 }
