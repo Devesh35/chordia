@@ -191,6 +191,14 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .wrapper {
+    width: calc(100vw - 16px);
+  }
+  .product-section {
+    height: 460px;
+    width: calc(100vw - 16px);
+    gap: 12px;
+  }
   .product-section-box {
     max-width: 90vw;
     min-width: 240px;
@@ -198,12 +206,11 @@
     margin-inline: auto;
   }
   .product-section-carousel-box {
-    min-width: 240px;
-    height: 450px;
-    min-height: 450px;
+    min-width: calc(100vw - 16px);
+    height: 400px;
   }
   .product-images {
-    height: 500px;
+    height: 400px;
   }
   .wrapper {
     padding: 12px 0;
@@ -214,5 +221,8 @@
   .addon-cost {
     font-size: var(--font-size-h6);
     line-height: var(--line-height-h6);
+  }
+  .product-section-box {
+    min-width: calc(100vw - 16px);
   }
 }

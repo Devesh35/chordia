@@ -11,6 +11,7 @@ type ScrollableSnapProps = {
   controls?: true;
   direction?: 'x' | 'y';
   delta?: number;
+  arrows?: 'single' | 'double';
 } & ReactChildren &
   Partial<ClassName>;
 
@@ -20,6 +21,7 @@ export const ScrollableSnap = ({
   controls,
   direction = 'x',
   delta = 50,
+  arrows = 'single',
 }: ScrollableSnapProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -27,26 +29,13 @@ export const ScrollableSnap = ({
     if (ref.current)
       // dx has values of 1, -1
       // moving 10 px will scroll to next component due to scroll-snap-type
-      ref.current.scrollBy(
-        direction === 'x' ? dx * delta : 0,
-        direction === 'y' ? dx * delta : 0,
-      );
+      ref.current.scrollBy(direction === 'x' ? dx * delta : 0, direction === 'y' ? dx * delta : 0);
   };
 
   return (
     <div className={styles['controls-wrapper']}>
-      {controls ? (
-        <MoveControl onChange={onClick} className={styles.control} />
-      ) : null}
-      <div
-        className={clsx(
-          styles.wrapper,
-          styles[`scroll-${direction}`],
-          sbs.none,
-          className,
-        )}
-        ref={ref}
-      >
+      {controls ? <MoveControl onChange={onClick} className={styles.control} arrows={arrows} /> : null}
+      <div className={clsx(styles.wrapper, styles[`scroll-${direction}`], sbs.none, className)} ref={ref}>
         {children}
       </div>
     </div>
