@@ -56,3 +56,43 @@
   color: var(--primary);
   font-size: 12px;
 }
+
+@media only screen and (max-width: 768px) {
+  .card-name {
+    font-size: 12px;
+  }
+  .price {
+    font-size: 14px;
+  }
+  .rating {
+    font-size: 12px;
+    padding-inline: 8px;
+  }
+  .review-count {
+    font-size: 10px;
+  }
+  .grid {
+    gap: 12px;
+    margin: 0 0 1rem;
+  }
+  .details {
+    padding: 0 0.5rem 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .details-cake {
+    align-items: flex-start;
+  }
+  .price-cake {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .time {
+    font-size: 12px;
+    font-weight: 300;
+    color: green;
+  }
+}

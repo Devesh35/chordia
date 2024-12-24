@@ -13,14 +13,18 @@ import styles from './category-search.module.css';
 
 const images = getRandomImagesArray(12)(225);
 
-export const CategorySearch = () => {
+export const CategorySearch = ({ tour }: { tour?: boolean }) => {
   const isMobile = useMedia();
 
   const [selectedCategory, setSelectedCategory] = useState<MenuCategoriesIdType>('accessories_general');
 
   return (
     <div className={styles.wrapper}>
-      <SectionHeader sectionName="Search by category" basic />
+      {tour ? (
+        <SectionHeader sectionName="Search by package" basic />
+      ) : (
+        <SectionHeader sectionName="Search by category" basic />
+      )}
       <div className={styles['content-wrapper']}>
         <div className={styles['section-wrapper']}>
           <CategorySelection selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />

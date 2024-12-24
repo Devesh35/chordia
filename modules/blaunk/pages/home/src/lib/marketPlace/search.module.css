@@ -35,34 +35,3 @@
 .search-bar-items-last {
   border-radius: 0 100vh 100vh 0;
 }
-
-@media only screen and (max-width: 600px) {
-  .search-bar-wrapper {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-  }
-  .search-bar-items-last {
-    border-radius: unset !important;
-  }
-  .search-bar-items-start {
-    border-radius: unset !important;
-  }
-  .search-button {
-    border-radius: 8px !important;
-    max-width: 160px;
-    justify-self: center;
-  }
-}
-
-.search-bar-sub-wrapper {
-  display: flex;
-  gap: 12px;
-  align-items: flex-end;
-  width: 100%;
-  justify-content: center;
-}
-
-.search-bar-sub-wrapper > * {
-  flex: 1;
-}

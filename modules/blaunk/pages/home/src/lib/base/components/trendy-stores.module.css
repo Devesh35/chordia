@@ -27,12 +27,12 @@
     gap: 4px;
   }
   .label {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 16px;
+    line-height: 18px;
     padding-bottom: 12px;
   }
   .carousal {
-    height: 240px;
+    height: 280px;
   }
   .header {
     white-space: nowrap !important;

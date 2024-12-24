@@ -17,3 +17,12 @@
 .item-wrapper:hover {
   border: var(--border-width-small) solid var(--gray600);
 }
+
+@media only screen and (max-width: 768px) {
+  .item-wrapper {
+    height: 36px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 0.25rem 0.25rem;
+  }
+}

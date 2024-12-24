@@ -3,6 +3,7 @@
 import { Button, Carousal, ScrollableSnap } from '@li/design/elements';
 import { Constants, cakeBanner, getRandomImagesArray } from '@md/blaunk/config';
 
+import { useMedia } from '@li/design/hooks';
 import { getStaticImageSrc } from '@li/design/icons';
 import { CustomerReviews, PaginationBlaunk, SectionHeader } from '@md/blaunk/design';
 import { Basket } from 'modules/blaunk/design/src/lib/Basket';
@@ -63,21 +64,24 @@ const addOn = getRandomImagesArray(6)(600).map((src, i) => (
   />
 ));
 
-const products = getRandomImagesArray(18)(300, 300, 'cake').map((src, i) => (
-  <ProductCard
-    key={i}
-    src={src}
-    details={{
-      isVeg: true,
-      name: 'Strawberry Cake',
-      price: '$13',
-      rating: '4.5',
-      reviewCount: '1.5k',
-    }}
-  />
-));
+const products = (isMobile: boolean) =>
+  getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'cake').map((src, i) => (
+    <ProductCard
+      key={i}
+      src={src}
+      type="cake"
+      details={{
+        isVeg: true,
+        name: 'Strawberry Cake',
+        price: '$13',
+        rating: '4.5',
+        reviewCount: '1.5k',
+      }}
+    />
+  ));
 
 export const Cake = () => {
+  const isMobile = useMedia();
   return (
     <div className={styles.wrapper}>
       <div className={styles['carousal-wrapper']}>
@@ -98,7 +102,7 @@ export const Cake = () => {
       </div>
       <Search />
       <Filter />
-      <ProductWrapper>{products}</ProductWrapper>
+      <ProductWrapper>{products(isMobile)}</ProductWrapper>
       <PaginationBlaunk />
       <CakeBanner shopName="La Crosieuter" location="Vacouver, BC" discount={69} /> <Details />
       <SectionHeader sectionName="Add On" />

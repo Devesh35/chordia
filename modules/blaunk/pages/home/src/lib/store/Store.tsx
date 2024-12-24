@@ -81,18 +81,20 @@ const images = getRandomImagesArray(6)(Constants.b2bHomeBannerSize, 1920, 'food'
   />
 ));
 
-const products = getRandomImagesArray(18)(300, 300, 'items').map((src, i) => (
-  <ProductCard
-    key={i}
-    src={src}
-    topLeft="Open"
-    details={{
-      name: 'Bikaner sweets',
-      rating: '4.5',
-      reviewCount: '1.5k',
-    }}
-  />
-));
+const products = (isMobile: boolean) =>
+  getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'items').map((src, i) => (
+    <ProductCard
+      key={i}
+      src={src}
+      type="store"
+      topLeft="Open"
+      details={{
+        name: 'Bikaner sweets',
+        rating: '4.5',
+        reviewCount: '1.5k',
+      }}
+    />
+  ));
 
 export const Store = () => {
   const isMobile = useMedia();
@@ -116,10 +118,10 @@ export const Store = () => {
         </div>
       </div>
       <div className="d-flex justify-content-center">
-        <Image src={storeRoof} width={650} height={200} alt="store_roof" />
+        <Image src={storeRoof} width={isMobile ? 320 : 650} height={isMobile ? 100 : 200} alt="store_roof" />
       </div>
       <SearchBar />
-      <ProductWrapper>{products}</ProductWrapper>
+      <ProductWrapper>{products(isMobile)}</ProductWrapper>
       <PaginationBlaunk />
       {/* <DealSection /> */}
       <StoreBanner storeName="Bikaner sweets" location="Bikaner, Rajasthan" discount={50} />

@@ -17,7 +17,11 @@ export const StoreAds = () => {
   return (
     <div>
       {/* <Placeholder height={50} /> */}
-      <Carousal className={styles.carousal} style={{ height: `${isMobile ? 240 : 600}px` }} autoInterval={5000}>
+      <Carousal
+        className={styles.carousal}
+        style={{ height: `${isMobile ? 240 : 600}px`, paddingTop: isMobile ? '12px' : 0 }}
+        autoInterval={5000}
+      >
         {img(isMobile)}
       </Carousal>
     </div>

@@ -4,20 +4,21 @@ import { Routes, getRandomImagesArray } from '@md/blaunk/config';
 
 import { grid } from '@li/config/design';
 import { ImageCard } from '@li/design/components';
+import { useMedia } from '@li/design/hooks';
 import { Star } from '@li/design/icons';
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import styles from './tour.module.css';
 
-const products = (router: () => void) =>
-  getRandomImagesArray(18)(300, 300, 'hotel').map((src, i) => (
+const products = (isMobile: boolean, router: () => void) =>
+  getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'hotel').map((src, i) => (
     <ImageCard
       key={i}
-      className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-6'], 'clickable')}
+      className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
         width: 300,
-        height: 300,
+        height: isMobile ? 150 : 300,
         alt: 'random',
       }}
       topLeft={<div className={styles['card-tag']}>Best seller</div>}
@@ -27,13 +28,14 @@ const products = (router: () => void) =>
         <div className={styles.details}>
           <div className={styles['name-wrapper']}>
             <div className={styles['card-name']}>Hotel name</div>
-            <div className={styles.price}>Rs 1300/day</div>
+            <div className={styles.price}>Rs 1300</div>
+            {isMobile && <span className={styles['review-count']}>9:00 am - 12:00 pm</span>}
           </div>
           <div className={styles['rating-wrapper']}>
             <div className={styles.rating}>
               4.5 <Star fill="var(--secondary)" width={16} height={16} />
             </div>
-            <span className={styles['review-count']}>1.5k Reviews</span>
+            {!isMobile && <span className={styles['review-count']}>1.5k Reviews</span>}
           </div>
         </div>
       }
@@ -41,8 +43,9 @@ const products = (router: () => void) =>
   ));
 export const Products = () => {
   const { push } = useRouter();
+  const isMobile = useMedia();
 
-  const allProducts = products(() => push(Routes.home.tour.item('item').path));
+  const allProducts = products(isMobile, () => push(Routes.home.tour.item('item').path));
 
   return allProducts;
 };

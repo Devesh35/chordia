@@ -1,5 +1,6 @@
 'use client';
 
+import { useMedia } from '@li/design/hooks';
 import {
   Autocomplete,
   Box,
@@ -15,6 +16,7 @@ import {
 import { useState } from 'react';
 
 export const BoutiqueSearch = () => {
+  const isMobile = useMedia();
   interface FormState {
     sort: string;
     group: string;
@@ -165,26 +167,39 @@ export const BoutiqueSearch = () => {
           }}
         />
       </Grid>
-      <Grid item xs={6} sm={4} md={4} lg={1.5}>
+      {/* <Grid item xs={6} sm={4} md={4} lg={1.5}>
         <InputLabel>Area</InputLabel>
         <TextField id="outlined-basic" variant="outlined" size="small" style={{ backgroundColor: 'white' }} fullWidth />
-      </Grid>
-      <Grid item xs={6} sm={4} md={4} lg={1.5}>
-        <InputLabel>Sort by</InputLabel>
-        <Select
-          id="demo-simple-select"
-          value={value.sort}
-          name="sort"
-          onChange={handleChange}
-          size="small"
-          style={{ backgroundColor: 'white' }}
-          fullWidth
-        >
-          <MenuItem value="new">New Listing</MenuItem>
-          <MenuItem value="hp">Highest Price</MenuItem>
-          <MenuItem value="lp">Lowest Price</MenuItem>
-        </Select>
-      </Grid>
+      </Grid> */}
+      {isMobile ? (
+        <Grid item xs={6} sm={4} md={4} lg={1.5}>
+          <InputLabel>Search</InputLabel>
+          <TextField
+            id="outlined-basic"
+            variant="outlined"
+            size="small"
+            style={{ backgroundColor: 'white' }}
+            fullWidth
+          />
+        </Grid>
+      ) : (
+        <Grid item xs={6} sm={4} md={4} lg={1.5}>
+          <InputLabel>Sort by</InputLabel>
+          <Select
+            id="demo-simple-select"
+            value={value.sort}
+            name="sort"
+            onChange={handleChange}
+            size="small"
+            style={{ backgroundColor: 'white' }}
+            fullWidth
+          >
+            <MenuItem value="new">New Listing</MenuItem>
+            <MenuItem value="hp">Highest Price</MenuItem>
+            <MenuItem value="lp">Lowest Price</MenuItem>
+          </Select>
+        </Grid>
+      )}
       <Grid item xs={6} sm={4} md={4} lg={1.5} mt={2.6}>
         <Button
           variant="contained"

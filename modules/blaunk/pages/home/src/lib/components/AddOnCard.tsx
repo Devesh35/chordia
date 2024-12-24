@@ -1,3 +1,4 @@
+import { grid } from '@li/config/design';
 import { QuantitySelector, QuantitySelectorDropdown } from '@li/design/components';
 import { Button, EnlargeableImage, EnlargeableImageProps, Input, Select } from '@li/design/elements';
 import { withCondition } from '@li/design/enhancers';
@@ -50,7 +51,7 @@ export const AddOnCard = ({
   weightQuantityRow,
 }: AddOnCardProps) => {
   return (
-    <div className={styles.card}>
+    <div className={clsx(styles.card, grid['col-2'], grid['col-t-3'], grid['col-m-3'])}>
       <EnlargeableImage {...image} />
       <div className={clsx(styles.item, styles['item-name'])}>{name}</div>
       {withCondition(quantitySelect)(

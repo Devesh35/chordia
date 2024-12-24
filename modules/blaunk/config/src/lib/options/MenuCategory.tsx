@@ -14,6 +14,7 @@ export const MenuCategoriesId = [
   'agro-seeds',
   'agro-spices',
   'agro-veggies',
+  'amorces',
   'apparel-fabric',
   'apparel-kids',
   'apparel-men',
@@ -136,6 +137,10 @@ export const MenuCategories: CatCat[] = [
         name: 'Veggies',
       },
     ],
+  },
+  {
+    id: 'amorces',
+    name: 'Amorces',
   },
   {
     id: 'apparel',
@@ -2569,7 +2574,10 @@ export const SubCategories: { [k in MenuCategoriesIdType]: SubCategory[] } = {
     { id: 'cargo lorry', label: 'Cargo Lorry' },
     { id: 'door to door delivery', label: 'Door to Door Delivery' },
   ],
-
+  amorces: [
+    { id: 'fireworks', label: 'Fireworks' },
+    { id: 'matches', label: 'Matches' },
+  ],
 };
 
 export const SubMenuOptions: {
