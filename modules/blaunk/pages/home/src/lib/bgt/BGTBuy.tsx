@@ -1,3 +1,5 @@
+'use client';
+
 import { Carousal } from '@li/design/elements';
 import { Constants, getRandomImagesArray } from '@md/blaunk/config';
 import { CustomerReviews, PaginationBlaunk, RollingAd } from '@md/blaunk/design';
