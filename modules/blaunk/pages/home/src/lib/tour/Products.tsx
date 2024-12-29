@@ -18,7 +18,7 @@ const products = (isMobile: boolean, router: () => void) =>
       image={{
         src: src,
         width: 300,
-        height: isMobile ? 150 : 300,
+        height: isMobile ? 180 : 400,
         alt: 'random',
       }}
       topLeft={<div className={styles['card-tag']}>Best seller</div>}
@@ -28,15 +28,22 @@ const products = (isMobile: boolean, router: () => void) =>
         <div className={styles.details}>
           <div className={styles['name-wrapper']}>
             <div className={styles['card-name']}>Hotel name</div>
-            <div className={styles.price}>Rs 1300</div>
-            {isMobile && <span className={styles['review-count']}>9:00 am - 12:00 pm</span>}
-          </div>
-          <div className={styles['rating-wrapper']}>
-            <div className={styles.rating}>
-              4.5 <Star fill="var(--secondary)" width={16} height={16} />
+            <div className={styles.price}>
+              <div>Rs 1300</div>
+              <div className={styles.rating}>
+                4.5 <Star fill="var(--secondary)" width={16} height={16} />
+              </div>
             </div>
-            {!isMobile && <span className={styles['review-count']}>1.5k Reviews</span>}
+            <span className={styles['review-count']}>9:00 am - 12:00 pm</span>
           </div>
+          {/* {!isMobile && (
+            <div className={styles['rating-wrapper']}>
+              <div className={styles.rating}>
+                4.5 <Star fill="var(--secondary)" width={16} height={16} />
+              </div>
+            </div>
+          )} */}
+          {/* {!isMobile && <span className={styles['review-count']}>1.5k Reviews</span>} */}
         </div>
       }
     />

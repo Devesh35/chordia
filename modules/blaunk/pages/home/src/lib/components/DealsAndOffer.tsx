@@ -5,10 +5,9 @@ import { getRandomImagesArray } from '@md/blaunk/config';
 // import clsx from 'clsx';
 import { useMedia } from '@li/design/hooks';
 import { SectionHeader } from '@md/blaunk/design';
-import clsx from 'clsx';
 import Image from 'next/image';
-import styles from './deals-and-offer.module.css';
 import { CategorySearch } from '../base/components/CategorySearch';
+import styles from './deals-and-offer.module.css';
 
 // const recentViews = getRandomImagesArray(8)(600, 600, 'hotels').map((src) => (
 //   <ImageCard
@@ -36,10 +35,10 @@ import { CategorySearch } from '../base/components/CategorySearch';
 //   />
 // ));
 
-const ads = (isMobile: boolean) =>
-  getRandomImagesArray(10)(isMobile ? 170 : 300, isMobile ? 170 : 300, 'hotels').map((src, i) => (
-    <Image key={i} src={src} width={isMobile ? 170 : 300} height={isMobile ? 170 : 300} alt={'random'} />
-  ));
+// const ads = (isMobile: boolean) =>
+//   getRandomImagesArray(10)(isMobile ? 170 : 300, isMobile ? 170 : 300, 'hotels').map((src, i) => (
+//     <Image key={i} src={src} width={isMobile ? 170 : 300} height={isMobile ? 170 : 300} alt={'random'} />
+//   ));
 const adsMobile = (isMobile: boolean) =>
   getRandomImagesArray(10)(isMobile ? 170 : 300, isMobile ? 170 : 300, 'hotels').map((src, i) => (
     <div
@@ -54,9 +53,23 @@ const adsMobile = (isMobile: boolean) =>
     </div>
   ));
 
-const adsLarge = (isMobile: boolean) =>
+// const adsLarge = (isMobile: boolean) =>
+//   getRandomImagesArray(10)(isMobile ? 180 : 400, isMobile ? 350 : 800, 'hotels').map((src, i) => (
+//     <Image key={i} src={src} width={isMobile ? 350 : 800} height={isMobile ? 180 : 400} alt={'random'} />
+//   ));
+
+const adsLargeMobile = (isMobile: boolean) =>
   getRandomImagesArray(10)(isMobile ? 180 : 400, isMobile ? 350 : 800, 'hotels').map((src, i) => (
-    <Image key={i} src={src} width={isMobile ? 350 : 800} height={isMobile ? 180 : 400} alt={'random'} />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+      }}
+    >
+      <Image key={i} src={src} width={isMobile ? 350 : 800} height={isMobile ? 180 : 400} alt={'random'} />
+      <Image key={i} src={src} width={isMobile ? 350 : 800} height={isMobile ? 180 : 400} alt={'random'} />
+    </div>
   ));
 
 export const DealsAndOffer = ({ showRecent, tour }: { showRecent?: boolean; tour?: boolean }) => {
@@ -72,11 +85,11 @@ export const DealsAndOffer = ({ showRecent, tour }: { showRecent?: boolean; tour
         </>
       )} */}
       <SectionHeader sectionName="Deals & Offer" />
-      {isMobile ? (
-        <ScrollableSnap className={styles['add-on']} controls delta={300}>
-          {adsMobile(isMobile)}
-        </ScrollableSnap>
-      ) : (
+      {/* {isMobile ? ( */}
+      <ScrollableSnap className={styles['add-on']} controls delta={300}>
+        {adsMobile(isMobile)}
+      </ScrollableSnap>
+      {/* ) : (
         <>
           <ScrollableSnap className={styles['add-on']} controls>
             {ads(isMobile)}
@@ -85,15 +98,15 @@ export const DealsAndOffer = ({ showRecent, tour }: { showRecent?: boolean; tour
             {ads(isMobile)}
           </ScrollableSnap>
         </>
-      )}
+      )} */}
       {tour && <CategorySearch tour />}
       <SectionHeader sectionName="Explore New" />
       <ScrollableSnap className={styles['add-on']} controls>
-        {adsLarge(isMobile)}
+        {adsLargeMobile(isMobile)}
       </ScrollableSnap>
-      <ScrollableSnap className={clsx(styles['add-on'], styles.bottom)} controls>
-        {adsLarge(isMobile)}
-      </ScrollableSnap>
+      {/* <ScrollableSnap className={clsx(styles['add-on'], styles.bottom)} controls>
+        {adsLargeMobile(isMobile)}
+      </ScrollableSnap> */}
     </>
   );
 };

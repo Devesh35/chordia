@@ -13,7 +13,7 @@ const products = getRandomImagesArray(24)(600, 600, 'saree').map((src, i) => (
   <ProductCardLarge src={src} action="yes" tag="READY TO SHIP" key={src} />
 ));
 const productsAd = getRandomImagesArray(12)(600, 600, 'saree').map((src, i) => (
-  <ProductCardLarge src={src} key={src} />
+  <ProductCardLarge src={src} key={src} action="yes" />
 ));
 
 export const BType = () => {

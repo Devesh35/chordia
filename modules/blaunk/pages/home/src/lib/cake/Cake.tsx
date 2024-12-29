@@ -65,7 +65,7 @@ const addOn = getRandomImagesArray(6)(600).map((src, i) => (
 ));
 
 const products = (isMobile: boolean) =>
-  getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'cake').map((src, i) => (
+  getRandomImagesArray(isMobile ? 16 : 18)(400, 300, 'cake').map((src, i) => (
     <ProductCard
       key={i}
       src={src}

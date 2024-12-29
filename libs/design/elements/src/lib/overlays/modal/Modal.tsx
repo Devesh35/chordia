@@ -2,7 +2,7 @@
 
 import { gs, sbs } from '@li/config/design';
 import { CircleClose } from '@li/design/icons';
-import { ReactChildren } from '@li/types/shared';
+import { ClassName, ReactChildren } from '@li/types/shared';
 import clsx from 'clsx';
 import React, { ReactNode } from 'react';
 import styles from './modal.module.css';
@@ -16,15 +16,16 @@ type ModalProps = ModalBaseProps & {
   title?: ReactNode;
   actions?: ReactNode | ReactNode[];
   hideHeader?: boolean;
-} & ReactChildren;
+} & ReactChildren &
+  Partial<ClassName>;
 
-export const Modal = ({ isOpen, onClose, title, actions, children, hideHeader }: ModalProps) => {
+export const Modal = ({ isOpen, onClose, title, actions, children, hideHeader, className }: ModalProps) => {
   if (!isOpen) return null;
 
   const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
 
   return (
-    <div className={styles.wrapper} onClick={onClose}>
+    <div className={clsx(styles.wrapper, className)} onClick={onClose}>
       <dialog open={isOpen} className={clsx(styles.dialog)} onClick={stopPropagation}>
         {!hideHeader && (
           <header className={styles.header}>

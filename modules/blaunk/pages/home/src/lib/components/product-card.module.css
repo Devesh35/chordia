@@ -39,6 +39,12 @@
 .rating-wrapper {
   align-self: flex-end;
 }
+.price-cake {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
 
 .rating {
   display: flex;
@@ -65,8 +71,9 @@
     font-size: 14px;
   }
   .rating {
-    font-size: 12px;
-    padding-inline: 8px;
+    font-size: 10px;
+    padding-inline: 4px;
+    gap: 0px;
   }
   .review-count {
     font-size: 10px;
@@ -78,6 +85,11 @@
   .details {
     padding: 0 0.5rem 0.5rem;
   }
+}
+.time {
+  font-size: 14px;
+  font-weight: 300;
+  color: green;
 }
 
 @media only screen and (max-width: 768px) {
@@ -91,7 +103,7 @@
     align-items: center;
   }
   .time {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     color: green;
   }

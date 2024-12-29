@@ -27,7 +27,17 @@ export const MoveControl = ({ size, variant = 'light', onChange, className, arro
       >
         {withConditionCase(arrows)({
           single: <AngleLeft />,
-          double: <img src={getStaticImageSrc(double_arrow_left)} alt="arrow" width={18} height={18} />,
+          double: (
+            <img
+              src={getStaticImageSrc(double_arrow_left)}
+              alt="arrow"
+              width={18}
+              height={18}
+              style={{
+                opacity: 0.5,
+              }}
+            />
+          ),
         })}
       </div>
       <div
@@ -44,7 +54,10 @@ export const MoveControl = ({ size, variant = 'light', onChange, className, arro
               alt="arrow"
               width={18}
               height={18}
-              style={{ transform: 'rotate(180deg)' }}
+              style={{
+                opacity: 0.5,
+                transform: 'rotate(180deg)',
+              }}
             />
           ),
         })}
