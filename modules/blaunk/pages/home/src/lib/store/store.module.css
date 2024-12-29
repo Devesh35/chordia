@@ -20,9 +20,9 @@
 
 @media only screen and (max-width: 768px) {
   .carousal-wrapper {
-    height: 130px;
+    height: 240px;
   }
   .carousal-wrapper * {
-    height: 130px;
+    height: 240px;
   }
 }

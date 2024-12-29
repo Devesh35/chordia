@@ -281,3 +281,11 @@
   font-weight: var(--font-weight-bold);
   color: #2f53fc;
 }
+@media only screen and (max-width: 768px) {
+  .carousal-wrapper {
+    height: 240px;
+  }
+  .carousal-wrapper img {
+    height: 240px;
+  }
+}

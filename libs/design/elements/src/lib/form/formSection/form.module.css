@@ -62,7 +62,7 @@
 }
 
 .form-group-select {
-  width: 240px;
+  width: min(240px, 70vw);
   margin: 1rem;
   margin-left: 2rem;
 }
@@ -158,4 +158,50 @@
 
 .ul {
   margin-left: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .section-content-wrapper {
+    margin-block: 0.25rem;
+    padding: 0 0.25rem;
+  }
+  .section-content {
+    grid-gap: 0.25rem;
+  }
+  .item-column {
+    flex-direction: column !important;
+    gap: 4px !important;
+    align-items: flex-start !important;
+  }
+
+  .verification {
+    font-size: 12px;
+    line-height: 12px;
+    color: var(--error400);
+  }
+
+  .document {
+    --label-height: 48px;
+    padding: 0.125rem;
+
+    width: 120px;
+    height: 180px;
+  }
+
+  .document-label {
+    font-size: 14px;
+    line-height: 14px;
+    height: var(--label-height);
+    max-height: var(--label-height);
+  }
+
+  .document-content {
+    height: calc(100% - var(--label-height));
+    padding: 0.25rem;
+  }
+  .ul {
+    margin-left: 0.5rem;
+    font-size: 12px;
+    line-height: 12px;
+  }
 }

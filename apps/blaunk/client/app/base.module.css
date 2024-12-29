@@ -67,3 +67,10 @@
 .content {
   padding-left: 6px;
 }
+
+@media only screen and (max-width: 768px) {
+  .page-small {
+    margin: 1rem auto;
+    padding: 0 0.25rem;
+  }
+}

@@ -7,7 +7,6 @@
   border-radius: var(--border-radius-medium);
   overflow: hidden;
   position: relative;
-  transition: transform 0.5s;
 }
 
 .details {
@@ -60,6 +59,6 @@
   }
 }
 
-.wrapper:hover {
+.wrapper-hover:hover {
   transform: scale(1.1);
 }

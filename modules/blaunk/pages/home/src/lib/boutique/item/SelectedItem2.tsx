@@ -105,11 +105,7 @@ export const SelectedItem2 = ({ isOpen, onClose }: Props) => {
           }}
         >
           <Stack direction="row" justifyContent="space-between">
-            <Stack
-              direction={{ xs: 'column', md: 'column' }}
-              justifyContent={{ xs: 'flex-start', md: 'flex-start' }}
-              alignItems={{ xs: 'center ', md: 'center' }}
-            >
+            <Stack direction={{ xs: 'column', md: 'column' }} justifyContent={{ xs: 'flex-start', md: 'flex-start' }}>
               <Typography variant="h6" fontWeight="bold">
                 Dining Set
               </Typography>

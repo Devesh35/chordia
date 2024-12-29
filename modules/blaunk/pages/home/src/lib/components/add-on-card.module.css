@@ -46,6 +46,7 @@
   .item-name {
     max-width: 160px !important;
     padding-bottom: 4px;
+    font-size: 12px;
   }
   .quantity {
     flex: 0 0 60px;

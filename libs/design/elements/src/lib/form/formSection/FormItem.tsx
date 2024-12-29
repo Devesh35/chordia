@@ -1,5 +1,6 @@
 'use client';
 
+import { useMedia } from '@li/design/hooks';
 import { FormSectionItem } from '@li/types/design';
 import clsx from 'clsx';
 import { Labeled } from '../../decorators';
@@ -12,6 +13,7 @@ import { blockFormItemStyles, inlineFormItemStyles } from './utils';
 
 export const FormItem = <D,>(props: FormSectionItem<D>) => {
   const { isEdit, hasBG } = useFormConfig();
+  const isMobile = useMedia();
 
   if (props.type === 'select-submenu') {
     return <FormItemSubMenu {...props} />;
@@ -24,6 +26,7 @@ export const FormItem = <D,>(props: FormSectionItem<D>) => {
       className={clsx(props.block ? blockFormItemStyles : inlineFormItemStyles, styles['item-label'], {
         [styles['item-label-bg']]: hasBG,
         [styles['item-label-inline']]: !props.block,
+        [styles['item-column']]: isMobile,
       })}
     >
       {isEdit && !props.isReadOnly ? (

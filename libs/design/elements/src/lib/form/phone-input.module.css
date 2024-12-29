@@ -41,3 +41,17 @@
   flex-basis: 120px;
   height: 36px;
 }
+
+@media only screen and (max-width: 768px) {
+  .wrapper > .otp-button {
+    flex-basis: 160px;
+    padding-inline: 0.25rem;
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .resend {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}

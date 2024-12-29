@@ -13,12 +13,13 @@ import styles from './tour.module.css';
 const products = (isMobile: boolean, router: () => void) =>
   getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'hotel').map((src, i) => (
     <ImageCard
+      hover
       key={i}
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
-        width: 300,
-        height: isMobile ? 180 : 400,
+        width: isMobile ? 150 : 300,
+        height: isMobile ? 150 : 300,
         alt: 'random',
       }}
       topLeft={<div className={styles['card-tag']}>Best seller</div>}
@@ -34,7 +35,7 @@ const products = (isMobile: boolean, router: () => void) =>
                 4.5 <Star fill="var(--secondary)" width={16} height={16} />
               </div>
             </div>
-            <span className={styles['review-count']}>9:00 am - 12:00 pm</span>
+            <div className={styles['review-count']}>9:00 am - 12:00 pm</div>
           </div>
           {/* {!isMobile && (
             <div className={styles['rating-wrapper']}>

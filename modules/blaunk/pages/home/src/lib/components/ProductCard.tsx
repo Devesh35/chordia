@@ -33,11 +33,12 @@ export const ProductCard = ({ type = 'other', src, topLeft, details }: Props) =>
 
   return (
     <ImageCard
+      hover
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
-        width: 300,
-        height: isMobile ? 180 : 400,
+        width: isMobile ? 150 : 300,
+        height: isMobile ? 150 : 300,
         alt: 'random',
       }}
       topLeft={topLeft ? <div className={styles['card-tag']}>{topLeft}</div> : undefined}

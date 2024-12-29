@@ -8,3 +8,11 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-h5);
+  }
+}

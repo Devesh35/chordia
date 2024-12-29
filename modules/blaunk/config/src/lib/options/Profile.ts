@@ -115,6 +115,26 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             label: 'Date of Birth',
             placeholder: 'Date of Birth',
           },
+          {
+            id: 'gender',
+            type: 'select',
+            label: 'Gender',
+            placeholder: 'Gender',
+            options: [
+              {
+                id: 'male',
+                item: 'Male',
+              },
+              {
+                id: 'female',
+                item: 'Female',
+              },
+              {
+                id: 'other',
+                item: 'Other',
+              },
+            ],
+          },
         ],
       },
       Address,

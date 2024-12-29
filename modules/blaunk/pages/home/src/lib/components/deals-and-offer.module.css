@@ -37,6 +37,7 @@
 @media only screen and (max-width: 768px) {
   .add-on {
     margin: 0;
+    margin-bottom: 0.5rem;
     gap: 12px;
   }
   .bottom {
