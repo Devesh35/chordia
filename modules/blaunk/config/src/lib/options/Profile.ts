@@ -89,12 +89,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
         title: 'Personal',
         items: [
           {
-            id: 'name',
-            label: 'Name',
-            placeholder: 'Name',
-            isReadOnly: true,
-          },
-          {
             id: 'email',
             type: 'email',
             label: 'Email',
@@ -114,6 +108,12 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             type: 'date',
             label: 'Date of Birth',
             placeholder: 'Date of Birth',
+          },
+          {
+            id: 'name',
+            label: 'Name',
+            placeholder: 'Name',
+            isReadOnly: true,
           },
           {
             id: 'gender',
