@@ -33,10 +33,11 @@ export const ProductCard = ({ type = 'other', src, topLeft, details }: Props) =>
 
   return (
     <ImageCard
+      hover
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
-        width: 300,
+        width: isMobile ? 150 : 300,
         height: isMobile ? 150 : 300,
         alt: 'random',
       }}
@@ -46,33 +47,32 @@ export const ProductCard = ({ type = 'other', src, topLeft, details }: Props) =>
           {details.isVeg !== undefined && <Veg width={24} height={24} />}
           <div className={styles['name-wrapper']}>
             <div className={styles['card-name']}>{details.name}</div>
-            {!isMobile && <div className={clsx(styles.price, styles['price-' + type])}>{details.price}</div>}
-            {isMobile &&
-              withConditionCase(type)({
-                cake: (
-                  <div className={clsx(styles.price, styles['price-' + type])}>
-                    {details.price}
-                    <Rating isMobile={isMobile} />
-                  </div>
-                ),
-                store: (
-                  <div className={clsx(styles.price, styles['price-cake'])}>
-                    <span className={styles.time}>9:00 am - 12:00 pm</span>
-                    <Rating isMobile={isMobile} />
-                  </div>
-                ),
+            {/* {!isMobile && <div className={clsx(styles.price, styles['price-' + type])}>{details.price}</div>} */}
+            {withConditionCase(type)({
+              cake: (
+                <div className={clsx(styles.price, styles['price-' + type])}>
+                  {details.price}
+                  <Rating isMobile={isMobile} />
+                </div>
+              ),
+              store: (
+                <div className={clsx(styles.price, styles['price-cake'])}>
+                  <span className={styles.time}>9:00 am - 12:00 pm</span>
+                  <Rating isMobile={isMobile} />
+                </div>
+              ),
 
-                other: null,
-              })}
+              other: null,
+            })}
           </div>
-          {isMobile ? null : (
+          {/* {isMobile ? null : (
             <div className={styles['rating-wrapper']}>
               <div className={styles.rating}>
                 4.5 <Star fill="var(--secondary)" width={isMobile ? 12 : 16} height={isMobile ? 12 : 16} />
               </div>
               <span className={styles['review-count']}>{details.reviewCount} Reviews</span>
             </div>
-          )}
+          )} */}
         </div>
       }
     />

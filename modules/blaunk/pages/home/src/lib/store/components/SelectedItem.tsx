@@ -41,8 +41,8 @@ const addOn = (isMobile: boolean) =>
         src: src,
         width: 250,
         height: 180,
-        enlargedWidth: 600,
-        enlargedHeight: 600,
+        enlargedWidth: isMobile ? 300 : 600,
+        enlargedHeight: isMobile ? 350 : 600,
         alt: 'random',
       }}
       weightQuantityRow

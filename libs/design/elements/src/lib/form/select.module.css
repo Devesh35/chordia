@@ -116,25 +116,25 @@
 
 @media only screen and (max-width: 768px) {
   .title {
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 12px;
+    line-height: 12px;
   }
   .left-icon {
-    width: 14px;
-    height: 14px;
-    flex: 0 0 14px;
+    width: 12px;
+    height: 12px;
+    flex: 0 0 12px;
     margin-right: 0.5rem;
   }
   .left-icon > * {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
   }
   .icon {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
   }
   .icon > svg {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
   }
 }

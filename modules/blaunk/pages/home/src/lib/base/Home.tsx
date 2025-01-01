@@ -37,7 +37,7 @@ export const Home = () => {
   return (
     <div className={styles.wrapper}>
       <TopSection />
-      <RollingAd size={isMobile ? 75 : 150} />
+      <RollingAd size={150} />
       <BlaunkHome />
       <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '24px' }}>
         <FindVendors backgroundImage="url('https://img.freepik.com/premium-photo/logistic-network-distribution-background-logistic-transport-concept_250469-9178.jpg')" />

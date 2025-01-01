@@ -1,4 +1,7 @@
+'use client';
+
 import { Link } from '@li/design/elements';
+import { useMedia } from '@li/design/hooks';
 import { CircleClose } from '@li/design/icons';
 import { getRandomImagesArray } from '@md/blaunk/config';
 import clsx from 'clsx';
@@ -27,23 +30,31 @@ export const dummyItems = getRandomImagesArray(10)(300, 300, 'clothes').map((s, 
 }));
 
 const WishlistItem: React.FC<WishlistItemProps> = ({ image, name, mrp, discount, total, link, onClear }) => {
+  const isMobile = useMedia();
+
   return (
     <div className={styles['wishlist-item']}>
-      <Image src={image} alt={name} className={styles['wishlist-item__image']} />
+      <Image
+        src={image}
+        alt={name}
+        className={styles['wishlist-item__image']}
+        width={isMobile ? 120 : 240}
+        height={isMobile ? 120 : 240}
+      />
       <div className={styles['wishlist-item__details']}>
         <div className={styles['wishlist-item__delete']}>
           <CircleClose color="var(--primary600)" />
         </div>
         <h3 className={styles['wishlist-item__name']}>{name}</h3>
-        <p className={styles['wishlist-item__base']}>
+        <div className={styles['wishlist-item__base']}>
           MRP: <span>${mrp}</span>
-        </p>
-        <p className={clsx(styles['wishlist-item__base'], styles['wishlist-item__discount'])}>
+        </div>
+        <div className={clsx(styles['wishlist-item__base'], styles['wishlist-item__discount'])}>
           Discount: <span>{discount}%</span>
-        </p>
-        <p className={styles['wishlist-item__base']}>
+        </div>
+        <div className={styles['wishlist-item__base']}>
           Total: <span>${total}</span>
-        </p>
+        </div>
         <Link href={link} className={styles['wishlist-item__link']} target="_blank" rel="noopener noreferrer">
           View Item
         </Link>

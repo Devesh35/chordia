@@ -28,7 +28,7 @@ export const FormDocumentSection = <T, D>({ section }: { section: FDS<T, D> }) =
 
       <div className={clsx(formStyles['section-content-wrapper'], formStyles['section-content'], grid.grid)}>
         {section.items.map((item) => (
-          <div key={`${item.id}`} className={clsx(grid[`col-2`], grid['col-t-4'], grid['col-m-6'])}>
+          <div key={`${item.id}`} className={clsx(grid[`col-2`], grid['col-t-3'], grid['col-m-3'])}>
             <FormDocument {...item} />
           </div>
         ))}

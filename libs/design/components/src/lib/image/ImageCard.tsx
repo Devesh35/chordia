@@ -15,6 +15,7 @@ type Props = {
   onClick?: () => void;
   fav?: boolean;
   favCorner?: boolean;
+  hover?: boolean;
 };
 
 export const ImageCard = ({
@@ -26,9 +27,15 @@ export const ImageCard = ({
   topLeft,
   topRight,
   imageClassName,
+  hover,
   fav,
 }: Props) => (
-  <div className={clsx(styles.wrapper, className)} onClick={onClick}>
+  <div
+    className={clsx(styles.wrapper, className, {
+      [styles['wrapper-hover']]: hover,
+    })}
+    onClick={onClick}
+  >
     <div className={styles['top-left']}>{topLeft}</div>
     <div className={styles['top-right']}>{topRight}</div>
     <div className={clsx(imageClassName)}>

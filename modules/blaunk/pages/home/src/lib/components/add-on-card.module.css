@@ -33,6 +33,9 @@
 .quantity {
   flex: 0 0 100px;
 }
+.weight {
+  flex: 0 0 100px;
+}
 @media only screen and (max-width: 768px) {
   .card {
     gap: 8px;
@@ -43,9 +46,13 @@
   .item-name {
     max-width: 160px !important;
     padding-bottom: 4px;
+    font-size: 12px;
   }
   .quantity {
-    flex: 0 0 80px;
+    flex: 0 0 60px;
+  }
+  .weight {
+    flex: 0 0 60px;
   }
   .item {
     flex-wrap: wrap;

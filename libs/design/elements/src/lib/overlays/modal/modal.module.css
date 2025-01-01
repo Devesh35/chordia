@@ -49,3 +49,15 @@
   justify-content: flex-end;
   padding: 0 2rem 1rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .main {
+    padding: 0.5rem;
+  }
+  .actions {
+    padding: 0.5rem;
+  }
+  .header {
+    padding: 0.5rem;
+  }
+}

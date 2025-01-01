@@ -13,11 +13,12 @@ import styles from './tour.module.css';
 const products = (isMobile: boolean, router: () => void) =>
   getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'hotel').map((src, i) => (
     <ImageCard
+      hover
       key={i}
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
-        width: 300,
+        width: isMobile ? 150 : 300,
         height: isMobile ? 150 : 300,
         alt: 'random',
       }}
@@ -28,15 +29,22 @@ const products = (isMobile: boolean, router: () => void) =>
         <div className={styles.details}>
           <div className={styles['name-wrapper']}>
             <div className={styles['card-name']}>Hotel name</div>
-            <div className={styles.price}>Rs 1300</div>
-            {isMobile && <span className={styles['review-count']}>9:00 am - 12:00 pm</span>}
-          </div>
-          <div className={styles['rating-wrapper']}>
-            <div className={styles.rating}>
-              4.5 <Star fill="var(--secondary)" width={16} height={16} />
+            <div className={styles.price}>
+              <div>Rs 1300</div>
+              <div className={styles.rating}>
+                4.5 <Star fill="var(--secondary)" width={16} height={16} />
+              </div>
             </div>
-            {!isMobile && <span className={styles['review-count']}>1.5k Reviews</span>}
+            <div className={styles['review-count']}>9:00 am - 12:00 pm</div>
           </div>
+          {/* {!isMobile && (
+            <div className={styles['rating-wrapper']}>
+              <div className={styles.rating}>
+                4.5 <Star fill="var(--secondary)" width={16} height={16} />
+              </div>
+            </div>
+          )} */}
+          {/* {!isMobile && <span className={styles['review-count']}>1.5k Reviews</span>} */}
         </div>
       }
     />
