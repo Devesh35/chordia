@@ -37,10 +37,11 @@ export const ProductCard = ({ type = 'other', src, topLeft, details }: Props) =>
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
-        width: isMobile ? 150 : 300,
-        height: isMobile ? 150 : 300,
+        width: 600,
+        height: isMobile ? 120 : 160,
         alt: 'random',
       }}
+      topHeart
       topLeft={topLeft ? <div className={styles['card-tag']}>{topLeft}</div> : undefined}
       details={
         <div className={clsx(styles.details, styles['details-' + type])}>

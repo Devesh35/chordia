@@ -7,7 +7,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { Carousel } from 'react-responsive-carousel';
 import styles from './selected-2.module.css';
@@ -32,6 +32,7 @@ const images = (isMobile: boolean) =>
 export const SelectedItem2 = ({ isOpen, onClose }: Props) => {
   const isMobile = useMedia();
   const textContentRef = useRef<HTMLDivElement>(null);
+  const [heart, setHeart] = useState(true);
 
   const handleScrollToContent = () => {
     if (textContentRef.current) {
@@ -65,13 +66,15 @@ export const SelectedItem2 = ({ isOpen, onClose }: Props) => {
             }}
           >
             <FaHeart
-              color={'red'}
+              color={heart ? 'red' : 'white'}
               size={28}
               style={{
                 position: 'absolute',
-                bottom: '20px',
+                top: '20px',
                 right: '24px',
+                cursor: 'pointer',
               }}
+              onClick={() => setHeart(!heart)}
             />
           </div>
 

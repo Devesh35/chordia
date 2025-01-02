@@ -54,4 +54,16 @@
     font-size: 10px;
     line-height: 10px;
   }
+  .modal-button {
+    height: 24px;
+  }
+  .otp-button {
+    height: 32px;
+  }
+  .wrapper > .otp-button {
+    flex-basis: 120px;
+    padding-inline: 0.25rem;
+    font-size: 10px;
+    line-height: 10px;
+  }
 }

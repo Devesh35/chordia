@@ -137,4 +137,11 @@
     width: 12px;
     height: 12px;
   }
+  .item {
+    min-height: 28px;
+  }
+  .option {
+    font-size: 12px;
+    line-height: 12px;
+  }
 }

@@ -113,7 +113,6 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
             id: 'name',
             label: 'Name',
             placeholder: 'Name',
-            isReadOnly: true,
           },
           {
             id: 'gender',
@@ -481,6 +480,7 @@ export const profileSections: FormSectionGroup<typeof profileSection> = {
                 id: 'accountNumber',
                 label: 'Account number',
                 placeholder: 'Account number',
+                type: 'number',
               },
               {
                 id: 'accountType',

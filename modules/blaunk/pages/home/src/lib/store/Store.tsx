@@ -103,15 +103,9 @@ export const Store = () => {
     <div className={styles.wrapper}>
       <div>
         <div className={styles['carousal-wrapper']}>
-          {isMobile ? (
-            <Carousal autoInterval={10000} hidePagination hideControls>
-              {images}
-            </Carousal>
-          ) : (
-            <Carousal pagination="bottom" autoInterval={10000} enablePagination>
-              {images}
-            </Carousal>
-          )}
+          <Carousal pagination="bottom" autoInterval={10000} enablePagination>
+            {images}
+          </Carousal>
         </div>
         <div style={{ marginTop: '10px' }}>
           <RollingAd size={150} />

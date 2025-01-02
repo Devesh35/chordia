@@ -11,17 +11,18 @@ import { useRouter } from 'next/navigation';
 import styles from './tour.module.css';
 
 const products = (isMobile: boolean, router: () => void) =>
-  getRandomImagesArray(isMobile ? 16 : 18)(300, 300, 'hotel').map((src, i) => (
+  getRandomImagesArray(isMobile ? 16 : 18)(300, 600, 'hotel').map((src, i) => (
     <ImageCard
       hover
       key={i}
       className={clsx(grid['col-2'], grid['col-t-4'], grid['col-m-3'], 'clickable')}
       image={{
         src: src,
-        width: isMobile ? 150 : 300,
-        height: isMobile ? 150 : 300,
+        width: 600,
+        height: isMobile ? 120 : 160,
         alt: 'random',
       }}
+      topHeart
       topLeft={<div className={styles['card-tag']}>Best seller</div>}
       onClick={() => router()}
       // topRight={}

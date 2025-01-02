@@ -8,6 +8,7 @@
   box-shadow: var(--box-shadow-l);
   overflow: hidden;
   background-color: var(--white);
+  min-height: 600px;
 }
 
 .wrapper > img {
