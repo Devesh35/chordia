@@ -22,7 +22,4 @@
   .carousal-wrapper {
     height: 240px;
   }
-  .carousal-wrapper * {
-    height: 240px;
-  }
 }

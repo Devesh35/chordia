@@ -87,4 +87,11 @@
   .input {
     font-size: medium;
   }
+  .input {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .input::placeholder {
+    font-size: 14px;
+  }
 }

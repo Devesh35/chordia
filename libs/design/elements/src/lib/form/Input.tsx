@@ -49,16 +49,10 @@ export const Input = ({
 
   return (
     <div
-      className={clsx(
-        formStyles['item-wrapper'],
-        className,
-        styles.wrapper,
-        styles[variant],
-        {
-          [styles.disabled]: isDisabled,
-          [styles.readonly]: isReadOnly,
-        },
-      )}
+      className={clsx(formStyles['item-wrapper'], className, styles.wrapper, styles[variant], {
+        [styles.disabled]: isDisabled,
+        [styles.readonly]: isReadOnly,
+      })}
       onClick={focusInput}
     >
       {iconLeft ? (
